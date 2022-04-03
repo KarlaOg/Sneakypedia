@@ -4007,3 +4007,332 @@ PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Bundle
 PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Bundle\SecurityBundle\Debug\TraceableFirewallListener::onKernelRequest".
 PHP message: [debug] Notified event "kernel.request" to listener "ApiPlatform\Core\EventListener\AddFormatListener::onKernelRequest".
 PHP mes
+2022/03/18 09:05:36 [error] 32#32: *1 FastCGI sent in stderr: "PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\DebugHandlersListener::configure".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\ValidateRequestListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelRequest".
+PHP message: [debug] Listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelRequest" stopped propagation of the event "kernel.request".
+PHP message: [debug] Listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onKernelRequest" was not called for event "kernel.request".
+PHP message: [debug] Listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::setDefaultLocale" was not called for event "kernel.request".
+PHP message: [debug] Listener "Symfony\Component\HttpKernel\EventListener\RouterListener::onKernelRequest" was not called for event "kernel.request".
+PHP message: [debug] Listener "ApiPlatform\Core\EventListener\QueryParameterValidateListener::onKernelRequest" was not called for event "kernel.request".
+PHP message: [debug] Listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::onKernelRequest" was not called for event "kernel.request".
+PHP message: [debug] Listener "Symfony\Component\HttpKernel\EventListener\LocaleAwareListener::onKernelRequest" was not called for event "kernel.request".
+PHP message: [debug] Listener "Symfony\Bundle\SecurityBundle\Debug\TraceableFirewallListener::configureLogoutUrlGenerator" was not called for event "kernel.request".
+PHP message: [debug] Listener "Symfony\Bundle\SecurityBundle\Debug\TraceableFirewallListener::onKernelRequest" was not called for event "kernel.request".
+PHP message: [debug] Listener "ApiPlatform\Core\EventListener\AddFormatListener::onKernelRequest" was not called for event "kernel.request".
+PHP message: [debug] Listener "ApiPlatfor
+2022/03/18 09:05:37 [error] 32#32: *1 FastCGI sent in stderr: "PHP message: [info] Matched route "api_users_post_collection".
+PHP message: [debug] Checking for authenticator support.
+PHP message: [debug] Checking support on authenticator.
+PHP message: [debug] Authenticator does not support the request.
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\DebugHandlersListener::configure".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\ValidateRequestListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::setDefaultLocale".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\RouterListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "ApiPlatform\Core\EventListener\QueryParameterValidateListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleAwareListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Bundle\SecurityBundle\Debug\TraceableFirewallListener::configureLogoutUrlGenerator".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Bundle\SecurityBundle\Debug\TraceableFirewallListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "ApiPlatform\Core\EventListener\AddFormatListener::onKernelRequest".
+PHP mess
+2022/03/18 09:05:37 [error] 32#32: *1 FastCGI sent in stderr: "rnel.finish_request" to listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onFinishRequest".
+PHP message: [debug] Notified event "kernel.finish_request" to listener "Symfony\Component\HttpKernel\EventListener\RouterListener::onKernelFinishRequest".
+PHP message: [debug] Notified event "kernel.finish_request" to listener "Symfony\Bundle\SecurityBundle\Debug\TraceableFirewallListener::onKernelFinishRequest".
+PHP message: [debug] Notified event "kernel.finish_request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleAwareListener::onKernelFinishRequest".
+PHP message: [debug] Notified event "kernel.exception" to listener "Symfony\Component\Security\Http\Firewall\ExceptionListener::onKernelException".
+PHP message: [debug] Notified event "kernel.exception" to listener "ApiPlatform\Core\Bridge\Symfony\Validator\EventListener\ValidationExceptionListener::onKernelException".
+PHP message: [debug] Notified event "kernel.exception" to listener "Symfony\Component\HttpKernel\EventListener\ErrorListener::logKernelException".
+PHP message: [debug] Notified event "kernel.exception" to listener "Symfony\Component\HttpKernel\EventListener\RouterListener::onKernelException".
+PHP message: [debug] Notified event "kernel.exception" to listener "ApiPlatform\Core\EventListener\ExceptionListener::onKernelException".
+PHP message: [debug] Listener "ApiPlatform\Core\EventListener\ExceptionListener::onKernelException" stopped propagation of the event "kernel.exception".
+PHP message: [debug] Listener "Symfony\Component\HttpKernel\EventListener\ErrorListener::onKernelException" was not called for event "kernel.exception".
+PHP message: [debug] Notified event "kernel.response" to listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Nelmio\CorsBundle\EventListener\CacheableResponseVaryListener::onResponse".
+PHP message: [debug] Notified event "kernel.response" to list
+2022/03/18 09:06:26 [error] 32#32: *1 FastCGI sent in stderr: "PHP message: [info] Matched route "api_users_post_collection".
+PHP message: [debug] Checking for authenticator support.
+PHP message: [debug] Checking support on authenticator.
+PHP message: [debug] Authenticator does not support the request.
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\DebugHandlersListener::configure".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\ValidateRequestListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::setDefaultLocale".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\RouterListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "ApiPlatform\Core\EventListener\QueryParameterValidateListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleAwareListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Bundle\SecurityBundle\Debug\TraceableFirewallListener::configureLogoutUrlGenerator".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Bundle\SecurityBundle\Debug\TraceableFirewallListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "ApiPlatform\Core\EventListener\AddFormatListener::onKernelRequest".
+PHP mess
+2022/03/26 22:25:20 [emerg] 1#1: host not found in upstream "php:9000" in /etc/nginx/conf.d/default.conf:2
+2022/04/03 11:19:01 [error] 35#35: *2 connect() failed (111: Connection refused) while connecting to upstream, client: 172.19.0.1, server: localhost, request: "GET /api HTTP/1.1", upstream: "fastcgi://172.19.0.4:9000", host: "localhost"
+2022/04/03 11:19:01 [error] 35#35: *2 connect() failed (111: Connection refused) while connecting to upstream, client: 172.19.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", upstream: "fastcgi://172.19.0.4:9000", host: "localhost", referrer: "http://localhost/api"
+2022/04/03 15:54:44 [error] 33#33: *5 FastCGI sent in stderr: "PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\DebugHandlersListener::configure".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\ValidateRequestListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelRequest".
+PHP message: [debug] Listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelRequest" stopped propagation of the event "kernel.request".
+PHP message: [debug] Listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onKernelRequest" was not called for event "kernel.request".
+PHP message: [debug] Listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::setDefaultLocale" was not called for event "kernel.request".
+PHP message: [debug] Listener "Symfony\Component\HttpKernel\EventListener\RouterListener::onKernelRequest" was not called for event "kernel.request".
+PHP message: [debug] Listener "ApiPlatform\Core\EventListener\QueryParameterValidateListener::onKernelRequest" was not called for event "kernel.request".
+PHP message: [debug] Listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::onKernelRequest" was not called for event "kernel.request".
+PHP message: [debug] Listener "Symfony\Component\HttpKernel\EventListener\LocaleAwareListener::onKernelRequest" was not called for event "kernel.request".
+PHP message: [debug] Listener "Symfony\Bundle\SecurityBundle\Debug\TraceableFirewallListener::configureLogoutUrlGenerator" was not called for event "kernel.request".
+PHP message: [debug] Listener "Symfony\Bundle\SecurityBundle\Debug\TraceableFirewallListener::onKernelRequest" was not called for event "kernel.request".
+PHP message: [debug] Listener "ApiPlatform\Core\EventListener\AddFormatListener::onKernelRequest" was not called for event "kernel.request".
+PHP message: [debug] Listener "ApiPlatfor
+2022/04/03 15:54:46 [error] 33#33: *5 FastCGI sent in stderr: "PHP message: [info] Matched route "api_users_post_collection".
+PHP message: [debug] Checking for authenticator support.
+PHP message: [debug] Checking support on authenticator.
+PHP message: [debug] Authenticator does not support the request.
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\DebugHandlersListener::configure".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\ValidateRequestListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::setDefaultLocale".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\RouterListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "ApiPlatform\Core\EventListener\QueryParameterValidateListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleAwareListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Bundle\SecurityBundle\Debug\TraceableFirewallListener::configureLogoutUrlGenerator".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Bundle\SecurityBundle\Debug\TraceableFirewallListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "ApiPlatform\Core\EventListener\AddFormatListener::onKernelRequest".
+PHP mess
+2022/04/03 22:24:12 [error] 32#32: *1 FastCGI sent in stderr: "PHP message: [info] Matched route "api_entrypoint".
+PHP message: [debug] Checking for authenticator support.
+PHP message: [debug] Checking support on authenticator.
+PHP message: [debug] Authenticator does not support the request.
+PHP message: [debug] Checking support on authenticator.
+PHP message: [debug] Authenticator does not support the request.
+PHP message: [debug] Notified event "debug.security.authorization.vote" to listener "Symfony\Bundle\SecurityBundle\EventListener\VoteListener::onVoterVote".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\DebugHandlersListener::configure".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\ValidateRequestListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::setDefaultLocale".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\RouterListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "ApiPlatform\Core\EventListener\QueryParameterValidateListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleAwareListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Bundle\SecurityBundle\Debug\TraceableFirewallListener::configureLogoutUrlGenerator".
+PHP message: [debug] N
+2022/04/03 22:24:13 [error] 32#32: *1 FastCGI sent in stderr: "PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\DebugHandlersListener::configure".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\ValidateRequestListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::setDefaultLocale".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\RouterListener::onKernelRequest".
+PHP message: [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET http://localhost/favicon.ico" (from "http://localhost/api")" at /var/www/vendor/symfony/http-kernel/EventListener/RouterListener.php line 135
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\DebugHandlersListener::configure".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\ValidateRequestListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::setDefaultLocale".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\RouterListener::onKernelRequest
+2022/04/03 22:24:13 [error] 32#32: *1 FastCGI sent in stderr: "moveCspHeader".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\EventListener\DisallowRobotsIndexingListener::onResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\EventListener\StreamedResponseListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.finish_request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::onKernelFinishRequest".
+PHP message: [debug] Notified event "kernel.finish_request" to listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onFinishRequest".
+PHP message: [debug] Notified event "kernel.finish_request" to listener "Symfony\Component\HttpKernel\EventListener\RouterListener::onKernelFinishRequest".
+PHP message: [debug] Notified event "kernel.finish_request" to listener "Symfony\Bundle\SecurityBundle\Debug\TraceableFirewallListener::onKernelFinishRequest".
+PHP message: [debug] Notified event "kernel.finish_request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleAwareListener::onKernelFinishRequest"" while reading response header from upstream, client: 172.19.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", upstream: "fastcgi://172.19.0.4:9000", host: "localhost", referrer: "http://localhost/api"
+2022/04/03 22:26:59 [error] 35#35: *6 FastCGI sent in stderr: "PHP message: [info] Matched route "api_users_post_collection".
+PHP message: [debug] Checking for authenticator support.
+PHP message: [debug] Checking support on authenticator.
+PHP message: [debug] Authenticator does not support the request.
+PHP message: [debug] Notified event "debug.security.authorization.vote" to listener "Symfony\Bundle\SecurityBundle\EventListener\VoteListener::onVoterVote".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\DebugHandlersListener::configure".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\ValidateRequestListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::setDefaultLocale".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\RouterListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "ApiPlatform\Core\EventListener\QueryParameterValidateListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleAwareListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Bundle\SecurityBundle\Debug\TraceableFirewallListener::configureLogoutUrlGenerator".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Bundle\SecurityBundle\Debug\TraceableFirewallListener::onK
+2022/04/03 22:27:35 [error] 35#35: *6 FastCGI sent in stderr: "PHP message: [info] Matched route "api_users_post_collection".
+PHP message: [debug] Checking for authenticator support.
+PHP message: [debug] Checking support on authenticator.
+PHP message: [debug] Authenticator does not support the request.
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\DebugHandlersListener::configure".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\ValidateRequestListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::setDefaultLocale".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\RouterListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "ApiPlatform\Core\EventListener\QueryParameterValidateListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleAwareListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Bundle\SecurityBundle\Debug\TraceableFirewallListener::configureLogoutUrlGenerator".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Bundle\SecurityBundle\Debug\TraceableFirewallListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "ApiPlatform\Core\EventListener\AddFormatListener::onKernelRequest".
+PHP mess
+2022/04/03 22:28:44 [error] 33#33: *9 FastCGI sent in stderr: "PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\DebugHandlersListener::configure".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\ValidateRequestListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::setDefaultLocale".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\RouterListener::onKernelRequest".
+PHP message: [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "POST http://localhost/api/authentication_token"" at /var/www/vendor/symfony/http-kernel/EventListener/RouterListener.php line 135
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\DebugHandlersListener::configure".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\ValidateRequestListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::setDefaultLocale".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\RouterListener::onKernelRequest".
+PHP message: 
+2022/04/03 22:28:44 [error] 33#33: *9 FastCGI sent in stderr: "PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\EventListener\DisallowRobotsIndexingListener::onResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\EventListener\StreamedResponseListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.finish_request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::onKernelFinishRequest".
+PHP message: [debug] Notified event "kernel.finish_request" to listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onFinishRequest".
+PHP message: [debug] Notified event "kernel.finish_request" to listener "Symfony\Component\HttpKernel\EventListener\RouterListener::onKernelFinishRequest".
+PHP message: [debug] Notified event "kernel.finish_request" to listener "Symfony\Bundle\SecurityBundle\Debug\TraceableFirewallListener::onKernelFinishRequest".
+PHP message: [debug] Notified event "kernel.finish_request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleAwareListener::onKernelFinishRequest"" while reading response header from upstream, client: 172.19.0.1, server: localhost, request: "POST /api/authentication_token HTTP/1.1", upstream: "fastcgi://172.19.0.4:9000", host: "localhost"
+2022/04/03 22:29:25 [error] 33#33: *9 FastCGI sent in stderr: "PHP message: [info] Matched route "authentication_token".
+PHP message: [debug] Checking for authenticator support.
+PHP message: [debug] Checking support on authenticator.
+PHP message: [debug] Authenticator does not support the request.
+PHP message: [debug] Checking support on authenticator.
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\DebugHandlersListener::configure".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\ValidateRequestListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::setDefaultLocale".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\RouterListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "ApiPlatform\Core\EventListener\QueryParameterValidateListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleAwareListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Bundle\SecurityBundle\Debug\TraceableFirewallListener::configureLogoutUrlGenerator".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Bundle\SecurityBundle\Debug\TraceableFirewallListener::onKernelRequest".
+PHP message: [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\BadReque
+2022/04/03 22:29:25 [error] 33#33: *9 FastCGI sent in stderr: "Firewall\ExceptionListener::onKernelException".
+PHP message: [debug] Notified event "kernel.exception" to listener "ApiPlatform\Core\Bridge\Symfony\Validator\EventListener\ValidationExceptionListener::onKernelException".
+PHP message: [debug] Notified event "kernel.exception" to listener "Symfony\Component\HttpKernel\EventListener\ErrorListener::logKernelException".
+PHP message: [debug] Notified event "kernel.exception" to listener "Symfony\Component\HttpKernel\EventListener\RouterListener::onKernelException".
+PHP message: [debug] Notified event "kernel.exception" to listener "ApiPlatform\Core\EventListener\ExceptionListener::onKernelException".
+PHP message: [debug] Notified event "kernel.exception" to listener "Symfony\Component\HttpKernel\EventListener\ErrorListener::onKernelException".
+PHP message: [debug] Listener "Symfony\Component\HttpKernel\EventListener\ErrorListener::onKernelException" stopped propagation of the event "kernel.exce" while reading response header from upstream, client: 172.19.0.1, server: localhost, request: "POST /authentication_token HTTP/1.1", upstream: "fastcgi://172.19.0.4:9000", host: "localhost"
+2022/04/03 22:29:25 [error] 33#33: *9 FastCGI sent in stderr: "ption".
+PHP message: [debug] Notified event "kernel.response" to listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Nelmio\CorsBundle\EventListener\CacheableResponseVaryListener::onResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "ApiPlatform\Core\Hydra\EventListener\AddLinkHeaderListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\EventListener\ResponseListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\WebLink\EventListener\AddLinkHeaderListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\Security\Http\RememberMe\ResponseListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "ApiPlatform\Core\HttpCache\EventListener\AddHeadersListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\EventListener\ErrorListener::removeCspHeader".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\EventListener\DisallowRobotsIndexingListener::onResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\EventListener\StreamedResponseListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.finish_request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::onKernelFinishRequest".
+PHP message: [debug] Notified event "kernel.finish_request" to listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onFinishRequest".
+PHP message: [debug] Notified event "kernel.finish_request"
+2022/04/03 22:29:32 [error] 33#33: *9 FastCGI sent in stderr: "PHP message: [info] Matched route "authentication_token".
+PHP message: [debug] Checking for authenticator support.
+PHP message: [debug] Checking support on authenticator.
+PHP message: [debug] Authenticator does not support the request.
+PHP message: [debug] Checking support on authenticator.
+PHP message: [debug] SELECT t0.id AS id_1, t0.email AS email_2, t0.roles AS roles_3, t0.password AS password_4, t0.firstname AS firstname_5, t0.lastname AS lastname_6 FROM "user" t0 WHERE t0.email = ? LIMIT 1
+PHP message: [info] Authenticator successful!
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\DebugHandlersListener::configure".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\ValidateRequestListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::setDefaultLocale".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\RouterListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "ApiPlatform\Core\EventListener\QueryParameterValidateListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleAwareListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Bundle\SecurityBundle\Debug\TraceableFirewallListener::configureLogo
+2022/04/03 22:29:32 [error] 33#33: *9 FastCGI sent in stderr: "ssage: [debug] Notified event "kernel.exception" to listener "Symfony\Component\HttpKernel\EventListener\ErrorListener::onKernelException".
+PHP message: [debug] Listener "Symfony\Component\HttpKernel\EventListener\ErrorListener::onKernelException" stopped propagation of the event "kernel.exception".
+PHP message: [debug] Notified event "kernel.response" to listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Nelmio\CorsBundle\EventListener\CacheableResponseVaryListener::onResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "ApiPlatform\Core\Hydra\EventListener\AddLinkHeaderListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\EventListener\ResponseListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\WebLink\EventListener\AddLinkHeaderListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\Security\Http\RememberMe\ResponseListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "ApiPlatform\Core\HttpCache\EventListener\AddHeadersListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\EventListener\ErrorListener::removeCspHeader".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\EventListener\DisallowRobotsIndexingListener::onResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\EventListener\StreamedResponseListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.finish_request" to listener "
+2022/04/03 22:31:17 [error] 32#32: *14 FastCGI sent in stderr: "PHP message: [info] Matched route "api_entrypoint".
+PHP message: [debug] Checking for authenticator support.
+PHP message: [debug] Checking support on authenticator.
+PHP message: [debug] Authenticator does not support the request.
+PHP message: [debug] Checking support on authenticator.
+PHP message: [debug] Authenticator does not support the request.
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\DebugHandlersListener::configure".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\ValidateRequestListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::setDefaultLocale".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\RouterListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "ApiPlatform\Core\EventListener\QueryParameterValidateListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleAwareListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Bundle\SecurityBundle\Debug\TraceableFirewallListener::configureLogoutUrlGenerator".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Bundle\SecurityBundle\Debug\TraceableFirewallListener::onKernelRequest".
+PHP message: [debug] Notified e
+2022/04/03 22:31:35 [error] 35#35: *19 FastCGI sent in stderr: "PHP message: [info] Matched route "authentication_token".
+PHP message: [debug] Checking for authenticator support.
+PHP message: [debug] Checking support on authenticator.
+PHP message: [debug] Authenticator does not support the request.
+PHP message: [debug] Checking support on authenticator.
+PHP message: [debug] SELECT t0.id AS id_1, t0.email AS email_2, t0.roles AS roles_3, t0.password AS password_4, t0.firstname AS firstname_5, t0.lastname AS lastname_6 FROM "user" t0 WHERE t0.email = ? LIMIT 1
+PHP message: [info] Authenticator successful!
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\DebugHandlersListener::configure".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\ValidateRequestListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::setDefaultLocale".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\RouterListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "ApiPlatform\Core\EventListener\QueryParameterValidateListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleAwareListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Bundle\SecurityBundle\Debug\TraceableFirewallListener::configureLog
+2022/04/03 22:31:35 [error] 35#35: *19 FastCGI sent in stderr: "ssage: [debug] Notified event "kernel.exception" to listener "Symfony\Component\HttpKernel\EventListener\ErrorListener::onKernelException".
+PHP message: [debug] Listener "Symfony\Component\HttpKernel\EventListener\ErrorListener::onKernelException" stopped propagation of the event "kernel.exception".
+PHP message: [debug] Notified event "kernel.response" to listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Nelmio\CorsBundle\EventListener\CacheableResponseVaryListener::onResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "ApiPlatform\Core\Hydra\EventListener\AddLinkHeaderListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\EventListener\ResponseListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\WebLink\EventListener\AddLinkHeaderListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\Security\Http\RememberMe\ResponseListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "ApiPlatform\Core\HttpCache\EventListener\AddHeadersListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\EventListener\ErrorListener::removeCspHeader".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\EventListener\DisallowRobotsIndexingListener::onResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\EventListener\StreamedResponseListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.finish_request" to listener 
+2022/04/03 22:36:43 [error] 32#32: *22 FastCGI sent in stderr: "PHP message: [info] Matched route "authentication_token".
+PHP message: [debug] Checking for authenticator support.
+PHP message: [debug] Checking support on authenticator.
+PHP message: [debug] Authenticator does not support the request.
+PHP message: [debug] Checking support on authenticator.
+PHP message: [debug] SELECT t0.id AS id_1, t0.email AS email_2, t0.roles AS roles_3, t0.password AS password_4, t0.firstname AS firstname_5, t0.lastname AS lastname_6 FROM "user" t0 WHERE t0.email = ? LIMIT 1
+PHP message: [info] Authenticator successful!
+PHP message: [debug] "START TRANSACTION"
+PHP message: [debug] UPDATE "user" SET password = ? WHERE id = ?
+PHP message: [debug] "COMMIT"
+PHP message: [debug] The "Symfony\Component\Security\Http\Authenticator\Debug\TraceableAuthenticator" authenticator set the response. Any later authenticator will not be called
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\DebugHandlersListener::configure".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\ValidateRequestListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::setDefaultLocale".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\RouterListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "ApiPlatform\Core\EventListener\QueryParameterValidateListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleList

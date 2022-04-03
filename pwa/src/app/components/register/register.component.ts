@@ -29,8 +29,10 @@ export class RegisterComponent implements OnInit {
   }
   register() {
     const val = this.form.value;
+    console.log(val)
 
     if (val.email && val.password && val.firstname && val.lastname) {
+
         this.user.addUser(val)
             .subscribe(
                 () => {

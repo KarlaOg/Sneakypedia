@@ -36,7 +36,7 @@ export class UserService {
 
 
   addUser(user : User): Observable<User>{
-    return this.http.post<User>(this.apiUrl, {email: user.email, password: user.password, fisrtname : user.firstname , lastname : user.lastname}, httpOptions)
+    return this.http.post<User>(this.apiUrl, {email: user.email, password: user.password, firstname : user.firstname , lastname : user.lastname}, httpOptions)
     .pipe(
       catchError(this.handleError)
     )

@@ -10,6 +10,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
+import {ProductsApiService} from './components/products/products-api.service';
+
 
 
 
@@ -28,7 +30,7 @@ import { HomeComponent } from './components/home/home.component';
     BrowserAnimationsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [ProductsApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

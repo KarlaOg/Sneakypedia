@@ -1,26 +1,43 @@
 from .entities.entity import Session, engine, Base
-from .entities.product import Product
+from .entities.product import Product,ProductSchema
+from flask import Flask, jsonify, request
+
+
+# creating the Flask application
+app = Flask(__name__)
 
 # generate database schema
 Base.metadata.create_all(engine)
 
-# start session
-session = Session()
+@app.route('/products')
+def get_products():
+    # fetching from the database
+    session = Session()
+    product_objects = session.query(Product).all()
 
-# check for existing data
-products = session.query(Product).all()
+    # transforming into JSON-serializable objects
+    schema = ProductSchema(many=True)
+    products = schema.dump(product_objects)
 
-if len(products) == 0:
-    # create and persist mock product
-    python_product = Product("Air Jordan 1 Low Golf « UNC »", "https://www.lesitedelasneaker.com/wp-content/images/2022/02/air-jordan-1-low-golf-unc-dd9315-100-pic100.jpeg"," ", "130.0","script")
-    session.add(python_product)
-    session.commit()
+    # serializing as JSON
     session.close()
+    return jsonify(products.data)
 
-    # reload products
-    products = session.query(Product).all()
 
-# show existing products
-print('### products:')
-for product in products:
-    print(f'({product.id}) {product.label} - {product.image} - {product.description} - {product.price}')
+@app.route('/products', methods=['POST'])
+def add_product():
+    # mount product object
+    posted_product = ProductSchema(only=('label', 'image','description','price'))\
+        .load(request.get_json())
+
+    product = Product(**posted_product.data, created_by="HTTP post request")
+
+    # persist product
+    session = Session()
+    session.add(product)
+    session.commit()
+
+    # return created product
+    new_product = ProductSchema().dump(product).data
+    session.close()
+    return jsonify(new_product), 201

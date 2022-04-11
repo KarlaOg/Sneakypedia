@@ -4,7 +4,7 @@
 namespace App\EventSubscriber;
 
 use ApiPlatform\Core\EventListener\EventPriorities;
-use App\Entity\User; 
+use App\Entity\User;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Event\ViewEvent;
@@ -38,9 +38,11 @@ final class UserMailSubscriber implements EventSubscriberInterface
         }
 
         $message = (new Email())
-            ->from('system@example.com')
-            ->to('contact@les-tilleuls.coop')
-            ->subject('A new book has been added'); 
+            ->from('ogkarla@gmail.com')
+            ->to('ogkarla@gmail.com')
+            ->subject('Hello this is a test')
+            ->text('Sending emails is fun again!')
+            ->html('<p>See Twig integration for better HTML integration!</p>');
 
         $this->mailer->send($message);
     }

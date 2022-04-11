@@ -15,6 +15,7 @@ const httpOptions = {
 })
 export class UserService {
   private apiUrl = "http://localhost/api/users"; 
+  private JWTLoginCheck = "http://localhost/authentication_token"; 
 
 
   constructor(private http : HttpClient) { }
@@ -40,6 +41,14 @@ export class UserService {
     .pipe(
       catchError(this.handleError)
     )
+  }
+
+  checkLoginUser(user : User): Observable<User>{
+    return this.http.post<User>(this.JWTLoginCheck, {email: user.email, password: user.password}, httpOptions)
+    .pipe(
+      catchError(this.handleError)
+    )
+
   }
 
   

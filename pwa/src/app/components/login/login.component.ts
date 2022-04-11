@@ -79,7 +79,7 @@ export class LoginComponent implements OnInit {
     const val = this.form.value;
 
     if (val.email && val.password) {
-      this.user.addUser(val)
+      this.user.checkLoginUser(val)
         .subscribe(
           () => {
             console.log("User is logged in");

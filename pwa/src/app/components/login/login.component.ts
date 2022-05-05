@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -6,6 +7,8 @@ import { UserService } from '../../services/user/user.service';
 @Component({
   selector: 'app-login',
   template: `
+<app-navbar></app-navbar>
+  
 <div class="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 ">
   <div class="max-w-md w-full space-y-8">
     <div>
@@ -13,7 +16,7 @@ import { UserService } from '../../services/user/user.service';
       <p class="mt-2 text-center text-sm text-gray-600">
         Ou
         <br>
-        <a routerLink="/register" class="font-medium  hover:text-orange-400"> Inscrivez-vous   </a>
+        <a routerLink="/inscription" class="font-medium  hover:text-orange-400"> Inscrivez-vous   </a>
       </p>
     </div>
     <form [formGroup]="form" class="mt-8 space-y-6" action="#" method="POST">
@@ -75,19 +78,14 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
   login() {
     const val = this.form.value;
 
     if (val.email && val.password) {
       this.user.checkLoginUser(val)
-        .subscribe(
-          () => {
-            console.log("User is logged in");
-            this.router.navigateByUrl('/');
-          }
-        );
     }
-    console.log(val)
+    console.log(this.user.checkLoginUser(val))
   }
 
 }

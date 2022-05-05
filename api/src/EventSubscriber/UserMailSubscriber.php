@@ -38,7 +38,7 @@ final class UserMailSubscriber implements EventSubscriberInterface
         }
 
         $message = (new Email())
-            ->from('ogkarla@gmail.com')
+            ->from('no-reply@sneaky.com')
             ->to('ogkarla@gmail.com')
             ->subject('Hello this is a test')
             ->text('Sending emails is fun again!')

@@ -9,26 +9,16 @@ import { AccountComponent } from './components/user-dashboard/account/account.co
 import { AlertComponent } from './components/user-dashboard/alert/alert.component';
 import { FavoritesComponent } from './components/user-dashboard/favorites/favorites.component';
 import { NavUserDashboardComponent } from './components/user-dashboard/nav-user-dashboard/nav-user-dashboard.component';
+import { SneakersListComponent } from '../components/sneakers-list/sneakers-list.component';
+import { SneakerDetailsComponent } from '../components/sneaker-details/sneaker-details.component';
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
   { path: 'connexion', component: LoginComponent },
   { path: 'inscription', component: RegisterComponent },
   { path: 'calendar', component: CalendarComponent },
-  // {
-  //   path: 'compte',
-  //   component: AccountComponent,
-  //   children: [
-  //     {
-  //       path:"alertes", 
-  //       component: AlertComponent
-  //     }, 
-  //     {
-  //       path:"favoris", 
-  //       component:FavoritesComponent
-  //     }
-  //   ]
-  // },
+  { path: 'sneakers', component: SneakersListComponent },
+  { path: 'sneakers/:id', component: SneakerDetailsComponent },
   {
     path: 'compte', component: NavUserDashboardComponent, canActivate : [],children: [
       {
@@ -46,9 +36,7 @@ const routes: Routes = [
     ]
   },
 
-  { path: '**', component: PageNotFoundComponent },
-
-];
+  { path: '**', component: PageNotFoundComponent }]
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

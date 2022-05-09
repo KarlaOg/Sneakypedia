@@ -42,6 +42,7 @@ import { FavoritesComponent } from './components/user-dashboard/favorites/favori
     //   useClass: AuthInterceptor,
     //   multi: true
     // }
+    HttpClientModule
   ],
   bootstrap: [AppComponent]
 })

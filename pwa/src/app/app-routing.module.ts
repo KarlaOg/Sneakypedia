@@ -9,8 +9,8 @@ import { AccountComponent } from './components/user-dashboard/account/account.co
 import { AlertComponent } from './components/user-dashboard/alert/alert.component';
 import { FavoritesComponent } from './components/user-dashboard/favorites/favorites.component';
 import { NavUserDashboardComponent } from './components/user-dashboard/nav-user-dashboard/nav-user-dashboard.component';
-import { SneakersListComponent } from '../components/sneakers-list/sneakers-list.component';
-import { SneakerDetailsComponent } from '../components/sneaker-details/sneaker-details.component';
+import { SneakersListComponent } from './components/sneakers-list/sneakers-list.component';
+import { SneakerDetailsComponent } from './components/sneaker-details/sneaker-details.component';
 
 const routes: Routes = [
   { path: "", component: HomeComponent },

@@ -19,6 +19,9 @@ import { UserService } from '../../services/user/user.service';
         <a routerLink="/inscription" class="font-medium  hover:text-orange-400"> Inscrivez-vous   </a>
       </p>
     </div>
+     <div *ngIf="error"class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
+       {{error}}
+      </div>
     <form [formGroup]="form" class="mt-8 space-y-6" action="#" method="POST">
       <input type="hidden" name="remember" value="true">
       <div class="rounded-md shadow-sm -space-y-px">
@@ -65,6 +68,7 @@ import { UserService } from '../../services/user/user.service';
 export class LoginComponent implements OnInit {
 
   form: FormGroup;
+  error: string = "";
 
   constructor(private fb: FormBuilder,
     private router: Router,
@@ -81,11 +85,11 @@ export class LoginComponent implements OnInit {
 
   login() {
     const val = this.form.value;
-
-    if (val.email && val.password) {
-      this.user.checkLoginUser(val)
-    }
-    console.log(this.user.checkLoginUser(val))
+    this.user.checkLoginUser(val)
+      .subscribe({
+        next: () => this.router.navigateByUrl("/"),
+        error: (e) => this.error = e.error.message,
+      })
   }
 
 }

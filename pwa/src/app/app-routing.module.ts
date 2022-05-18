@@ -15,20 +15,6 @@ const routes: Routes = [
   { path: 'connexion', component: LoginComponent },
   { path: 'inscription', component: RegisterComponent },
   { path: 'calendar', component: CalendarComponent },
-  // {
-  //   path: 'compte',
-  //   component: AccountComponent,
-  //   children: [
-  //     {
-  //       path:"alertes", 
-  //       component: AlertComponent
-  //     }, 
-  //     {
-  //       path:"favoris", 
-  //       component:FavoritesComponent
-  //     }
-  //   ]
-  // },
   {
     path: 'compte', component: NavUserDashboardComponent, canActivate : [],children: [
       {

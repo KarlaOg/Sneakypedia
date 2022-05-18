@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '../../services/user/user.service';
@@ -68,14 +68,15 @@ import { UserService } from '../../services/user/user.service';
 export class RegisterComponent implements OnInit {
 
   form: FormGroup;
-
+  error: string = ''; 
+ 
   constructor(private fb: FormBuilder,
     private router: Router,
     private user: UserService) {
 
     this.form = this.fb.group({
-      email: ['',  [Validators.required,Validators.email]],
-      password: ['',[Validators.required,Validators.minLength(8)]],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(8)]],
       firstname: ['', Validators.required],
       lastname: ['', Validators.required]
     });
@@ -90,10 +91,15 @@ export class RegisterComponent implements OnInit {
 
       this.user.register(val)
         .subscribe(
-          () => {
-            this.user.checkLoginUser(val)
-            this.router.navigateByUrl('/');
+          {
+            next: (v) => console.log(v),
+            error: (e) => console.error(e),
+            complete: () => console.info('complete') 
           }
+          // () => {
+          //   this.user.checkLoginUser(val)
+          //   this.router.navigateByUrl('/');
+          // }
         );
     }
   }

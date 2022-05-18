@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-alert',
+  selector: 'app-alert-user-dashboard',
   templateUrl: './alert.component.html',
   styleUrls: ['./alert.component.css']
 })

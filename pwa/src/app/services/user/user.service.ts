@@ -20,7 +20,7 @@ export class UserService {
   private apiUrl = "http://localhost/api/users";
   private JWTLoginCheck = "http://localhost/authentication_token";
 
-  protected authenticatedUser: BehaviorSubject<User> = new BehaviorSubject<User>(null!);
+  private authenticatedUser: BehaviorSubject<User> = new BehaviorSubject<User>(null!);
   user: Observable<User> = this.authenticatedUser.asObservable();
 
   isLoggedIn: Observable<boolean>;

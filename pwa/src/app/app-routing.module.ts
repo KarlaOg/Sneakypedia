@@ -9,6 +9,7 @@ import { AccountComponent } from './components/user-dashboard/account/account.co
 import { AlertComponent } from './components/user-dashboard/alert/alert.component';
 import { FavoritesComponent } from './components/user-dashboard/favorites/favorites.component';
 import { NavUserDashboardComponent } from './components/user-dashboard/nav-user-dashboard/nav-user-dashboard.component';
+import { AuthGuard } from './services/user/auth/auth.guard';
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
@@ -16,7 +17,7 @@ const routes: Routes = [
   { path: 'inscription', component: RegisterComponent },
   { path: 'calendar', component: CalendarComponent },
   {
-    path: 'compte', component: NavUserDashboardComponent, canActivate : [],children: [
+    path: 'compte', component: NavUserDashboardComponent, canActivate: [AuthGuard], children: [
       {
         path: 'detail',
         component: AccountComponent,

@@ -16,6 +16,7 @@ import { AlertComponent } from './components/user-dashboard/alert/alert.componen
 import { NavUserDashboardComponent } from './components/user-dashboard/nav-user-dashboard/nav-user-dashboard.component';
 import { FavoritesComponent } from './components/user-dashboard/favorites/favorites.component';
 import { AlertNotificationComponent } from './components/alert/alert.component'
+import { AuthGuard } from './services/user/auth/auth.guard';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { AlertNotificationComponent } from './components/alert/alert.component'
     //   useClass: AuthInterceptor,
     //   multi: true
     // }
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

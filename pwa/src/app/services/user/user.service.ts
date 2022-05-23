@@ -4,6 +4,7 @@ import { BehaviorSubject, catchError, map, Observable, shareReplay, tap, throwEr
 import { User } from 'src/app/models/user';
 import { ErrorService } from 'src/app/services/error.service';
 import * as moment from "moment";
+import { JwtHelperService } from "@auth0/angular-jwt";
 
 
 const httpOptions = {
@@ -26,15 +27,16 @@ export class UserService {
   isLoggedIn: Observable<boolean>;
   isLoggedOut: Observable<boolean>;
 
+  helper = new JwtHelperService();
+
   constructor(private http: HttpClient, private error: ErrorService) {
 
     this.isLoggedIn = this.user.pipe(map(user => !!user))
     this.isLoggedOut = this.isLoggedIn.pipe(map(loggedIn => !loggedIn))
 
-    const auth = this.getToken()
-
-    if (auth) {
-      this.authenticatedUser.next(JSON.parse(auth))
+    const tokenUser = this.getToken();
+    if (tokenUser) {
+      this.authenticatedUser.next(JSON.parse(tokenUser))
     }
   }
 
@@ -63,14 +65,25 @@ export class UserService {
       )
   }
 
-  getToken() {
-    return localStorage.getItem('access_token');
+
+
+  getToken(): string {
+    return localStorage.getItem('id_token')!;
+  }
+
+
+  updateUserAccount() {
+
+    // return this.http.put<User>(this.apiUrl, {})
+    const auth = this.helper.decodeToken(this.getToken())
+    console.log(auth)
+
   }
 
   private setSession(authResult: any) {
     const expiresAt = moment().add(authResult.expiresIn, 'second');
 
-    localStorage.setItem('id_token', authResult.token);
+    localStorage.setItem('id_token', JSON.stringify(authResult.token));
     localStorage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()));
   }
 
@@ -87,5 +100,9 @@ export class UserService {
     const expiresAt = JSON.parse(expiration!);
     return moment(expiresAt);
   }
+
+  // decodeJwt() {
+  //   return 
+  // }
 
 }

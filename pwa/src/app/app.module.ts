@@ -17,6 +17,11 @@ import { NavUserDashboardComponent } from './components/user-dashboard/nav-user-
 import { FavoritesComponent } from './components/user-dashboard/favorites/favorites.component';
 import { AlertNotificationComponent } from './components/alert/alert.component'
 import { AuthGuard } from './services/user/auth/auth.guard';
+import { JwtModule } from '@auth0/angular-jwt';
+
+export function tokenGetter() {
+  return localStorage.getItem("id_token");
+}
 
 @NgModule({
   declarations: [
@@ -37,7 +42,14 @@ import { AuthGuard } from './services/user/auth/auth.guard';
     AppRoutingModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        throwNoTokenError: true,
+        skipWhenExpired: true,
+      }
+    })
   ],
   providers: [
     // {

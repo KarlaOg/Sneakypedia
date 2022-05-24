@@ -35,9 +35,15 @@ export class UserService {
     this.isLoggedOut = this.isLoggedIn.pipe(map(loggedIn => !loggedIn))
 
     const tokenUser = this.getToken();
+
     if (tokenUser) {
       this.authenticatedUser.next(JSON.parse(tokenUser))
     }
+    //  else {
+    //   this.authenticatedUser.next(null!)
+
+
+    // }
   }
 
 
@@ -72,12 +78,20 @@ export class UserService {
   }
 
 
-  updateUserAccount() {
+  updateUserAccount(user: User): Observable<User> {
 
-    // return this.http.put<User>(this.apiUrl, {})
-    const auth = this.helper.decodeToken(this.getToken())
-    console.log(auth)
+    const idUser = this.decodeToken().id
 
+    return this.http.put<User>(`http://localhost/api/users/${idUser}`, user, httpOptions)
+      .pipe(
+        catchError(this.error.handleError),
+      );
+
+  }
+
+
+  decodeToken() {
+    return this.helper.decodeToken(this.getToken())
   }
 
   private setSession(authResult: any) {
@@ -97,12 +111,10 @@ export class UserService {
 
   getExpiration() {
     const expiration = localStorage.getItem("expires_at");
-    const expiresAt = JSON.parse(expiration!);
-    return moment(expiresAt);
+    return JSON.parse(expiration!);
   }
 
-  // decodeJwt() {
-  //   return 
-  // }
+  // isExpired = this.helper.isTokenExpired(this.getExpiration());
+
 
 }

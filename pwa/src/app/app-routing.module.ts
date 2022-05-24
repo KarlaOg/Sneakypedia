@@ -11,6 +11,7 @@ import { FavoritesComponent } from './components/user-dashboard/favorites/favori
 import { NavUserDashboardComponent } from './components/user-dashboard/nav-user-dashboard/nav-user-dashboard.component';
 import { SneakersListComponent } from './components/sneakers-list/sneakers-list.component';
 import { SneakerDetailsComponent } from './components/sneaker-details/sneaker-details.component';
+import { AuthGuard } from './services/user/auth/auth.guard';
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
@@ -20,7 +21,7 @@ const routes: Routes = [
   { path: 'sneakers', component: SneakersListComponent },
   { path: 'sneakers/:id', component: SneakerDetailsComponent },
   {
-    path: 'compte', component: NavUserDashboardComponent, canActivate : [],children: [
+    path: 'compte', component: NavUserDashboardComponent, canActivate: [AuthGuard], children: [
       {
         path: 'detail',
         component: AccountComponent,

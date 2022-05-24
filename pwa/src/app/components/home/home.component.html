@@ -1,4 +1,7 @@
 <app-navbar></app-navbar>
+<ng-container *ngIf="showMessage">
+  <app-alert-notification message="Vous êtes inscrit" ></app-alert-notification>
+  </ng-container>
 <section class="relative">
   <div class="container px-5 pt-44 mx-auto">
     <div class="flex flex-col text-center w-full mb-12">

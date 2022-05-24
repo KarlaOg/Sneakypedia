@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ErrorService } from 'src/app/services/error.service';
 import { UserService } from '../../services/user/user.service';
 
 @Component({
@@ -18,6 +19,9 @@ import { UserService } from '../../services/user/user.service';
         <a routerLink="/connexion" class="font-medium sviolet hover:text-orange-400"> Connectez-vous  </a>
       </p> 
     </div>
+    <div *ngIf="error"class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
+       {{ this.errorService.handleError}}
+      </div>
     <form [formGroup]="form" #registerForm="ngForm" class="mt-8 space-y-6" action="#" method="POST">
       <input type="hidden" name="remember" value="true">
       <div class="rounded-md shadow-sm -space-y-px">
@@ -68,14 +72,16 @@ import { UserService } from '../../services/user/user.service';
 export class RegisterComponent implements OnInit {
 
   form: FormGroup;
+  error!: [];
 
   constructor(private fb: FormBuilder,
     private router: Router,
-    private user: UserService) {
+    private user: UserService,
+    public errorService: ErrorService) {
 
     this.form = this.fb.group({
-      email: ['',  [Validators.required,Validators.email]],
-      password: ['',[Validators.required,Validators.minLength(8)]],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(8)]],
       firstname: ['', Validators.required],
       lastname: ['', Validators.required]
     });
@@ -83,16 +89,18 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log(this.errorService)
   }
   register() {
+    this.errorService.handleError
     const val = this.form.value;
     if (val.email && val.password && val.firstname && val.lastname) {
 
       this.user.register(val)
         .subscribe(
-          () => {
-            this.user.checkLoginUser(val)
-            this.router.navigateByUrl('/');
+          {
+            next: () => this.router.navigateByUrl("/connexion"),
+            error: (e) => this.error = e,
           }
         );
     }

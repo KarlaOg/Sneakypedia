@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable, Subscription } from 'rxjs';
 import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-navbar',
   template: `
-  <nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5  zinc:300"
->
+  <nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5  zinc:300">
   <div class="container flex flex-wrap justify-between items-center mx-auto">
     <a href="#" class="flex">
       <span
         class="self-center text-lg font-semibold whitespace-nowrap dark:text-black uppercase"
-        >SNEAKYPEDIA</span
-      >
+        >SNEAKYPEDIA
+      </span>
     </a>
     <button
       data-collapse-toggle="mobile-menu"
@@ -47,37 +47,27 @@ import { UserService } from 'src/app/services/user/user.service';
       </svg>
     </button>
     <div class="hidden w-full md:block md:w-auto" id="mobile-menu">
-      <ul
-        class="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium"
-      >
-        <li>
-          <a
-            routerLink=""
-            class="block py-2 pr-4 pl-3 text-black bg-blue-700 active:underline-offset-4 md:bg-transparent md:text-black md:p-0 dark:text-white"
-            aria-current="page"
-            >Accueil</a
-          >
-        </li>
-        <li>
+      <ul class="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
+
+        <li routerLinkActive="active">
           <a routerLink="calendar"
             class="block py-2 pr-4 pl-3 text-black border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-black dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
             >Calendrier</a>
         </li>
         
-        <li>
-          <a routerLink="connexion">
-          <svg xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24"  class="w-6 h-6"><path d="M12,12A6,6,0,1,0,6,6,6.006,6.006,0,0,0,12,12ZM12,2A4,4,0,1,1,8,6,4,4,0,0,1,12,2Z"/><path d="M12,14a9.01,9.01,0,0,0-9,9,1,1,0,0,0,2,0,7,7,0,0,1,14,0,1,1,0,0,0,2,0A9.01,9.01,0,0,0,12,14Z"/></svg></a> 
+        <li *ngIf=" user.isLoggedOut | async" routerLinkActive="active">
+          <a routerLink="connexion">Connexion</a> 
         </li>
-      <ng-template #myAccount >
-        <li>
+     
+        <li *ngIf=" user.isLoggedIn | async" routerLinkActive="active">
         <a routerLink="compte"
             class="block py-2 pr-4 pl-3 text-black border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-black dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
             >Mon compte</a>
         </li>
-        <!-- <li>
-         <button (click)="logout">Deconnexion</button>
-        </li> -->
-      </ng-template>
+        <li *ngIf="user.isLoggedIn | async" routerLinkActive="active">
+         <button (click)="logout()"  routerLink="connexion">Deconnexion</button>
+        </li> 
+     
       </ul>
     </div>
   </div>
@@ -87,19 +77,13 @@ import { UserService } from 'src/app/services/user/user.service';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private user: UserService) { }
+  constructor(public user: UserService) { }
 
   ngOnInit(): void {
   }
-  
-  test = this.user.isLoggedIn
-  
-  see(){
-    console.log(this.test)
+
+  logout() {
+    this.user.logout()
   }
 
-
-
-
-  
 }

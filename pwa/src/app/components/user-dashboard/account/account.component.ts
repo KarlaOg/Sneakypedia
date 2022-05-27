@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ErrorService } from 'src/app/services/error.service';
+import { ModalService } from 'src/app/services/modal/modal.service';
 import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
@@ -113,10 +114,17 @@ import { UserService } from 'src/app/services/user/user.service';
            
           </div>
         </div>
-        <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+        <div class="px-4 py-3 bg-gray-50 text-right sm:px-6 flex  justify-between flex-row items-center ">
+        <a  (click)="open()"
+            type="submit"
+            class="text-xs font-medium text-orange-600 hover:text-orange-400  underline underline-offset-4 "
+            
+          >
+            Supprimer mon compte
+          </a>
           <button (click)="updateProfil()"
             type="submit"
-            class="bg-orange-600 border border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-medium text-white hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
+            class=" bg-orange-600 border border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-medium text-white hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
             [disabled]="!updateAccount.valid"
           >
             Sauvegarder
@@ -132,7 +140,7 @@ import { UserService } from 'src/app/services/user/user.service';
 export class AccountComponent implements OnInit {
 
   error!: [];
-  constructor(private fb: FormBuilder, private user: UserService, public errorSerive: ErrorService) { }
+  constructor(private fb: FormBuilder, private user: UserService, public errorSerive: ErrorService, private modalService: ModalService) { }
 
   updateAccount = this.fb.group({
     username: ['', Validators.required],
@@ -158,6 +166,10 @@ export class AccountComponent implements OnInit {
         )
     }
 
+  }
+
+  open() {
+    this.modalService.open();
   }
 
 }

@@ -90,6 +90,23 @@ export class UserService {
   }
 
 
+  deleteUserAccount(): Observable<any> {
+    const idUser = this.decodeToken().id
+
+    return this.http.delete<User>(`http://localhost/api/users/${idUser}`, httpOptions)
+      .pipe(
+        tap(() => {
+          this.logout(); 
+
+        }),
+        catchError(this.error.handleError),
+        shareReplay()
+      );
+      
+
+  }
+
+
   decodeToken() {
     return this.helper.decodeToken(this.getToken())
   }

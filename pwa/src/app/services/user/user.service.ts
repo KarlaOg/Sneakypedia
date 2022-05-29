@@ -82,7 +82,7 @@ export class UserService {
 
     const idUser = this.decodeToken().id
 
-    return this.http.put<User>(`http://localhost/api/users/${idUser}`, user, httpOptions)
+    return this.http.put<User>(this.apiUrl + `${idUser}`, user, httpOptions)
       .pipe(
         catchError(this.error.handleError),
       );
@@ -93,16 +93,16 @@ export class UserService {
   deleteUserAccount(): Observable<any> {
     const idUser = this.decodeToken().id
 
-    return this.http.delete<User>(`http://localhost/api/users/${idUser}`, httpOptions)
+    return this.http.delete<User>(this.apiUrl + `${idUser}`, httpOptions)
       .pipe(
         tap(() => {
-          this.logout(); 
+          this.logout();
 
         }),
         catchError(this.error.handleError),
         shareReplay()
       );
-      
+
 
   }
 
@@ -119,19 +119,19 @@ export class UserService {
   }
 
 
-  logout() {
+  logout(): void {
     this.authenticatedUser.next(null!)
     localStorage.removeItem("id_token");
     localStorage.removeItem("expires_at");
   }
 
 
-  getExpiration() {
+  getExpiration(): string {
     const expiration = localStorage.getItem("expires_at");
     return JSON.parse(expiration!);
   }
 
-  // isExpired = this.helper.isTokenExpired(this.getExpiration());
+  isExpired = this.helper.isTokenExpired(this.getExpiration());
 
 
 }

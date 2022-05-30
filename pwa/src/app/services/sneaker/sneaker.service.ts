@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 const baseUrl = 'http://localhost:8080/api/sneakers';
-// importer le model sneaker maybe ??? jsp si c'est utile
+// importer le model sneaker
 @Injectable({
   providedIn: 'root'
 })

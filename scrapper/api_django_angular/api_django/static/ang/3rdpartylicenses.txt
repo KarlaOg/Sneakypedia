@@ -1,21 +1,28 @@
+<<<<<<< HEAD
 @angular/animations
 MIT
 
+=======
+>>>>>>> 738feb5a16a8ccc1f21cfc3ec2a003eaff03dc3d
 @angular/common
 MIT
 
 @angular/core
 MIT
 
+<<<<<<< HEAD
 @angular/forms
 MIT
 
+=======
+>>>>>>> 738feb5a16a8ccc1f21cfc3ec2a003eaff03dc3d
 @angular/platform-browser
 MIT
 
 @angular/router
 MIT
 
+<<<<<<< HEAD
 moment
 MIT
 Copyright (c) JS Foundation and other contributors
@@ -42,6 +49,8 @@ FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 OTHER DEALINGS IN THE SOFTWARE.
 
 
+=======
+>>>>>>> 738feb5a16a8ccc1f21cfc3ec2a003eaff03dc3d
 rxjs
 Apache-2.0
                                Apache License

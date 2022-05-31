@@ -48,6 +48,7 @@ export function tokenGetter() {
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
+        allowedDomains : ["http://localhost/api"],
         throwNoTokenError: true,
         skipWhenExpired: true,
       }

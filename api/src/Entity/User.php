@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use ApiPlatform\Core\Annotation\ApiResource;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ApiResource]
 #[ORM\Entity(repositoryClass: UserRepository::class)]
@@ -27,6 +28,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'json')]
     private $roles = [];
 
+    #[Groups("write")]
     #[ORM\Column(type: 'string')]
     private $password;
 
@@ -36,10 +38,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $lastname;
 
-    #[ORM\Column(type: 'string', length: 255, nullable: true)]
-    private $username;
 
-    #[ORM\Column(type: 'string', length: 255,nullable: true)]
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $photo;
 
     #[ORM\ManyToMany(targetEntity: Favorite::class, mappedBy: 'userId')]
@@ -74,7 +74,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     public function getUserIdentifier(): string
     {
-        return (string) $this->username;
+        return (string) $this->email;
     }
 
     /**
@@ -163,13 +163,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-
-    public function setUsername(?string $username): self
-    {
-        $this->username = $username;
-
-        return $this;
-    }
 
     public function getPhoto(): ?string
     {

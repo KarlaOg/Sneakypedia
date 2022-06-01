@@ -12,6 +12,11 @@ const httpOptions = {
     'Content-Type': 'application/json',
   }),
 };
+const httpOptionsPatch = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/merge-patch+json',
+  })
+};
 
 @Injectable({
   providedIn: 'root'
@@ -74,7 +79,7 @@ export class UserService {
 
     const idUser = this.decodeToken().id
 
-    return this.http.put<User>(this.apiUrl + 'users/' + `${idUser}`, user, httpOptions)
+    return this.http.patch<User>(this.apiUrl + 'users/' + `${idUser}`, user, httpOptionsPatch)
       .pipe(
         catchError(this.error.handleError),
       );

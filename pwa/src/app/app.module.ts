@@ -18,6 +18,7 @@ import { FavoritesComponent } from './components/user-dashboard/favorites/favori
 import { AlertNotificationComponent } from './components/alert/alert.component'
 import { AuthGuard } from './services/user/auth/auth.guard';
 import { JwtModule } from '@auth0/angular-jwt';
+import { ModalComponent } from './modal/modal.component';
 
 export function tokenGetter() {
   return localStorage.getItem("id_token");
@@ -36,6 +37,7 @@ export function tokenGetter() {
     NavUserDashboardComponent,
     FavoritesComponent,
     AlertNotificationComponent,
+    ModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,18 +48,18 @@ export function tokenGetter() {
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
+        allowedDomains : ["http://localhost/api"],
         throwNoTokenError: true,
         skipWhenExpired: true,
       }
     })
   ],
   providers: [
-    // {
-    //   provide: HTTP_INTERCEPTORS,
-    //   useClass: AuthInterceptor,
-    //   multi: true
-    // }
-    HttpClientModule,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    },
     AuthGuard
   ],
   bootstrap: [AppComponent]

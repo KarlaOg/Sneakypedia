@@ -18,7 +18,7 @@ const httpOptions = {
 })
 
 export class UserService {
-  private apiUrl = "http://localhost/api/users";
+  private apiUrl = "http://localhost/api/";
   private JWTLoginCheck = "http://localhost/authentication_token";
 
   private authenticatedUser: BehaviorSubject<User> = new BehaviorSubject<User>(null!);
@@ -34,15 +34,19 @@ export class UserService {
     this.isLoggedIn = this.user.pipe(map(user => !!user))
     this.isLoggedOut = this.isLoggedIn.pipe(map(loggedIn => !loggedIn))
 
-    const tokenUser = this.getToken();
-    if (tokenUser) {
-      this.authenticatedUser.next(JSON.parse(tokenUser))
-    }
+    // TODO Sort out of to login someone if token is valid  
+    // const tokenUser = this.getToken();
+    // if (tokenUser) {
+    //   this.authenticatedUser.next(JSON.parse(tokenUser))
+    // }
+    //  else {
+    //   this.authenticatedUser.next(null!)
+    // }
   }
 
 
   register(user: User): Observable<User> {
-    return this.http.post<User>(this.apiUrl, { email: user.email, password: user.password, firstname: user.firstname, lastname: user.lastname }, httpOptions)
+    return this.http.post<User>(this.apiUrl + 'users', { email: user.email, password: user.password, firstname: user.firstname, lastname: user.lastname }, httpOptions)
       .pipe(
         catchError(this.error.handleError),
         shareReplay()
@@ -66,18 +70,42 @@ export class UserService {
   }
 
 
+  updateUserAccount(user: User): Observable<User> {
 
-  getToken(): string {
-    return localStorage.getItem('id_token')!;
+    const idUser = this.decodeToken().id
+
+    return this.http.put<User>(this.apiUrl + 'users/' + `${idUser}`, user, httpOptions)
+      .pipe(
+        catchError(this.error.handleError),
+      );
+
   }
 
 
-  updateUserAccount() {
+  deleteUserAccount(): Observable<any> {
+    const idUser = this.decodeToken().id
 
-    // return this.http.put<User>(this.apiUrl, {})
-    const auth = this.helper.decodeToken(this.getToken())
-    console.log(auth)
+    return this.http.delete<User>(this.apiUrl + 'users/' + `${idUser}`, httpOptions)
+      .pipe(
+        tap(() => {
+          this.logout();
 
+        }),
+        catchError(this.error.handleError),
+        shareReplay()
+      );
+
+
+  }
+
+
+  getToken(): string {
+    const token = localStorage.getItem('id_token')!;
+    return JSON.parse(token)!;
+  }
+
+  decodeToken() {
+    return this.helper.decodeToken(this.getToken())
   }
 
   private setSession(authResult: any) {
@@ -88,21 +116,19 @@ export class UserService {
   }
 
 
-  logout() {
+  logout(): void {
     this.authenticatedUser.next(null!)
     localStorage.removeItem("id_token");
     localStorage.removeItem("expires_at");
   }
 
 
-  getExpiration() {
+  getExpiration(): boolean {
     const expiration = localStorage.getItem("expires_at");
-    const expiresAt = JSON.parse(expiration!);
-    return moment(expiresAt);
+    return this.helper.isTokenExpired(JSON.parse(expiration!));
+
   }
 
-  // decodeJwt() {
-  //   return 
-  // }
+
 
 }

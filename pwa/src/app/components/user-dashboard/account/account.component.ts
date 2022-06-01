@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ErrorService } from 'src/app/services/error.service';
+import { ModalService } from 'src/app/services/modal/modal.service';
 import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
@@ -7,7 +9,7 @@ import { UserService } from 'src/app/services/user/user.service';
   template: `
   <div class="lg:grid lg:grid-cols-12 lg:gap-x-5">
    <div class="space-y-6 sm:px-6 lg:px-0 lg:col-span-9">
-    <form [formGroup]="updateAccount" (ngSubmit)="onSubmit()" method="POST">
+    <form [formGroup]="updateAccount"  method="POST">
       <div class="shadow sm:rounded-md sm:overflow-hidden">
         <div class="bg-white py-6 px-4 space-y-6 sm:p-6">
           <div>
@@ -112,10 +114,17 @@ import { UserService } from 'src/app/services/user/user.service';
            
           </div>
         </div>
-        <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
-          <button (click)="onSubmit()"
+        <div class="px-4 py-3 bg-gray-50 text-right sm:px-6 flex  justify-between flex-row items-center ">
+        <a  (click)="open()"
             type="submit"
-            class="bg-orange-600 border border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-medium text-white hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
+            class="text-xs font-medium text-orange-600 hover:text-orange-400  underline underline-offset-4 "
+            
+          >
+            Supprimer mon compte
+          </a>
+          <button (click)="updateProfil()"
+            type="submit"
+            class=" bg-orange-600 border border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-medium text-white hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
             [disabled]="!updateAccount.valid"
           >
             Sauvegarder
@@ -130,8 +139,8 @@ import { UserService } from 'src/app/services/user/user.service';
 })
 export class AccountComponent implements OnInit {
 
-
-  constructor(private fb: FormBuilder, private user : UserService) { }
+  error!: [];
+  constructor(private fb: FormBuilder, private user: UserService, public errorSerive: ErrorService, private modalService: ModalService) { }
 
   updateAccount = this.fb.group({
     username: ['', Validators.required],
@@ -144,9 +153,23 @@ export class AccountComponent implements OnInit {
 
   }
 
-  onSubmit() {
-    console.warn(this.updateAccount.value)
-    this.user.updateUserAccount()
+  updateProfil() {
+    this.errorSerive.handleError
+    const val = this.updateAccount.value;
+    if (val.username && val.firstname && val.lastname) {
+      this.user.updateUserAccount(val)
+        .subscribe(
+          {
+            error: (e) => this.error = e,
+
+          }
+        )
+    }
+
+  }
+
+  open() {
+    this.modalService.open();
   }
 
 }

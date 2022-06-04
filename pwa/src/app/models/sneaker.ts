@@ -1,6 +1,6 @@
 export interface Sneaker {
   label?: string,
-  url?: string,
+  image: string,
   description?: string,
   price: number,
 }

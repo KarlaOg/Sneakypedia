@@ -20,13 +20,13 @@
     "@angular/router": "~13.1.0",
     "@auth0/angular-jwt": "^5.0.2",
     "jsonwebtoken": "^8.5.1",
-    "moment": "^2.29.3",
+    "moment": "2.29.3",
     "rxjs": "~7.4.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~13.1.1",
+    "@angular-devkit/build-angular": "^13.3.5",
     "@angular/cli": "~13.1.1",
     "@angular/compiler-cli": "~13.1.0",
     "@types/jasmine": "~3.10.0",

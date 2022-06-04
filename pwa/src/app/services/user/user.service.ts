@@ -9,8 +9,13 @@ import { JwtHelperService } from "@auth0/angular-jwt";
 
 const httpOptions = {
   headers: new HttpHeaders({
-    'Content-Type': 'application/json',
+    'Content-Type': 'application/ld+json',
   }),
+};
+const httpOptionsPatch = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/merge-patch+json',
+  })
 };
 
 @Injectable({
@@ -18,7 +23,7 @@ const httpOptions = {
 })
 
 export class UserService {
-  private apiUrl = "http://localhost/api/users";
+  private apiUrl = "http://localhost/api/";
   private JWTLoginCheck = "http://localhost/authentication_token";
 
   private authenticatedUser: BehaviorSubject<User> = new BehaviorSubject<User>(null!);
@@ -34,21 +39,19 @@ export class UserService {
     this.isLoggedIn = this.user.pipe(map(user => !!user))
     this.isLoggedOut = this.isLoggedIn.pipe(map(loggedIn => !loggedIn))
 
-    const tokenUser = this.getToken();
-
-    if (tokenUser) {
-      this.authenticatedUser.next(JSON.parse(tokenUser))
-    }
+    // TODO Sort out of to login someone if token is valid  
+    // const tokenUser = this.getToken();
+    // if (tokenUser) {
+    //   this.authenticatedUser.next(JSON.parse(tokenUser))
+    // }
     //  else {
     //   this.authenticatedUser.next(null!)
-
-
     // }
   }
 
 
   register(user: User): Observable<User> {
-    return this.http.post<User>(this.apiUrl, { email: user.email, password: user.password, firstname: user.firstname, lastname: user.lastname }, httpOptions)
+    return this.http.post<User>(this.apiUrl + 'users', { email: user.email, password: user.password, firstname: user.firstname, lastname: user.lastname }, httpOptions)
       .pipe(
         catchError(this.error.handleError),
         shareReplay()
@@ -72,23 +75,39 @@ export class UserService {
   }
 
 
-
-  getToken(): string {
-    return localStorage.getItem('id_token')!;
-  }
-
-
   updateUserAccount(user: User): Observable<User> {
 
     const idUser = this.decodeToken().id
 
-    return this.http.put<User>(`http://localhost/api/users/${idUser}`, user, httpOptions)
+    return this.http.patch<User>(this.apiUrl + 'users/' + `${idUser}`, user, httpOptionsPatch)
       .pipe(
         catchError(this.error.handleError),
       );
 
   }
 
+
+  deleteUserAccount(): Observable<any> {
+    const idUser = this.decodeToken().id
+
+    return this.http.delete<User>(this.apiUrl + 'users/' + `${idUser}`, httpOptions)
+      .pipe(
+        tap(() => {
+          this.logout();
+
+        }),
+        catchError(this.error.handleError),
+        shareReplay()
+      );
+
+
+  }
+
+
+  getToken(): string {
+    const token = localStorage.getItem('id_token')!;
+    return JSON.parse(token)!;
+  }
 
   decodeToken() {
     return this.helper.decodeToken(this.getToken())
@@ -102,19 +121,19 @@ export class UserService {
   }
 
 
-  logout() {
+  logout(): void {
     this.authenticatedUser.next(null!)
     localStorage.removeItem("id_token");
     localStorage.removeItem("expires_at");
   }
 
 
-  getExpiration() {
+  getExpiration(): boolean {
     const expiration = localStorage.getItem("expires_at");
-    return JSON.parse(expiration!);
+    return this.helper.isTokenExpired(JSON.parse(expiration!));
+
   }
 
-  // isExpired = this.helper.isTokenExpired(this.getExpiration());
 
 
 }

@@ -9,6 +9,8 @@ import { AccountComponent } from './components/user-dashboard/account/account.co
 import { AlertComponent } from './components/user-dashboard/alert/alert.component';
 import { FavoritesComponent } from './components/user-dashboard/favorites/favorites.component';
 import { NavUserDashboardComponent } from './components/user-dashboard/nav-user-dashboard/nav-user-dashboard.component';
+import { SneakersListComponent } from './components/sneakers-list/sneakers-list.component';
+import { SneakerDetailsComponent } from './components/sneaker-details/sneaker-details.component';
 import { AuthGuard } from './services/user/auth/auth.guard';
 
 const routes: Routes = [
@@ -16,6 +18,8 @@ const routes: Routes = [
   { path: 'connexion', component: LoginComponent },
   { path: 'inscription', component: RegisterComponent },
   { path: 'calendar', component: CalendarComponent },
+  { path: 'sneakers', component: SneakersListComponent },
+  { path: 'sneakers/:id', component: SneakerDetailsComponent },
   {
     path: 'compte', component: NavUserDashboardComponent, canActivate: [AuthGuard], children: [
       {
@@ -33,9 +37,7 @@ const routes: Routes = [
     ]
   },
 
-  { path: '**', component: PageNotFoundComponent },
-
-];
+  { path: '**', component: PageNotFoundComponent }]
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

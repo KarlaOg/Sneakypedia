@@ -25,7 +25,7 @@ class SneakerModel(models.Model):
     price = models.CharField(max_length=200)
 
 class Sneakers(DeclarativeBase):
-    """Sqlalchemy deals model"""
+    """Sqlalchemy sneakers model"""
     __tablename__ = "sneakers"
 
     id = Column(Integer, primary_key=True)

@@ -32,6 +32,3 @@ class JsonView(APIView):
 		if serializer.is_valid(raise_exception=True):
 			sneaker_saved=serializer.save()
 		return Response({"success":"Sneaker '{}' created successfully".format(sneaker_saved)})
-
-	def create(self, validated_data):
-		return SneakerModel.objects.create(**validated_data)

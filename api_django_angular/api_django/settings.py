@@ -63,6 +63,15 @@ DATABASES = {
     }
 }
 
+DATABASE = {
+    'drivername': 'postgresql',
+    'host': 'localhost',
+    'port': '5432',
+    'username': 'user',
+    'password': 'password',
+    'database': 'db'
+}
+
 LANGUAGE_CODE = 'fr'
 
 TIME_ZONE = 'UTC'

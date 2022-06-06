@@ -21,10 +21,14 @@ def get_sneakers(request):
 	return render(request, 'home.html', {'sneakers': sneakers})
 
 class JsonView(APIView):
-	def get(self, request):
+	def get(self, request, pk=None):
+		if pk:
+			sneaker = get_object_or_404(SneakerModel.objects.all(), pk=pk)
+			serializer = SneakerModelSerializer(sneaker)
+			return Response({"sneaker": serializer.data})
 		sneakers = SneakerModel.objects.all()
-		serializer  = SneakerModelSerializer(sneakers, many=True)
-		return Response({"sneakers":serializer.data})
+		serializer = SneakerModelSerializer(sneakers, many=True)
+		return Response({"sneakers": serializer.data})
 	
 	def post(self, request):
 		sneaker = request.data.get('sneaker')

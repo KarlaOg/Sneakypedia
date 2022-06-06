@@ -13,8 +13,6 @@ class SneakersSpider(scrapy.Spider):
     def parse(self, response):
         l = ItemLoader(item=SneakersItem(), response=response)
 
-        l.default_output_processor = TakeFirst()
-
         l.add_css('label', 'h3.c-uprelease__title::text')
         l.add_xpath('image', '//div[@class="c-uprelease__picture"]img/@src')
         l.add_css('description', 'p.item-date::text')

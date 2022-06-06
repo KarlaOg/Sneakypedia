@@ -11,3 +11,5 @@
 
 `npm serve`: to build the project 
 
+`Folder scrapper\api_django_angular\api_django`: pip (or pip3) install requirements.txt
+

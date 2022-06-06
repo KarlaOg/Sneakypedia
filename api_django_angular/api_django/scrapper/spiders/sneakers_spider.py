@@ -14,7 +14,7 @@ class SneakersSpider(scrapy.Spider):
         l = ItemLoader(item=SneakersItem(), response=response)
 
         l.add_css('label', 'h3.c-uprelease__title::text')
-        l.add_xpath('image', '//div[@class="c-uprelease__picture"]img/@src')
+        l.add_xpath('image', '//div[@class="c-uprelease__picture"]/img/@src')
         l.add_css('description', 'p.item-date::text')
         l.add_css('price', 'p.item-price::text')
 

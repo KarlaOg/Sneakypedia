@@ -1,6 +1,6 @@
 from django.urls import path
-from api_django import views
+from api_django.views import JsonView
 
 urlpatterns = [
-    path('', views.get_sneakers, name='sneakers_list'),
+    path('sneakers/',JsonView.as_view()),
 ]

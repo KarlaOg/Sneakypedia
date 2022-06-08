@@ -1,6 +1,6 @@
 from ..items import SneakersItem
 import scrapy 
-
+from scrapy.linkextractors import LinkExtractor
 
 class SneakersSpider(scrapy.Spider):
     name = "sneakers"
@@ -13,9 +13,8 @@ class SneakersSpider(scrapy.Spider):
         for line in data:
             item={
                 "label" : line.css("h3.c-uprelease__title::text").get(),
-                "image" : line.css(".c-uprelease__picture img::attr(src)").get(),
+                "image" : line.css(".c-uprelease__picture img").xpath('@data-lazy-src').get(),
                 "description" : line.css("p.item-date::text").get(),
                 "price" : line.css("p.item-price::text").get()
             }
             yield SneakersItem(**item)
-

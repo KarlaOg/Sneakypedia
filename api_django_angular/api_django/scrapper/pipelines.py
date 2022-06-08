@@ -18,8 +18,9 @@ class ScraperPipeline(object):
         sneaker = Sneakers(**item)
 
         try:
-            session.add(sneaker)
-            session.commit()
+            if sneaker not in session:
+                session.add(sneaker)
+                session.commit()
         except:
             session.rollback()
             raise
@@ -35,7 +36,7 @@ class SneakerPricePipeline(object):
     """
     def process_item(self, item, spider):
         if item.get('price'):
-            item['price'] = item['price'].replace('€', '')
+            item['price'] = item['price'].replace('€', '').strip()
             item['price'] = item['price'].replace(',','.')
             item.save()
             return item

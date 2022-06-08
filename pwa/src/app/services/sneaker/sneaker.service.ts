@@ -1,15 +1,25 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-const baseUrl = 'http://localhost:8080/api/sneakers';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+const baseUrl = 'http://127.0.0.1:8000/api/sneakers/';
 import { Sneaker } from 'src/app/models/sneaker';
 
+
+
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Access-Control-Allow-Origin':'*',
+
+  }),
+};
 @Injectable({
   providedIn: 'root'
 })
+
 export class SneakerService {
   constructor(private http: HttpClient) { }
   getAll() {
-    return this.http.get(baseUrl);
+    return this.http.get<Sneaker>(baseUrl);
   }
   get(id:number) {
     return this.http.get(`${baseUrl}/${id}`);

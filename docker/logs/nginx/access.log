@@ -1649,3 +1649,5 @@
 172.19.0.1 - - [04/Jun/2022:11:19:47 +0000] "GET /api/users HTTP/1.1" 200 981 "-" "PostmanRuntime/7.29.0"
 172.19.0.1 - - [04/Jun/2022:11:21:21 +0000] "PATCH /api/users/86 HTTP/1.1" 200 339 "http://localhost/api" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36"
 172.19.0.1 - - [04/Jun/2022:11:21:35 +0000] "GET /api/users/86 HTTP/1.1" 200 339 "-" "PostmanRuntime/7.29.0"
+172.19.0.1 - - [08/Jun/2022:20:27:58 +0000] "OPTIONS /authentication_token HTTP/1.1" 200 31 "http://localhost:4200/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36"
+172.19.0.1 - - [08/Jun/2022:20:27:59 +0000] "POST /authentication_token HTTP/1.1" 200 527 "http://localhost:4200/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36"

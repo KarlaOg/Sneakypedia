@@ -1,7 +1,7 @@
 from django.shortcuts import get_object_or_404, render
 from api_django.models import SneakerModel
 from django.views.decorators.csrf import csrf_exempt
-from rest_framework import viewsets
+from rest_framework import viewsets,permissions
 from rest_framework.views import APIView
 from .serializers import SneakerModelSerializer
 from django.http import HttpResponse
@@ -36,8 +36,4 @@ class JsonView(APIView):
 		if serializer.is_valid(raise_exception=True):
 			sneaker_saved=serializer.save()
 		return Response({"success":"Sneaker `{}` created successfully".format(sneaker_saved.label)})
-	
-	def delete(self, request, pk):
-		sneaker = get_object_or_404(SneakerModel.objects.all(), pk=pk)
-		sneaker.delete()
-		return Response({"message":"Sneaker with id `{}` has been deleted".format(pk)},status=204)
+	permission_classes = [permissions.IsAdminUser]

@@ -52,13 +52,6 @@ TEMPLATES = [
     },
 ]
 
-REST_FRAMEWORK  ={
-# only staff users can see the data and input data
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAdminUser'
-    ]
-}
-
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 

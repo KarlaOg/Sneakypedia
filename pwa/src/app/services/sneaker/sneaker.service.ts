@@ -19,7 +19,7 @@ const httpOptions = {
 export class SneakerService {
   constructor(private http: HttpClient) { }
   getAll() {
-    return this.http.get<Sneaker>(baseUrl);
+    return this.http.get<any[]>(baseUrl);
   }
   get(id:number) {
     return this.http.get(`${baseUrl}/${id}`);

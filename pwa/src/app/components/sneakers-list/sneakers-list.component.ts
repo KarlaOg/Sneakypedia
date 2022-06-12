@@ -12,6 +12,7 @@ import { SneakerService } from 'src/app/services/sneaker/sneaker.service';
       <h2 class="sr-only">Products</h2>
       
       <div class="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+
         <a href="#" class="group" *ngFor="let item of allSneakers" >
           <div class="w-full aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8">
             <img src='{{item.image}}' alt="Images of different sneakers" class="w-full h-full object-center object-cover group-hover:opacity-75">
@@ -34,22 +35,21 @@ export class SneakersListComponent implements OnInit {
   constructor(private sneakerService: SneakerService) { }
 
   ngOnInit(): void {
-    this.showAllSneakerList()
+    this.getAllSneakerList();
+
   }
 
-  showAllSneakerList() {
+  getAllSneakerList() {
     return this.sneakerService.getAll()
-      .subscribe({
-        next: (v) => { 
-          this.allSneakers.push(v) 
-          console.log(v)
-        },
-        error: (e) => console.error(e),
-        complete: () => console.info(this.allSneakers)
-
+      .subscribe(objectOfSneakers => {
+        for (const value of Object.values(objectOfSneakers)) {
+          return this.allSneakers = value
+        } 
+        console.info(this.allSneakers)
+        return objectOfSneakers
+      
       });
+    
+
   }
-
-
-
 }

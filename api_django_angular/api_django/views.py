@@ -36,4 +36,4 @@ class JsonView(APIView):
 		if serializer.is_valid(raise_exception=True):
 			sneaker_saved=serializer.save()
 		return Response({"success":"Sneaker `{}` created successfully".format(sneaker_saved.label)})
-	permission_classes = [permissions.IsAdminUser]
+	# permission_classes = [permissions.IsAdminUser]

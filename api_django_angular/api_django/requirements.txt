@@ -6,3 +6,4 @@ djangorestframework==3.13.1
 scrapy
 scrapy-djangoitem==1.1.1
 sqlalchemy
+django-cors-headers==3.13.0

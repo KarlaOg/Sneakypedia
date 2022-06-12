@@ -1,17 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-const baseUrl = 'http://127.0.0.1:8000/api/sneakers/';
+import { HttpClient } from '@angular/common/http';
 import { Sneaker } from 'src/app/models/sneaker';
 
 
+const baseUrl = 'http://127.0.0.1:8000/api/sneakers/';
 
-
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Access-Control-Allow-Origin':'*',
-
-  }),
-};
 @Injectable({
   providedIn: 'root'
 })

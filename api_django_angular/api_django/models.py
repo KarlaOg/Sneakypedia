@@ -22,7 +22,7 @@ class SneakerModel(models.Model):
     label  = models.CharField(max_length=200)
     image  = models.CharField(max_length=200)
     description = models.CharField(max_length=200)
-    price = models.CharField(max_length=200)
+    price = models.DecimalField(max_digits=5, decimal_places=2)
 
 class Sneakers(DeclarativeBase):
     """Sqlalchemy sneakers model"""

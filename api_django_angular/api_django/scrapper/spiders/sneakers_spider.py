@@ -1,11 +1,13 @@
 from ..items import SneakersItem
 import scrapy 
-from scrapy.linkextractors import LinkExtractor
+from scrapy_selenium import SeleniumRequest
+
 
 class SneakersSpider(scrapy.Spider):
     name = "sneakers"
     allowed_domains = ["lesitedelasneaker.com"]
-    start_urls = ["https://www.lesitedelasneaker.com/release-dates/?filter=latest_drops",]
+    start_urls = ["https://www.lesitedelasneaker.com/release-dates/?filter=latest_drops",
+    "https://www.lesitedelasneaker.com/release-dates/", "https://www.lesitedelasneaker.com/release-dates/?filter=new_entry"]
 
     def parse(self, response):
         data = response.css("a.c-uprelease")

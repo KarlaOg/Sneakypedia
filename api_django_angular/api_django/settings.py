@@ -34,6 +34,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'scrapy_selenium.SeleniumMiddleware',
 ]
 
 CORS_ALLOWED_ORIGINS = [

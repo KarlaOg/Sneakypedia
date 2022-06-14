@@ -7,4 +7,5 @@ scrapy
 scrapy-djangoitem==1.1.1
 sqlalchemy
 django-cors-headers==3.13.0
-pillow 
+pillow
+scrapy-selenium

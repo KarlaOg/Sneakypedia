@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Sneaker } from 'src/app/models/sneaker';
+import { FavoritesService } from 'src/app/services/favorites.service';
 import { SneakerService } from 'src/app/services/sneaker/sneaker.service';
+
 
 @Component({
   selector: 'app-sneaker-details',
@@ -24,7 +26,7 @@ import { SneakerService } from 'src/app/services/sneaker/sneaker.service';
             >
               Favoris
             </button>
-            <button type="submit" class="mt-10 w-full bg-orange-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400">
+            <button type="submit" class="mt-10 w-full bg-orange-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400" (click)="addFavoris()">
               Mes sneakers
             </button>
 
@@ -94,7 +96,8 @@ export class SneakerDetailsComponent implements OnInit {
   };
   constructor(
     private sneakerService: SneakerService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute, 
+    private favorisService : FavoritesService
   ) {}
 
   ngOnInit(): void {
@@ -123,5 +126,7 @@ export class SneakerDetailsComponent implements OnInit {
 
   addFavoris(){
     const id : number = this.getIdSneakers(); 
+  
+    // this.favorisService.create()
   }
-}
+} 

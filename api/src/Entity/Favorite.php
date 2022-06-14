@@ -20,6 +20,9 @@ class Favorite
     #[ORM\ManyToMany(targetEntity: User::class, inversedBy: 'favorites')]
     private $userId;
 
+    #[ORM\Column(type: 'string', length: 255)]
+    private $idSneaker;
+
     public function __construct()
     {
         $this->userId = new ArrayCollection();
@@ -50,6 +53,18 @@ class Favorite
     public function removeUserId(User $userId): self
     {
         $this->userId->removeElement($userId);
+
+        return $this;
+    }
+
+    public function getIdSneaker(): ?string
+    {
+        return $this->idSneaker;
+    }
+
+    public function setIdSneaker(string $idSneaker): self
+    {
+        $this->idSneaker = $idSneaker;
 
         return $this;
     }

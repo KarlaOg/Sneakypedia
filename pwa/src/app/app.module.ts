@@ -18,8 +18,8 @@ import { FavoritesComponent } from './components/user-dashboard/favorites/favori
 import { AlertNotificationComponent } from './components/alert/alert.component'
 import { AuthGuard } from './services/user/auth/auth.guard';
 import { JwtModule } from '@auth0/angular-jwt';
-import { ModalComponent } from './modal/modal.component';
-import { SneakersListComponent } from './components/sneakers-list/sneakers-list.component';
+import { ModalComponent } from './components/modal/modal.component';
+import { SneakerFeatureModule } from './sneaker-feature/sneaker-feature.module';
 
 export function tokenGetter() {
   return localStorage.getItem("id_token");
@@ -39,7 +39,7 @@ export function tokenGetter() {
     FavoritesComponent,
     AlertNotificationComponent,
     ModalComponent,
-    SneakersListComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -54,7 +54,8 @@ export function tokenGetter() {
         throwNoTokenError: true,
         skipWhenExpired: true,
       }
-    })
+    }),
+    SneakerFeatureModule
   ],
   providers: [
     {

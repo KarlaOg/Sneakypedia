@@ -1,7 +1,7 @@
 from django.shortcuts import get_object_or_404, render
 from api_django.models import SneakerModel
 from django.views.decorators.csrf import csrf_exempt
-from rest_framework import viewsets
+from rest_framework import viewsets,permissions
 from rest_framework.views import APIView
 from .serializers import SneakerModelSerializer
 from django.http import HttpResponse
@@ -36,8 +36,25 @@ class JsonView(APIView):
 		if serializer.is_valid(raise_exception=True):
 			sneaker_saved=serializer.save()
 		return Response({"success":"Sneaker `{}` created successfully".format(sneaker_saved.label)})
-	
-	def delete(self, request, pk):
+
+	def put(self, request, pk):
+			saved_sneaker = get_object_or_404(SneakerModel.objects.all(), pk=pk)
+			data = request.data.get('sneaker')
+			serializer = SneakerModelSerializer(instance=saved_sneaker, data=data, partial=True)
+
+			if serializer.is_valid(raise_exception=True):
+				sneaker_saved = serializer.save()
+			return Response({"success": "Sneaker '{}' updated successfully".format(sneaker_saved.label)})
+
+
+	def delete(self,request,pk):
 		sneaker = get_object_or_404(SneakerModel.objects.all(), pk=pk)
-		sneaker.delete()
-		return Response({"message":"Sneaker with id `{}` has been deleted".format(pk)},status=204)
+		if self.request.method == 'DELETE':
+			if request.user.is_superuser:
+				sneaker.delete()
+				return Response({"message": "Sneaker with id `{}` has been deleted.".format(pk)},status=204)
+			else:
+				return Response({"message": "You are not authorised to delete a sneaker"},status=401)
+
+		
+	# permission_classes = [permissions.IsAuthenticatedOrReadOnly]

@@ -16,7 +16,8 @@ class SneakersSpider(scrapy.Spider):
             item={
                 "label" : line.css("h3.c-uprelease__title::text").get(),
                 "image" : line.css(".c-uprelease__picture img").xpath('@data-lazy-src').get(),
-                "description" : line.css("p.item-date::text").get(),
-                "price" : line.css("p.item-price::text").get()
+                "description": "",
+                "price" : line.css("p.item-price::text").get(),
+                "release_date" : line.css("p.item-date::text").get()
             }
             yield SneakersItem(**item)

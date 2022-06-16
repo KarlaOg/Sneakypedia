@@ -1,5 +1,5 @@
 export interface Sneaker {
-  id: number,
+  id?: number,
   label?: string,
   image: string,
   description?: string,

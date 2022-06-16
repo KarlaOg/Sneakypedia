@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
+import { SneakerAddComponent } from '../components/sneaker/sneaker-add/sneaker-add.component';
 import { SneakerDetailsComponent } from '../components/sneaker/sneaker-details/sneaker-details.component';
 import { SneakersListComponent } from '../components/sneaker/sneakers-list/sneakers-list.component';
-import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -11,16 +13,20 @@ import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [
     SneakerDetailsComponent,
-    SneakersListComponent
+    SneakersListComponent,
+    SneakerAddComponent
   ],
   imports: [
     CommonModule,
     BrowserModule,
-    RouterModule
-  ], 
-  exports:[
+    RouterModule,
+    FormsModule
+
+  ],
+  exports: [
     SneakersListComponent,
-    SneakerDetailsComponent
+    SneakerDetailsComponent,
+    SneakerAddComponent
   ]
 })
 export class SneakerFeatureModule { }

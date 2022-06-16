@@ -12,6 +12,7 @@ import { NavUserDashboardComponent } from './components/user-dashboard/nav-user-
 import { SneakersListComponent } from './components/sneaker/sneakers-list/sneakers-list.component';
 import { SneakerDetailsComponent } from './components/sneaker/sneaker-details/sneaker-details.component';
 import { AuthGuard } from './services/user/auth/auth.guard';
+import { SneakerAddComponent } from './components/sneaker/sneaker-add/sneaker-add.component';
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'calendar', component: CalendarComponent },
   { path: 'sneakers', component: SneakersListComponent },
   { path: 'sneakers/:id', component: SneakerDetailsComponent },
+  { path: 'sneaker/add', component: SneakerAddComponent },
   {
     path: 'compte', component: NavUserDashboardComponent, canActivate: [AuthGuard], children: [
       { path: 'detail', component: AccountComponent },

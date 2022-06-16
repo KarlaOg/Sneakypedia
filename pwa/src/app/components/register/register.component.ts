@@ -21,7 +21,7 @@ import { UserService } from '../../services/user/user.service';
     <div *ngIf="error"class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
        {{ this.errorService.handleError}}
       </div>
-    <form [formGroup]="form" #registerForm="ngForm" class="mt-8 space-y-6" action="#" method="POST">
+    <form [formGroup]="form" (ngSubmit)="register()" #registerForm="ngForm" class="mt-8 space-y-6">
       <input type="hidden" name="remember" value="true">
       <div class="rounded-md shadow-sm -space-y-px">
         <div>
@@ -53,7 +53,7 @@ import { UserService } from '../../services/user/user.service';
 
 
       <div>
-        <button (click)="register()"type="submit" class="group relative w-full flex justify-center py-2 px-4 border border-black text-sm font-medium rounded-md text-black hover:bg-orange-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-400">
+        <button type="submit" class="group relative w-full flex justify-center py-2 px-4 border border-black text-sm font-medium rounded-md text-black hover:bg-orange-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-400">
           <span class="absolute left-0 inset-y-0 flex items-center pl-3">
             <!-- Heroicon name: solid/lock-closed -->
             <svg class="h-5 w-5 text-black group-hover:text-black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">

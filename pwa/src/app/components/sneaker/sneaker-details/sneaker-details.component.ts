@@ -1,14 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Favorites } from 'src/app/models/favorites';
 import { Sneaker } from 'src/app/models/sneaker';
+import { ErrorService } from 'src/app/services/error.service';
 import { FavoritesService } from 'src/app/services/favorites.service';
 import { SneakerService } from 'src/app/services/sneaker/sneaker.service';
+import { UserService } from 'src/app/services/user/user.service';
 
 
 @Component({
   selector: 'app-sneaker-details',
   template: `
     <div class="bg-white pt-16">
+    <div *ngIf="error"class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
+       {{ this.errorService.handleError}}
+      </div>
       <div>
         <div class="max-w-2xl mx-auto pt-10 pb-16 px-4 sm:px-6 lg:max-w-7xl lg:pt-16 lg:pb-24 lg:px-8 lg:grid lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8">
           <div class="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
@@ -21,28 +27,29 @@ import { SneakerService } from 'src/app/services/sneaker/sneaker.service';
           <div class="mt-4 lg:mt-0 lg:row-span-3">
             <h2 class="sr-only">Product information</h2>
             <button
+              (click)="addFavoris()"
               type="submit"
               class="mt-10 w-full bg-orange-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400"
             >
               Favoris
             </button>
-            <button type="submit" class="mt-10 w-full bg-orange-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400" (click)="addFavoris()">
+            <button type="submit" class="mt-10 w-full bg-orange-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400" >
               Mes sneakers
             </button>
 
-            <button
+            <a routerLink="/sneaker/add" 
               type="submit"
               class="mt-10 w-full bg-orange-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400"
             >
               Ajouter une paire 
-            </button>
+            </a>
           </div>
 
           <div class=" py-0lg:pt-6 lg:pb-16 lg:col-start-1 lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
 
             <div class="mt-6 max-w-2xl mx-auto lg:max-w-7xl lg:gap-x-8 py-6">
               <div
-                class="hidden aspect-w-3 aspect-h-4 overflow-hidden lg:block"
+                class=" aspect-w-3 aspect-h-4 overflow-hidden lg:block"
               >
                 <img
                   src="{{ detailsItem.image }}"
@@ -88,17 +95,20 @@ export class SneakerDetailsComponent implements OnInit {
     description: string;
     price: number;
   } = {
-    id: 0,
-    label: '',
-    image: '',
-    description: '',
-    price: 0,
-  };
+      id: 0,
+      label: '',
+      image: '',
+      description: '',
+      price: 0,
+    };
+  error!: [];
   constructor(
     private sneakerService: SneakerService,
-    private route: ActivatedRoute, 
-    private favorisService : FavoritesService
-  ) {}
+    private route: ActivatedRoute,
+    private favorisService: FavoritesService,
+    private userService: UserService,
+    public errorService: ErrorService
+  ) { }
 
   ngOnInit(): void {
     this.getDetailProducts();
@@ -124,9 +134,23 @@ export class SneakerDetailsComponent implements OnInit {
       });
   }
 
-  addFavoris(){
-    const id : number = this.getIdSneakers(); 
-  
-    // this.favorisService.create()
+  addFavoris()  {
+    this.errorService.handleError
+    const idSneaker: number = this.getIdSneakers();
+    const idUser = this.userService.decodeToken().id;
+    const currentUserFavoris: Favorites = {
+      'userId': `users/${idUser.toString()}`,
+      'idSneaker': idSneaker.toString()
+    }
+    this.favorisService.create(currentUserFavoris)
+      .subscribe(
+        {
+          error: (e) => this.error = e,
+        }
+      )
   }
+
+ 
+
+
 } 

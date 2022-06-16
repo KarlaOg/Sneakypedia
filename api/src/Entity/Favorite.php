@@ -7,16 +7,18 @@ use App\Repository\FavoriteRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: FavoriteRepository::class)]
-#[ApiResource]
+#[ApiResource()]
 class Favorite
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
     private $id;
-
+    
+    #[Groups(["read:Post"])]
     #[ORM\ManyToMany(targetEntity: User::class, inversedBy: 'favorites')]
     private $userId;
 

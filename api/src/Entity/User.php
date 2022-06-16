@@ -17,7 +17,7 @@ use Symfony\Component\Security\Core\Validator\Constraints as SecurityAssert;
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[ORM\Table(name: '`user`')]
 #[ApiResource(
-    normalizationContext: ['groups' => ['read']],
+    normalizationContext: ['groups' => ['read', 'read:Post']],
     denormalizationContext: ['groups' => ['write']],
     collectionOperations: [
         "get",
@@ -25,7 +25,7 @@ use Symfony\Component\Security\Core\Validator\Constraints as SecurityAssert;
     ], 
     itemOperations:[
         "get",
-        "patch" => ["security" => "object.owner == user"],
+        "put" => ["security" => "object.owner == user" ],
         "delete" => ["security" => "is_granted('ROLE_ADMIN')"],
     ],
 )]

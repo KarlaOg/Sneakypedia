@@ -11,3 +11,7 @@
     ErrorLog /var/log/apache2/project_error.log
     CustomLog /var/log/apache2/project_access.log combined
 </VirtualHost>
+
+<ifModule mod_rewrite.c>
+RewriteEngine On
+</ifModule>

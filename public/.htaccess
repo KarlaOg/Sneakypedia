@@ -1,5 +1,8 @@
 <VirtualHost *:80>
-    ServerName api-sneakypedia.herokuapp.com
-    DocumentRoot /var/www/public 
-    Redirect permanent / https://api-sneakypedia.herokuapp.com/
- </VirtualHost>
+  ServerName api-sneakypedia.herokuapp.com
+  DocumentRoot /var/www/public
+
+  <Directory "/var/www/public">
+  AllowOverride All
+  </Directory>
+</VirtualHost>

@@ -6,6 +6,8 @@ os.environ['DJANGO_SETTINGS_MODULE'] = 'api_django.settings'
 # need to explicitly setup the django
 import django
 django.setup()
+from shutil import which
+
 
 SPIDER_MODULES = ['api_django.scrapper.spiders']
 NEWSPIDER_MODULE = 'api_django.scrapper.spiders'
@@ -22,3 +24,7 @@ ITEM_PIPELINES = {
    'api_django.scrapper.pipelines.SneakerPricePipeline': 200,
    'api_django.scrapper.pipelines.ScraperPipeline': 400,
 }
+
+# SELENIUM_DRIVER_NAME = 'chrome'
+# SELENIUM_COMMAND_EXECUTOR = 'http://localhost:4444/wd/hub'
+# SELENIUM_DRIVER_ARGUMENTS=['-headless']  # '--headless' if using chrome instead of firefox

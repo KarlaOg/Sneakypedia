@@ -22,7 +22,8 @@ class SneakerModel(models.Model):
     label  = models.CharField(max_length=200)
     image  = models.CharField(max_length=200)
     description = models.CharField(max_length=200)
-    price = models.CharField(max_length=200)
+    release_date = models.CharField(max_length=200)
+    price = models.DecimalField(max_digits=5, decimal_places=2)
 
 class Sneakers(DeclarativeBase):
     """Sqlalchemy sneakers model"""
@@ -32,4 +33,5 @@ class Sneakers(DeclarativeBase):
     label = Column('label', String)
     image = Column('image', String, nullable=True)
     description = Column('description', String, nullable=True)
+    release_date = Column('release_date', String, nullable=True)
     price = Column('price', Float, nullable=True)

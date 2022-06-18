@@ -8,6 +8,10 @@ from django.http import HttpResponse
 from rest_framework.response import Response
 import base64
 import urllib.request
+from django.db.models import Q 
+from django.views.generic import  ListView
+from django.core import serializers
+
 
 @csrf_exempt
 def index(request):
@@ -63,10 +67,16 @@ class JsonView(APIView):
 			else:
 				return Response({"message": "You are not authorised to delete a sneaker"},status=401)
 
-		
-	# permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+	permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
-
-
+class SearchResults(ListView):
+	model = SneakerModel
+	def get_queryset(self):
+		query = self.request.GET.get("name")
+		object_list = SneakerModel.objects.filter(
+        	Q(label__icontains=query)
+        )
+		return object_list
+	
 def get_as_base64(url):
 	return base64.b64encode(urllib.request.urlopen(url).read())

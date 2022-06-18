@@ -23,6 +23,7 @@ INSTALLED_APPS = [
     'api_django',
     'rest_framework',
     "corsheaders",
+    "django_elasticsearch_dsl",
 ]
 
 MIDDLEWARE = [
@@ -57,6 +58,10 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+            'libraries':{
+            'tags': 'api_django.templatetags.tags',
+            
+            }
         },
     },
 ]
@@ -110,3 +115,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+ELASTICSEARCH_DSL={
+    'default': {
+        'hosts': 'localhost:9200'
+    },
+}

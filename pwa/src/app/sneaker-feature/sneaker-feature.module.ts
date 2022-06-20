@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 import { SneakerAddComponent } from '../components/sneaker/sneaker-add/sneaker-add.component';
 import { SneakerDetailsComponent } from '../components/sneaker/sneaker-details/sneaker-details.component';
 import { SneakersListComponent } from '../components/sneaker/sneakers-list/sneakers-list.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -20,7 +20,8 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     BrowserModule,
     RouterModule,
-    FormsModule
+    FormsModule, 
+    ReactiveFormsModule
 
   ],
   exports: [

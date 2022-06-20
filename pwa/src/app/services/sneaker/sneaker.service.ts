@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Sneaker } from 'src/app/models/sneaker';
 
 
-const baseUrl = 'http://127.0.0.1:8000/api/sneakers';
+const baseUrl = 'http://127.0.0.1:8000/api/sneakers/';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +15,7 @@ export class SneakerService {
     return this.http.get<any[]>(baseUrl);
   }
   get(id:number) {
-    return this.http.get<any[]>(`${baseUrl}/${id}`);
+    return this.http.get<any[]>(`${baseUrl}${id}`);
   }
   create(sneaker: any) {
     return this.http.post<any>(baseUrl, sneaker);

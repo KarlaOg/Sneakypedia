@@ -9,9 +9,14 @@ import { UserService } from 'src/app/services/user/user.service';
 export class HomeComponent implements OnInit {
   
   showMessage: boolean = false;
+  success : string = " Test"
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onHandleSuccess() {
+    this.success = '';
   }
 
 } 

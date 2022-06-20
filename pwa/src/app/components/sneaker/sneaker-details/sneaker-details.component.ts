@@ -26,23 +26,26 @@ import { UserService } from 'src/app/services/user/user.service';
           <!-- Options -->
           <div class="mt-4 lg:mt-0 lg:row-span-3">
             <h2 class="sr-only">Product information</h2>
-            <button
+            
+            <button 
+              [disabled]="this.statusUser === false"
               (click)="addFavoris()"
               type="submit"
-              class="mt-10 w-full bg-orange-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400"
+              class="mt-10 w-full bg-orange-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400  disabled:opacity-75"
             >
               Favoris
             </button>
-            <button type="submit" class="mt-10 w-full bg-orange-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400" >
-              Mes sneakers
-            </button>
+       
 
-            <a routerLink="/sneaker/add" 
+            <button 
+              [disabled]="this.statusUser === false"
+              routerLink="/sneaker/add" 
               type="submit"
-              class="mt-10 w-full bg-orange-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400"
+              class="mt-10 w-full bg-orange-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400  disabled:opacity-75"
             >
               Ajouter une paire 
-            </a>
+            </button>
+          
           </div>
 
           <div class=" py-0lg:pt-6 lg:pb-16 lg:col-start-1 lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
@@ -59,12 +62,12 @@ import { UserService } from 'src/app/services/user/user.service';
               </div>
             </div>
             <div>
-              <h3 class="sr-only">Description</h3>
-              <h2 class="text-base font-medium text-gray-900">
+              <h3 class="sr-only"> Date de sortie</h3>
+              <h2 class="text-xl font-medium text-gray-900">
                 Date de sortie
               </h2>
               <p class="text-base text-gray-600">
-                {{ detailsItem.description }}
+                {{ detailsItem.release_date }}
               </p>
               <div class="space-y-6">
                 <p class="text-base text-gray-900"></p>
@@ -72,10 +75,20 @@ import { UserService } from 'src/app/services/user/user.service';
             </div>
 
             <div class="mt-10">
-              <h2 class="text-base font-medium text-gray-900">Details</h2>
-
-              <div class="mt-4 space-y-6">
-                <p class="text-sm text-gray-600"></p>
+              <h2 class="text-xl font-medium text-gray-900">Description</h2>
+              <div *ngIf="detailsItem.description.length === 0 &&  this.statusUser === false " else showDescription class="mt-4 space-y-6">
+              <p class="text-xl font-semibold italic  text-gray-600">
+              <span class="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-orange-600 relative inline-block">
+                <span class="relative text-white">
+                <a  routerLink="/connexion"> Connectez-vous</a> 
+              </span>
+                </span>
+              
+              pour ajouter une description !  
+                </p>
+                <p #showDescription class="text-base text-gray-600">
+                {{detailsItem.description}}
+                </p>
               </div>
             </div>
           </div>
@@ -88,16 +101,20 @@ import { UserService } from 'src/app/services/user/user.service';
 export class SneakerDetailsComponent implements OnInit {
   id: number | undefined;
   private sub: any;
+  statusUser: boolean | undefined;
+
   detailsItem: {
     id: number;
     label: string;
     image: string;
+    release_date: string;
     description: string;
     price: number;
   } = {
       id: 0,
       label: '',
       image: '',
+      release_date: '',
       description: '',
       price: 0,
     };
@@ -108,16 +125,21 @@ export class SneakerDetailsComponent implements OnInit {
     private favorisService: FavoritesService,
     private userService: UserService,
     public errorService: ErrorService
-  ) { }
+  ) {
+
+  }
 
   ngOnInit(): void {
     this.getDetailProducts();
+    this.isUserLogIn();
+    console.log(this.statusUser)
+
+
   }
 
   getIdSneakers(): number {
     this.sub = this.route.params.subscribe((params) => {
-      this.id = +params['id']; // (+) converts string 'id' to a number
-      // In a real app: dispatch action to load the details here
+      this.id = +params['id'];
     });
 
     return this.id !== undefined ? this.id : 0;
@@ -134,7 +156,7 @@ export class SneakerDetailsComponent implements OnInit {
       });
   }
 
-  addFavoris()  {
+  addFavoris() {
     this.errorService.handleError
     const idSneaker: number = this.getIdSneakers();
     const idUser = this.userService.decodeToken().id;
@@ -150,7 +172,15 @@ export class SneakerDetailsComponent implements OnInit {
       )
   }
 
- 
+  isUserLogIn(): void {
+    this.userService.isLoggedIn.subscribe(
+      value => this.statusUser = value
+    )
+  }
+
+
+
+
 
 
 } 

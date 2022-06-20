@@ -16,7 +16,7 @@ import { UserService } from 'src/app/services/user/user.service';
        {{ this.errorService.handleError}}
       </div>
       <div>
-        <div class="max-w-2xl mx-auto pt-10 pb-16 px-4 sm:px-6 lg:max-w-7xl lg:pt-16 lg:pb-24 lg:px-8 lg:grid lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8">
+        <div class="max-w-2xl mx-auto pt-10 pb-16 px-4 sm:px-6 lg:max-w-7xl lg:pt-16 lg:pb-24 lg:px-8 grid lg:grid-cols-2  lg:gap-x-8">
           <div class="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
             <h1 class="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl">
               {{ detailsItem.label }}
@@ -24,29 +24,7 @@ import { UserService } from 'src/app/services/user/user.service';
             <p class="text-3xl text-gray-900">{{ detailsItem.price }}€</p>
           </div>
           <!-- Options -->
-          <div class="mt-4 lg:mt-0 lg:row-span-3">
-            <h2 class="sr-only">Product information</h2>
-            
-            <button 
-              [disabled]="this.statusUser === false"
-              (click)="addFavoris()"
-              type="submit"
-              class="mt-10 w-full bg-orange-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400  disabled:opacity-75"
-            >
-              Favoris
-            </button>
-       
-
-            <button 
-              [disabled]="this.statusUser === false"
-              routerLink="/sneaker/add" 
-              type="submit"
-              class="mt-10 w-full bg-orange-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400  disabled:opacity-75"
-            >
-              Ajouter une paire 
-            </button>
           
-          </div>
 
           <div class=" py-0lg:pt-6 lg:pb-16 lg:col-start-1 lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
 
@@ -84,8 +62,33 @@ import { UserService } from 'src/app/services/user/user.service';
               </span>
                 </span>
               
-              pour ajouter une description !  
+              pour intéragir avec cette paire de SNEAKER ! 
                 </p>
+                <div>
+                <div class="mt-4 lg:mt-0 lg:row-span-3">
+              <h2 class="sr-only">Product information</h2>
+            
+            <button 
+              [disabled]="this.statusUser === false"
+              (click)="addFavoris()"
+              type="submit" 
+              class="mt-10 w-full bg-orange-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400  disabled:opacity-75"
+            >
+              Favoris
+            </button>
+       
+
+            <button 
+              [disabled]="this.statusUser === false"
+              routerLink="/sneaker/add" 
+              type="submit"
+              class="mt-10 w-full bg-orange-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400  disabled:opacity-75"
+            >
+              Ajouter une paire 
+            </button>
+          
+          </div>
+                </div>
                 <p #showDescription class="text-base text-gray-600">
                 {{detailsItem.description}}
                 </p>

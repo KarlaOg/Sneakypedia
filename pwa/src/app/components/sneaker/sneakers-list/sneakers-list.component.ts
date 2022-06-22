@@ -43,13 +43,11 @@ export class SneakersListComponent implements OnInit {
     return this.sneakerService.getAll()
       .subscribe(objectOfSneakers => {
         for (const value of Object.values(objectOfSneakers)) {
-          return this.allSneakers = value
+          this.allSneakers = value
         } 
-        console.info(this.allSneakers)
+        console.info(objectOfSneakers)
         return objectOfSneakers
       
       });
-    
-
   }
 }

@@ -105,7 +105,7 @@ export class RegisterComponent implements OnInit {
           {
             next: () => this.success = "Inscription réussie. Veuillez vous connecter.",
             error: (e) => this.error = e,
-            complete: () => this.router.navigateByUrl('../connexion')
+            complete: () => this.router.navigateByUrl('/connexion')
           }
         );
     }

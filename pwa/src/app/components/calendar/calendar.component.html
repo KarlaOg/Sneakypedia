@@ -1,5 +1,29 @@
 <section class="relative">
-  <div class="container px-auto mx-auto">
-    <p>this is calendar</p>
+  <div
+    class="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8"
+  >
+    <div class="grid  grid-cols-1 2xl:grid-cols-5 lg:grid-cols-3 md:grid-cols-2   gap-2">
+      <div *ngFor="let item of allSneakers">
+        <div class="text-xl font-semibold italic text-gray-600">
+          <span
+            class="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-orange-600 relative inline-block"
+          >
+            <span class="relative text-white">
+              <p routerLink="/connexion"> {{ item.release_date }}</p>
+            </span>
+          </span>
+        </div>
+
+        <a [routerLink]="['../sneakers', item.id]" class="group w-3/4 h-3/4">
+          <img
+            src="{{ item.image }}"
+            alt="Images of different sneakers"
+            class="w-3/4 h-3/4 object-center object-cover group-hover:opacity-75"
+          />
+
+          <h3 class="mt- 4 text-sm text-gray-700">{{ item.label }}</h3>
+        </a>
+      </div>
+    </div>
   </div>
 </section>

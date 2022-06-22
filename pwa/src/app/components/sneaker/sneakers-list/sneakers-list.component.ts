@@ -18,7 +18,6 @@ import { SneakerService } from 'src/app/services/sneaker/sneaker.service';
             <img src='{{item.image}}' alt="Images of different sneakers" class="w-full h-full object-center object-cover group-hover:opacity-75">
           </div>
           <h3 class="mt- 4 text-sm text-gray-700"> {{item.label}}</h3>
-          <p class="mt-1 text-lg font-medium text-gray-900"> {{item.price}}€</p>
         </a>
        
 

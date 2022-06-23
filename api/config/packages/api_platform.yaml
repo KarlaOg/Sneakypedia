@@ -1,7 +1,16 @@
 api_platform:
+    title: 'Sneaky API'
+    description: 'Sneakypedia is a website that references sneakers'
+    version: '1.0.0'
+    show_webby: false 
     mapping:
-        paths: ['%kernel.project_dir%/src/Entity']
+        paths: ["%kernel.project_dir%/src/Entity"]
     patch_formats:
-        json: ['application/merge-patch+json']
+        json: ["application/merge-patch+json"]
+        jsonapi: ["application/vnd.api+json"]
     swagger:
         versions: [3]
+        api_keys:
+            apiKey:
+                name: Authorization
+                type: header

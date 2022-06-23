@@ -10,6 +10,7 @@ export class FavoritesComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    
   }
 
 }

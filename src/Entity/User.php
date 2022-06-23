@@ -9,14 +9,28 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use ApiPlatform\Core\Annotation\ApiResource;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
-use Symfony\Component\Security\Core\Validator\Constraints as SecurityAssert;
 
 
-#[ApiResource]
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[ORM\Table(name: '`user`')]
+#[UniqueEntity(fields: "email", message: "L'email est déjà utilisé")]
+#[ApiResource(
+    normalizationContext: ['groups' => ['user:read']],
+    denormalizationContext: ['groups' => ['user:write']],
+    collectionOperations: [
+        "get" => ["security" => "is_granted('ROLE_ADMIN')"],
+        "post" 
+    ],
+    itemOperations: [
+        "get",
+        "put" => ["security" => "object.owner == user"],
+        "delete" => ["security" => "is_granted('ROLE_ADMIN')"],
+    ],
+)]
+
 
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
@@ -27,29 +41,33 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[Assert\NotBlank]
     #[Assert\Email(
-        message: 'The email {{ value }} is not a valid email.',
+        message: "L'email '{{ value }}' n'est pas un email valide.",
     )]
+    #[Groups(["user:read", "user:write"])]
     #[ORM\Column(type: 'string', length: 180, unique: true)]
     private $email;
-
+    
     #[ORM\Column(type: 'json')]
     private $roles = [];
 
-    #[Groups("write")]
+    #[Groups("user:write")]
     #[Assert\NotBlank]
     #[ORM\Column(type: 'string')]
     private $password;
 
+    #[Groups(["user:read", "user:write"])]
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $firstname;
 
+    #[Groups(["user:read", "user:write"])]
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $lastname;
 
-
+    #[Groups(["user:read", "user:write"])]
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $photo;
 
+    #[Groups(["user:read", "user:write"])]
     #[ORM\ManyToMany(targetEntity: Favorite::class, mappedBy: 'userId')]
     private $favorites;
 

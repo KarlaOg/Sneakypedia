@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Sneaker } from 'src/app/models/sneaker';
 
-
+const searchUrl = 'http://127.0.0.1:8000/api/search/';
 const baseUrl = 'http://127.0.0.1:8000/api/sneakers/';
 
 @Injectable({
@@ -30,6 +30,6 @@ export class SneakerService {
     return this.http.delete(baseUrl);
   }
   findByTitle(label:string) {
-    return this.http.get(`${baseUrl}?label=${label}`);
+    return this.http.get(`${searchUrl}?name=${label}`);
   }
 }

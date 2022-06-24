@@ -12,6 +12,7 @@ export class FilterByLabelPipe implements PipeTransform {
      this.sneakerService.findByTitle(filterText)
      .subscribe(objectOfSneakers => {
       for (const value of Object.values(objectOfSneakers)) {
+        console.log(value)
         return this.sneakersByLabel = value
       } 
       console.info(this.sneakersByLabel)

@@ -1,15 +1,24 @@
 import os
 
+import environ
+import django_heroku
+
+django_heroku.settings(locals())
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+env = environ.Env()
+# reading .env file
+environ.Env.read_env()
+
+# Raises django's ImproperlyConfigured exception if SECRET_KEY not in os.environ
+SECRET_KEY = env("SECRET_KEY")
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
-
-SECRET_KEY = 'doskromskroaozejo'
-
 
 # Application definition
 
@@ -35,6 +44,7 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
 CORS_ALLOWED_ORIGINS = [
@@ -75,21 +85,21 @@ DATABASES = {
     },
     'users':{
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'db',
-        'USER': 'user',
-        'PASSWORD': 'password',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'NAME': env("DATABASE_NAME"),
+        'USER': env("DATABASE_USER"),
+        'PASSWORD': env("DATABASE_PASSWORD"),
+        'HOST': env("DATABASE_HOST"),
+        'PORT': env("DATABASE_PORT"),
     }
 }
 
 DATABASE = {
     'drivername': 'postgresql',
-    'host': 'localhost',
-    'port': '5432',
-    'username': 'user',
-    'password': 'password',
-    'database': 'db'
+    'host':  env("DATABASE_HOST"),
+    'port': env("DATABASE_PORT"),
+    'username': env("DATABASE_USER"),
+    'password': env("DATABASE_PASSWORD"),
+    'database':env("DATABASE_NAME"),
 }
 
 LANGUAGE_CODE = 'fr'
@@ -113,3 +123,10 @@ ELASTICSEARCH_DSL={
         'hosts': 'localhost:9200'
     },
 }
+
+SECURE_HSTS_SECONDS = 3600
+SECURE_SSL_REDIRECT = True
+SECURE_HSTS_PRELOAD = True
+SESSION_COOKIE_SECURE = True
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+CSRF_COOKIE_SECURE = True

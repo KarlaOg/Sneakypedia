@@ -3,6 +3,6 @@ from django.core.serializers import serialize
 
 register = template.Library()
 
-@register.filter(name="json")
-def json(queryset):
+@register.filter
+def json_filter(queryset):
     return serialize('json', queryset)

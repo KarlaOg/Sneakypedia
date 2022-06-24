@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-pagenotfound',
   template: ` 
   <section class="relative">
-  <div class="container px-5 pt-44 mx-auto">
+  <div class="container px-auto mx-auto">
     <div class="md:w-2/3 mx-auto">
       <div class="flex flex-wrap -m-2">
         <div class="p-1 w-full">

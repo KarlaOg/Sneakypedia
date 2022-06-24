@@ -4,4 +4,5 @@ export interface Sneaker {
   image: string,
   description?: string,
   price: number,
+  release_date: string, 
 }

@@ -24,6 +24,7 @@ INSTALLED_APPS = [
     'rest_framework',
     "corsheaders",
     "django_elasticsearch_dsl",
+    "api_django.templatetags.tags",
 ]
 
 MIDDLEWARE = [

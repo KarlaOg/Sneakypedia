@@ -28,7 +28,10 @@
             <div class="max-w-lg flex">
               <span
                 class="text-xs pb-2 text-zinc-500"
-                *ngIf="!label.valid && label.touched"
+                *ngIf="
+                  !addFormSneaker.get('label')?.valid &&
+                  addFormSneaker.get('label')?.touched
+                "
                 >Veuillez entrer un nom de sneaker.</span
               >
             </div>
@@ -40,7 +43,6 @@
                 required
                 class="form-control rounded-md flex-1 block w-full focus:border-orange-600 min-w-0 sm:text-sm border-gray-300"
                 placeholder=" Air Jordan 3 « Neapolitan »"
-                ngModel
                 formControlName="label"
               />
             </div>
@@ -58,10 +60,9 @@
           </label>
           <div class="mt-1 sm:mt-0 sm:col-span-2">
             <div class="max-w-lg flex">
-              <span
-                class="text-xs pb-2 text-zinc-500"
-                *ngIf="!price.valid && price.touched"
-              >
+              <span class="text-xs pb-2 text-zinc-500" *ngIf="
+              !addFormSneaker.get('price')?.valid &&
+              addFormSneaker.get('price')?.touched">
                 Veuillez entrer un prix.
               </span>
             </div>
@@ -90,9 +91,9 @@
           </label>
           <div class="mt-1 sm:mt-0 sm:col-span-2">
             <div class="max-w-lg flex">
-              <span
-                class="text-xs pb-2 text-zinc-500"
-                *ngIf="!description.valid && description.touched"
+              <span class="text-xs pb-2 text-zinc-500" *ngIf="
+              !addFormSneaker.get('release_date')?.valid &&
+              addFormSneaker.get('release_date')?.touched"
                 >Veuillez entrer une date valide.</span
               >
             </div>
@@ -103,23 +104,34 @@
                 required
                 class="bg-gray-50 form-control rounded-md flex-1 block w-full focus:border-orange-600 min-w-0 sm:text-sm border border-gray-300 text-gray-900 focus:ring-orange-500 p-2.5"
                 placeholder="Choisissez une date"
-                ngModel
-                #description="ngModel"
+                formControlName="release_date"
               />
             </div>
           </div>
         </div>
 
-        <!-- <div class="form-group sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
-            <label for="details" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
-              Détails
-            </label>
-            <div class="mt-1 sm:mt-0 sm:col-span-2">
-              <div class="max-w-lg flex rounded-md shadow-sm">
-                <textarea name="details" id="details" cols="30" rows="10"  required class=" form-control rounded-md  flex-1 block w-full  focus:border-orange-600 min-w-0  sm:text-sm border-gray-300" ngModel ></textarea>
-              </div>
+        <div
+          class="form-group sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5"
+        >
+          <label
+            for="description"
+            class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"
+          >
+            Description
+          </label>
+          <div class="mt-1 sm:mt-0 sm:col-span-2">
+            <div class="max-w-lg flex rounded-md shadow-sm">
+              <textarea
+                formControlName="description"
+                name="description"
+                id="description"
+                rows="10"
+                required
+                class="form-control rounded-md flex-1 block w-full focus:border-orange-600 min-w-0 sm:text-sm border-gray-300"
+              ></textarea>
             </div>
-          </div> -->
+          </div>
+        </div>
 
         <div
           class="form-group sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5"
@@ -154,11 +166,10 @@
                     type="file"
                     name="image"
                     (change)="onFileChanged($event)"
-                    class=" form-control rounded bg-gray-100 text-xs pr-2"
+                    class="form-control rounded bg-gray-100 text-xs pr-2"
                     required
                     accept="JPG"
-                    ngModel
-                    #image="ngModel"
+                    aria-label="file download"
                   />
                 </div>
                 <p class="text-xs text-gray-500">JPG jusqu'à 10MB</p>
@@ -178,7 +189,7 @@
           Annuler
         </button>
         <button
-          [disabled]="!f.valid"
+          [disabled]=""
           type="submit"
           class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-orange-500 hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2"
         >
@@ -188,4 +199,3 @@
     </div>
   </form>
 </div>
-`,

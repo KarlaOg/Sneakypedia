@@ -21,7 +21,7 @@ const routes: Routes = [
   { path: 'calendar', component: CalendarComponent },
   { path: 'sneakers', component: SneakersListComponent },
   { path: 'sneakers/:id', component: SneakerDetailsComponent },
-  { path: 'sneaker/add', component: SneakerAddComponent },
+  { path: 'sneaker/add', component: SneakerAddComponent , canActivate: [AuthGuard] },
   {
     path: 'compte', component: NavUserDashboardComponent, canActivate: [AuthGuard], children: [
       { path: 'detail', component: AccountComponent },

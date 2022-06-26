@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from models import SneakerModel
+from sneakers.models import SneakerModel
 
 class SneakerModelSerializer(serializers.ModelSerializer):
     class Meta:

@@ -20,16 +20,15 @@ ALLOWED_HOSTS = ['sneakypedia-django-api.herokuapp.com']
 # Application definition
 
 INSTALLED_APPS = [
+    'sneakers.apps.ApiPythonConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'PA_2022.api_django',
     'rest_framework',
     "corsheaders",
-    # "django_elasticsearch_dsl",
     "templatetags.tags",
 ]
 

@@ -1,9 +1,9 @@
 from django.shortcuts import get_object_or_404, render
-from models import SneakerModel
+from sneakers.models import SneakerModel
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework import viewsets,permissions
 from rest_framework.views import APIView
-from .serializers import SneakerModelSerializer
+from sneakers.serializers import SneakerModelSerializer
 from django.http import HttpResponse
 from rest_framework.response import Response
 import base64

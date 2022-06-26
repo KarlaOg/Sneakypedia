@@ -14819,6 +14819,7 @@ PHP message: [debug] Notified event "kernel.finish_request" to listener "Symfony
 PHP message: [debug] Notified event "kernel.finish_request" to listener "Symfony\Component\HttpKernel\EventListener\RouterListener::onKernelFinishRequest".
 PHP message: [debug] Notified event "kernel.finish_request" to listener "Symfony\Bundle\SecurityBundle\Debug\TraceableFirewallListener::onKernelFinishRequest".
 PHP message: [debug] Notified event "kernel.finish_request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleAwareListener::onKernelFinishRequest"" while reading response header from upstream, client: 172.18.0.1, server: localhost, request: "GET /api/sneakers HTTP/1.1", upstream: "fastcgi://172.18.0.4:9000", host: "localhost"
+<<<<<<< HEAD
 2022/06/26 14:50:00 [error] 33#33: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 172.19.0.1, server: localhost, request: "GET /api HTTP/1.1", upstream: "fastcgi://172.19.0.4:9000", host: "localhost"
 2022/06/26 14:50:00 [error] 33#33: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 172.19.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", upstream: "fastcgi://172.19.0.4:9000", host: "localhost", referrer: "http://localhost/api"
 2022/06/26 14:57:45 [error] 34#34: *5 FastCGI sent in stderr: "PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\DebugHandlersListener::configure".
@@ -15126,3 +15127,5 @@ PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Compo
 PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Bundle\WebProfilerBundle\EventListener\WebDebugToolbarListener::onKernelResponse".
 PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\EventListener\DisallowRobotsIndexingListener::onResponse".
 PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\EventListener\SessionLi
+=======
+>>>>>>> b3775c0246ce93907394adeb22dfaf1fb61cce5e

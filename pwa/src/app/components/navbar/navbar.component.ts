@@ -5,7 +5,11 @@ import { UserService } from 'src/app/services/user/user.service';
 @Component({
   selector: 'app-navbar',
   template: `
+<<<<<<< HEAD
     <nav class="bg-white border-gray-200 px-2 sm:px-4 pl-2 rounded  bg-white border-gray-200 p-3 sm:px-4  sm:shadow  zinc:300  h-16 fixed top-0 left-0 right-0 z-50">
+=======
+    <nav class="bg-white border-gray-200 px-2 sm:px-4 pl-2 rounded  bg-white border-gray-200 p-3 sm:px-4  shadow  zinc:300  h-16 fixed top-0 left-0 right-0 z-50">
+>>>>>>> b3775c0246ce93907394adeb22dfaf1fb61cce5e
       <div class="container flex flex-wrap justify-between items-center mx-auto">
         <a href="#" class="flex items-center">
           <span class="self-center text-xl text-zinc-900 font-semibold whitespace-nowrap ml-2">SNEAKYPEDIA</span>
@@ -44,11 +48,19 @@ import { UserService } from 'src/app/services/user/user.service';
               >
             </li>
             <li>
+<<<<<<< HEAD
               <a  routerLink="../sneakers" href="" class="  hover:underline-offset-4 uppercase text-sm block text-base py-2 pr-4 pl-3  hover:underline-offset-4 text-zinc-900   md:hover:text-gray-300 md:hover:bg-transparent md:border-0 md:hover:text-gray-300 md:p-0 md:hover:text-orange-600 "> Sneakers</a>
             </li>
 
             <li *ngIf="user.isLoggedOut | async" routerLinkActive="active">
               <a routerLink="../connexion" class=" hover:underline-offset-4 uppercase block text-sm py-2 pr-4 pl-3 text-zinc-900  hover:bg-gray-50 md:hover:bg-transparent md:border-0  md:hover:text-orange-600 md:hover:text-gray-700 md:p-0 ">Connexion</a>
+=======
+              <a  routerLink="../sneakers" href="" class="  uppercase block py-2 pr-4 pl-3 text-sm text-zinc-900  hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-orange-600 md:p-0 "> Sneakers</a>
+            </li>
+
+            <li *ngIf="user.isLoggedOut | async" routerLinkActive="active">
+              <a routerLink="../connexion" class="uppercase block py-2 pr-4 pl-3 text-sm text-zinc-900  hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-orange-600 md:p-0 ">Connexion</a>
+>>>>>>> b3775c0246ce93907394adeb22dfaf1fb61cce5e
             </li>
 
             <li *ngIf="user.isLoggedIn | async" routerLinkActive="active">
@@ -60,7 +72,11 @@ import { UserService } from 'src/app/services/user/user.service';
 
             </li>
             <li *ngIf="user.isLoggedIn | async" routerLinkActive="active">
+<<<<<<< HEAD
               <a (click)="logout()" class=" hover:underline-offset-4  uppercase block py-2 pr-4 pl-3 text-sm text-zinc-900  hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-orange-600 md:p-0">
+=======
+              <a (click)="logout()" class="uppercase block py-2 pr-4 pl-3 text-sm text-zinc-900  hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-orange-600 md:p-0">
+>>>>>>> b3775c0246ce93907394adeb22dfaf1fb61cce5e
                 Deconnexion
               </a>
             </li>

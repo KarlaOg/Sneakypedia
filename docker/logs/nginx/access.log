@@ -1669,6 +1669,7 @@
 172.19.0.1 - - [12/Jun/2022:13:56:52 +0000] "GET /favicon.ico HTTP/1.1" 404 27503 "http://localhost/api" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36"
 172.19.0.1 - - [12/Jun/2022:14:31:08 +0000] "GET /api/users?page=1 HTTP/1.1" 200 1878 "http://localhost/api" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36"
 172.18.0.1 - - [24/Jun/2022:00:22:11 +0000] "GET /api/sneakers HTTP/1.1" 404 27475 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
+<<<<<<< HEAD
 172.19.0.1 - - [26/Jun/2022:14:50:00 +0000] "GET /api HTTP/1.1" 502 559 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
 172.19.0.1 - - [26/Jun/2022:14:50:00 +0000] "GET /favicon.ico HTTP/1.1" 502 559 "http://localhost/api" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
 172.19.0.1 - - [26/Jun/2022:14:57:45 +0000] "OPTIONS /authentication_token HTTP/1.1" 200 31 "http://localhost:4200/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
@@ -1678,3 +1679,5 @@
 172.19.0.1 - - [26/Jun/2022:14:58:25 +0000] "POST /authentication_token HTTP/1.1" 500 13199 "http://localhost:4200/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
 172.19.0.1 - - [26/Jun/2022:15:00:55 +0000] "POST /authentication_token HTTP/1.1" 500 13199 "http://localhost:4200/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
 172.19.0.1 - - [26/Jun/2022:15:02:06 +0000] "POST /authentication_token HTTP/1.1" 200 530 "http://localhost:4200/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
+=======
+>>>>>>> b3775c0246ce93907394adeb22dfaf1fb61cce5e

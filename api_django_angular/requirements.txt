@@ -1,0 +1,19 @@
+dj-database-url==0.4.1
+Django==4.0.4
+psycopg2==2.9.3
+whitenoise==3.2
+djangorestframework==3.13.1
+scrapy
+scrapy-djangoitem==1.1.1
+sqlalchemy
+django-cors-headers==3.13.0
+pillow
+scrapy-selenium
+<<<<<<< HEAD:api_django_angular/api_django/requirements.txt
+# elasticsearch-dsl
+=======
+elasticsearch-dsl
+django-environ
+gunicorn
+django-heroku
+>>>>>>> b3775c0246ce93907394adeb22dfaf1fb61cce5e:api_django_angular/requirements.txt

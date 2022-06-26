@@ -20,6 +20,11 @@ import { AuthGuard } from './services/user/auth/auth.guard';
 import { JwtModule } from '@auth0/angular-jwt';
 import { ModalComponent } from './components/modal/modal.component';
 import { SneakerFeatureModule } from './sneaker-feature/sneaker-feature.module';
+<<<<<<< HEAD
+=======
+import { FilterByLabelPipe } from './filter-by-label.pipe';
+import { SneakersListComponent } from './components/sneakers-list/sneakers-list.component';
+>>>>>>> b3775c0246ce93907394adeb22dfaf1fb61cce5e
 
 export function tokenGetter() {
   return localStorage.getItem("id_token");
@@ -39,6 +44,11 @@ export function tokenGetter() {
     FavoritesComponent,
     AlertNotificationComponent,
     ModalComponent,
+<<<<<<< HEAD
+=======
+    FilterByLabelPipe,
+    SneakersListComponent,
+>>>>>>> b3775c0246ce93907394adeb22dfaf1fb61cce5e
     
   ],
   imports: [

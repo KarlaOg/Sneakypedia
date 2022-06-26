@@ -29,7 +29,7 @@ export class SneakerService {
   deleteAll() {
     return this.http.delete(baseUrl);
   }
-  findByTitle(label:string) {
-    return this.http.get(`${baseUrl}?label=${label}`);
+  findByTitle(label: string) {
+    return this.http.get(`${baseUrl}?name=${label}`);
   }
 }

@@ -44,3 +44,7 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+
+# API DJANGO CACHE FILES 
+./api_django_angular/api_django/__pycache__

@@ -21,13 +21,10 @@ import { UserService } from '../../services/user/user.service';
     <div *ngIf="error"class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
        {{ this.errorService.handleError}}
       </div>
-<<<<<<< HEAD
-=======
 
       <div *ngIf="success"class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
       <app-alert-notification [message]="success" (close)="onHandleSuccess()" ></app-alert-notification>
       </div>
->>>>>>> 39309ca ([FIX] json data return for search results)
     <form [formGroup]="form" (ngSubmit)="register()" #registerForm="ngForm" class="mt-8 space-y-6">
       <input type="hidden" name="remember" value="true">
       <div class="rounded-md shadow-sm -space-y-px">

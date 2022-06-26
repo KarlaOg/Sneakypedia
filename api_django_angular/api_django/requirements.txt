@@ -9,4 +9,4 @@ sqlalchemy
 django-cors-headers==3.13.0
 pillow
 scrapy-selenium
-elasticsearch-dsl
+# elasticsearch-dsl

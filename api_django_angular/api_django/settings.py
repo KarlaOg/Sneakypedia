@@ -23,7 +23,7 @@ INSTALLED_APPS = [
     'api_django',
     'rest_framework',
     "corsheaders",
-    "django_elasticsearch_dsl",
+ #   "django_elasticsearch_dsl",
     "api_django.templatetags.tags",
 ]
 

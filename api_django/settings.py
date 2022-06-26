@@ -49,7 +49,8 @@ MIDDLEWARE = [
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:8080",
     "http://localhost:4200",
-    "http://192.168.1.21:4200"
+    "http://192.168.1.21:4200",
+    "https://sneakypedia-django-api.herokuapp.com"
     ]
 
 ROOT_URLCONF = 'api_django.urls'
@@ -79,8 +80,12 @@ TEMPLATES = [
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3')
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': env("DATABASE_NAME"),
+        'USER': env("DATABASE_USER"),
+        'PASSWORD': env("DATABASE_PASSWORD"),
+        'HOST': env("DATABASE_HOST"),
+        'PORT': env("DATABASE_PORT"),
     },
     'users':{
         'ENGINE': 'django.db.backends.postgresql',
@@ -127,8 +132,8 @@ STATICFILES_DIRS = [
 # }
 
 SECURE_HSTS_SECONDS = 3600
-# SECURE_SSL_REDIRECT = True
+SECURE_SSL_REDIRECT = True
 SECURE_HSTS_PRELOAD = True
 SESSION_COOKIE_SECURE = True
-# SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 CSRF_COOKIE_SECURE = True

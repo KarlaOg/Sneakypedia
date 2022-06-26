@@ -14,7 +14,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   declarations: [
     SneakerDetailsComponent,
     SneakersListComponent,
+<<<<<<< HEAD
+    SneakerAddComponent, 
+=======
     SneakerAddComponent
+>>>>>>> b3775c0246ce93907394adeb22dfaf1fb61cce5e
   ],
   imports: [
     CommonModule,

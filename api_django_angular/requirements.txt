@@ -114,6 +114,7 @@ scikit-learn==0.24.2
 scipy==1.6.3
 Scrapy==2.6.1
 scrapy-djangoitem==1.1.1
+<<<<<<< HEAD
 scrapy-selenium==0.0.7
 scrapyd==1.3.0
 seaborn==0.11.1
@@ -155,3 +156,11 @@ wrapt==1.11.2
 wsproto==1.1.0
 zipp==3.8.0
 zope.interface==5.4.0
+sqlalchemy
+django-cors-headers==3.13.0
+pillow
+scrapy-selenium
+elasticsearch-dsl
+django-environ
+gunicorn
+django-heroku

@@ -25,7 +25,11 @@ import { UserService } from '../../services/user/user.service';
       <div class="rounded-md shadow-sm -space-y-px">
         <div>
           <label for="email-address" class="sr-only">Adresse mail </label>
+<<<<<<< HEAD
+          <input formControlName="email" id="email-address"  name="email" type="email" autocomplete="email" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm" placeholder="Adresse mail" email>
+=======
           <input formControlName="email" id="email-address"  name="email" type="email" autocomplete="email" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-zinc-900 rounded-t-md focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm" placeholder="Adresse mail" email>
+>>>>>>> b3775c0246ce93907394adeb22dfaf1fb61cce5e
         </div>
         <div>
           <label for="password" class="sr-only">Mot de passe</label>

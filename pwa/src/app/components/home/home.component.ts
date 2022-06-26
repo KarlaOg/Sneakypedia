@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+import { Component, Input, OnInit, EventEmitter, Output, } from '@angular/core';
+=======
 import { Component, Input, OnInit } from '@angular/core';
+>>>>>>> b3775c0246ce93907394adeb22dfaf1fb61cce5e
 import { UserService } from 'src/app/services/user/user.service';
 import {Sneaker} from 'src/app/models/sneaker'
 import { SneakerService } from 'src/app/services/sneaker/sneaker.service';
@@ -11,8 +15,18 @@ import { Output, EventEmitter } from '@angular/core';
 })
 
 export class HomeComponent implements OnInit {
-  
+
   showMessage: boolean = false;
+<<<<<<< HEAD
+  success: string = " Test"
+  currentItem = '';
+
+
+  constructor() { }
+
+  ngOnInit(): void {
+    console.log()
+=======
   constructor(private sneakerService: SneakerService) { }
 
   ngOnInit(): void {
@@ -38,6 +52,12 @@ export class HomeComponent implements OnInit {
 
   public sendData(label: string){
      return this.sneakerName = label ;
+>>>>>>> b3775c0246ce93907394adeb22dfaf1fb61cce5e
   }
 
-} 
+
+  onSearchSneaker(event: any) {
+    this.currentItem = event.target.value
+ }
+
+}

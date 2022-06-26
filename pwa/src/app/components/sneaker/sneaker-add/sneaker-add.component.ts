@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+<<<<<<< HEAD
+import { Form, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+=======
 import { Form, FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+>>>>>>> b3775c0246ce93907394adeb22dfaf1fb61cce5e
 import { Sneaker } from 'src/app/models/sneaker';
 import { SneakerService } from 'src/app/services/sneaker/sneaker.service';
 

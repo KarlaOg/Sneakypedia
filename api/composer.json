@@ -40,7 +40,9 @@
         "vich/uploader-bundle": "^1.19"
     },
     "require-dev": {
-        "symfony/maker-bundle": "^1.37"
+        "symfony/maker-bundle": "^1.37",
+        "symfony/stopwatch": "5.4.*",
+        "symfony/web-profiler-bundle": "5.4.*"
     },
     "config": {
         "allow-plugins": {

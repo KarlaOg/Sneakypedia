@@ -14,9 +14,22 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Security\Core\Validator\Constraints as SecurityAssert;
 
 
-#[ApiResource]
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[ORM\Table(name: '`user`')]
+#[ApiResource(
+    normalizationContext: ['groups' => ['read', 'read:Post']],
+    denormalizationContext: ['groups' => ['write']],
+    collectionOperations: [
+        "get",
+        "post", 
+    ], 
+    itemOperations:[
+        "get",
+        "put" => ["security" => "object.owner == user" ],
+        "delete" => ["security" => "is_granted('ROLE_ADMIN')"],
+    ],
+)]
+
 
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
@@ -29,6 +42,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[Assert\Email(
         message: 'The email {{ value }} is not a valid email.',
     )]
+    #[Groups(["read", "write"])]
     #[ORM\Column(type: 'string', length: 180, unique: true)]
     private $email;
 
@@ -39,17 +53,20 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[Assert\NotBlank]
     #[ORM\Column(type: 'string')]
     private $password;
-
+    
+    #[Groups(["read", "write"])]
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $firstname;
-
+    
+    #[Groups(["read", "write"])]
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $lastname;
 
-
+    #[Groups(["read", "write"])]
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $photo;
-
+    
+    #[Groups(["read", "write"])]
     #[ORM\ManyToMany(targetEntity: Favorite::class, mappedBy: 'userId')]
     private $favorites;
 

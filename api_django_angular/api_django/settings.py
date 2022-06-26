@@ -32,7 +32,11 @@ INSTALLED_APPS = [
     'api_django',
     'rest_framework',
     "corsheaders",
+<<<<<<< HEAD
+ #   "django_elasticsearch_dsl",
+=======
     "django_elasticsearch_dsl",
+>>>>>>> b3775c0246ce93907394adeb22dfaf1fb61cce5e
     "api_django.templatetags.tags",
 ]
 
@@ -45,6 +49,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+<<<<<<< HEAD
+    "django.middleware.common.CommonMiddleware",
+=======
+>>>>>>> b3775c0246ce93907394adeb22dfaf1fb61cce5e
 ]
 
 CORS_ALLOWED_ORIGINS = [
@@ -74,6 +82,13 @@ TEMPLATES = [
         },
     },
 ]
+
+# REST_FRAMEWORK  ={
+# only staff users can see the data and input data
+#    'DEFAULT_PERMISSION_CLASSES': [
+#        'rest_framework.permissions.IsAdminUser'
+#    ]
+#}
 
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
@@ -122,6 +137,9 @@ ELASTICSEARCH_DSL={
     'default': {
         'hosts': 'localhost:9200'
     },
+<<<<<<< HEAD
+}
+=======
 }
 
 SECURE_HSTS_SECONDS = 3600
@@ -130,3 +148,4 @@ SECURE_HSTS_PRELOAD = True
 SESSION_COOKIE_SECURE = True
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 CSRF_COOKIE_SECURE = True
+>>>>>>> b3775c0246ce93907394adeb22dfaf1fb61cce5e

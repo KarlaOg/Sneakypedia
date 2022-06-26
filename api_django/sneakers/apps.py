@@ -3,6 +3,6 @@ from django.apps import AppConfig
 
 class ApiPythonConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'api_django'
+    name = 'PA_2022.api_django'
     def ready(self):
-        import api_django.signals
+        import signals

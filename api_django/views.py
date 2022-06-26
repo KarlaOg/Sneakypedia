@@ -1,5 +1,5 @@
 from django.shortcuts import get_object_or_404, render
-from api_django.models import SneakerModel
+from models import SneakerModel
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework import viewsets,permissions
 from rest_framework.views import APIView

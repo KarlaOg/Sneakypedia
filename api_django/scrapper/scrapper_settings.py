@@ -1,5 +1,5 @@
 import sys
-sys.path.append('../../../api_django_angular/api_django')
+sys.path.append('../../api_django')
 import os
 os.environ['DJANGO_SETTINGS_MODULE'] = 'api_django.settings'
 # If you you use django outside of manage.py context, you 
@@ -9,8 +9,8 @@ django.setup()
 from shutil import which
 
 
-SPIDER_MODULES = ['api_django.scrapper.spiders']
-NEWSPIDER_MODULE = 'api_django.scrapper.spiders'
+SPIDER_MODULES = ['scrapper.spiders']
+NEWSPIDER_MODULE = 'scrapper.spiders'
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 # replace this with your actual user-agent value
@@ -21,8 +21,8 @@ ROBOTSTXT_OBEY = True
 
 # update the pipelines to this
 ITEM_PIPELINES = {
-   'api_django.scrapper.pipelines.SneakerPricePipeline': 200,
-   'api_django.scrapper.pipelines.ScraperPipeline': 400,
+   'scrapper.pipelines.SneakerPricePipeline': 200,
+   'scrapper.pipelines.ScraperPipeline': 400,
 }
 
 # SELENIUM_DRIVER_NAME = 'chrome'

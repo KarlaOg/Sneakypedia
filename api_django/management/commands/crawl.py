@@ -2,8 +2,8 @@ from django.core.management.base import BaseCommand
 from scrapy.crawler import CrawlerProcess
 from scrapy.settings import Settings
 
-from api_django.scrapper import scrapper_settings as my_settings
-from api_django.scrapper.spiders.sneakers_spider import SneakersSpider
+from scrapper import scrapper_settings as my_settings
+from scrapper.spiders.sneakers_spider import SneakersSpider
 
 
 class Command(BaseCommand):

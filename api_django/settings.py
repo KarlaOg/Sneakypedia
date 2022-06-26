@@ -3,8 +3,6 @@ import os
 import environ
 import django_heroku
 
-django_heroku.settings(locals())
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 env = environ.Env()
@@ -28,11 +26,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'api_django',
+    'PA_2022.api_django',
     'rest_framework',
     "corsheaders",
-    "django_elasticsearch_dsl",
-    "api_django.templatetags.tags",
+    # "django_elasticsearch_dsl",
+    "templatetags.tags",
 ]
 
 MIDDLEWARE = [
@@ -54,7 +52,7 @@ CORS_ALLOWED_ORIGINS = [
     "https://sneakypedia-django-api.herokuapp.com"
     ]
 
-ROOT_URLCONF = 'api_django.urls'
+ROOT_URLCONF = 'urls'
 
 TEMPLATES = [
     {
@@ -69,7 +67,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
             ],
             'libraries':{
-            'tags': 'api_django.templatetags.tags',
+            'tags': 'templatetags.tags',
             
             }
         },
@@ -138,3 +136,5 @@ SECURE_HSTS_PRELOAD = True
 SESSION_COOKIE_SECURE = True
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 CSRF_COOKIE_SECURE = True
+
+django_heroku.settings(locals())

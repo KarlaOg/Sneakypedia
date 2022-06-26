@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from api_django.models import SneakerModel
+from models import SneakerModel
 
 class SneakerModelSerializer(serializers.ModelSerializer):
     class Meta:

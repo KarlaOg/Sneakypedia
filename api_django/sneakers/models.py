@@ -1,9 +1,9 @@
 from django.db import models
 from sqlalchemy import *
 from sqlalchemy.engine.url import URL
-from api_django import settings
+# from api_django.elasticsearch.search_sneakers import SneakerIndex
+import settings
 from sqlalchemy.ext.declarative import declarative_base
-from api_django.elasticsearch.search_sneakers import SneakerIndex
 
 
 DeclarativeBase = declarative_base()
@@ -19,16 +19,16 @@ def create_sneakers_table(engine):
     DeclarativeBase.metadata.create_all(engine)
 
 
-def indexing(self):
-   obj = SneakerIndex(
-      meta={'id': self.id},
-      label=self.label,
-      released_date=self.released_date,
-      description=self.description,
-      price=self.price
-   )
-   obj.save()
-   return obj.to_dict(include_meta=True)
+# def indexing(self):
+#    obj = SneakerIndex(
+#       meta={'id': self.id},
+#       label=self.label,
+#       released_date=self.released_date,
+#       description=self.description,
+#       price=self.price
+#    )
+#    obj.save()
+#    return obj.to_dict(include_meta=True)
 
 # Create your models here.
 class SneakerModel(models.Model):
@@ -37,6 +37,8 @@ class SneakerModel(models.Model):
     description = models.CharField(max_length=200)
     release_date = models.CharField(max_length=200)
     price = models.DecimalField(max_digits=5, decimal_places=2)
+    class Meta:
+        app_label = 'api_django'
 
 class Sneakers(DeclarativeBase):
     """Sqlalchemy sneakers model"""

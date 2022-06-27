@@ -23,4 +23,9 @@ export class FavoritesService {
     return this.http.post<any>(`${apiUrl}favorites`, favoris, httpOptions); 
   }
 
+  delete(){
+    return this.http.delete<any>(`${apiUrl}favorites`, httpOptions); 
+  }
+  
+
 }

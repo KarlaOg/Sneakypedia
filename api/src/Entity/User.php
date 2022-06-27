@@ -27,7 +27,7 @@ use Symfony\Component\Validator\Constraints as Assert;
     itemOperations: [
         "get",
         "put" => ["security" => "object.owner == user"],
-        "delete" => ["security" => "is_granted('ROLE_ADMIN')"],
+        "delete" => ["security" => "object.owner == user"],
     ],
 )]
 

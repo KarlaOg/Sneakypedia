@@ -32,21 +32,20 @@ export class UserService {
   isLoggedIn: Observable<boolean>;
   isLoggedOut: Observable<boolean>;
 
-  helper = new JwtHelperService();
 
-  constructor(private http: HttpClient, private error: ErrorService) {
+  constructor(private http: HttpClient, private error: ErrorService, private jwtHelper: JwtHelperService) {
 
     this.isLoggedIn = this.user.pipe(map(user => !!user))
     this.isLoggedOut = this.isLoggedIn.pipe(map(loggedIn => !loggedIn))
 
-    // TODO Sort out of to login someone if token is valid  
-    // const tokenUser = this.getToken();
-    // if (tokenUser) {
-    //   this.authenticatedUser.next(JSON.parse(tokenUser))
-    // }
-    //  else {
-    //   this.authenticatedUser.next(null!)
-    // }
+    const tokenUser = this.getToken();
+    const expirationT = this.getExpiration();
+    if (expirationT === false) {
+      this.authenticatedUser.next(JSON.parse(tokenUser))
+    }
+    else {
+      this.authenticatedUser.next(null!)
+    }
   }
 
 
@@ -77,40 +76,49 @@ export class UserService {
 
   updateUserAccount(user: User): Observable<User> {
 
-    const idUser = this.decodeToken().id
+    if (this.getExpiration() === false) {
+      const idUser = this.decodeToken().id
 
-    return this.http.patch<User>(this.apiUrl + 'users/' + `${idUser}`, user, httpOptionsPatch)
-      .pipe(
-        catchError(this.error.handleError),
-      );
+      return this.http.put<User>(this.apiUrl + 'users/' + `${idUser}`, user, httpOptionsPatch)
+        .pipe(
+          catchError(this.error.handleError),
+        );
+    } else {
+      throw new Error('La session a expirer. Veuillez vous reconnecter.');
+    }
+
 
   }
 
 
   deleteUserAccount(): Observable<any> {
-    const idUser = this.decodeToken().id
+    if (this.getExpiration() === false) {
+      const idUser = this.decodeToken().id
 
-    return this.http.delete<User>(this.apiUrl + 'users/' + `${idUser}`, httpOptions)
-      .pipe(
-        tap(() => {
-          this.logout();
+      return this.http.delete<User>(this.apiUrl + 'users/' + `${idUser}`, httpOptions)
+        .pipe(
+          tap(() => {
+            this.logout();
 
-        }),
-        catchError(this.error.handleError),
-        shareReplay()
-      );
+          }),
+          catchError(this.error.handleError),
+          shareReplay()
+        );
+    } else {
+      throw new Error('La session a expirer. Veuillez vous reconnecter.');
+    }
+
 
 
   }
 
 
   getToken(): string {
-    const token = localStorage.getItem('id_token')!;
-    return JSON.parse(token)!;
+    return localStorage.getItem('id_token')!;
   }
 
   decodeToken() {
-    return this.helper.decodeToken(this.getToken())
+    return this.jwtHelper.decodeToken(localStorage.getItem('id_token')!)
   }
 
   private setSession(authResult: any) {
@@ -129,9 +137,7 @@ export class UserService {
 
 
   getExpiration(): boolean {
-    const expiration = localStorage.getItem("expires_at");
-    return this.helper.isTokenExpired(JSON.parse(expiration!));
-
+    return this.jwtHelper.isTokenExpired();
   }
 
 

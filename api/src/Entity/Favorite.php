@@ -20,7 +20,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
     ],
     itemOperations: [
         "get",
-        "delete" => ["security" => "object.owner == user"],
+        "delete" => ["security" => "object.userId == user"],
     ],
 )]
 class Favorite
@@ -35,7 +35,6 @@ class Favorite
     private $userId;
 
     #[Groups(["favorite:write", "favorite:read", "user:read"])]
-    
     #[ORM\Column(type: 'string', length: 255)]
     private $idSneaker;
 

@@ -44,6 +44,7 @@ export class UserService {
       this.authenticatedUser.next(JSON.parse(tokenUser))
     }
     else {
+      this.logout()
       this.authenticatedUser.next(null!)
     }
   }
@@ -79,7 +80,7 @@ export class UserService {
     if (this.getExpiration() === false) {
       const idUser = this.decodeToken().id
 
-      return this.http.put<User>(this.apiUrl + 'users/' + `${idUser}`, user, httpOptionsPatch)
+      return this.http.put<User>(this.apiUrl + 'users/' + `${idUser}`, user, httpOptions)
         .pipe(
           catchError(this.error.handleError),
         );

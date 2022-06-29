@@ -11,6 +11,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 use ApiPlatform\Core\Annotation\ApiResource;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Serializer\Annotation\SerializedName;
 use Symfony\Component\Validator\Constraints as Assert;
 
 
@@ -22,12 +23,12 @@ use Symfony\Component\Validator\Constraints as Assert;
     denormalizationContext: ['groups' => ['user:write']],
     collectionOperations: [
         "get" => ["security" => "is_granted('ROLE_ADMIN')"],
-        "post" 
+        "post",
     ],
     itemOperations: [
         "get",
-        "put" => ["security" => "object.owner == user"],
-        "delete" => ["security" => "object.owner == user"],
+        "put" => ["security" => "object == user"],
+        "delete" => ["security" => "object == user"],
     ],
 )]
 
@@ -46,30 +47,30 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[Groups(["user:read", "user:write"])]
     #[ORM\Column(type: 'string', length: 180, unique: true)]
     private $email;
-    
+
     #[ORM\Column(type: 'json')]
     private $roles = [];
 
-    #[Groups("user:write")]
-    #[Assert\NotBlank]
+
     #[ORM\Column(type: 'string')]
     private $password;
 
-    #[Groups(["user:read", "user:write"])]
+    #[Groups(["user:read", "user:write", "put"])]
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $firstname;
 
-    #[Groups(["user:read", "user:write"])]
+    #[Groups(["user:read", "user:write", "put"])]
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $lastname;
 
-    #[Groups(["user:read", "user:write"])]
-    #[ORM\Column(type: 'string', length: 255, nullable: true)]
-    private $photo;
 
-    #[Groups(["user:read", "user:write"])]
     #[ORM\ManyToMany(targetEntity: Favorite::class, mappedBy: 'userId')]
     private $favorites;
+
+
+    #[Groups("user:write")]
+    #[SerializedName("password")]
+    private $plainPassword;
 
     public function __construct()
     {
@@ -162,7 +163,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function eraseCredentials()
     {
         // If you store any temporary, sensitive data on the user, clear it here
-        // $this->plainPassword = null;
+        $this->plainPassword = null;
     }
 
     public function getFirstname(): ?string
@@ -190,18 +191,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
 
-    public function getPhoto(): ?string
-    {
-        return $this->photo;
-    }
-
-    public function setPhoto(string $photo): self
-    {
-        $this->photo = $photo;
-
-        return $this;
-    }
-
     /**
      * @return Collection<int, Favorite>
      */
@@ -225,6 +214,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         if ($this->favorites->removeElement($favorite)) {
             $favorite->removeUserId($this);
         }
+
+        return $this;
+    }
+
+    public function getPlainPassword(): ?string
+    {
+        return $this->plainPassword;
+    }
+
+    public function setPlainPassword(string $plainPassword): self
+    {
+        $this->plainPassword = $plainPassword;
 
         return $this;
     }

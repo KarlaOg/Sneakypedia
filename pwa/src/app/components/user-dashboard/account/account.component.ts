@@ -7,7 +7,7 @@ import { UserService } from 'src/app/services/user/user.service';
 @Component({
   selector: 'app-account',
   template: `
-  <div class="lg:grid lg:grid-cols-12 lg:gap-x-5">
+  <div class="">
    <div class="space-y-6 sm:px-6 lg:px-0 lg:col-span-9">
     <form [formGroup]="updateAccount">
       <div class="shadow sm:rounded-md sm:overflow-hidden">

@@ -13,15 +13,16 @@ import { SneakersListComponent } from './components/sneaker/sneakers-list/sneake
 import { SneakerDetailsComponent } from './components/sneaker/sneaker-details/sneaker-details.component';
 import { AuthGuard } from './services/user/auth/auth.guard';
 import { SneakerAddComponent } from './components/sneaker/sneaker-add/sneaker-add.component';
+import { UserGuard } from './services/user/auth/user.guard';
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
-  { path: 'connexion', component: LoginComponent },
-  { path: 'inscription', component: RegisterComponent },
+  { path: 'connexion', component: LoginComponent, canActivate : [UserGuard]},
+  { path: 'inscription', component: RegisterComponent, canActivate: [UserGuard] },
   { path: 'calendar', component: CalendarComponent },
   { path: 'sneakers', component: SneakersListComponent },
   { path: 'sneakers/:id', component: SneakerDetailsComponent },
-  { path: 'sneaker/add', component: SneakerAddComponent , canActivate: [AuthGuard] },
+  { path: 'sneaker/add', component: SneakerAddComponent, canActivate: [AuthGuard] },
   {
     path: 'compte', component: NavUserDashboardComponent, canActivate: [AuthGuard], children: [
       { path: 'detail', component: AccountComponent },

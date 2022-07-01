@@ -20,6 +20,7 @@ import { AuthGuard } from './services/user/auth/auth.guard';
 import { JwtModule } from '@auth0/angular-jwt';
 import { ModalComponent } from './components/modal/modal.component';
 import { SneakerFeatureModule } from './sneaker-feature/sneaker-feature.module';
+import { UserGuard } from './services/user/auth/user.guard';
 
 export function tokenGetter() {
   return localStorage.getItem("id_token");
@@ -63,7 +64,8 @@ export function tokenGetter() {
       useClass: AuthInterceptor,
       multi: true
     },
-    AuthGuard
+    AuthGuard, 
+    UserGuard
   ],
   bootstrap: [AppComponent]
 })

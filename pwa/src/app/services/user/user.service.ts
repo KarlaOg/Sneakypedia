@@ -12,11 +12,7 @@ const httpOptions = {
     'Content-Type': 'application/ld+json',
   }),
 };
-const httpOptionsPatch = {
-  headers: new HttpHeaders({
-    'Content-Type': 'application/merge-patch+json',
-  })
-};
+
 
 @Injectable({
   providedIn: 'root'
@@ -48,7 +44,6 @@ export class UserService {
       this.authenticatedUser.next(null!)
     }
   }
-
 
   register(user: User): Observable<User> {
     return this.http.post<User>(this.apiUrl + 'users', { email: user.email, password: user.password, firstname: user.firstname, lastname: user.lastname }, httpOptions)
@@ -92,7 +87,7 @@ export class UserService {
   }
 
 
-  deleteUserAccount(): Observable<any> {
+  deleteUserAccount(): Observable<User> {
     if (this.getExpiration() === false) {
       const idUser = this.decodeToken().id
 
@@ -114,14 +109,6 @@ export class UserService {
   }
 
 
-  getToken(): string {
-    return localStorage.getItem('id_token')!;
-  }
-
-  decodeToken() {
-    return this.jwtHelper.decodeToken(localStorage.getItem('id_token')!)
-  }
-
   private setSession(authResult: any) {
     const expiresAt = moment().add(authResult.expiresIn, 'second');
 
@@ -129,6 +116,9 @@ export class UserService {
     localStorage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()));
   }
 
+  getToken(): string {
+    return localStorage.getItem('id_token')!;
+  }
 
   logout(): void {
     this.authenticatedUser.next(null!)
@@ -136,11 +126,20 @@ export class UserService {
     localStorage.removeItem("expires_at");
   }
 
-
-  getExpiration(): boolean {
-    return this.jwtHelper.isTokenExpired();
+  decodeToken() {
+    return this.jwtHelper.decodeToken(localStorage.getItem('id_token')!)
   }
 
+  getExpiration(): boolean {
+    return this.jwtHelper.isTokenExpired(this.getToken());
+  }
+
+  public isAuthenticated(): boolean {
+    const token = this.getToken()
+    // Check whether the token is expired and return
+    // true or false
+    return !this.jwtHelper.isTokenExpired(token);
+  }
 
 
 }

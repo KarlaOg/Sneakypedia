@@ -16,7 +16,7 @@ import { Component, OnInit } from '@angular/core';
           <span class="text-orange-600 font-mono ">Oops!</span> Page not found
         </p>
         <p class="mb-8 text-center text-gray-500 md:text-lg">
-          La page que vous recherchez n'exisite pas. 
+          La page que vous recherchez n'existe pas. 
         </p>
         <a
           href="#"

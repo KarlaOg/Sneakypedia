@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use ApiPlatform\Core\Annotation\ApiResource;
+use App\Controller\UserInformationsController;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Serializer\Annotation\SerializedName;
@@ -23,12 +24,13 @@ use Symfony\Component\Validator\Constraints as Assert;
     denormalizationContext: ['groups' => ['user:write']],
     collectionOperations: [
         "get" => ["security" => "is_granted('ROLE_ADMIN')"],
-        "post",
+        "post"
     ],
     itemOperations: [
         "get",
         "put" => ["security" => "object == user"],
         "delete" => ["security" => "object == user"],
+
     ],
 )]
 
@@ -64,6 +66,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $lastname;
 
 
+    #[Groups(["user:read", "favoris:read"])]
     #[ORM\ManyToMany(targetEntity: Favorite::class, mappedBy: 'userId')]
     private $favorites;
 
@@ -72,9 +75,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[SerializedName("password")]
     private $plainPassword;
 
+    #[Groups(["user:read"])]
+    #[ORM\ManyToMany(targetEntity: Inventory::class, mappedBy: 'idUser')]
+    private $inventories;
+
     public function __construct()
     {
         $this->favorites = new ArrayCollection();
+        $this->inventories = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -226,6 +234,33 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setPlainPassword(string $plainPassword): self
     {
         $this->plainPassword = $plainPassword;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Inventory>
+     */
+    public function getInventories(): Collection
+    {
+        return $this->inventories;
+    }
+
+    public function addInventory(Inventory $inventory): self
+    {
+        if (!$this->inventories->contains($inventory)) {
+            $this->inventories[] = $inventory;
+            $inventory->addIdUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeInventory(Inventory $inventory): self
+    {
+        if ($this->inventories->removeElement($inventory)) {
+            $inventory->removeIdUser($this);
+        }
 
         return $this;
     }

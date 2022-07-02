@@ -6,7 +6,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { PageNotFoundComponent } from './views/PageNotFoundComponent';
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { AccountComponent } from './components/user-dashboard/account/account.component';
-import { AlertComponent } from './components/user-dashboard/alert/alert.component';
+import { InventoryComponent } from './components/user-dashboard/inventory/inventory.component';
 import { FavoritesComponent } from './components/user-dashboard/favorites/favorites.component';
 import { NavUserDashboardComponent } from './components/user-dashboard/nav-user-dashboard/nav-user-dashboard.component';
 import { SneakersListComponent } from './components/sneaker/sneakers-list/sneakers-list.component';
@@ -24,9 +24,9 @@ const routes: Routes = [
   { path: 'sneakers/:id', component: SneakerDetailsComponent },
   { path: 'sneaker/add', component: SneakerAddComponent, canActivate: [AuthGuard] },
   {
-    path: 'compte', component: NavUserDashboardComponent, canActivate: [AuthGuard], children: [
+    path: 'compte', component: NavUserDashboardComponent, canActivate: [AuthGuard] ,children: [
       { path: 'detail', component: AccountComponent },
-      { path: "alertes", component: AlertComponent },
+      { path: "inventaire", component: InventoryComponent },
       { path: "favoris", component: FavoritesComponent }
     ]
   },

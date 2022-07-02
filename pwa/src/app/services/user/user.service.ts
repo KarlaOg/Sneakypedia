@@ -103,9 +103,14 @@ export class UserService {
     } else {
       throw new Error('La session a expirer. Veuillez vous reconnecter.');
     }
+  }
 
-
-
+  getUserFavoris(id: number) {
+    return this.http.get<any[]>('http://localhost/api/users/' + `${id}`, httpOptions)
+      .pipe(
+        catchError(this.error.handleError),
+        
+      )
   }
 
 

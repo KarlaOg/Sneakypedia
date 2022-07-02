@@ -4,6 +4,7 @@ import { Favorites } from 'src/app/models/favorites';
 import { Sneaker } from 'src/app/models/sneaker';
 import { ErrorService } from 'src/app/services/error.service';
 import { FavoritesService } from 'src/app/services/favorites.service';
+import { InventoryService } from 'src/app/services/inventory.service';
 import { SneakerService } from 'src/app/services/sneaker/sneaker.service';
 import { UserService } from 'src/app/services/user/user.service';
 
@@ -18,26 +19,27 @@ export class SneakerDetailsComponent implements OnInit {
   private sub: any;
   statusUser: boolean | undefined;
 
-    detailsItem: {
-      id: number;
-      label: string;
-      image: string;
-      release_date: string;
-      description: string;
-      price: number;
-    } = {
-        id: 0,
-        label: '',
-        image: '',
-        release_date: '',
-        description: '',
-        price: 0,
-      };
+  detailsItem: {
+    id: number;
+    label: string;
+    image: string;
+    release_date: string;
+    description: string;
+    price: number;
+  } = {
+      id: 0,
+      label: '',
+      image: '',
+      release_date: '',
+      description: '',
+      price: 0,
+    };
   error!: [];
   constructor(
     private sneakerService: SneakerService,
     private route: ActivatedRoute,
     private favorisService: FavoritesService,
+    private inventoryService: InventoryService,
     private userService: UserService,
     public errorService: ErrorService
   ) {
@@ -70,17 +72,36 @@ export class SneakerDetailsComponent implements OnInit {
         console.log(detailSneaker);
       });
   }
-  
+
   addFavoris() {
     this.errorService.handleError
     const idSneaker: number = this.getIdSneakers();
     const idUser = this.userService.decodeToken().id;
+
     const currentUserFavoris: Favorites = {
       'userId': [`/api/users/${idUser.toString()}`],
       'idSneaker': idSneaker.toString()
     }
     console.log(currentUserFavoris)
     this.favorisService.create(currentUserFavoris)
+      .subscribe(
+        {
+          error: (e) => this.error = e,
+        }
+      )
+  }
+
+  addInventory() {
+    this.errorService.handleError
+    const idSneaker: number = this.getIdSneakers();
+    const idUser = this.userService.decodeToken().id;
+
+    const currentUserInventory: Favorites = {
+      'userId': [`/api/users/${idUser.toString()}`],
+      'idSneaker': idSneaker.toString()
+    }
+    console.log(currentUserInventory)
+    this.inventoryService.create(currentUserInventory)
       .subscribe(
         {
           error: (e) => this.error = e,

@@ -53,7 +53,7 @@
       <div class="mt-10 col-span-2 sm:w-full lg:col-span-1">
         <div class="mt-4 space-y-6">
           <div
-            *ngIf=" this.statusUser === false; else showActions" 
+            *ngIf="this.statusUser === false; else showActions"
             class="text-xl font-semibold italic text-gray-600"
           >
             <span
@@ -69,12 +69,12 @@
           <ng-template #showActions>
             <div class="mt-4 lg:mt-0">
               <button
+                title="favoris"
                 [disabled]="this.statusUser === false"
                 (click)="addFavoris()"
                 type="submit"
                 class="mt-10 w-full bg-orange-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 pl-2"
               >
-                Favoris
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   class="h-6 w-6"
@@ -90,7 +90,14 @@
                   />
                 </svg>
               </button>
-
+              <button
+                [disabled]="this.statusUser === false"
+                (click)="addInventory()"
+                type="submit"
+                class="mt-10 w-full bg-orange-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400"
+              >
+                J'ai cop !
+              </button>
               <button
                 [disabled]="this.statusUser === false"
                 routerLink="/sneaker/add"

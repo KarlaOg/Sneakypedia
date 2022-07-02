@@ -11,16 +11,13 @@ import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { AuthInterceptor } from 'src/app/services/user/auth/auth.interceptor';
-import { AccountComponent } from './components/user-dashboard/account/account.component';
-import { AlertComponent } from './components/user-dashboard/alert/alert.component';
-import { NavUserDashboardComponent } from './components/user-dashboard/nav-user-dashboard/nav-user-dashboard.component';
-import { FavoritesComponent } from './components/user-dashboard/favorites/favorites.component';
 import { AlertNotificationComponent } from './components/alert/alert.component'
 import { AuthGuard } from './services/user/auth/auth.guard';
 import { JwtModule } from '@auth0/angular-jwt';
 import { ModalComponent } from './components/modal/modal.component';
-import { SneakerFeatureModule } from './sneaker-feature/sneaker-feature.module';
+import { SneakerFeatureModule } from './components/sneaker/sneaker-feature.module';
 import { UserGuard } from './services/user/auth/user.guard';
+import { UserDashboardFeatureModule } from './components/user-dashboard/user-dashboard-feature.module';
 
 export function tokenGetter() {
   return localStorage.getItem("id_token");
@@ -34,10 +31,6 @@ export function tokenGetter() {
     RegisterComponent,
     HomeComponent,
     CalendarComponent,
-    AccountComponent,
-    AlertComponent,
-    NavUserDashboardComponent,
-    FavoritesComponent,
     AlertNotificationComponent,
     ModalComponent,
     
@@ -56,7 +49,8 @@ export function tokenGetter() {
         skipWhenExpired: true,
       }
     }),
-    SneakerFeatureModule
+    SneakerFeatureModule,
+    UserDashboardFeatureModule
   ],
   providers: [
     {

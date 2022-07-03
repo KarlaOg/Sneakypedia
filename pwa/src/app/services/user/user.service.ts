@@ -105,12 +105,8 @@ export class UserService {
     }
   }
 
-  getUserFavoris(id: number) {
-    return this.http.get<any[]>('http://localhost/api/users/' + `${id}`, httpOptions)
-      .pipe(
-        catchError(this.error.handleError),
-        
-      )
+  getUserInformations(id: number) {
+    return this.http.get<any[]>('http://localhost/api/users/' + `${id}`, httpOptions); 
   }
 
 

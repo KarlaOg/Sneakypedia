@@ -1,54 +1,49 @@
 import { Component, OnInit } from '@angular/core';
+import { of } from 'rxjs';
 import { UserService } from 'src/app/services/user/user.service';
+import { userInformation } from '../../../models/userInfos'
+
 
 @Component({
   selector: 'app-favorites',
   templateUrl: './favorites.component.html',
   styleUrls: ['./favorites.component.css']
 })
+
+
 export class FavoritesComponent implements OnInit {
+
+
+  test: any[] = [];
 
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
-    this.getUserFav();
-    this.test();
+    this.getUserInfosFav();
+    console.log(this.test);
+    this.loadFavoris();
   }
-  userInfos: {
-    "@context": string;
-    "@id": string;
-    "@type": string;
-    "email": string;
-    "favorites": Array<object>;
-    "firstname": string;
-    "inventories": Array<object>;
-    "lastname": string;
-  } = {
-      "@context": "",
-      "@id": "",
-      "@type": "",
-      "email": "",
-      "favorites": [{}],
-      "firstname": "",
-      "inventories": [{}],
-      "lastname": "",
-    }
 
-  getUserFav() {
+
+
+  getUserInfosFav() {
     const idUser = this.userService.decodeToken().id;
-    return this.userService.getUserFavoris(idUser)
-      .subscribe((property) => {
-        for (const value of Object.values(property)) {
-          return (this.userInfos = value);
-        }
-        console.log(property)
+    return this.userService.getUserInformations(idUser)
+      .subscribe({
+        next: (v) => this.test.push(v),
+        error: (e) => console.error(e),
+        complete: () => console.info('complete')
       })
   }
 
-  test() {
-    console.log(this.userInfos)
 
-
+  loadFavoris() {
+    console.log(this.test.length)
+    
+    this.test.forEach(val => console.log(val))
+  
   }
+
+
 
 }

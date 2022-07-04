@@ -19,21 +19,14 @@ export class SneakerDetailsComponent implements OnInit {
   private sub: any;
   statusUser: boolean | undefined;
 
-  detailsItem: {
-    id: number;
-    label: string;
-    image: string;
-    release_date: string;
-    description: string;
-    price: number;
-  } = {
-      id: 0,
-      label: '',
-      image: '',
-      release_date: '',
-      description: '',
-      price: 0,
-    };
+  detailsItem: Sneaker = {
+    id: 0,
+    label: '',
+    image: '',
+    release_date: '',
+    description: '',
+    price: 0,
+  };
   error!: [];
   constructor(
     private sneakerService: SneakerService,
@@ -67,8 +60,16 @@ export class SneakerDetailsComponent implements OnInit {
       .get(this.getIdSneakers())
       .subscribe((detailSneaker) => {
         for (const value of Object.values(detailSneaker)) {
-          return (this.detailsItem = value);
+          return (this.detailsItem = {
+            id: value.id,
+            description: value.description,
+            label: value.label,
+            image: value.image,
+            price: value.price,
+            release_date: value.release_date,
+          });
         }
+        return 
         console.log(detailSneaker);
       });
   }

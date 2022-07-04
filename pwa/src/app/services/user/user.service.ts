@@ -5,6 +5,7 @@ import { User } from 'src/app/models/user';
 import { ErrorService } from 'src/app/services/error.service';
 import * as moment from "moment";
 import { JwtHelperService } from "@auth0/angular-jwt";
+import { UserInformation } from 'src/app/models/UserInformation';
 
 
 const httpOptions = {
@@ -106,7 +107,12 @@ export class UserService {
   }
 
   getUserInformations(id: number) {
-    return this.http.get<any[]>('http://localhost/api/users/' + `${id}`, httpOptions); 
+    return this.http.get<UserInformation>('http://localhost/api/users/' + `${id}`, httpOptions)
+      .pipe(
+        map(({ favorites }) => favorites)
+
+      )
+
   }
 
 

@@ -2,8 +2,8 @@ from django.db import models
 from sqlalchemy import *
 from sqlalchemy.engine.url import URL
 # from api_django.elasticsearch.search_sneakers import SneakerIndex
-import settings
 from sqlalchemy.ext.declarative import declarative_base
+from main import settings
 
 
 DeclarativeBase = declarative_base()
@@ -35,10 +35,8 @@ class SneakerModel(models.Model):
     label  = models.CharField(max_length=200)
     image  = models.CharField(max_length=200)
     description = models.CharField(max_length=200)
-    release_date = models.CharField(max_length=200)
+    release_date = models.CharField(max_length=15)
     price = models.DecimalField(max_digits=5, decimal_places=2)
-    class Meta:
-        app_label = 'api_django'
 
 class Sneakers(DeclarativeBase):
     """Sqlalchemy sneakers model"""

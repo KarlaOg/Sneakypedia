@@ -14,22 +14,21 @@ SECRET_KEY = env("SECRET_KEY")
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['sneakypedia-django-api.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    'sneakers.apps.ApiPythonConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'sneakers',
     'rest_framework',
     "corsheaders",
-    "templatetags.tags",
 ]
 
 MIDDLEWARE = [
@@ -51,7 +50,7 @@ CORS_ALLOWED_ORIGINS = [
     "https://sneakypedia-django-api.herokuapp.com"
     ]
 
-ROOT_URLCONF = 'urls'
+ROOT_URLCONF = 'sneakers.urls'
 
 TEMPLATES = [
     {
@@ -65,10 +64,6 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
-            'libraries':{
-            'tags': 'templatetags.tags',
-            
-            }
         },
     },
 ]
@@ -129,11 +124,11 @@ STATICFILES_DIRS = [
 #     },
 # }
 
-SECURE_HSTS_SECONDS = 3600
-SECURE_SSL_REDIRECT = True
-SECURE_HSTS_PRELOAD = True
-SESSION_COOKIE_SECURE = True
-SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-CSRF_COOKIE_SECURE = True
+SECURE_HSTS_SECONDS = 0
+SECURE_SSL_REDIRECT = False
+# SECURE_HSTS_PRELOAD = False
+# SESSION_COOKIE_SECURE = False
+# SECURE_HSTS_INCLUDE_SUBDOMAINS = False
+# CSRF_COOKIE_SECURE = False
 
 django_heroku.settings(locals())

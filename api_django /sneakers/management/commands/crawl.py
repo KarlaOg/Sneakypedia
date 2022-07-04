@@ -7,7 +7,7 @@ from scrapper.spiders.sneakers_spider import SneakersSpider
 
 
 class Command(BaseCommand):
-    help = 'Release spider'
+    help = 'scrapping_sneaker'
 
     def handle(self, *args, **options):
         crawler_settings = Settings()

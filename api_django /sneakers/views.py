@@ -1,7 +1,7 @@
 from django.shortcuts import get_object_or_404, render
 from sneakers.models import SneakerModel
 from django.views.decorators.csrf import csrf_exempt
-from rest_framework import viewsets,permissions
+from rest_framework import viewsets,permissions, generics
 from rest_framework.views import APIView
 from sneakers.serializers import SneakerModelSerializer
 from django.http import HttpResponse
@@ -9,8 +9,6 @@ from rest_framework.response import Response
 import base64
 import urllib.request
 from django.db.models import Q 
-from django.views.generic import  ListView
-from django.core import serializers
 
 
 @csrf_exempt
@@ -69,11 +67,14 @@ class JsonView(APIView):
 
 	permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
-class SearchResults(ListView):
-	model = SneakerModel
+
+class SearchResults(generics.ListAPIView):
+	serializer_class = SneakerModelSerializer
+	
 	def get_queryset(self):
+		model = SneakerModel
 		query = self.request.GET.get("name")
-		object_list = SneakerModel.objects.filter(
+		object_list = model.objects.filter(
         	Q(label__icontains=query)
         )
 		return object_list

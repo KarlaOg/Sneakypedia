@@ -106,10 +106,18 @@ export class UserService {
     }
   }
 
-  getUserInformations(id: number) {
+  getUserFavoris(id: number) {
     return this.http.get<UserInformation>('http://localhost/api/users/' + `${id}`, httpOptions)
       .pipe(
         map(({ favorites }) => favorites)
+
+      )
+
+  }
+  getUserInventory(id: number) {
+    return this.http.get<UserInformation>('http://localhost/api/users/' + `${id}`, httpOptions)
+      .pipe(
+        map(({ inventories }) => inventories)
 
       )
 

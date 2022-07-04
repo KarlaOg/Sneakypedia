@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { inventory } from '../models/inventory';
+import { Inventory } from '../models/inventory';
 import { ErrorService } from './error.service';
 
 
@@ -19,8 +19,8 @@ const httpOptions = {
 export class InventoryService {
   constructor(private http: HttpClient, private error: ErrorService) { }
 
-  create(inventory: inventory) {
-    return this.http.post<any>(`${apiUrl}inventories`, inventory, httpOptions);
+  create(inventory: Inventory) {
+    return this.http.post<Inventory>(`${apiUrl}inventories`, inventory, httpOptions);
   }
 
   // TODO Implement 

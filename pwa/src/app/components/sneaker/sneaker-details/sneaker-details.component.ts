@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Favorites } from 'src/app/models/favorites';
+import { Inventory } from 'src/app/models/inventory';
 import { Sneaker } from 'src/app/models/sneaker';
 import { ErrorService } from 'src/app/services/error.service';
 import { FavoritesService } from 'src/app/services/favorites.service';
@@ -97,8 +98,8 @@ export class SneakerDetailsComponent implements OnInit {
     const idSneaker: number = this.getIdSneakers();
     const idUser = this.userService.decodeToken().id;
 
-    const currentUserInventory: Favorites = {
-      'userId': [`/api/users/${idUser.toString()}`],
+    const currentUserInventory: Inventory = {
+      'idUser': [`/api/users/${idUser.toString()}`],
       'idSneaker': idSneaker.toString()
     }
     console.log(currentUserInventory)

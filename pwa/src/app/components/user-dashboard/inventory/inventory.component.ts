@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Sneaker } from 'src/app/models/sneaker';
+import { SneakerService } from 'src/app/services/sneaker/sneaker.service';
+import { UserService } from 'src/app/services/user/user.service';
+import { UserInformation, UserFavoritesSneaker } from '../../../models/UserInformation'
 
 @Component({
   selector: 'app-inventory-user-dashboard',
@@ -7,9 +11,45 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InventoryComponent implements OnInit {
 
-  constructor() { }
+
+  value: UserFavoritesSneaker | undefined;
+  sneakerList: Sneaker[] = [];
+  arrayOfInventory: number[] = [];
+
+  sneakerTest: Sneaker | undefined;
+  constructor(private userService: UserService, private sneakerService: SneakerService) { }
 
   ngOnInit(): void {
+    this.getUserInfosInventory();
   }
 
+
+
+  getUserInfosInventory() {
+    const idUser = this.userService.decodeToken().id;
+    return this.userService.getUserInventory(idUser)
+      .subscribe({
+        next: (v) => {
+
+          Object.entries(v).forEach(
+            ([key, value]) => this.arrayOfInventory.push(parseInt(value.idSneaker)),
+
+          );
+          this.arrayOfInventory.forEach(val => {
+            return this.sneakerService
+              .get(val)
+              .subscribe((sneakerItem) => {
+                for (const value of Object.values(sneakerItem)) {
+                  this.sneakerList.push(value);
+
+                }
+              })
+          })
+
+        },
+        error: (e) => console.error(e),
+        complete: () => console.info('complete')
+      })
+
+  }
 }

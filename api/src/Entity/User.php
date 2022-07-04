@@ -75,7 +75,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[SerializedName("password")]
     private $plainPassword;
 
-    #[Groups(["user:read"])]
+    #[Groups(["user:read", "inventory:read"])]
     #[ORM\ManyToMany(targetEntity: Inventory::class, mappedBy: 'idUser')]
     private $inventories;
 

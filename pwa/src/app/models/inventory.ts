@@ -1,5 +1,5 @@
 
-export interface inventory {
+export interface Inventory {
   idSneaker: number | string, 
-  userId: any,
+  idUser: any,
 }

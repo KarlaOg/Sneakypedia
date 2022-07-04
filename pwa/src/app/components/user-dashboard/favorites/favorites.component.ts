@@ -44,7 +44,7 @@ export class FavoritesComponent implements OnInit {
 
   getUserInfosFav() {
     const idUser = this.userService.decodeToken().id;
-    return this.userService.getUserInformations(idUser)
+    return this.userService.getUserFavoris(idUser)
       .subscribe({
         next: (v) => {
 

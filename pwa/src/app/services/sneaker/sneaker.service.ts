@@ -30,6 +30,6 @@ export class SneakerService {
     return this.http.delete(baseUrl);
   }
   findByTitle(label:string) {
-    return this.http.get(`${searchUrl}?name=${label}`);
+    return this.http.get<any[]>(`${searchUrl}?name=${label}`);
   }
 }

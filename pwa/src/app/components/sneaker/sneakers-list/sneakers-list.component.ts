@@ -8,25 +8,9 @@ import { SneakerService } from 'src/app/services/sneaker/sneaker.service';
 <div class="bg-white">
     <div class="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
       <h2 class="sr-only">Products</h2>
-      
-      <div class="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8" *ngIf="filteredSneakers">
 
-
-        <a href="#" class="group" *ngFor="let item of filteredSneakers">
-
-          <div class="w-full aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8">
-            <img src='{{item.image}}' alt="Images of different sneakers" class="w-full h-full object-center object-cover group-hover:opacity-75">
-          </div>
-          <h3 class="mt- 4 text-sm text-gray-700"> {{item.label}}</h3>
-
-          <p class="mt-1 text-lg font-medium text-gray-900"> {{item.price}}</p>
-        </a>
-       </div>
-
-       <div class="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8" *ngIf="!filteredSneakers?.length">
-
-
-       <a href="#" class="group" *ngFor="let item of allSneakers">
+       <div class="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8" *ngIf="filteredSneakers.length == 0;else FilteredSneakers">
+        <a href="#" class="group" *ngFor="let item of allSneakers">
 
          <div class="w-full aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8">
            <img src='{{item.image}}' alt="Images of different sneakers" class="w-full h-full object-center object-cover group-hover:opacity-75">
@@ -36,6 +20,23 @@ import { SneakerService } from 'src/app/services/sneaker/sneaker.service';
          <p class="mt-1 text-lg font-medium text-gray-900"> {{item.price}}</p>
        </a>
       </div>
+
+      <ng-template  #FilteredSneakers>
+      <div class="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+
+      <h2>Filtrés</h2>
+      <a href="#" class="group" *ngFor="let item of filteredSneakers">
+
+        <div class="w-full aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8">
+          <img src='{{item.image}}' alt="Images of different sneakers" class="w-full h-full object-center object-cover group-hover:opacity-75">
+        </div>
+        <h3 class="mt- 4 text-sm text-gray-700"> {{item.label}}</h3>
+
+        <p class="mt-1 text-lg font-medium text-gray-900"> {{item.price}}</p>
+      </a>
+     </div>
+     </ng-template>
+
     </div>
   </div> 
 
@@ -47,8 +48,6 @@ export class SneakersListComponent implements OnInit {
 
   allSneakers: Sneaker[] = [];
   filteredSneakers: Sneaker[] = [];
-  sneakers: Sneaker[] = [];
-  homeData: string = "";
   @Input() item = '';
 
 
@@ -56,10 +55,8 @@ export class SneakersListComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllSneakerList();
-
   }
   ngOnChanges() {
-    console.log(this.item);
     this.searchSneaker();
   }
 
@@ -77,15 +74,14 @@ export class SneakersListComponent implements OnInit {
       });
   }
   searchSneaker() {
-    this.sneakerService.findByTitle(this.item)
+    return this.sneakerService.findByTitle(this.item)
       .subscribe(objectOfSneakers => {
         for (const value of Object.values(objectOfSneakers)) {
           return this.filteredSneakers = value
         }
-        console.info(this.filteredSneakers)
         return objectOfSneakers
       });
-  }
+    }
 
 
 

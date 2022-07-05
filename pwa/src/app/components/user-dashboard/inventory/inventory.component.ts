@@ -15,6 +15,8 @@ export class InventoryComponent implements OnInit {
   value: UserFavoritesSneaker | undefined;
   sneakerList: Sneaker[] = [];
   arrayOfInventory: number[] = [];
+  arrayOfPrice: number[] = [];
+  averageOfSneaker: number = 0;
 
   sneakerTest: Sneaker | undefined;
   constructor(private userService: UserService, private sneakerService: SneakerService) { }
@@ -41,8 +43,13 @@ export class InventoryComponent implements OnInit {
               .subscribe((sneakerItem) => {
                 for (const value of Object.values(sneakerItem)) {
                   this.sneakerList.push(value);
+                  this.arrayOfPrice.push(parseInt(value.price))
+
 
                 }
+                this.averageOfSneaker = this.arrayOfPrice.reduce((a, b) => a + b, 0) / this.arrayOfPrice.length
+
+
               })
           })
 

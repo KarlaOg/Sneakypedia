@@ -7,6 +7,7 @@ import * as moment from "moment";
 import { JwtHelperService } from "@auth0/angular-jwt";
 import { UserInformation } from 'src/app/models/UserInformation';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 
 
@@ -22,8 +23,9 @@ const httpOptions = {
 })
 
 export class UserService {
-  private apiUrl = "http://localhost/api/";
-  private JWTLoginCheck = "http://localhost/authentication_token";
+  private apiUrl = environment.API_PLATFORM_URL;
+  private JWTLoginCheck = environment.LOGIN_URL;
+
 
   private authenticatedUser: BehaviorSubject<User> = new BehaviorSubject<User>(null!);
   user: Observable<User> = this.authenticatedUser.asObservable();
@@ -32,7 +34,7 @@ export class UserService {
   isLoggedOut: Observable<boolean>;
 
 
-  constructor(private http: HttpClient, private error: ErrorService, private jwtHelper: JwtHelperService , private router : Router) {
+  constructor(private http: HttpClient, private error: ErrorService, private jwtHelper: JwtHelperService, private router: Router) {
 
     this.isLoggedIn = this.user.pipe(map(user => !!user))
     this.isLoggedOut = this.isLoggedIn.pipe(map(loggedIn => !loggedIn))
@@ -142,7 +144,7 @@ export class UserService {
     localStorage.removeItem("id_token");
     localStorage.removeItem("expires_at");
     this.router.navigateByUrl("/");
-    
+
   }
 
   decodeToken() {

@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Sneaker } from 'src/app/models/sneaker';
+import { environment } from 'src/environments/environment';
 
 
-const baseUrl = 'http://127.0.0.1:8000/api/sneakers/';
+const baseUrl = environment.DJANGO_URL;
 
 @Injectable({
   providedIn: 'root'

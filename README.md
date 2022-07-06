@@ -1,6 +1,6 @@
 # SNEAKYPEDIA™
 
-SNEAKYPEDIA is a website that references sneakers. You can add, have an inventory and mark as favoris.
+[SNEAKYPEDIA](https://www.sneakies.rocks) is a website that references sneakers. You can add, have an inventory and mark as favoris.
 
 SNEAKYPEDIA is [Coumba Camara](https://github.com/kumatata) and I final year school project at ESGI Paris.
 

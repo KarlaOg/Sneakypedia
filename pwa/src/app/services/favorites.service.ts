@@ -2,9 +2,10 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ErrorService } from './error.service';
 import { Favorites } from '../models/favorites'
+import { environment } from 'src/environments/environment';
 
 
-const apiUrl = "http://localhost/api/";
+const apiUrl = environment.API_PLATFORM_URL
 
 const httpOptions = {
   headers: new HttpHeaders({

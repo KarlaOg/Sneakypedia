@@ -24,6 +24,7 @@ import { SneakerService } from 'src/app/services/sneaker/sneaker.service';
        </div>
     </div>
   </div> 
+
   `,
   styleUrls: ['./sneakers-list.component.css']
 })
@@ -40,13 +41,17 @@ export class SneakersListComponent implements OnInit {
 
   getAllSneakerList() {
     return this.sneakerService.getAll()
-      .subscribe(objectOfSneakers => {
-        for (const value of Object.values(objectOfSneakers)) {
-          this.allSneakers = value
-        } 
-        console.info(objectOfSneakers)
-        return objectOfSneakers
-      
+      .subscribe({
+        next: (objectOfSneakers) => {
+          for (const value of Object.values(objectOfSneakers)) {
+            this.allSneakers = value
+          }
+
+          return objectOfSneakers
+
+        }, 
+        error: (e) => console.error(e),
+        complete: () => console.info('complete')
       });
   }
 }

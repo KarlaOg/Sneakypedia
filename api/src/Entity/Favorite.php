@@ -20,7 +20,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
     ],
     itemOperations: [
         "get",
-        "delete" => ["security" => "object.owner == user"],
+        "delete" => ["security" => "object.userId == user"],
     ],
 )]
 class Favorite
@@ -31,11 +31,10 @@ class Favorite
     private $id;
 
     #[Groups(["favorite:write", "favorite:read"])]
-    #[ORM\ManyToMany(targetEntity: User::class, inversedBy: 'favorites')]
+    #[ORM\ManyToMany(targetEntity: User::class, inversedBy: 'favorites', orphanRemoval:true , cascade:["remove"])]
     private $userId;
 
-    #[Groups(["favorite:write", "favorite:read", "user:read"])]
-    
+    #[Groups(["favorite:write", "favorite:read" , "user:read"])]
     #[ORM\Column(type: 'string', length: 255)]
     private $idSneaker;
 

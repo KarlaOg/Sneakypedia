@@ -17,10 +17,27 @@ const httpOptions = {
 })
 
 export class FavoritesService {
-  constructor(private http: HttpClient ,  private error: ErrorService) { }
+  constructor(private http: HttpClient, private error: ErrorService) { }
 
-  create(favoris : Favorites){
-    return this.http.post<any>(`${apiUrl}favorites`, favoris, httpOptions); 
+  create(favoris: Favorites) {
+    return this.http.post<any>(`${apiUrl}favorites`, favoris, httpOptions);
   }
+
+  // TODO Implement 
+  get(id: number) {
+
+  }
+
+  // TODO Implement 
+  getAll() {
+    return this.http.post<any>(`${apiUrl}favorites`, httpOptions);
+  }
+
+
+  // TODO ADD id to delete 
+  delete() {
+    return this.http.delete<any>(`${apiUrl}favorites`, httpOptions);
+  }
+
 
 }

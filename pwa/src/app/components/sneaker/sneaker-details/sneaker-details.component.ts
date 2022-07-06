@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Favorites } from 'src/app/models/favorites';
+import { Inventory } from 'src/app/models/inventory';
 import { Sneaker } from 'src/app/models/sneaker';
 import { ErrorService } from 'src/app/services/error.service';
 import { FavoritesService } from 'src/app/services/favorites.service';
+import { InventoryService } from 'src/app/services/inventory.service';
 import { SneakerService } from 'src/app/services/sneaker/sneaker.service';
 import { UserService } from 'src/app/services/user/user.service';
 
@@ -17,27 +19,24 @@ export class SneakerDetailsComponent implements OnInit {
   id: number | undefined;
   private sub: any;
   statusUser: boolean | undefined;
+  sneakerAddedFav: boolean = false;
+  sneakerAddedInventory: boolean = false;
+  test: number = 0
 
-    detailsItem: {
-      id: number;
-      label: string;
-      image: string;
-      release_date: string;
-      description: string;
-      price: number;
-    } = {
-        id: 0,
-        label: '',
-        image: '',
-        release_date: '',
-        description: '',
-        price: 0,
-      };
+  detailsItem: Sneaker = {
+    id: 0,
+    label: '',
+    image: '',
+    release_date: '',
+    description: '',
+    price: 0,
+  };
   error!: [];
   constructor(
     private sneakerService: SneakerService,
     private route: ActivatedRoute,
     private favorisService: FavoritesService,
+    private inventoryService: InventoryService,
     private userService: UserService,
     public errorService: ErrorService
   ) {
@@ -47,9 +46,14 @@ export class SneakerDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.getDetailProducts();
     this.isUserLogIn();
-    console.log(this.statusUser)
+    this.checkIfFav();
+    this.checkIfInInventory();
 
+  }
 
+  ngOnChanges() {
+    console.log("ngOnChanges")
+    this.test = 9
   }
 
   getIdSneakers(): number {
@@ -63,27 +67,62 @@ export class SneakerDetailsComponent implements OnInit {
   getDetailProducts() {
     return this.sneakerService
       .get(this.getIdSneakers())
-      .subscribe((detailSneaker) => {
-        for (const value of Object.values(detailSneaker)) {
-          return (this.detailsItem = value);
-        }
-        console.log(detailSneaker);
+      .subscribe({
+        next: (detailSneaker) => {
+          for (const value of Object.values(detailSneaker)) {
+            return (this.detailsItem = {
+              id: value.id,
+              description: value.description,
+              label: value.label,
+              image: value.image,
+              price: value.price,
+              release_date: value.release_date,
+            });
+          }
+          return
+        },
+        error: (e) => console.error(e),
+        complete: () => console.info('complete')
+
       });
   }
-  
+
+
+
+
+
   addFavoris() {
     this.errorService.handleError
     const idSneaker: number = this.getIdSneakers();
     const idUser = this.userService.decodeToken().id;
+
     const currentUserFavoris: Favorites = {
       'userId': [`/api/users/${idUser.toString()}`],
       'idSneaker': idSneaker.toString()
     }
-    console.log(currentUserFavoris)
     this.favorisService.create(currentUserFavoris)
       .subscribe(
         {
           error: (e) => this.error = e,
+          complete: () => console.info("completed")
+        }
+      )
+  }
+
+  addInventory() {
+    this.errorService.handleError
+    const idSneaker: number = this.getIdSneakers();
+    const idUser = this.userService.decodeToken().id;
+
+    const currentUserInventory: Inventory = {
+      'idUser': [`/api/users/${idUser.toString()}`],
+      'idSneaker': idSneaker.toString()
+    }
+    this.inventoryService.create(currentUserInventory)
+      .subscribe(
+        {
+          error: (e) => this.error = e,
+          complete: () => console.info("completed")
         }
       )
   }
@@ -94,6 +133,44 @@ export class SneakerDetailsComponent implements OnInit {
     )
   }
 
+  checkIfFav() {
+    const idUser = this.userService.decodeToken().id;
+    this.userService
+      .getUserFavoris(idUser)
+      .subscribe({
+        next: (item) => {
+          for (const value of Object.values(item)) {
+            if (parseInt(value.idSneaker) === this.id) {
+              return this.sneakerAddedFav = true
+            }
+          }
+          return this.sneakerAddedFav
+        },
+        error: (e) => console.error(e),
+        complete: () => console.info('complete')
+      })
+  }
+
+  checkIfInInventory() {
+    const idUser = this.userService.decodeToken().id;
+    this.userService
+      .getUserInventory(idUser)
+      .subscribe({
+        next: (listOfItem) => {
+          for (const value of Object.values(listOfItem)) {
+            if (parseInt(value.idSneaker) === this.id) {
+              return this.sneakerAddedInventory = true
+            }
+          }
+          return this.sneakerAddedInventory
+
+        },
+        error: (e) => console.error(e),
+        complete: () => console.info('complete')
+      })
+
+
+  }
 
 
 

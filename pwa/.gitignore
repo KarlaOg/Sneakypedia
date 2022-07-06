@@ -47,3 +47,7 @@ Thumbs.db
 
 
 vendor/
+
+pwa/.vscode/
+
+pwa/.editorconfig

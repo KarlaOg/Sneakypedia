@@ -71,7 +71,9 @@ The project is build with :
 - [Angular](https://angular.io/)
 - [RxJS](https://rxjs.dev/)
 - [API-Platform](https://api-platform.com/)
+- [PostgreSQL](https://www.postgresql.org/)
 - [Django](https://www.djangoproject.com/)
+- [SQLite](https://www.sqlite.org/index.html)
 
 ## License
 

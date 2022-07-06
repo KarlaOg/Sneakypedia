@@ -1,5 +1,3 @@
-import sys
-sys.path.append('../../../api_django/api_django')
 import os
 os.environ['DJANGO_SETTINGS_MODULE'] = 'api_django.settings'
 # If you you use django outside of manage.py context, you 

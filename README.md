@@ -20,7 +20,7 @@ Run this command at the root of the project.
 
 ```bash
 ┌─[karla@home] - [~/code/PA_2022]
-└─[$] docker-compose up --build
+└─[$] > docker-compose up --build
 ```
 
 ## Angular | Front-End
@@ -32,14 +32,14 @@ This will install the Angular project :
 
 ```bash
 ┌─[karla@home] - [~/code/PA_2022/pwa]
-└─[$] npm install
+└─[$] > npm install
 ```
 
 To run the Angular project :
 
 ```bash
 ┌─[karla@home] - [~/code/PA_2022/pwa]
-└─[$] ng serve
+└─[$] > ng serve
 ```
 
 ## Django | Micro-service

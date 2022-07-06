@@ -24,6 +24,7 @@ import { SneakerService } from 'src/app/services/sneaker/sneaker.service';
        </div>
     </div>
   </div> 
+
   `,
   styleUrls: ['./sneakers-list.component.css']
 })

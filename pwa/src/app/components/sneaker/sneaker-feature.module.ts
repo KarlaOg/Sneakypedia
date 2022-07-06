@@ -10,11 +10,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
+
 @NgModule({
   declarations: [
     SneakerDetailsComponent,
     SneakersListComponent,
-    SneakerAddComponent
+    SneakerAddComponent, 
+
   ],
   imports: [
     CommonModule,

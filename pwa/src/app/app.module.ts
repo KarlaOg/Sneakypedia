@@ -14,10 +14,11 @@ import { AuthInterceptor } from 'src/app/services/user/auth/auth.interceptor';
 import { AlertNotificationComponent } from './components/alert/alert.component'
 import { AuthGuard } from './services/user/auth/auth.guard';
 import { JwtModule } from '@auth0/angular-jwt';
-import { ModalComponent } from './components/modal/modal.component';
 import { SneakerFeatureModule } from './components/sneaker/sneaker-feature.module';
 import { UserGuard } from './services/user/auth/user.guard';
 import { UserDashboardFeatureModule } from './components/user-dashboard/user-dashboard-feature.module';
+import { FooterComponent } from './views/footer.component';
+import { AddSneakerButton } from './views/addSneakerButton.component';
 
 export function tokenGetter() {
   return localStorage.getItem("id_token");
@@ -32,7 +33,8 @@ export function tokenGetter() {
     HomeComponent,
     CalendarComponent,
     AlertNotificationComponent,
-    ModalComponent,
+    FooterComponent, 
+    AddSneakerButton
     
   ],
   imports: [

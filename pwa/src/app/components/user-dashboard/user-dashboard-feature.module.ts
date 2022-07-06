@@ -7,6 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { NavUserDashboardComponent } from './nav-user-dashboard/nav-user-dashboard.component';
+import { ModalComponent } from '../modal/modal.component';
 
 
 
@@ -15,7 +16,8 @@ import { NavUserDashboardComponent } from './nav-user-dashboard/nav-user-dashboa
     AccountComponent,
     InventoryComponent,
     FavoritesComponent,
-    NavUserDashboardComponent
+    NavUserDashboardComponent, 
+    ModalComponent
 
   ],
   imports: [

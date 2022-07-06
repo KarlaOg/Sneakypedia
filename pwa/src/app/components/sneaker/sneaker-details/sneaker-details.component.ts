@@ -70,7 +70,7 @@ export class SneakerDetailsComponent implements OnInit {
             release_date: value.release_date,
           });
         }
-        return 
+        return
         console.log(detailSneaker);
       });
   }

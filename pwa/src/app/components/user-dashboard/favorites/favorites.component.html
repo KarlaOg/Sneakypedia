@@ -11,14 +11,16 @@
       <hr />
     </span>
 
-    <div class="flex flex-row flex-wrap justify-start gap-5">
+    <div
+      class="flex flex-row flex-wrap justify-center sm:justify-between gap-5"
+    >
       <div *ngFor="let sneakerItem of sneakerList" class="">
-        <div class="max-w-sm rounded overflow-hidden bg-gray-100">
+        <div class="rounded overflow-hidden bg-gray-100 max-w-fit">
           <div class="px-6 py-4">
-            <div class="text-base mb-2 text-gray-900 max-w-fit">
+            <div class="text-base mb-2 text-gray-900">
               {{ sneakerItem.label }}
             </div>
-            
+
             <img
               src="{{ sneakerItem.image }}"
               alt="Images of different sneakers"

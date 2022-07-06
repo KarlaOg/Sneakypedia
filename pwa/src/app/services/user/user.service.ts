@@ -6,6 +6,8 @@ import { ErrorService } from 'src/app/services/error.service';
 import * as moment from "moment";
 import { JwtHelperService } from "@auth0/angular-jwt";
 import { UserInformation } from 'src/app/models/UserInformation';
+import { Router } from '@angular/router';
+
 
 
 const httpOptions = {
@@ -30,7 +32,7 @@ export class UserService {
   isLoggedOut: Observable<boolean>;
 
 
-  constructor(private http: HttpClient, private error: ErrorService, private jwtHelper: JwtHelperService) {
+  constructor(private http: HttpClient, private error: ErrorService, private jwtHelper: JwtHelperService , private router : Router) {
 
     this.isLoggedIn = this.user.pipe(map(user => !!user))
     this.isLoggedOut = this.isLoggedIn.pipe(map(loggedIn => !loggedIn))
@@ -139,6 +141,8 @@ export class UserService {
     this.authenticatedUser.next(null!)
     localStorage.removeItem("id_token");
     localStorage.removeItem("expires_at");
+    this.router.navigateByUrl("/");
+    
   }
 
   decodeToken() {

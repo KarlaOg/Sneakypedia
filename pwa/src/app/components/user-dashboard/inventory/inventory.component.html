@@ -12,9 +12,9 @@
       </p>
     </span>
     <hr />
-    <div class="flex flex-row flex-wrap justify-start gap-5 pt-5">
+    <div class="flex flex-row flex-wrap justify-center sm:justify-start  gap-5 pt-5">
       <div class="max-w-sm rounded overflow-hidden bg-gray-100">
-        <div class="px-6 py-4">
+        <div class="px-6 py-4 min-w-max">
           <div class="text-xl mb-2 text-gray-900">Moyenne d'une paire</div>
           <span
             class="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-orange-500 relative inline-block left-1/3"
@@ -26,7 +26,7 @@
         </div>
       </div>
       <div class="max-w-sm rounded overflow-hidden bg-gray-100">
-        <div class="px-6 py-4">
+        <div class="px-6 py-4 min-w-max">
           <div class="text-xl mb-2 text-gray-900">Nombre de sneaker</div>
           <span
             class="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-orange-500 relative inline-block left-1/2"
@@ -56,9 +56,9 @@
         <hr />
       </span>
 
-      <div class="flex flex-row flex-wrap justify-start gap-5">
+      <div class="flex flex-row flex-wrap justify-center sm:justify-between gap-5">
         <div *ngFor="let sneakerItem of sneakerList" class="">
-          <div class="max-w-sm rounded overflow-hidden bg-gray-100">
+          <div class="rounded overflow-hidden bg-gray-100 max-w-fit">
             <div class="px-6 py-4">
               <div class="text-base mb-2 text-gray-900 max-w-fit">
                 {{ sneakerItem.label }}
@@ -70,7 +70,7 @@
                 />
             </div>
             <hr />
-            <div class="px-6 py-4 flex flex-row justify-evenly">
+            <div class="px-6 py-4 flex flex-row justify-between">
               <button
                 type="submit"
                 class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-orange-500 hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2"

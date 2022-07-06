@@ -74,13 +74,13 @@ import { UserService } from 'src/app/services/user/user.service';
           </div>
         </div>
         <div class="px-4 py-3 bg-gray-50 text-right sm:px-6 flex  justify-between flex-row items-center ">
-        <a  (click)="open()"
-            type="submit"
-            class="text-xs font-medium text-orange-600 hover:text-orange-400  underline underline-offset-4 "
-            
-          >
-            Supprimer mon compte
-          </a>
+        <button
+        class="text-xs font-medium text-orange-600 hover:text-orange-400  underline underline-offset-4 "
+        type="button"
+        data-modal-toggle="defaultModal"
+        >Supprimer mon compte
+      </button>
+        
           <button (click)="updateProfil()"
             type="submit"
             class=" bg-orange-600 border border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-medium text-white hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
@@ -93,6 +93,7 @@ import { UserService } from 'src/app/services/user/user.service';
     </form> 
   </div> 
 </div>
+<app-modal></app-modal>
 `,
   styleUrls: ['./account.component.css']
 })

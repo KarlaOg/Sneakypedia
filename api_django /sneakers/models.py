@@ -3,7 +3,7 @@ from sqlalchemy import *
 from sqlalchemy.engine.url import URL
 # from api_django.elasticsearch.search_sneakers import SneakerIndex
 from sqlalchemy.ext.declarative import declarative_base
-from main import settings
+from api_django import settings
 
 
 DeclarativeBase = declarative_base()

@@ -9,3 +9,4 @@ Scrapy==2.6.1
 scrapy-djangoitem==1.1.1
 sqlalchemy
 Pillow==8.2.0
+gunicorn==19.9.0

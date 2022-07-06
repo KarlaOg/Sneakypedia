@@ -75,6 +75,11 @@ The project is build with :
 - [Django](https://www.djangoproject.com/)
 - [SQLite](https://www.sqlite.org/index.html)
 
+
+## Deploy 
+
+For the Angular project it is deployed with [Vercel](https://vercel.com/), for API-Platform with [Heroku](https://www.heroku.com/). 
+
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)

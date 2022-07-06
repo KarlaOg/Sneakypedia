@@ -28,7 +28,6 @@ INSTALLED_APPS = [
     'sneakers',
     'rest_framework',
     "corsheaders",
-    "api_django"
 ]
 
 MIDDLEWARE = [

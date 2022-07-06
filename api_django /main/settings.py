@@ -48,7 +48,7 @@ CORS_ALLOWED_ORIGINS = [
     "https://sneakypedia-django-api.herokuapp.com"
     ]
 
-ROOT_URLCONF = 'sneakers.urls'
+ROOT_URLCONF = 'main.urls'
 
 TEMPLATES = [
     {

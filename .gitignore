@@ -103,3 +103,7 @@ docs/_build/
 
 # PyBuilder
 target/
+
+./vendor
+vendor/
+.env.local

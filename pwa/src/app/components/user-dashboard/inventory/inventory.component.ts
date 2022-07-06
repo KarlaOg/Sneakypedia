@@ -23,6 +23,7 @@ export class InventoryComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUserInfosInventory();
+    this.deleteInventory();
   }
 
 
@@ -40,17 +41,22 @@ export class InventoryComponent implements OnInit {
           this.arrayOfInventory.forEach(val => {
             return this.sneakerService
               .get(val)
-              .subscribe((sneakerItem) => {
-                for (const value of Object.values(sneakerItem)) {
-                  this.sneakerList.push(value);
-                  this.arrayOfPrice.push(parseInt(value.price))
+              .subscribe({
+                next: (sneakerItem) => {
+                  for (const value of Object.values(sneakerItem)) {
+                    this.sneakerList.push(value);
+                    this.arrayOfPrice.push(parseInt(value.price))
 
 
-                }
-                this.averageOfSneaker = Math.floor(this.arrayOfPrice.reduce((a, b) => a + b, 0) / this.arrayOfPrice.length)
+                  }
+                  this.averageOfSneaker = Math.floor(this.arrayOfPrice.reduce((a, b) => a + b, 0) / this.arrayOfPrice.length)
 
+                },
+                error: (e) => console.error(e),
+                complete: () => console.info('complete')
+              }
 
-              })
+              )
           })
 
         },
@@ -58,5 +64,10 @@ export class InventoryComponent implements OnInit {
         complete: () => console.info('complete')
       })
 
+  }
+
+
+  deleteInventory() {
+    console.log(this.sneakerList)
   }
 }

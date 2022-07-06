@@ -3,13 +3,14 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use ApiPlatform\Core\Annotation\ApiResource;
+
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
-use ApiPlatform\Core\Annotation\ApiResource;
-use App\Controller\UserInformationsController;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Serializer\Annotation\SerializedName;
@@ -66,8 +67,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $lastname;
 
 
-    #[Groups(["user:read", "favoris:read"])]
-    #[ORM\ManyToMany(targetEntity: Favorite::class, mappedBy: 'userId')]
+    #[Groups(["user:read", "user:write",  "favoris:read"])]
+    #[ORM\ManyToMany(targetEntity: Favorite::class, mappedBy: 'userId', cascade: ["remove"])]
     private $favorites;
 
 
@@ -75,8 +76,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[SerializedName("password")]
     private $plainPassword;
 
-    #[Groups(["user:read", "inventory:read"])]
-    #[ORM\ManyToMany(targetEntity: Inventory::class, mappedBy: 'idUser')]
+    #[Groups(["user:read", "user:write", "inventory:read"])]
+    #[ORM\ManyToMany(targetEntity: Inventory::class, mappedBy: 'idUser', cascade: ["remove"])]
     private $inventories;
 
     public function __construct()

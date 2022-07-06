@@ -19,6 +19,9 @@ export class SneakerDetailsComponent implements OnInit {
   id: number | undefined;
   private sub: any;
   statusUser: boolean | undefined;
+  sneakerAddedFav: boolean = false;
+  sneakerAddedInventory: boolean = false;
+  test: number = 0
 
   detailsItem: Sneaker = {
     id: 0,
@@ -43,9 +46,14 @@ export class SneakerDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.getDetailProducts();
     this.isUserLogIn();
-    console.log(this.statusUser)
+    this.checkIfFav();
+    this.checkIfInInventory();
 
+  }
 
+  ngOnChanges() {
+    console.log("ngOnChanges")
+    this.test = 9
   }
 
   getIdSneakers(): number {
@@ -59,21 +67,29 @@ export class SneakerDetailsComponent implements OnInit {
   getDetailProducts() {
     return this.sneakerService
       .get(this.getIdSneakers())
-      .subscribe((detailSneaker) => {
-        for (const value of Object.values(detailSneaker)) {
-          return (this.detailsItem = {
-            id: value.id,
-            description: value.description,
-            label: value.label,
-            image: value.image,
-            price: value.price,
-            release_date: value.release_date,
-          });
-        }
-        return
-        console.log(detailSneaker);
+      .subscribe({
+        next: (detailSneaker) => {
+          for (const value of Object.values(detailSneaker)) {
+            return (this.detailsItem = {
+              id: value.id,
+              description: value.description,
+              label: value.label,
+              image: value.image,
+              price: value.price,
+              release_date: value.release_date,
+            });
+          }
+          return
+        },
+        error: (e) => console.error(e),
+        complete: () => console.info('complete')
+
       });
   }
+
+
+
+
 
   addFavoris() {
     this.errorService.handleError
@@ -84,11 +100,11 @@ export class SneakerDetailsComponent implements OnInit {
       'userId': [`/api/users/${idUser.toString()}`],
       'idSneaker': idSneaker.toString()
     }
-    console.log(currentUserFavoris)
     this.favorisService.create(currentUserFavoris)
       .subscribe(
         {
           error: (e) => this.error = e,
+          complete: () => console.info("completed")
         }
       )
   }
@@ -102,11 +118,11 @@ export class SneakerDetailsComponent implements OnInit {
       'idUser': [`/api/users/${idUser.toString()}`],
       'idSneaker': idSneaker.toString()
     }
-    console.log(currentUserInventory)
     this.inventoryService.create(currentUserInventory)
       .subscribe(
         {
           error: (e) => this.error = e,
+          complete: () => console.info("completed")
         }
       )
   }
@@ -117,6 +133,44 @@ export class SneakerDetailsComponent implements OnInit {
     )
   }
 
+  checkIfFav() {
+    const idUser = this.userService.decodeToken().id;
+    this.userService
+      .getUserFavoris(idUser)
+      .subscribe({
+        next: (item) => {
+          for (const value of Object.values(item)) {
+            if (parseInt(value.idSneaker) === this.id) {
+              return this.sneakerAddedFav = true
+            }
+          }
+          return this.sneakerAddedFav
+        },
+        error: (e) => console.error(e),
+        complete: () => console.info('complete')
+      })
+  }
+
+  checkIfInInventory() {
+    const idUser = this.userService.decodeToken().id;
+    this.userService
+      .getUserInventory(idUser)
+      .subscribe({
+        next: (listOfItem) => {
+          for (const value of Object.values(listOfItem)) {
+            if (parseInt(value.idSneaker) === this.id) {
+              return this.sneakerAddedInventory = true
+            }
+          }
+          return this.sneakerAddedInventory
+
+        },
+        error: (e) => console.error(e),
+        complete: () => console.info('complete')
+      })
+
+
+  }
 
 
 

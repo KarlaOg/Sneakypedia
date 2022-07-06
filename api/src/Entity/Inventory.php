@@ -16,7 +16,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
     collectionOperations: [
         "get",
         "post",
-    ], 
+    ],
     itemOperations: [
         "get",
         "delete" => ["security" => "object.getIdUser == user"],
@@ -30,7 +30,7 @@ class Inventory
     private $id;
 
     #[Groups(["inventory:write", "inventory:read"])]
-    #[ORM\ManyToMany(targetEntity: User::class, inversedBy: 'inventories')]
+    #[ORM\ManyToMany(targetEntity: User::class, inversedBy: 'inventories', orphanRemoval: true , cascade:["remove"])]
     private $idUser;
 
     #[Groups(["inventory:write", "inventory:read",  "user:read"])]

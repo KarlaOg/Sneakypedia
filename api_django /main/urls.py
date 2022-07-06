@@ -1,4 +1,4 @@
-from django import views
+from sneakers import views
 from django.contrib import admin
 from django.urls import re_path, include
 

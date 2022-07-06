@@ -1,1 +1,1 @@
-web: gunicorn api_django/main.wsgsi 
+web: gunicorn main.wsgsi 

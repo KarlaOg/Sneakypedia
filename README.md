@@ -24,6 +24,7 @@ Run this command at the root of the project.
 ```
 
 ## Angular | Front-End
+⚠️ Make sure you have `npm` installed ⚠️
 
 Run these commands in the folder `pwa`
 
@@ -42,10 +43,10 @@ To run the Angular project :
 ```
 
 ## Django | Micro-service
+⚠️ Make sure you have `pip`and `python` installed ⚠️
 
 Run these commands in the folder `api_django_angular\api_django`
 
-⚠️ Make sure you have `pip`and `python` installed ⚠️
 
 This will install the requirements used in the 2nd API for the sneakers.
 

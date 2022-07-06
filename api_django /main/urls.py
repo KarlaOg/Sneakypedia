@@ -1,11 +1,8 @@
-from sneakers.views import JsonView, SearchResults, index
 from django.contrib import admin
-from django.urls import re_path
+from django.urls import re_path, include
 
 urlpatterns = [
    re_path('admin/', admin.site.urls),
-   re_path('',index,name = 'index'),
-   re_path('api/sneakers/',JsonView.as_view()),
-   re_path('api/sneakers/<int:pk>/', JsonView.as_view(), name='sneaker'),
-   re_path('api/search/',SearchResults.as_view())
+   re_path('api/', include('sneakers.urls')),
+   re_path('',include('sneakers.urls')),
 ]

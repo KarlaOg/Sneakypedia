@@ -1,1 +1,1 @@
-web: gunicorn api_django /main/wsgi.py
+web: gunicorn main.wsgi:application

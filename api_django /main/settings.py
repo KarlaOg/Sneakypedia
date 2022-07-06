@@ -102,7 +102,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 
-WSGI_APPLICATION = 'api_django.wsgi.application'
+WSGI_APPLICATION = 'main.wsgi.application'
 
 
 SECURE_HSTS_SECONDS = 0

@@ -1,12 +1,3 @@
-import os
-os.environ['DJANGO_SETTINGS_MODULE'] = 'api_django.settings'
-# If you you use django outside of manage.py context, you 
-# need to explicitly setup the django
-import django
-django.setup()
-from shutil import which
-
-
 SPIDER_MODULES = ['scrapper.spiders']
 NEWSPIDER_MODULE = 'scrapper.spiders'
 

@@ -47,7 +47,7 @@ export class InventoryComponent implements OnInit {
 
 
                 }
-                this.averageOfSneaker = this.arrayOfPrice.reduce((a, b) => a + b, 0) / this.arrayOfPrice.length
+                this.averageOfSneaker = Math.floor(this.arrayOfPrice.reduce((a, b) => a + b, 0) / this.arrayOfPrice.length)
 
 
               })

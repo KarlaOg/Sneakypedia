@@ -1,55 +1,95 @@
-<div class="shadow sm:rounded-md sm:overflow-hidden">
-  <div class="bg-white py-6 px-4 space-y-6 sm:p-6">
-    <div>
-      <h3 class="text-lg leading-6 font-medium text-gray-900">
-        Votre inventaire
-      </h3>
-      <p class="mt-1 text-xs text-gray-500">
-        Vous pourrez gerer votre inventaire ici.
+<div class="flex flex-col flex-wrap gap-5">
+  <div class="shadow sm:rounded-md sm:overflow-hidden p-5">
+    <h3 class="text-lg leading-6 font-medium text-gray-900">
+      Vos statistiques
+    </h3>
+    <span>
+      <p class="mt-1 text-sm text-gray-500">
+        Vous verrez ici vos statistiques.
+        <br />
+        Avec le nombres de sneaker que vous possedez et la moyenne en € d'une
+        paire de sneaker.
       </p>
-    </div>
-    <div>
-      <h3 class="text-lg leading-6 font-medium text-gray-900">Vos statistic</h3>
-      <p class="mt-1 text-xs text-gray-500">
-        Moyenne d'une paire en € :{{ averageOfSneaker }}
-      </p>
-      <p class="mt-1 text-xs text-gray-500">Marque plus acheter :</p>
-      <p class="mt-1 text-xs text-gray-500">
-        Nombres de paire :{{ sneakerList.length }}
-      </p>
-    </div>
-    <div class="flex flex-row items-start gap-2 p-2">
-      <div *ngFor="let sneakerItem of sneakerList" class="">
-        <p></p>
-        <h3 class="mt- 4 text-sm text-gray-700">{{ sneakerItem.label }}</h3>
-
-        <a [routerLink]="['/sneakers', sneakerItem.id]" class="block">
-          <img
-            src="{{ sneakerItem.image }}"
-            alt="Images of different sneakers"
-            class="w-80 object-center object-cover group-hover:opacity-75 rounded"
-          />
-        </a>
-      </div>
-      <div class="w-1/2">
-        <button title="delete" type="submit" class="">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            stroke-width="2"
+    </span>
+    <hr />
+    <div class="flex flex-row flex-wrap justify-start gap-5 pt-5">
+      <div class="max-w-sm rounded overflow-hidden bg-gray-100">
+        <div class="px-6 py-4">
+          <div class="text-xl mb-2 text-gray-900">Moyenne d'une paire</div>
+          <span
+            class="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-orange-500 relative inline-block left-1/3"
           >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M6 18L18 6M6 6l12 12"
-            />
-          </svg>
-        </button>
+            <span class="relative text-white">
+              <p>{{ averageOfSneaker || "0" }}€</p>
+            </span>
+          </span>
+        </div>
+      </div>
+      <div class="max-w-sm rounded overflow-hidden bg-gray-100">
+        <div class="px-6 py-4">
+          <div class="text-xl mb-2 text-gray-900">Nombre de sneaker</div>
+          <span
+            class="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-orange-500 relative inline-block left-1/2"
+          >
+            <span class="relative text-white">
+              <p>
+                {{ sneakerList.length || "0" }}
+              </p>
+            </span>
+          </span>
+        </div>
       </div>
     </div>
   </div>
-  <!-- <div class="px-4 py-3 bg-gray-50 text-right sm:px-6"></div> -->
+
+  <div class="shadow sm:rounded-md sm:overflow-hidden">
+    <div class="bg-white py-6 px-4 space-y-6 sm:p-6">
+      <h3 class="text-lg leading-6 font-medium text-gray-900">
+        Votre collection
+      </h3>
+      <span>
+        <p class="mt-1 text-sm text-gray-500">
+          Vous pourrez gerer votre inventaire ici.
+          <br />
+          Supprimé ou ajouter des paires dans votre collection.
+        </p>
+        <hr />
+      </span>
+
+      <div class="flex flex-row flex-wrap justify-start gap-5">
+        <div *ngFor="let sneakerItem of sneakerList" class="">
+          <div class="max-w-sm rounded overflow-hidden bg-gray-100">
+            <div class="px-6 py-4">
+              <div class="text-base mb-2 text-gray-900 max-w-fit">
+                {{ sneakerItem.label }}
+              </div>
+                <img
+                  src="{{ sneakerItem.image }}"
+                  alt="Images of different sneakers"
+                  class="w-72 object-center object-cover group-hover:opacity-75 rounded"
+                />
+            </div>
+            <hr />
+            <div class="px-6 py-4 flex flex-row justify-evenly">
+              <button
+                type="submit"
+                class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-orange-500 hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2"
+              >
+                Supprimé
+              </button>
+
+              <button
+                [routerLink]="['/sneakers', sneakerItem.id]"
+                class="block"
+                type="submit"
+                class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-orange-500 hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2"
+              >
+                Détails
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

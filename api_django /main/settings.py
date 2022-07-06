@@ -1,7 +1,6 @@
 import os
 
 import environ
-import django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -73,12 +72,8 @@ TEMPLATES = [
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': env("DATABASE_NAME"),
-        'USER': env("DATABASE_USER"),
-        'PASSWORD': env("DATABASE_PASSWORD"),
-        'HOST': env("DATABASE_HOST"),
-        'PORT': env("DATABASE_PORT"),
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3')
     },
     'users':{
         'ENGINE': 'django.db.backends.postgresql',
@@ -124,6 +119,9 @@ STATICFILES_DIRS = [
 #     },
 # }
 
+WSGI_APPLICATION = 'main.wsgi.application'
+
+
 SECURE_HSTS_SECONDS = 0
 SECURE_SSL_REDIRECT = True
 SECURE_HSTS_PRELOAD = True
@@ -131,4 +129,6 @@ SESSION_COOKIE_SECURE = True
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 CSRF_COOKIE_SECURE = True
 
+
+import django_heroku
 django_heroku.settings(locals())

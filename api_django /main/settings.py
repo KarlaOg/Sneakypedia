@@ -15,7 +15,7 @@ SECRET_KEY = env("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['sneakypedia-django-api.herokuapp.com']
+ALLOWED_HOSTS = ['kumatata.pythonanywhere.com']
 # Application definition
 
 INSTALLED_APPS = [
@@ -95,6 +95,8 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 
+STATICFILES_STORAGE = "django.contrib.staticfiles.storage.ManifestStaticFilesStorage"
+
 WSGI_APPLICATION = 'main.wsgi.application'
 
 
@@ -104,7 +106,3 @@ SECURE_HSTS_PRELOAD = True
 SESSION_COOKIE_SECURE = True
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 CSRF_COOKIE_SECURE = True
-
-
-import django_on_heroku
-django_on_heroku.settings(locals())

@@ -44,8 +44,6 @@ MIDDLEWARE = [
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:8080",
-    "http://localhost:4200",
-    "http://192.168.1.21:4200",
     "https://sneakypedia-django-api.herokuapp.com"
     ]
 
@@ -85,15 +83,6 @@ DATABASES = {
     }
 }
 
-DATABASE = {
-    'drivername': 'postgresql',
-    'host':  env("DATABASE_HOST"),
-    'port': env("DATABASE_PORT"),
-    'username': env("DATABASE_USER"),
-    'password': env("DATABASE_PASSWORD"),
-    'database':env("DATABASE_NAME"),
-}
-
 LANGUAGE_CODE = 'fr'
 
 TIME_ZONE = 'UTC'
@@ -112,12 +101,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
-
-# ELASTICSEARCH_DSL={
-#     'default': {
-#         'hosts': 'localhost:9200'
-#     },
-# }
 
 WSGI_APPLICATION = 'main.wsgi.application'
 

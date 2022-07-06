@@ -13,7 +13,7 @@ from django.db.models import Q
 
 @csrf_exempt
 def index(request):
-    return HttpResponse("Success")
+    return HttpResponse("Bienvenue dans l'API Sneakers")
 
 class SneakersAPI(viewsets.ModelViewSet):
     queryset = SneakerModel.objects.all()

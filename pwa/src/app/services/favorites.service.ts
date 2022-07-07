@@ -35,9 +35,9 @@ export class FavoritesService {
   }
 
 
-  // TODO ADD id to delete 
-  delete() {
-    return this.http.delete<any>(`${apiUrl}favorites`, httpOptions);
+
+  delete(id: number) {
+    return this.http.delete<any>(`${apiUrl}favorites/${id}`, httpOptions);
   }
 
 

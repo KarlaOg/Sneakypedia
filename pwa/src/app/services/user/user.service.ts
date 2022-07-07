@@ -8,6 +8,7 @@ import { JwtHelperService } from "@auth0/angular-jwt";
 import { UserInformation } from 'src/app/models/UserInformation';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
+import { UserFavoritesSneaker, UserInventoriesSneaker } from "../../models/UserInformation"
 
 
 
@@ -75,7 +76,7 @@ export class UserService {
   }
 
 
-  updateUserAccount(user: User): Observable<User> {
+  updateUserAccount(user: User | UserFavoritesSneaker[] | UserInventoriesSneaker[]): Observable<User> {
 
     if (this.getExpiration() === false) {
       const idUser = this.decodeToken().id
@@ -90,6 +91,7 @@ export class UserService {
 
 
   }
+
 
 
   deleteUserAccount(): Observable<User> {
@@ -108,6 +110,12 @@ export class UserService {
     } else {
       throw new Error('La session a expirer. Veuillez vous reconnecter.');
     }
+  }
+
+  getUserInfos(id: number) {
+    return this.http.get<UserInformation>('http://localhost/api/users/' + `${id}`, httpOptions)
+      .pipe(map((x) => console.log(x)))
+
   }
 
   getUserFavoris(id: number) {

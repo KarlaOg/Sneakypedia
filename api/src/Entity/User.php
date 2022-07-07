@@ -21,6 +21,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 #[ORM\Table(name: '`user`')]
 #[UniqueEntity(fields: "email", message: "L'email est déjà utilisé")]
 #[ApiResource(
+    routePrefix: '/v1',
     normalizationContext: ['groups' => ['user:read']],
     denormalizationContext: ['groups' => ['user:write']],
     collectionOperations: [
@@ -58,17 +59,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'string')]
     private $password;
 
-    #[Groups(["user:read", "user:write", "put"])]
+    #[Groups(["user:read", "user:write"])]
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $firstname;
 
-    #[Groups(["user:read", "user:write", "put"])]
+    #[Groups(["user:read", "user:write"])]
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $lastname;
 
 
-    #[Groups(["user:read", "user:write",  "favoris:read"])]
-    #[ORM\ManyToMany(targetEntity: Favorite::class, mappedBy: 'userId', cascade: ["remove"])]
+    #[Groups(["user:read", "user:write"])]
+    #[ORM\ManyToMany(targetEntity: Favorite::class, mappedBy: 'userId', orphanRemoval: true)]
     private $favorites;
 
 
@@ -76,8 +77,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[SerializedName("password")]
     private $plainPassword;
 
-    #[Groups(["user:read", "user:write", "inventory:read"])]
-    #[ORM\ManyToMany(targetEntity: Inventory::class, mappedBy: 'idUser', cascade: ["remove"])]
+    #[Groups(["user:read", "user:write"])]
+    #[ORM\ManyToMany(targetEntity: Inventory::class, mappedBy: 'idUser', orphanRemoval: true)]
     private $inventories;
 
     public function __construct()

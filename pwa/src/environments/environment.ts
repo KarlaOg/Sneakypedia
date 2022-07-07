@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
 
-  API_PLATFORM_URL: "http://localhost/api/",
+  API_PLATFORM_URL: "http://localhost/api/v1/",
   LOGIN_URL: 'http://localhost/authentication_token',
   DJANGO_URL: "http://127.0.0.1:8000/api/sneakers/"
 

@@ -3,7 +3,8 @@ import { elementAt, map, of } from 'rxjs';
 import { Sneaker } from 'src/app/models/sneaker';
 import { SneakerService } from 'src/app/services/sneaker/sneaker.service';
 import { UserService } from 'src/app/services/user/user.service';
-import { UserInformation, UserFavoritesSneaker } from '../../../models/UserInformation'
+import { UserInformation, UserFavoritesSneaker, UpdatedFavoris } from '../../../models/UserInformation'
+import { FavoritesService } from 'src/app/services/favorites.service';
 
 
 @Component({
@@ -27,21 +28,28 @@ export class FavoritesComponent implements OnInit {
   };
 
 
+
+  // updatedFav : UpdatedFavoris = "favorites"[]; 
+
   value: UserFavoritesSneaker | undefined;
   sneakerList: Sneaker[] = [];
   arrayOfFav: number[] = [];
+  favArrayURI: UserFavoritesSneaker[] = [];
 
   sneakerTest: Sneaker | undefined;
   currentItem: string = '';
 
 
-  constructor(private userService: UserService, private sneakerService: SneakerService) { }
+
+  constructor(private userService: UserService, private sneakerService: SneakerService, private favorisService: FavoritesService) { }
 
   ngOnInit(): void {
     this.getUserInfosFav();
-    this.getIdSneaker();
   }
 
+  ngOnChange(){
+    this.arrayOfFav; 
+  }
 
 
 
@@ -52,7 +60,10 @@ export class FavoritesComponent implements OnInit {
         next: (v) => {
 
           Object.entries(v).forEach(
-            ([key, value]) => this.arrayOfFav.push(parseInt(value.idSneaker)),
+            ([key, value]) => {
+              this.arrayOfFav.push(parseInt(value.idSneaker))
+              this.favArrayURI.push(value)
+            },
 
           );
           this.arrayOfFav.forEach(val => {
@@ -79,35 +90,30 @@ export class FavoritesComponent implements OnInit {
 
   }
 
-  getIdSneaker(): void {
-    console.log(this.sneakerList)
-    // const idUser = this.userService.decodeToken().id;
-    // this.userService.updateUserAccount(idUser,)
-  }
 
   myClickFunction(event: MouseEvent) {
     console.log(event)
   }
 
-  getValue(event: Event): string {
-    const idUser = this.userService.decodeToken().id;
-    console.log((event.target as HTMLInputElement).value)
+  getValueToDelete(event: Event): string {
     const valueClickedOn = (event.target as HTMLInputElement).value
-
-
-
-    Object.entries(this.sneakerList).forEach(
+    Object.entries(this.favArrayURI).forEach(
       ([key, value]) => {
-        if (value.id === parseInt(valueClickedOn)) {
-          console.log(value, key)
-          this.sneakerList.splice(1, parseInt(key))
+        const regex = /(\d+)/g;
+        // console.log(key , value["@id"])
+        const getFavId = value["@id"]
+        const result = getFavId.match(regex)
+        // 
+        if (parseInt(value.idSneaker) === parseInt(valueClickedOn)) {
+          console.log(value.idSneaker, valueClickedOn)
+          console.log(result![0])
+          this.favorisService.delete(parseInt(result![0])).subscribe({
+
+          })
+
         }
       }
     );
-    // this.userService.updateUserAccount(this.sneakerList)
-
-
-
     return (event.target as HTMLInputElement).value;
   }
 }

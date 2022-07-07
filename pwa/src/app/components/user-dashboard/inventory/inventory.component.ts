@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Sneaker } from 'src/app/models/sneaker';
 import { SneakerService } from 'src/app/services/sneaker/sneaker.service';
 import { UserService } from 'src/app/services/user/user.service';
-import { UserInformation, UserFavoritesSneaker } from '../../../models/UserInformation'
+import { UserInformation, UserInventoriesSneaker } from '../../../models/UserInformation';
+import { InventoryService } from 'src/app/services/inventory.service';
 
 @Component({
   selector: 'app-inventory-user-dashboard',
@@ -12,18 +13,20 @@ import { UserInformation, UserFavoritesSneaker } from '../../../models/UserInfor
 export class InventoryComponent implements OnInit {
 
 
-  value: UserFavoritesSneaker | undefined;
+  value: UserInventoriesSneaker | undefined;
   sneakerList: Sneaker[] = [];
   arrayOfInventory: number[] = [];
   arrayOfPrice: number[] = [];
   averageOfSneaker: number = 0;
-
+  inventoryArrayURI: UserInventoriesSneaker[] = [];
+  currentItem: string = '';
   sneakerTest: Sneaker | undefined;
-  constructor(private userService: UserService, private sneakerService: SneakerService) { }
+
+  constructor(private userService: UserService, private sneakerService: SneakerService, private inventorySevice: InventoryService) { }
 
   ngOnInit(): void {
     this.getUserInfosInventory();
-    this.deleteInventory();
+
   }
 
 
@@ -35,7 +38,10 @@ export class InventoryComponent implements OnInit {
         next: (v) => {
 
           Object.entries(v).forEach(
-            ([key, value]) => this.arrayOfInventory.push(parseInt(value.idSneaker)),
+            ([key, value]) => { 
+              this.arrayOfInventory.push(parseInt(value.idSneaker)) 
+              this.inventoryArrayURI.push(value)
+            },
 
           );
           this.arrayOfInventory.forEach(val => {
@@ -46,6 +52,7 @@ export class InventoryComponent implements OnInit {
                   for (const value of Object.values(sneakerItem)) {
                     this.sneakerList.push(value);
                     this.arrayOfPrice.push(parseInt(value.price))
+
 
 
                   }
@@ -67,7 +74,28 @@ export class InventoryComponent implements OnInit {
   }
 
 
-  deleteInventory() {
-    console.log(this.sneakerList)
+
+
+  getValueToDelete(event: Event): string {
+    const valueClickedOn = (event.target as HTMLInputElement).value
+    Object.entries(this.inventoryArrayURI).forEach(
+      ([key, value]) => {
+        console.log(value)
+        const regex = /(\d+)/g;
+        // console.log(key , value["@id"])
+        const getFavId = value["@id"]
+        const result = getFavId.match(regex)
+        
+        if (parseInt(value.idSneaker) === parseInt(valueClickedOn)) {
+          console.log(value.idSneaker, valueClickedOn)
+          console.log(result![0])
+          this.inventorySevice.delete(parseInt(result![0])).subscribe({
+
+          })
+
+        }
+      }
+    );
+    return (event.target as HTMLInputElement).value;
   }
 }

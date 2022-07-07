@@ -28,7 +28,7 @@ INSTALLED_APPS = [
     'sneakers',
     'rest_framework',
     "corsheaders",
-    "main"
+    "main",
 ]
 
 MIDDLEWARE = [

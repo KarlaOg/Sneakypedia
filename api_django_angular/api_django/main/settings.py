@@ -97,12 +97,6 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 
-# ELASTICSEARCH_DSL={
-#     'default': {
-#         'hosts': 'localhost:9200'
-#     },
-# }
-
 SECURE_HSTS_SECONDS = 0
 SECURE_SSL_REDIRECT = False
 # SECURE_HSTS_PRELOAD = False

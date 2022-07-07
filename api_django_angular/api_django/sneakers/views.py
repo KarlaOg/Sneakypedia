@@ -1,10 +1,15 @@
+import json
+from os import O_NONBLOCK
 from django.shortcuts import get_object_or_404, render
+from matplotlib.font_manager import json_dump
+from matplotlib.pyplot import get
+from yaml import serialize
 from sneakers.models import SneakerModel
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework import viewsets,permissions, generics
 from rest_framework.views import APIView
 from sneakers.serializers import SneakerModelSerializer
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from rest_framework.response import Response
 import base64
 import urllib.request
@@ -68,16 +73,21 @@ class JsonView(APIView):
 	permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
 
-class SearchResults(generics.ListAPIView):
-	serializer_class = SneakerModelSerializer
-	
-	def get_queryset(self):
+class SearchResults(APIView):
+
+	# permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+	def get(self,request):
 		model = SneakerModel
-		query = self.request.GET.get("name")
+		query = request.GET.get("name")
 		object_list = model.objects.filter(
         	Q(label__icontains=query)
-        )
-		return object_list
+		)
+		serializer = SneakerModelSerializer(object_list,many=True)
+		return Response({"sneakers": serializer.data})
+
+
+		
+	
 	
 def get_as_base64(url):
 	return base64.b64encode(urllib.request.urlopen(url).read())

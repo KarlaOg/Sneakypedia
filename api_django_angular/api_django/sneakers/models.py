@@ -1,8 +1,8 @@
+import sqlite3
 from django.db import models
 from sqlalchemy import *
 from sqlalchemy.engine.url import URL
 from sqlalchemy.ext.declarative import declarative_base
-from main import settings
 
 
 DeclarativeBase = declarative_base()
@@ -12,7 +12,7 @@ def db_connect():
     Performs database connection using database settings from settings.py.
     Returns sqlalchemy engine instance
     """
-    return create_engine(URL(**settings.DATABASE))
+    return create_engine('sqlite:///db.sqlite3')
 
 def create_sneakers_table(engine):
     DeclarativeBase.metadata.create_all(engine)

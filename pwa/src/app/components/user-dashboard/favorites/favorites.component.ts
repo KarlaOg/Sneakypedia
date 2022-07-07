@@ -32,13 +32,16 @@ export class FavoritesComponent implements OnInit {
   arrayOfFav: number[] = [];
 
   sneakerTest: Sneaker | undefined;
+  currentItem: string = '';
 
 
   constructor(private userService: UserService, private sneakerService: SneakerService) { }
 
   ngOnInit(): void {
     this.getUserInfosFav();
+    this.getIdSneaker();
   }
+
 
 
 
@@ -70,7 +73,41 @@ export class FavoritesComponent implements OnInit {
 
   }
 
+  deleteFav() {
+    const idUser = this.userService.decodeToken().id;
+    this.userService.updateUserAccount(idUser)
+
+  }
+
+  getIdSneaker(): void {
+    console.log(this.sneakerList)
+    // const idUser = this.userService.decodeToken().id;
+    // this.userService.updateUserAccount(idUser,)
+  }
+
+  myClickFunction(event: MouseEvent) {
+    console.log(event)
+  }
+
+  getValue(event: Event): string {
+    const idUser = this.userService.decodeToken().id;
+    console.log((event.target as HTMLInputElement).value)
+    const valueClickedOn = (event.target as HTMLInputElement).value
 
 
 
+    Object.entries(this.sneakerList).forEach(
+      ([key, value]) => {
+        if (value.id === parseInt(valueClickedOn)) {
+          console.log(value, key)
+          this.sneakerList.splice(1, parseInt(key))
+        }
+      }
+    );
+    // this.userService.updateUserAccount(this.sneakerList)
+
+
+
+    return (event.target as HTMLInputElement).value;
+  }
 }

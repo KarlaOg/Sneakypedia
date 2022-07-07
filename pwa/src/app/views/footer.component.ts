@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-footer',
   template: `
-   <footer class="p-4 bg-white shadow md:px-6 md:py-8 dark:bg-gray-900 ">
+   <footer class=" bottom-0  p-4  shadow md:px-6 md:py-8 bg-gray-900 ">
   <div class="sm:flex sm:items-center sm:justify-between">
     <a href="#" class="flex items-center mb-4 sm:mb-0">
       <span class="text-xl text-white font-semibold whitespace-nowrap"
@@ -18,18 +18,18 @@ import { Component, OnInit } from '@angular/core';
       </li>
       <li>
         <a href="#" class="mr-4 hover:underline md:mr-6 uppercase"
-          >Privacy Policy</a
+          >Politique de confidentialité</a
         >
       </li>
       <li>
-        <a href="#" class="mr-4 hover:underline md:mr-6 uppercase">Licensing</a>
+        <a href="#" class="mr-4 hover:underline md:mr-6 uppercase">Licence</a>
       </li>
       <li>
-        <a href="#" class="hover:underline uppercase">Contact</a>
+        <a href="#" class="hover:underline uppercase">Contacte</a>
       </li>
     </ul>
   </div>
-  <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+  <hr class="my-6 border-gray-700 sm:mx-auto  lg:my-8" />
   <span class="block text-sm text-white sm:text-center uppercase"
     >© 2022 <a href="#" class="hover:underline">Sneakypedia™</a>. Tous droit
     reservés.

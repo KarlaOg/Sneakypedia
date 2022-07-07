@@ -24,18 +24,13 @@ import { SneakerService } from 'src/app/services/sneaker/sneaker.service';
       <ng-template  #FilteredSneakers>
       <div class="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
 
-      <h2>Filtrés</h2>
-      <a href="#" class="group" *ngFor="let item of filteredSneakers">
-
-        <div class="w-full aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8">
-          <img src='{{item.image}}' alt="Images of different sneakers" class="w-full h-full object-center object-cover group-hover:opacity-75">
-        </div>
-        <h3 class="mt- 4 text-sm text-gray-700"> {{item.label}}</h3>
-
-        <p class="mt-1 text-lg font-medium text-gray-900"> {{item.price}}</p>
-      </a>
-     </div>
-     </ng-template>
+        <a [routerLink]="['../sneakers', item.id]" class="group" *ngFor="let item of allSneakers" >
+          <div class="w-full aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8">
+            <img src='{{item.image}}' alt="Images of different sneakers" class="w-full h-full object-center object-cover group-hover:opacity-75">
+          </div>
+          <h3 class="mt- 4 text-sm text-gray-700"> {{item.label}}</h3>
+        </a>
+       
 
     </div>
   </div> 
@@ -64,13 +59,17 @@ export class SneakersListComponent implements OnInit {
 
   getAllSneakerList() {
     return this.sneakerService.getAll()
-      .subscribe(objectOfSneakers => {
-        for (const value of Object.values(objectOfSneakers)) {
-          return this.allSneakers = value
-        }
-        console.info(this.allSneakers)
-        return objectOfSneakers
+      .subscribe({
+        next: (objectOfSneakers) => {
+          for (const value of Object.values(objectOfSneakers)) {
+            this.allSneakers = value
+          }
 
+          return objectOfSneakers
+
+        }, 
+        error: (e) => console.error(e),
+        complete: () => console.info('complete')
       });
   }
   searchSneaker() {

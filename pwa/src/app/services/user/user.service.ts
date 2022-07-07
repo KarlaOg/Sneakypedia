@@ -5,6 +5,10 @@ import { User } from 'src/app/models/user';
 import { ErrorService } from 'src/app/services/error.service';
 import * as moment from "moment";
 import { JwtHelperService } from "@auth0/angular-jwt";
+import { UserInformation } from 'src/app/models/UserInformation';
+import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
+
 
 
 const httpOptions = {
@@ -12,19 +16,16 @@ const httpOptions = {
     'Content-Type': 'application/ld+json',
   }),
 };
-const httpOptionsPatch = {
-  headers: new HttpHeaders({
-    'Content-Type': 'application/merge-patch+json',
-  })
-};
+
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class UserService {
-  private apiUrl = "http://localhost/api/";
-  private JWTLoginCheck = "http://localhost/authentication_token";
+  private apiUrl = environment.API_PLATFORM_URL;
+  private JWTLoginCheck = environment.LOGIN_URL;
+
 
   private authenticatedUser: BehaviorSubject<User> = new BehaviorSubject<User>(null!);
   user: Observable<User> = this.authenticatedUser.asObservable();
@@ -32,23 +33,22 @@ export class UserService {
   isLoggedIn: Observable<boolean>;
   isLoggedOut: Observable<boolean>;
 
-  helper = new JwtHelperService();
 
-  constructor(private http: HttpClient, private error: ErrorService) {
+  constructor(private http: HttpClient, private error: ErrorService, private jwtHelper: JwtHelperService, private router: Router) {
 
     this.isLoggedIn = this.user.pipe(map(user => !!user))
     this.isLoggedOut = this.isLoggedIn.pipe(map(loggedIn => !loggedIn))
 
-    // TODO Sort out of to login someone if token is valid  
-    // const tokenUser = this.getToken();
-    // if (tokenUser) {
-    //   this.authenticatedUser.next(JSON.parse(tokenUser))
-    // }
-    //  else {
-    //   this.authenticatedUser.next(null!)
-    // }
+    const tokenUser = this.getToken();
+    const expirationT = this.getExpiration();
+    if (expirationT === false) {
+      this.authenticatedUser.next(JSON.parse(tokenUser))
+    }
+    else {
+      this.logout()
+      this.authenticatedUser.next(null!)
+    }
   }
-
 
   register(user: User): Observable<User> {
     return this.http.post<User>(this.apiUrl + 'users', { email: user.email, password: user.password, firstname: user.firstname, lastname: user.lastname }, httpOptions)
@@ -77,41 +77,56 @@ export class UserService {
 
   updateUserAccount(user: User): Observable<User> {
 
-    const idUser = this.decodeToken().id
+    if (this.getExpiration() === false) {
+      const idUser = this.decodeToken().id
 
-    return this.http.patch<User>(this.apiUrl + 'users/' + `${idUser}`, user, httpOptionsPatch)
+      return this.http.put<User>(this.apiUrl + 'users/' + `${idUser}`, user, httpOptions)
+        .pipe(
+          catchError(this.error.handleError),
+        );
+    } else {
+      throw new Error('La session a expirer. Veuillez vous reconnecter.');
+    }
+
+
+  }
+
+
+  deleteUserAccount(): Observable<User> {
+    if (this.getExpiration() === false) {
+      const idUser = this.decodeToken().id
+
+      return this.http.delete<User>(this.apiUrl + 'users/' + `${idUser}`, httpOptions)
+        .pipe(
+          tap(() => {
+            this.logout();
+
+          }),
+          catchError(this.error.handleError),
+          shareReplay()
+        );
+    } else {
+      throw new Error('La session a expirer. Veuillez vous reconnecter.');
+    }
+  }
+
+  getUserFavoris(id: number) {
+    return this.http.get<UserInformation>('http://localhost/api/users/' + `${id}`, httpOptions)
       .pipe(
-        catchError(this.error.handleError),
-      );
+        map(({ favorites }) => favorites)
+
+      )
 
   }
-
-
-  deleteUserAccount(): Observable<any> {
-    const idUser = this.decodeToken().id
-
-    return this.http.delete<User>(this.apiUrl + 'users/' + `${idUser}`, httpOptions)
+  getUserInventory(id: number) {
+    return this.http.get<UserInformation>('http://localhost/api/users/' + `${id}`, httpOptions)
       .pipe(
-        tap(() => {
-          this.logout();
+        map(({ inventories }) => inventories)
 
-        }),
-        catchError(this.error.handleError),
-        shareReplay()
-      );
-
+      )
 
   }
 
-
-  getToken(): string {
-    const token = localStorage.getItem('id_token')!;
-    return JSON.parse(token)!;
-  }
-
-  decodeToken() {
-    return this.helper.decodeToken(this.getToken())
-  }
 
   private setSession(authResult: any) {
     const expiresAt = moment().add(authResult.expiresIn, 'second');
@@ -120,20 +135,32 @@ export class UserService {
     localStorage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()));
   }
 
+  getToken(): string {
+    return localStorage.getItem('id_token')!;
+  }
 
   logout(): void {
     this.authenticatedUser.next(null!)
     localStorage.removeItem("id_token");
     localStorage.removeItem("expires_at");
+    this.router.navigateByUrl("/");
+
   }
 
+  decodeToken() {
+    return this.jwtHelper.decodeToken(localStorage.getItem('id_token')!)
+  }
 
   getExpiration(): boolean {
-    const expiration = localStorage.getItem("expires_at");
-    return this.helper.isTokenExpired(JSON.parse(expiration!));
-
+    return this.jwtHelper.isTokenExpired(this.getToken());
   }
 
+  public isAuthenticated(): boolean {
+    const token = this.getToken()
+    // Check whether the token is expired and return
+    // true or false
+    return !this.jwtHelper.isTokenExpired(token);
+  }
 
 
 }

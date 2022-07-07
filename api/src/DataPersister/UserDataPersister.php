@@ -28,9 +28,9 @@ class UserDataPersister implements DataPersisterInterface
      */
     public function persist($data)
     {
-        if ($data->getPassword()) {
+        if ($data->getPlainPassword()) {
             $data->setPassword(
-                $this->userPasswordEncoder->hashPassword($data, $data->getPassword())
+                $this->userPasswordEncoder->hashPassword($data, $data->getPlainPassword())
             );
             $data->eraseCredentials();
         }

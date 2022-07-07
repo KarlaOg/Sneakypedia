@@ -37,23 +37,15 @@
           </p>
           <br />
           <h2 class="text-xl font-medium text-gray-900">Description</h2>
-          <p
-            *ngIf="detailsItem.description.length === 0"
-            else
-            showDescription
-            class="text-base text-gray-600"
-          >
-            Connectez-vous et ajouter une description !
-          </p>
-          <p #showDescription>
-            {{ detailsItem.description }}
+          <p class="text-base text-gray-600">
+            {{ detailsItem.description || "Pas de description pour l'instant" }}
           </p>
         </div>
       </div>
       <div class="mt-10 col-span-2 sm:w-full lg:col-span-1">
         <div class="mt-4 space-y-6">
           <div
-            *ngIf=" this.statusUser === false; else showActions" 
+            *ngIf="this.statusUser === false; else showActions"
             class="text-xl font-semibold italic text-gray-600"
           >
             <span
@@ -68,36 +60,69 @@
           </div>
           <ng-template #showActions>
             <div class="mt-4 lg:mt-0">
-              <button
-                [disabled]="this.statusUser === false"
-                (click)="addFavoris()"
-                type="submit"
-                class="mt-10 w-full bg-orange-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 pl-2"
-              >
-                Favoris
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  stroke-width="2"
+              <div *ngIf="sneakerAddedFav === false; else alreadyFaved">
+                <button
+                  title="favoris"
+                  [disabled]="this.statusUser === false"
+                  (click)="addFavoris()"
+                  type="submit"
+                  class="mt-10 w-full bg-orange-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 pl-2"
                 >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                  />
-                </svg>
-              </button>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <ng-template #alreadyFaved>
+                <button
+                  disabled
+                  type="submit"
+                  class="mt-10 w-full bg-gray-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400"
+                >
+                  Déjà en favoris
+                </button>
+              </ng-template>
+
+              <div
+                *ngIf="sneakerAddedInventory === false; else alreadyInInventory"
+              >
+                <button
+                  title="Inventory"
+                  [disabled]="this.statusUser === false"
+                  (click)="addInventory()"
+                  type="submit"
+                  class="mt-10 w-full bg-orange-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400"
+                >
+                  J'ai cop !
+                </button>
+              </div>
+              <ng-template #alreadyInInventory>
+                <button
+                  type="submit"
+                  class="mt-10 w-full bg-gray-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400"
+                >
+                  Déjà COP
+                </button>
+              </ng-template>
 
               <button
                 [disabled]="this.statusUser === false"
-                routerLink="/sneaker/add"
+                [routerLink]="['/sneaker', this.id, 'modify']"
                 type="submit"
                 class="mt-10 w-full bg-orange-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400"
               >
-                Ajouter une paire
+                Modifier la paire
               </button>
             </div>
           </ng-template>

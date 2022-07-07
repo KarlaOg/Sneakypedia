@@ -1,5 +1,5 @@
 <div class="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
-  <form 
+  <form
     [formGroup]="addFormSneaker"
     (ngSubmit)="addSneaker()"
     class="space-y-8 divide-y divide-gray-200"
@@ -12,9 +12,7 @@
         <p class="mt-1 max-w-2xl text-sm text-gray-500"></p>
       </div>
 
-      <div
-        class="mt-6 sm:mt-5 space-y-6 sm:space-y-5"
-      >
+      <div class="mt-6 sm:mt-5 space-y-6 sm:space-y-5">
         <div
           class="form-group sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5"
         >
@@ -22,7 +20,7 @@
             for="label"
             class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"
           >
-            Nom de la sneaker
+            Nom de la sneaker *
           </label>
           <div class="mt-1 sm:mt-0 sm:col-span-2">
             <div class="max-w-lg flex">
@@ -56,7 +54,7 @@
             for="price"
             class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"
           >
-            Prix
+            Prix *
           </label>
           <div class="mt-1 sm:mt-0 sm:col-span-2">
             <div class="max-w-lg flex">
@@ -87,7 +85,7 @@
             for="date"
             class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"
           >
-            Date de sortie
+            Date de sortie * 
           </label>
           <div class="mt-1 sm:mt-0 sm:col-span-2">
             <div class="max-w-lg flex">
@@ -117,7 +115,7 @@
             for="description"
             class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"
           >
-            Description
+            Description *
           </label>
           <div class="mt-1 sm:mt-0 sm:col-span-2">
             <div class="max-w-lg flex rounded-md shadow-sm">
@@ -140,7 +138,7 @@
             for="image"
             class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"
           >
-            Photo
+            Image * 
           </label>
           <div class="mt-2 sm:mt-0 sm:col-span-2">
             <div

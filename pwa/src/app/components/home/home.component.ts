@@ -14,7 +14,10 @@ export class HomeComponent implements OnInit {
 
   showMessage: boolean = false;
   currentItem: any;
+  success : string = " Test"
+
   constructor(private sneakerService: SneakerService) { }
+
 
   ngOnInit(): void {
     this.getAllSneakerList();
@@ -46,4 +49,8 @@ export class HomeComponent implements OnInit {
     this.currentItem = event.target.value
  }
 
-}
+  onHandleSuccess() {
+    this.success = '';
+  }
+
+} 

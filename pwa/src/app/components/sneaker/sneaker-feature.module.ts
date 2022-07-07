@@ -2,10 +2,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
-import { SneakerAddComponent } from '../components/sneaker/sneaker-add/sneaker-add.component';
-import { SneakerDetailsComponent } from '../components/sneaker/sneaker-details/sneaker-details.component';
-import { SneakersListComponent } from '../components/sneaker/sneakers-list/sneakers-list.component';
+import { SneakerAddComponent } from './sneaker-add/sneaker-add.component';
+import { SneakerDetailsComponent } from './sneaker-details/sneaker-details.component';
+import { SneakersListComponent } from './sneakers-list/sneakers-list.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SneakerModifyComponent } from './sneaker-modify/sneaker-modify.component';
+
 
 
 
@@ -14,20 +16,23 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   declarations: [
     SneakerDetailsComponent,
     SneakersListComponent,
-    SneakerAddComponent, 
+    SneakerAddComponent,
+    SneakerModifyComponent
+
   ],
   imports: [
     CommonModule,
     BrowserModule,
     RouterModule,
-    FormsModule, 
+    FormsModule,
     ReactiveFormsModule
 
   ],
   exports: [
     SneakersListComponent,
     SneakerDetailsComponent,
-    SneakerAddComponent
+    SneakerAddComponent,
+    SneakerModifyComponent,
   ]
 })
 export class SneakerFeatureModule { }

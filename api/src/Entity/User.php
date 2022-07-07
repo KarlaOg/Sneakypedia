@@ -3,30 +3,35 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use ApiPlatform\Core\Annotation\ApiResource;
+
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
-use ApiPlatform\Core\Annotation\ApiResource;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Serializer\Annotation\SerializedName;
 use Symfony\Component\Validator\Constraints as Assert;
-use Symfony\Component\Security\Core\Validator\Constraints as SecurityAssert;
 
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[ORM\Table(name: '`user`')]
+#[UniqueEntity(fields: "email", message: "L'email est déjà utilisé")]
 #[ApiResource(
-    normalizationContext: ['groups' => ['read', 'read:Post']],
-    denormalizationContext: ['groups' => ['write']],
+    normalizationContext: ['groups' => ['user:read']],
+    denormalizationContext: ['groups' => ['user:write']],
     collectionOperations: [
+        "get" => ["security" => "is_granted('ROLE_ADMIN')"],
+        "post"
+    ],
+    itemOperations: [
         "get",
-        "post", 
-    ], 
-    itemOperations:[
-        "get",
-        "put" => ["security" => "object.owner == user" ],
-        "delete" => ["security" => "is_granted('ROLE_ADMIN')"],
+        "put" => ["security" => "object == user"],
+        "delete" => ["security" => "object == user"],
+
     ],
 )]
 
@@ -40,39 +45,45 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[Assert\NotBlank]
     #[Assert\Email(
-        message: 'The email {{ value }} is not a valid email.',
+        message: "L'email '{{ value }}' n'est pas un email valide.",
     )]
-    #[Groups(["read", "write"])]
+    #[Groups(["user:read", "user:write"])]
     #[ORM\Column(type: 'string', length: 180, unique: true)]
     private $email;
 
     #[ORM\Column(type: 'json')]
     private $roles = [];
 
-    #[Groups("write")]
-    #[Assert\NotBlank]
+
     #[ORM\Column(type: 'string')]
     private $password;
-    
-    #[Groups(["read", "write"])]
+
+    #[Groups(["user:read", "user:write", "put"])]
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $firstname;
-    
-    #[Groups(["read", "write"])]
+
+    #[Groups(["user:read", "user:write", "put"])]
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $lastname;
 
-    #[Groups(["read", "write"])]
-    #[ORM\Column(type: 'string', length: 255, nullable: true)]
-    private $photo;
-    
-    #[Groups(["read", "write"])]
-    #[ORM\ManyToMany(targetEntity: Favorite::class, mappedBy: 'userId')]
+
+    #[Groups(["user:read", "user:write",  "favoris:read"])]
+    #[ORM\ManyToMany(targetEntity: Favorite::class, mappedBy: 'userId', cascade: ["remove"])]
     private $favorites;
+
+
+    #[Groups("user:write")]
+    #[SerializedName("password")]
+    private $plainPassword;
+
+    #[Groups(["user:read", "user:write", "inventory:read"])]
+    #[ORM\ManyToMany(targetEntity: Inventory::class, mappedBy: 'idUser', cascade: ["remove"])]
+    private $inventories;
 
     public function __construct()
     {
         $this->favorites = new ArrayCollection();
+        $this->inventories = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -161,7 +172,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function eraseCredentials()
     {
         // If you store any temporary, sensitive data on the user, clear it here
-        // $this->plainPassword = null;
+        $this->plainPassword = null;
     }
 
     public function getFirstname(): ?string
@@ -189,18 +200,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
 
-    public function getPhoto(): ?string
-    {
-        return $this->photo;
-    }
-
-    public function setPhoto(string $photo): self
-    {
-        $this->photo = $photo;
-
-        return $this;
-    }
-
     /**
      * @return Collection<int, Favorite>
      */
@@ -223,6 +222,45 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         if ($this->favorites->removeElement($favorite)) {
             $favorite->removeUserId($this);
+        }
+
+        return $this;
+    }
+
+    public function getPlainPassword(): ?string
+    {
+        return $this->plainPassword;
+    }
+
+    public function setPlainPassword(string $plainPassword): self
+    {
+        $this->plainPassword = $plainPassword;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Inventory>
+     */
+    public function getInventories(): Collection
+    {
+        return $this->inventories;
+    }
+
+    public function addInventory(Inventory $inventory): self
+    {
+        if (!$this->inventories->contains($inventory)) {
+            $this->inventories[] = $inventory;
+            $inventory->addIdUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeInventory(Inventory $inventory): self
+    {
+        if ($this->inventories->removeElement($inventory)) {
+            $inventory->removeIdUser($this);
         }
 
         return $this;

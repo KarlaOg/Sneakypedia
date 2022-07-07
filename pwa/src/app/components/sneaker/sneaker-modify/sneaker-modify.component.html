@@ -1,13 +1,13 @@
 <div class="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
   <form
-    [formGroup]="addFormSneaker"
-    (ngSubmit)="addSneaker()"
+    [formGroup]="modifyFormSneaker"
+    (ngSubmit)="modifySneaker()"
     class="space-y-8 divide-y divide-gray-200"
   >
     <div class="space-y-8 divide-y divide-gray-200 sm:space-y-5">
       <div>
         <h3 class="text-lg leading-6 font-medium text-gray-900">
-          Ajout d'une Sneaker
+          Modification de la sneaker {{id}}
         </h3>
         <p class="mt-1 max-w-2xl text-sm text-gray-500"></p>
       </div>
@@ -27,8 +27,8 @@
               <span
                 class="text-xs pb-2 text-zinc-500"
                 *ngIf="
-                  !addFormSneaker.get('label')?.valid &&
-                  addFormSneaker.get('label')?.touched
+                  !modifyFormSneaker.get('label')?.valid &&
+                  modifyFormSneaker.get('label')?.touched
                 "
                 >Veuillez entrer un nom de sneaker.</span
               >
@@ -59,8 +59,8 @@
           <div class="mt-1 sm:mt-0 sm:col-span-2">
             <div class="max-w-lg flex">
               <span class="text-xs pb-2 text-zinc-500" *ngIf="
-              !addFormSneaker.get('price')?.valid &&
-              addFormSneaker.get('price')?.touched">
+              !modifyFormSneaker.get('price')?.valid &&
+              modifyFormSneaker.get('price')?.touched">
                 Veuillez entrer un prix.
               </span>
             </div>
@@ -90,8 +90,8 @@
           <div class="mt-1 sm:mt-0 sm:col-span-2">
             <div class="max-w-lg flex">
               <span class="text-xs pb-2 text-zinc-500" *ngIf="
-              !addFormSneaker.get('release_date')?.valid &&
-              addFormSneaker.get('release_date')?.touched"
+              !modifyFormSneaker.get('release_date')?.valid &&
+              modifyFormSneaker.get('release_date')?.touched"
                 >Veuillez entrer une date valide.</span
               >
             </div>
@@ -138,7 +138,7 @@
             for="image"
             class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"
           >
-            Image * 
+            image * 
           </label>
           <div class="mt-2 sm:mt-0 sm:col-span-2">
             <div

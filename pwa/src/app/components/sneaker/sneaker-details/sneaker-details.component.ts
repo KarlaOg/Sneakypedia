@@ -21,7 +21,8 @@ export class SneakerDetailsComponent implements OnInit {
   statusUser: boolean | undefined;
   sneakerAddedFav: boolean = false;
   sneakerAddedInventory: boolean = false;
-  test: number = 0
+  messageSneaker: string = '';
+
 
   detailsItem: Sneaker = {
     id: 0,
@@ -52,8 +53,7 @@ export class SneakerDetailsComponent implements OnInit {
   }
 
   ngOnChanges() {
-    console.log("ngOnChanges")
-    this.test = 9
+
   }
 
   getIdSneakers(): number {
@@ -79,6 +79,7 @@ export class SneakerDetailsComponent implements OnInit {
               release_date: value.release_date,
             });
           }
+          this.messageSneaker = "Paire ajouter"
           return
         },
         error: (e) => console.error(e),

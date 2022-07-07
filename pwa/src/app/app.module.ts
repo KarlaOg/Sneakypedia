@@ -11,7 +11,6 @@ import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { AuthInterceptor } from 'src/app/services/user/auth/auth.interceptor';
-import { AlertNotificationComponent } from './components/alert/alert.component'
 import { AuthGuard } from './services/user/auth/auth.guard';
 import { JwtModule } from '@auth0/angular-jwt';
 import { SneakerFeatureModule } from './components/sneaker/sneaker-feature.module';
@@ -32,10 +31,9 @@ export function tokenGetter() {
     RegisterComponent,
     HomeComponent,
     CalendarComponent,
-    AlertNotificationComponent,
-    FooterComponent, 
-    AddSneakerButton
-    
+    FooterComponent,
+    AddSneakerButton,
+
   ],
   imports: [
     BrowserModule,
@@ -46,7 +44,7 @@ export function tokenGetter() {
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
-        allowedDomains : ["http://localhost/api"],
+        allowedDomains: ["http://localhost/api"],
         throwNoTokenError: true,
         skipWhenExpired: true,
       }
@@ -60,7 +58,7 @@ export function tokenGetter() {
       useClass: AuthInterceptor,
       multi: true
     },
-    AuthGuard, 
+    AuthGuard,
     UserGuard
   ],
   bootstrap: [AppComponent]

@@ -6,6 +6,7 @@ import { SneakerAddComponent } from './sneaker-add/sneaker-add.component';
 import { SneakerDetailsComponent } from './sneaker-details/sneaker-details.component';
 import { SneakersListComponent } from './sneakers-list/sneakers-list.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SneakerModifyComponent } from './sneaker-modify/sneaker-modify.component';
 
 
 
@@ -15,7 +16,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   declarations: [
     SneakerDetailsComponent,
     SneakersListComponent,
-    SneakerAddComponent, 
+    SneakerAddComponent,
+    SneakerModifyComponent
 
   ],
   imports: [
@@ -29,7 +31,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   exports: [
     SneakersListComponent,
     SneakerDetailsComponent,
-    SneakerAddComponent
+    SneakerAddComponent,
+    SneakerModifyComponent,
   ]
 })
 export class SneakerFeatureModule { }

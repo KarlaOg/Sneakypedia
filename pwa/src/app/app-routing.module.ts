@@ -10,10 +10,11 @@ import { InventoryComponent } from './components/user-dashboard/inventory/invent
 import { FavoritesComponent } from './components/user-dashboard/favorites/favorites.component';
 import { NavUserDashboardComponent } from './components/user-dashboard/nav-user-dashboard/nav-user-dashboard.component';
 import { SneakersListComponent } from './components/sneaker/sneakers-list/sneakers-list.component';
-import { SneakerDetailsComponent } from './components/sneaker/sneaker-details/sneaker-details.component';
+import { SneakerDetailsComponent } from './components/sneaker/sneaker-details/sneaker-details.component'
 import { AuthGuard } from './services/user/auth/auth.guard';
 import { SneakerAddComponent } from './components/sneaker/sneaker-add/sneaker-add.component';
 import { UserGuard } from './services/user/auth/user.guard';
+import { SneakerModifyComponent } from './components/sneaker/sneaker-modify/sneaker-modify.component';
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'sneakers', component: SneakersListComponent },
   { path: 'sneakers/:id', component: SneakerDetailsComponent },
   { path: 'sneaker/add', component: SneakerAddComponent, canActivate: [AuthGuard] },
+  { path: 'sneaker/:id/modify', component: SneakerModifyComponent, canActivate: [AuthGuard] },
   {
     path: 'compte', component: NavUserDashboardComponent, canActivate: [AuthGuard] ,children: [
       { path: 'detail', component: AccountComponent },

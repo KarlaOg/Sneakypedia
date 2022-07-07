@@ -12230,3 +12230,5 @@
 172.19.0.1 - - [07/Jul/2022:23:10:46 +0000] "GET /_wdt/ca2747 HTTP/1.1" 200 4963 "http://localhost/api" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
 172.19.0.1 - - [07/Jul/2022:23:11:37 +0000] "GET /api/users/119 HTTP/1.1" 499 0 "http://localhost:4200/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
 172.19.0.1 - - [07/Jul/2022:23:11:38 +0000] "GET /api/users/119 HTTP/1.1" 404 5248 "http://localhost:4200/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
+172.19.0.1 - - [07/Jul/2022:23:12:51 +0000] "GET /api HTTP/1.1" 401 55 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
+172.19.0.1 - - [07/Jul/2022:23:13:13 +0000] "POST /authentication_token HTTP/1.1" 200 528 "http://localhost:4200/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"

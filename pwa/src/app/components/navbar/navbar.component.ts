@@ -61,7 +61,7 @@ import { UserService } from 'src/app/services/user/user.service';
 
             </li>
             <li *ngIf="user.isLoggedIn | async" routerLinkActive="active">
-              <a (click)="logout()" class="uppercase block py-2 pr-4 pl-3 text-sm text-gray-800  hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-orange-600 md:p-0">
+              <a (click)="logout()" class=" hover:underline-offset-4  uppercase block py-2 pr-4 pl-3 text-sm text-zinc-900  hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-orange-600 md:p-0">
                 Deconnexion
               </a>
             </li>

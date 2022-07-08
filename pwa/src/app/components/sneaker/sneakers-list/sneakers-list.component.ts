@@ -43,6 +43,8 @@ export class SneakersListComponent implements OnInit {
 
   allSneakers: Sneaker[] = [];
   filteredSneakers: Sneaker[] = [];
+  sneakers: Sneaker[] = [];
+  homeData: string = "";
   @Input() item = '';
 
 
@@ -50,8 +52,10 @@ export class SneakersListComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllSneakerList();
+
   }
   ngOnChanges() {
+    console.log(this.item);
     this.searchSneaker();
   }
 

@@ -107,3 +107,6 @@ target/
 ./vendor
 vendor/
 .env.local
+
+./docker/logs
+docker/logs

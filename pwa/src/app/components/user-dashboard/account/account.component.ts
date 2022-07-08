@@ -27,7 +27,7 @@ import { UserService } from 'src/app/services/user/user.service';
                 for="company_website"
                 class="block text-sm font-medium text-gray-700"
               >
-                Nom d'utilisateur
+                Nom d'utilisateur * 
               </label>
               <div class="mt-1 rounded-md shadow-sm flex">
                 <input
@@ -75,9 +75,10 @@ import { UserService } from 'src/app/services/user/user.service';
         </div>
         <div class="px-4 py-3 bg-gray-50 text-right sm:px-6 flex  justify-between flex-row items-center ">
         <button
+        data-modal-toggle="defaultModal"
         class="text-xs font-medium text-orange-600 hover:text-orange-400  underline underline-offset-4 "
         type="button"
-        data-modal-toggle="defaultModal"
+       
         >Supprimer mon compte
       </button>
         
@@ -100,7 +101,7 @@ import { UserService } from 'src/app/services/user/user.service';
 export class AccountComponent implements OnInit {
 
   error!: [];
-  constructor(private fb: FormBuilder, private user: UserService, public errorSerive: ErrorService, private modalService: ModalService) { }
+  constructor(private fb: FormBuilder, private user: UserService, public errorSerive: ErrorService) { }
 
   updateAccount = this.fb.group({
     username: ['', Validators.required],
@@ -125,11 +126,6 @@ export class AccountComponent implements OnInit {
           }
         )
     }
-
-  }
-
-  open() {
-    this.modalService.open();
   }
 
 }

@@ -23,3 +23,12 @@ export interface UserInventoriesSneaker {
   "@type": string,
   "idSneaker": string
 }
+
+
+export interface UpdatedFavoris {
+
+  "favorites": [
+    UserFavoritesSneaker
+  ],
+
+}

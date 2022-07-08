@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
       <button
         routerLink="/sneaker/add"
         title="add"
-        class="fixed right-6 rounded-full float-right text-white bg-orange-500 p-6"
+        class="fixed right-6 z-50 rounded-full float-right text-white bg-orange-500 p-6"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

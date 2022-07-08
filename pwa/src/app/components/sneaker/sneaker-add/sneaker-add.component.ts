@@ -13,6 +13,7 @@ export class SneakerAddComponent implements OnInit {
   addFormSneaker: FormGroup;
   selectedFile: any;
   imgValue: any;
+  imgSrc: string = ''
 
   constructor(private sneakerService: SneakerService,
     private fb: FormBuilder) {
@@ -31,7 +32,12 @@ export class SneakerAddComponent implements OnInit {
 
   onFileChanged(event: any): void {
     this.selectedFile = event.target.files[0];
-
+    // var reader = new FileReader();
+    // reader.readAsDataURL(this.selectedFile);
+    // var self = this
+    // reader.onload = function() {
+    //   self.imgSrc = reader.result.toString();
+    // };
   }
 
   addSneaker() {
@@ -40,7 +46,7 @@ export class SneakerAddComponent implements OnInit {
     const finalForm = {
       "sneaker": {
         "label": formSneaker.label,
-        "image": this.selectedFile,
+        "image": this.imgSrc,
         "description": formSneaker.description,
         "price": formSneaker.price,
         "release_date": formSneaker.release_date

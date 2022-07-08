@@ -3,7 +3,13 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+
+  API_PLATFORM_URL: "http://localhost/api/v1/",
+  LOGIN_URL: 'http://localhost/authentication_token',
+  DJANGO_URL: "http://127.0.0.1:8000/sneakers/",
+  SEARCH_URL: "http://127.0.0.1:8000/search/"
+
 };
 
 /*

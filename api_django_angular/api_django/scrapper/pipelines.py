@@ -1,5 +1,5 @@
 from sqlalchemy.orm import sessionmaker
-from api_django.models import Sneakers, db_connect, create_sneakers_table
+from sneakers.models import Sneakers, db_connect, create_sneakers_table
 
 class ScraperPipeline(object):
     def __init__(self):

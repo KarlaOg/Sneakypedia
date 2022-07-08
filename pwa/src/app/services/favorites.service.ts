@@ -2,16 +2,16 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ErrorService } from './error.service';
 import { Favorites } from '../models/favorites'
+import { environment } from 'src/environments/environment';
 
 
-const apiUrl = "http://localhost/api/";
+const apiUrl = environment.API_PLATFORM_URL
 
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/ld+json',
   }),
 };
-
 @Injectable({
   providedIn: 'root'
 })
@@ -34,9 +34,9 @@ export class FavoritesService {
   }
 
 
-  // TODO ADD id to delete 
-  delete() {
-    return this.http.delete<any>(`${apiUrl}favorites`, httpOptions);
+
+  delete(id: number) {
+    return this.http.delete<any>(`${apiUrl}favorites/${id}`, httpOptions);
   }
 
 

@@ -1,6 +1,6 @@
 from ..items import SneakersItem
 import scrapy 
-from scrapy_selenium import SeleniumRequest
+# from scrapy_selenium import SeleniumRequest
 
 
 class SneakersSpider(scrapy.Spider):

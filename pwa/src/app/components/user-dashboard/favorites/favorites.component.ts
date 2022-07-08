@@ -84,16 +84,6 @@ export class FavoritesComponent implements OnInit {
 
   }
 
-  deleteFav() {
-    const idUser = this.userService.decodeToken().id;
-    this.userService.updateUserAccount(idUser)
-
-  }
-
-
-  myClickFunction(event: MouseEvent) {
-    console.log(event)
-  }
 
   getValueToDelete(event: Event): string {
     const valueClickedOn = (event.target as HTMLInputElement).value

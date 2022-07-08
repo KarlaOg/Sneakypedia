@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Form, FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { Form, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Sneaker } from 'src/app/models/sneaker';
 import { SneakerService } from 'src/app/services/sneaker/sneaker.service';
 import { ActivatedRoute } from '@angular/router';
@@ -21,11 +21,11 @@ export class SneakerModifyComponent implements OnInit {
     private fb: FormBuilder, private router: ActivatedRoute) {
 
     this.modifyFormSneaker = this.fb.group({
-      label: new FormControl(null, [Validators.required]),
-      image: new FormControl(null, [Validators.required]),
-      description: new FormControl(null, [Validators.required]),
-      price: new FormControl(null, [Validators.required]),
-      release_date: new FormControl(null, [Validators.required])
+      label: new FormControl(null),
+      image: new FormControl(null),
+      description: new FormControl(null),
+      price: new FormControl(null),
+      release_date: new FormControl(null)
     })
   }
 
@@ -50,17 +50,17 @@ export class SneakerModifyComponent implements OnInit {
   modifySneaker() {
     const formSneaker = this.modifyFormSneaker.value;
 
-    const finalForm = {
-      "sneaker": {
-        "label": formSneaker.label,
-        "image": this.selectedFile,
-        "description": formSneaker.description,
-        "price": formSneaker.price,
-        "release_date": formSneaker.release_date
-      }
+    const finalForm: Sneaker = {
+      "id": undefined,
+      "label": formSneaker.label,
+      "image": this.selectedFile,
+      "description": formSneaker.description,
+      "price": formSneaker.price,
+      "release_date": formSneaker.release_date
+
     }
     console.log(finalForm)
-    this.sneakerService.update(this.id || 0, finalForm.sneaker.description)
+    this.sneakerService.update(this.id || 0, finalForm)
       .subscribe({
         next() {
 

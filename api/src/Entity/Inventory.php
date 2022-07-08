@@ -11,6 +11,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: InventoryRepository::class)]
 #[ApiResource(
+    routePrefix: '/v1',
     normalizationContext: ['groups' => ['inventory:read']],
     denormalizationContext: ['groups' => ['inventory:write']],
     collectionOperations: [
@@ -19,7 +20,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
     ],
     itemOperations: [
         "get",
-        "delete" => ["security" => "object.getIdUser == user"],
+        "delete" => ["security" =>  "is_granted('ROLE_USER')"],
     ],
 )]
 class Inventory
@@ -30,8 +31,8 @@ class Inventory
     private $id;
 
     #[Groups(["inventory:write", "inventory:read"])]
-    #[ORM\ManyToMany(targetEntity: User::class, inversedBy: 'inventories', orphanRemoval: true , cascade:["remove"])]
-    private $idUser;
+    #[ORM\ManyToMany(targetEntity: User::class, inversedBy: 'inventories')]
+    public $idUser;
 
     #[Groups(["inventory:write", "inventory:read",  "user:read"])]
     #[ORM\Column(type: 'string', length: 255)]

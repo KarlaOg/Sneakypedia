@@ -19,7 +19,7 @@ import { UserService } from '../../services/user/user.service';
       </p> 
     </div>
     <div *ngIf="error"class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
-       {{ this.errorService.handleError}}
+       {{ this.error}}
       </div>
 
       <div *ngIf="success"class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
@@ -74,7 +74,7 @@ import { UserService } from '../../services/user/user.service';
 export class RegisterComponent implements OnInit {
 
   form: FormGroup;
-  error!: [];
+  error: string = '';
   success: string = "";
 
   constructor(private fb: FormBuilder,
@@ -103,7 +103,7 @@ export class RegisterComponent implements OnInit {
         .subscribe(
           {
             next: () => this.success = "Inscription réussie. Veuillez vous connecter.",
-            error: (e) => this.error = e,
+            error: (e) => this.error = "Il y a eu une erreur. Veuillez ressayer.",
             complete: () => this.router.navigateByUrl('/connexion')
           }
         );

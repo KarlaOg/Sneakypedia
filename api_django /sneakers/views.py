@@ -68,16 +68,17 @@ class JsonView(APIView):
 	permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
 
-class SearchResults(generics.ListAPIView):
-	serializer_class = SneakerModelSerializer
-	
-	def get_queryset(self):
+class SearchResults(APIView):
+
+	# permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+	def get(self,request):
 		model = SneakerModel
-		query = self.request.GET.get("name")
+		query = request.GET.get("name")
 		object_list = model.objects.filter(
         	Q(label__icontains=query)
-        )
-		return object_list
-	
+		)
+		serializer = SneakerModelSerializer(object_list,many=True)
+		return Response({"sneakers": serializer.data})
+
 def get_as_base64(url):
 	return base64.b64encode(urllib.request.urlopen(url).read())

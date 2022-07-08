@@ -11,7 +11,6 @@ use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: FavoriteRepository::class)]
 #[ApiResource(
-    routePrefix: '/v1',
     normalizationContext: ['groups' => ['favorite:read']],
     denormalizationContext: ['groups' => ['favorite:write']],
     collectionOperations: [

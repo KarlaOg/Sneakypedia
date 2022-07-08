@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-footer',
   template: `
-   <footer class=" bottom-0  p-4  shadow md:px-6 md:py-8 bg-gray-900 ">
+   <footer class="p-4 shadow md:px-6 md:py-8 bg-gray-900 ">
   <div class="sm:flex sm:items-center sm:justify-between">
     <a href="#" class="flex items-center mb-4 sm:mb-0">
       <span class="text-xl text-white font-semibold whitespace-nowrap"

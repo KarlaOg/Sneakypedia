@@ -12,7 +12,6 @@ const httpOptions = {
     'Content-Type': 'application/ld+json',
   }),
 };
-
 @Injectable({
   providedIn: 'root'
 })

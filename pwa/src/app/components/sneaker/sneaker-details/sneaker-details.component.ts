@@ -101,6 +101,7 @@ export class SneakerDetailsComponent implements OnInit {
       'userId': [`/api/users/${idUser.toString()}`],
       'idSneaker': idSneaker.toString()
     }
+    console.log(currentUserFavoris)
     this.favorisService.create(currentUserFavoris)
       .subscribe(
         {

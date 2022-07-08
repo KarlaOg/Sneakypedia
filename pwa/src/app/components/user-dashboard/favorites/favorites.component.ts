@@ -100,7 +100,7 @@ export class FavoritesComponent implements OnInit {
     Object.entries(this.favArrayURI).forEach(
       ([key, value]) => {
         const regex = /(\d+)/g;
-        // console.log(key , value["@id"])
+        console.log(key , value["@id"])
         const getFavId = value["@id"]
         const result = getFavId.match(regex)
         // 

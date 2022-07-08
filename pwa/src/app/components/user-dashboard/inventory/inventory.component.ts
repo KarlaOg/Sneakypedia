@@ -89,6 +89,7 @@ export class InventoryComponent implements OnInit {
         if (parseInt(value.idSneaker) === parseInt(valueClickedOn)) {
           console.log(value.idSneaker, valueClickedOn)
           console.log(result![0])
+          console.log(result!)
           this.inventorySevice.delete(parseInt(result![0])).subscribe({
 
           })

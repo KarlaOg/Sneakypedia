@@ -38,8 +38,8 @@ export class InventoryComponent implements OnInit {
         next: (v) => {
 
           Object.entries(v).forEach(
-            ([key, value]) => { 
-              this.arrayOfInventory.push(parseInt(value.idSneaker)) 
+            ([key, value]) => {
+              this.arrayOfInventory.push(parseInt(value.idSneaker))
               this.inventoryArrayURI.push(value)
             },
 
@@ -85,13 +85,14 @@ export class InventoryComponent implements OnInit {
         // console.log(key , value["@id"])
         const getFavId = value["@id"]
         const result = getFavId.match(regex)
-        
+
         if (parseInt(value.idSneaker) === parseInt(valueClickedOn)) {
           console.log(value.idSneaker, valueClickedOn)
           console.log(result![0])
           console.log(result!)
           this.inventorySevice.delete(parseInt(result![0])).subscribe({
-
+            error: (e) => console.error(e),
+            complete: () => console.info('complete')
           })
 
         }

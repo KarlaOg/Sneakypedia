@@ -49,9 +49,6 @@ import { UserService } from '../../services/user/user.service';
       <div class="flex items-center justify-between">
         <div class="flex items-center"></div>
 
-        <div class="text-sm">
-          <a href="#" class="font-medium text-black hover:text-orange-400  underline underline-offset-4 "> Mot de passe oublié</a>
-        </div>
       </div>
 
 

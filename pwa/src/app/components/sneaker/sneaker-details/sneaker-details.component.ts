@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Favorites } from 'src/app/models/favorites';
 import { Inventory } from 'src/app/models/inventory';
 import { Sneaker } from 'src/app/models/sneaker';
@@ -8,6 +8,7 @@ import { FavoritesService } from 'src/app/services/favorites.service';
 import { InventoryService } from 'src/app/services/inventory.service';
 import { SneakerService } from 'src/app/services/sneaker/sneaker.service';
 import { UserService } from 'src/app/services/user/user.service';
+
 
 @Component({
   selector: 'app-sneaker-details',
@@ -38,8 +39,7 @@ export class SneakerDetailsComponent implements OnInit {
     private favorisService: FavoritesService,
     private inventoryService: InventoryService,
     private userService: UserService,
-    public errorService: ErrorService,
-    private router: Router
+    public errorService: ErrorService
   ) {
 
   }
@@ -101,12 +101,11 @@ export class SneakerDetailsComponent implements OnInit {
       'userId': [`/api/users/${idUser.toString()}`],
       'idSneaker': idSneaker.toString()
     }
-    console.log(currentUserFavoris)
     this.favorisService.create(currentUserFavoris)
       .subscribe(
         {
           error: (e) => this.error = e,
-          complete: () => this.router.navigateByUrl("/compte/favoris"),
+          complete: () => console.info("completed")
         }
       )
   }
@@ -124,7 +123,7 @@ export class SneakerDetailsComponent implements OnInit {
       .subscribe(
         {
           error: (e) => this.error = e,
-          complete: () => this.router.navigateByUrl("/compte/inventaire"),
+          complete: () => console.info("completed")
         }
       )
   }

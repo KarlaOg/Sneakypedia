@@ -1,0 +1,3 @@
+<?php //App%255CEntity%255CInventory
+
+return [PHP_INT_MAX, []];

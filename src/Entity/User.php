@@ -68,7 +68,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $lastname;
 
 
-    #[Groups(["user:read", "user:write"])]
+    #[Groups(["user:read", "user:write", "favoris:read"])]
     #[ORM\ManyToMany(targetEntity: Favorite::class, mappedBy: 'userId', orphanRemoval: true)]
     private $favorites;
 
@@ -77,7 +77,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[SerializedName("password")]
     private $plainPassword;
 
-    #[Groups(["user:read", "user:write"])]
+    #[Groups(["user:read", "user:write", "inventory:read"])]
     #[ORM\ManyToMany(targetEntity: Inventory::class, mappedBy: 'idUser', orphanRemoval: true)]
     private $inventories;
 

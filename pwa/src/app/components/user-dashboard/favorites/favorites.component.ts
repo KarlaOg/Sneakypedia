@@ -108,7 +108,7 @@ export class FavoritesComponent implements OnInit {
           console.log(value.idSneaker, valueClickedOn)
           console.log(result![0])
           this.favorisService.delete(parseInt(result![0])).subscribe({
-
+              
           })
 
         }

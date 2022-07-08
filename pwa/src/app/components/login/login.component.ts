@@ -7,7 +7,7 @@ import { UserService } from '../../services/user/user.service';
 @Component({
   selector: 'app-login',
   template: `  
-<div class="min-h-full flex items-center  justify-center py-12 px-4 sm:px-6 lg:px-8 ">
+<div class=" pt-64	 flex items-center  justify-center py-12 px-4 sm:px-6 lg:px-8 ">
   <div class="max-w-md w-full space-y-8">
     <div>
       <h2 class="mt-6 text-center text-xl font-extrabold text-zinc-900">CONNECTEZ-VOUS À VOTRE COMPTE</h2>

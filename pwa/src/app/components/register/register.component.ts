@@ -8,7 +8,7 @@ import { UserService } from '../../services/user/user.service';
   selector: 'app-register',
   template: `
 
-  <div class="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+  <div class="pt-64 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
   <div class="max-w-md w-full space-y-8">
     <div>
       <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">Inscrivez-vous sur  <p class="text-orange-600">SNEAKYPEDIA</p></h2>

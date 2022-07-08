@@ -30,7 +30,8 @@ import { SneakerService } from 'src/app/services/sneaker/sneaker.service';
           <h3 class="mt- 4 text-sm text-gray-700"> {{item.label}}</h3>
         </a>
     </div>
-
+    </ng-template>
+    
     <ng-template #MessageError>
       <h2> Aucun résultats...</h2>
     </ng-template>
@@ -71,7 +72,7 @@ export class SneakersListComponent implements OnInit {
 
           return objectOfSneakers
 
-        }, 
+        },
         error: (e) => console.error(e),
         complete: () => console.info('complete')
       });
@@ -84,7 +85,7 @@ export class SneakersListComponent implements OnInit {
         }
         return objectOfSneakers
       });
-    }
+  }
 
 
 

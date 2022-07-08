@@ -11,7 +11,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: InventoryRepository::class)]
 #[ApiResource(
-    routePrefix: '/v1',
+    
     normalizationContext: ['groups' => ['inventory:read']],
     denormalizationContext: ['groups' => ['inventory:write']],
     collectionOperations: [

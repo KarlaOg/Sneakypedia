@@ -98,7 +98,7 @@ export class SneakerDetailsComponent implements OnInit {
     const idUser = this.userService.decodeToken().id;
 
     const currentUserFavoris: Favorites = {
-      'userId': [`/api/v1/users/${idUser.toString()}`],
+      'userId': [`/api/users/${idUser.toString()}`],
       'idSneaker': idSneaker.toString()
     }
     this.favorisService.create(currentUserFavoris)
@@ -116,7 +116,7 @@ export class SneakerDetailsComponent implements OnInit {
     const idUser = this.userService.decodeToken().id;
 
     const currentUserInventory: Inventory = {
-      'idUser': [`/api/v1/users/${idUser.toString()}`],
+      'idUser': [`/api/users/${idUser.toString()}`],
       'idSneaker': idSneaker.toString()
     }
     this.inventoryService.create(currentUserInventory)

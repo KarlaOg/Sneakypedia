@@ -51,7 +51,7 @@ export class InventoryComponent implements OnInit {
                 next: (sneakerItem) => {
                   for (const value of Object.values(sneakerItem)) {
                     this.sneakerList.push(value);
-                    this.arrayOfPrice.push(parseInt(value.price))
+                    this.arrayOfPrice.push(parseInt(value.release_date))
 
 
 

@@ -32,12 +32,14 @@ export class SneakerAddComponent implements OnInit {
 
   onFileChanged(event: any): void {
     this.selectedFile = event.target.files[0];
-    // var reader = new FileReader();
-    // reader.readAsDataURL(this.selectedFile);
-    // var self = this
-    // reader.onload = function() {
-    //   self.imgSrc = reader.result.toString();
-    // };
+    var reader = new FileReader();
+    reader.readAsDataURL(this.selectedFile);
+    var self = this
+    reader.onload = function() {
+      if (reader.result !== null){
+        self.imgSrc = reader.result.toString();
+      }
+    };
   }
 
   addSneaker() {

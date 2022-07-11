@@ -1,15 +1,11 @@
-import json
 from os import O_NONBLOCK
 from django.shortcuts import get_object_or_404, render
-from matplotlib.font_manager import json_dump
-from matplotlib.pyplot import get
-from yaml import serialize
 from sneakers.models import SneakerModel
 from django.views.decorators.csrf import csrf_exempt
-from rest_framework import viewsets,permissions, generics
+from rest_framework import viewsets,permissions
 from rest_framework.views import APIView
 from sneakers.serializers import SneakerModelSerializer
-from django.http import HttpResponse, JsonResponse
+from django.http import HttpResponse
 from rest_framework.response import Response
 import base64
 import urllib.request

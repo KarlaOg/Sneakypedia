@@ -1,7 +1,5 @@
-import sqlite3
 from django.db import models
 from sqlalchemy import *
-from sqlalchemy.engine.url import URL
 from sqlalchemy.ext.declarative import declarative_base
 
 

@@ -21,7 +21,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 #[ORM\Table(name: '`user`')]
 #[UniqueEntity(fields: "email", message: "L'email est déjà utilisé")]
 #[ApiResource(
-    routePrefix: '/v1',
+   
     normalizationContext: ['groups' => ['user:read']],
     denormalizationContext: ['groups' => ['user:write']],
     collectionOperations: [

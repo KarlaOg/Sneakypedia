@@ -18,6 +18,7 @@ import { UserGuard } from './services/user/auth/user.guard';
 import { UserDashboardFeatureModule } from './components/user-dashboard/user-dashboard-feature.module';
 import { FooterComponent } from './views/footer.component';
 import { AddSneakerButton } from './views/addSneakerButton.component';
+import { environment } from 'src/environments/environment';
 
 export function tokenGetter() {
   return localStorage.getItem("id_token");
@@ -44,7 +45,7 @@ export function tokenGetter() {
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
-        allowedDomains: ["http://localhost/api"],
+        allowedDomains: [environment.API_PLATFORM_URL],
         throwNoTokenError: true,
         skipWhenExpired: true,
       }

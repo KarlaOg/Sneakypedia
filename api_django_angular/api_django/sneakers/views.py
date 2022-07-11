@@ -1,4 +1,3 @@
-from os import O_NONBLOCK
 from django.shortcuts import get_object_or_404, render
 from sneakers.models import SneakerModel
 from django.views.decorators.csrf import csrf_exempt

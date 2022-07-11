@@ -47,8 +47,8 @@ export class FavoritesComponent implements OnInit {
     this.getUserInfosFav();
   }
 
-  ngOnChange(){
-    this.arrayOfFav; 
+  ngOnChange() {
+    this.arrayOfFav;
   }
 
 
@@ -84,31 +84,23 @@ export class FavoritesComponent implements OnInit {
 
   }
 
-  deleteFav() {
-    const idUser = this.userService.decodeToken().id;
-    this.userService.updateUserAccount(idUser)
-
-  }
-
-
-  myClickFunction(event: MouseEvent) {
-    console.log(event)
-  }
 
   getValueToDelete(event: Event): string {
     const valueClickedOn = (event.target as HTMLInputElement).value
     Object.entries(this.favArrayURI).forEach(
       ([key, value]) => {
         const regex = /(\d+)/g;
-        // console.log(key , value["@id"])
+        console.log(key, value["@id"])
         const getFavId = value["@id"]
         const result = getFavId.match(regex)
         // 
         if (parseInt(value.idSneaker) === parseInt(valueClickedOn)) {
           console.log(value.idSneaker, valueClickedOn)
           console.log(result![0])
+          console.log(result!)
           this.favorisService.delete(parseInt(result![0])).subscribe({
-
+            error: (e) => console.error(e),
+            complete: () => console.info('deleted')
           })
 
         }

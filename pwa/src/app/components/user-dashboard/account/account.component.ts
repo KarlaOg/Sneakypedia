@@ -75,8 +75,9 @@ import { UserService } from 'src/app/services/user/user.service';
         </div>
         <div class="px-4 py-3 bg-gray-50 text-right sm:px-6 flex  justify-between flex-row items-center ">
         <button
+        disabled
         data-modal-toggle="defaultModal"
-        class="text-xs font-medium text-orange-600 hover:text-orange-400  underline underline-offset-4 "
+        class="text-xs font-medium text-gray-600 hover:text-gray-400  underline underline-offset-4 "
         type="button"
        
         >Supprimer mon compte

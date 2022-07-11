@@ -24,16 +24,6 @@ export class InventoryService {
     return this.http.post<Inventory>(`${apiUrl}inventories`, inventory, httpOptions);
   }
 
-  // TODO Implement 
-  get(id: number) {
-
-  }
-
-  // TODO Implement 
-  getAll() {
-
-  }
-
  
   delete(id: number) {
     return this.http.delete<any>(`${apiUrl}inventories/${id}`, httpOptions);

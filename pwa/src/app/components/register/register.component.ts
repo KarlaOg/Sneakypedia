@@ -8,7 +8,7 @@ import { UserService } from '../../services/user/user.service';
   selector: 'app-register',
   template: `
 
-  <div class="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+  <div class="pt-64 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
   <div class="max-w-md w-full space-y-8">
     <div>
       <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">Inscrivez-vous sur  <p class="text-orange-600">SNEAKYPEDIA</p></h2>
@@ -19,7 +19,7 @@ import { UserService } from '../../services/user/user.service';
       </p> 
     </div>
     <div *ngIf="error"class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
-       {{ this.errorService.handleError}}
+       {{ this.error}}
       </div>
 
       <div *ngIf="success"class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
@@ -49,9 +49,6 @@ import { UserService } from '../../services/user/user.service';
       <div class="flex items-center justify-between">
         <div class="flex items-center"></div>
 
-        <div class="text-sm">
-          <a href="#" class="font-medium text-black hover:text-orange-400  underline underline-offset-4 "> Mot de passe oublié</a>
-        </div>
       </div>
 
 
@@ -63,7 +60,7 @@ import { UserService } from '../../services/user/user.service';
               <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd" />
             </svg>
           </span>
-          Sign up
+          Inscription
         </button>
       </div>
     </form>
@@ -74,7 +71,7 @@ import { UserService } from '../../services/user/user.service';
 export class RegisterComponent implements OnInit {
 
   form: FormGroup;
-  error!: [];
+  error: string = '';
   success: string = "";
 
   constructor(private fb: FormBuilder,
@@ -103,7 +100,7 @@ export class RegisterComponent implements OnInit {
         .subscribe(
           {
             next: () => this.success = "Inscription réussie. Veuillez vous connecter.",
-            error: (e) => this.error = e,
+            error: (e) => this.error = "Il y a eu une erreur. Veuillez ressayer.",
             complete: () => this.router.navigateByUrl('/connexion')
           }
         );

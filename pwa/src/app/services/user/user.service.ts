@@ -18,6 +18,7 @@ const httpOptions = {
   }),
 };
 
+const apiUrl = environment.API_PLATFORM_URL
 
 @Injectable({
   providedIn: 'root'
@@ -113,13 +114,13 @@ export class UserService {
   }
 
   getUserInfos(id: number) {
-    return this.http.get<UserInformation>('http://localhost/api/users/' + `${id}`, httpOptions)
+    return this.http.get<UserInformation>(`${apiUrl}users/${id}`, httpOptions)
       .pipe(map((x) => console.log(x)))
 
   }
 
   getUserFavoris(id: number) {
-    return this.http.get<UserInformation>('http://localhost/api/users/' + `${id}`, httpOptions)
+    return this.http.get<UserInformation>(`${apiUrl}users/${id}`, httpOptions)
       .pipe(
         map(({ favorites }) => favorites)
 
@@ -127,7 +128,7 @@ export class UserService {
 
   }
   getUserInventory(id: number) {
-    return this.http.get<UserInformation>('http://localhost/api/users/' + `${id}`, httpOptions)
+    return this.http.get<UserInformation>(`${apiUrl}users/${id}`, httpOptions)
       .pipe(
         map(({ inventories }) => inventories)
 

@@ -19,13 +19,15 @@ export class SneakersListComponent implements OnInit {
   constructor(private sneakerService: SneakerService) { }
 
   ngOnInit(): void {
-    this.getAllSneakerList();
 
   }
   ngOnChanges() {
     this.searchSneaker();
   }
 
+  ngAfterContentInit() {
+    this.getAllSneakerList();
+  }
 
 
   getAllSneakerList() {

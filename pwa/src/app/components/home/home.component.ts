@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user/user.service';
-import {Sneaker} from 'src/app/models/sneaker'
+import { Sneaker } from 'src/app/models/sneaker'
 import { SneakerService } from 'src/app/services/sneaker/sneaker.service';
 import { Output, EventEmitter } from '@angular/core';
 
@@ -14,7 +14,8 @@ export class HomeComponent implements OnInit {
 
   showMessage: boolean = false;
   currentItem: any;
-  success : string = " Test"
+  success: string = " Test"
+  inputValue: string = '';
 
   constructor(private sneakerService: SneakerService) { }
 
@@ -26,28 +27,29 @@ export class HomeComponent implements OnInit {
 
   sneakers: Sneaker[] = [];
   allSneakers: Sneaker[] = [];
-  sneakerName! : string;
+  sneakerName!: string;
 
   getAllSneakerList() {
     return this.sneakerService.getAll()
       .subscribe(objectOfSneakers => {
         for (const value of Object.values(objectOfSneakers)) {
           return this.allSneakers = value
-        } 
+        }
         console.info(this.allSneakers)
         return objectOfSneakers
-      
+
       });
   }
 
-  public sendData(label: string){
-     return this.sneakerName = label ;
+  public sendData(label: string) {
+    return this.sneakerName = label;
   }
 
 
-  onSearchSneaker(event: any) {
-    this.currentItem = event.target.value
- }
+  onSearchSneaker() {
+    this.currentItem = this.inputValue
+  }
+  
 
   onHandleSuccess() {
     this.success = '';

@@ -6,11 +6,9 @@ os.environ['DJANGO_SETTINGS_MODULE'] = 'api_django.settings'
 # need to explicitly setup the django
 import django
 django.setup()
-from shutil import which
 
-
-SPIDER_MODULES = ['scrapper.spiders']
-NEWSPIDER_MODULE = 'scrapper.spiders'
+SPIDER_MODULES = ['sneakers.scrapper.spiders']
+NEWSPIDER_MODULE = 'sneakers.scrapper.spiders'
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 # replace this with your actual user-agent value
@@ -21,10 +19,6 @@ ROBOTSTXT_OBEY = True
 
 # update the pipelines to this
 ITEM_PIPELINES = {
-   'scrapper.pipelines.SneakerPricePipeline': 200,
-   'scrapper.pipelines.ScraperPipeline': 400,
+   'sneakers.scrapper.pipelines.SneakerPricePipeline': 200,
+   'sneakers.scrapper.pipelines.ScraperPipeline': 400,
 }
-
-# SELENIUM_DRIVER_NAME = 'chrome'
-# SELENIUM_COMMAND_EXECUTOR = 'http://localhost:4444/wd/hub'
-# SELENIUM_DRIVER_ARGUMENTS=['-headless']  # '--headless' if using chrome instead of firefox

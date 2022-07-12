@@ -1,3 +1,4 @@
+2022/07/11 21:27:02 [error] 33#33: *1 FastCGI sent in stderr: "PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\DebugHandlersListener::configure".
 2022/07/11 14:18:05 [error] 31#31: *1 FastCGI sent in stderr: "PHP message: [info] Matched route "api_entrypoint".
 PHP message: [debug] Checking for authenticator support.
 PHP message: [debug] Checking support on authenticator.
@@ -150,6 +151,8 @@ PHP message: [debug] Listener "Symfony\Component\HttpKernel\EventListener\Locale
 PHP message: [debug] Listener "Symfony\Bundle\SecurityBundle\Debug\TraceableFirewallListener::configureLogoutUrlGenerator" was not called for event "kernel.request".
 PHP message: [debug] Listener "Symfony\Bundle\SecurityBundle\Debug\TraceableFirewallListener::onKernelRequest" was not called for event "kernel.request".
 PHP message: [debug] Listener "ApiPlatform\Core\EventListener\AddFormatListener::onKernelRequest" was not called for event "kernel.request".
+PHP message: [debug] Listener "ApiPlatfor
+2022/07/11 21:27:02 [error] 33#33: *1 FastCGI sent in stderr: "ent "kernel.response" to listener "Symfony\Component\WebLink\EventListener\AddLinkHeaderListener::onKernelResponse".
 PHP message: [debug] Listener "ApiPlatfo
 2022/07/11 14:25:28 [error] 32#32: *12 FastCGI sent in stderr: " [debug] SELECT obj_description('doctrine_migration_versions'::regclass) AS table_comment;
 PHP message: [debug] SELECT * FROM doctrine_migration_versions
@@ -173,6 +176,8 @@ PHP message: [debug] Notified event "kernel.finish_request" to listener "Symfony
 PHP message: [debug] Notified event "kernel.finish_request" to listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onFinishRequest".
 PHP message: [debug] Notified event "kernel.finish_request" to listener "Symfony\Component\HttpKernel\EventListener\RouterListener::onKernelFinishRequest".
 PHP message: [debug] Notified event "kernel.finish_request" to listener "Symfony\Bundle\SecurityBundle\Debug\TraceableFirewallListener::onKernelFinishRequest".
+PHP message: [debug] Notified event "kernel.fi
+2022/07/11 21:27:03 [error] 33#33: *1 FastCGI sent in stderr: "PHP message: [info] Matched route "authentication_token".
 PHP message: [debug] Notified event "kernel.f
 2022/07/11 14:25:28 [error] 32#32: *12 FastCGI sent in stderr: "PHP message: [info] Matched route "authentication_token".
 PHP message: [debug] Checking for authenticator support.
@@ -180,6 +185,8 @@ PHP message: [debug] Checking support on authenticator.
 PHP message: [debug] Authenticator does not support the request.
 PHP message: [debug] Checking support on authenticator.
 PHP message: [debug] SELECT t0.id AS id_1, t0.email AS email_2, t0.roles AS roles_3, t0.password AS password_4, t0.firstname AS firstname_5, t0.lastname AS lastname_6 FROM "user" t0 WHERE t0.email = ? LIMIT 1
+PHP message: [info] Authenticator successful!
+PHP message: [debug] Notified event "lexik_jwt_authentication.on_jwt_created" to listener "App\EventListener\JWTCreatedListener::onJWTCreated".
 PHP message: [info] Authenticator failed.
 PHP message: [debug] The "Symfony\Component\Security\Http\Authenticator\Debug\TraceableAuthenticator" authenticator set the failure response.
 PHP message: [debug] The "Symfony\Component\Security\Http\Authenticator\Debug\TraceableAuthenticator" authenticator set the response. Any later authenticator will not be called
@@ -190,6 +197,8 @@ PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Compon
 PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::setDefaultLocale".
 PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\RouterListener::onKernelRequest".
 PHP message: [debug] Notified event "kernel.request" to listener "ApiPlatform\Core\EventListener\QueryParameterValidateListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\Loc
+2022/07/11 21:27:03 [error] 33#33: *1 FastCGI sent in stderr: "OM doctrine_migration_versions
 PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleLi
 2022/07/11 14:25:28 [error] 32#32: *12 FastCGI sent in stderr: "trine_migration_versions
 PHP message: [debug] SELECT CURRENT_DATABASE()
@@ -205,6 +214,8 @@ PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Compo
 PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\EventListener\ErrorListener::removeCspHeader".
 PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Bundle\WebProfilerBundle\EventListener\WebDebugToolbarListener::onKernelResponse".
 PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\EventListener\DisallowRobotsIndexingListener::onResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onKernelRespon
+2022/07/11 21:27:07 [error] 33#33: *1 FastCGI sent in stderr: "PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\DebugHandlersListener::configure".
 PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onKernelResponse".
 
 2022/07/11 14:27:15 [error] 31#31: *15 FastCGI sent in stderr: "PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\DebugHandlersListener::configure".
@@ -220,6 +231,17 @@ PHP message: [debug] Listener "Symfony\Component\HttpKernel\EventListener\Locale
 PHP message: [debug] Listener "Symfony\Bundle\SecurityBundle\Debug\TraceableFirewallListener::configureLogoutUrlGenerator" was not called for event "kernel.request".
 PHP message: [debug] Listener "Symfony\Bundle\SecurityBundle\Debug\TraceableFirewallListener::onKernelRequest" was not called for event "kernel.request".
 PHP message: [debug] Listener "ApiPlatform\Core\EventListener\AddFormatListener::onKernelRequest" was not called for event "kernel.request".
+PHP message: [debug] Listener "ApiPlatfor
+2022/07/11 21:27:07 [error] 33#33: *1 FastCGI sent in stderr: " [debug] SELECT obj_description('doctrine_migration_versions'::regclass) AS table_comment;
+PHP message: [debug] SELECT * FROM doctrine_migration_versions
+PHP message: [debug] SELECT CURRENT_DATABASE()
+PHP message: [debug] Notified event "kernel.response" to listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Nelmio\CorsBundle\EventListener\CacheableResponseVaryListener::onResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "ApiPlatform\Core\Hydra\EventListener\AddLinkHeaderListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\EventListener\ResponseListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\DataCollector\RequestDataCollector::onKernelResponse".
+PHP message: [debug] Notified ev" while reading response header from upstream, client: 172.19.0.1, server: localhost, request: "OPTIONS /api/users/2 HTTP/1.1", upstream: "fastcgi://172.19.0.4:9000", host: "localhost", referrer: "http://localhost:4200/"
+2022/07/11 21:27:07 [error] 32#32: *4 FastCGI sent in stderr: "PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\DebugHandlersListener::configure".
 PHP message: [debug] Listener "ApiPlatfo
 2022/07/11 14:27:15 [error] 31#31: *15 FastCGI sent in stderr: "ent "kernel.response" to listener "Symfony\Component\WebLink\EventListener\AddLinkHeaderListener::onKernelResponse".
 PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\Security\Http\RememberMe\ResponseListener::onKernelResponse".
@@ -248,6 +270,8 @@ PHP message: [debug] Listener "Symfony\Component\HttpKernel\EventListener\Locale
 PHP message: [debug] Listener "Symfony\Bundle\SecurityBundle\Debug\TraceableFirewallListener::configureLogoutUrlGenerator" was not called for event "kernel.request".
 PHP message: [debug] Listener "Symfony\Bundle\SecurityBundle\Debug\TraceableFirewallListener::onKernelRequest" was not called for event "kernel.request".
 PHP message: [debug] Listener "ApiPlatform\Core\EventListener\AddFormatListener::onKernelRequest" was not called for event "kernel.request".
+PHP message: [debug] Listener "ApiPlatfor
+2022/07/11 21:27:07 [error] 32#32: *4 FastCGI sent in stderr: "ent "kernel.response" to listener "Symfony\Component\WebLink\EventListener\AddLinkHeaderListener::onKernelResponse".
 PHP message: [debug] Listener "ApiPlatfo
 2022/07/11 14:27:15 [error] 31#31: *16 FastCGI sent in stderr: "ent "kernel.response" to listener "Symfony\Component\WebLink\EventListener\AddLinkHeaderListener::onKernelResponse".
 PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\Security\Http\RememberMe\ResponseListener::onKernelResponse".
@@ -262,6 +286,8 @@ PHP message: [debug] Notified event "kernel.finish_request" to listener "Symfony
 PHP message: [debug] Notified event "kernel.finish_request" to listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onFinishRequest".
 PHP message: [debug] Notified event "kernel.finish_request" to listener "Symfony\Component\HttpKernel\EventListener\RouterListener::onKernelFinishRequest".
 PHP message: [debug] Notified event "kernel.finish_request" to listener "Symfony\Bundle\SecurityBundle\Debug\TraceableFirewallListener::onKernelFinishRequest".
+PHP message: [debug] Notified event "kernel.fi
+2022/07/11 21:27:07 [error] 33#33: *1 FastCGI sent in stderr: "ent "kernel.response" to listener "Symfony\Component\WebLink\EventListener\AddLinkHeaderListener::onKernelResponse".
 PHP message: [debug] Notified event "kernel.f
 2022/07/11 14:27:16 [error] 31#31: *16 FastCGI sent in stderr: "PHP message: [info] Matched route "api_users_post_collection".
 PHP message: [debug] Checking for authenticator support.
@@ -326,6 +352,18 @@ PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Compo
 PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onKernelResponse".
 PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\EventListener\StreamedResponseListener::onKernelResponse".
 PHP message: [debug] Notified event "kernel.finish_request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::onKernelFinishRequest".
+PHP message: [debug] Notified event "kernel.finish_request" to listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onFinishRequest".
+PHP message: [debug] Notified event "kernel.finish_request" to listener "Symfony\Component\HttpKernel\EventListener\RouterListener::onKernelFinishRequest".
+PHP message: [debug] Notified event "kernel.finish_request" to listener "Symfony\Bundle\SecurityBundle\Debug\TraceableFirewallListener::onKernelFinishRequest".
+PHP message: [debug] Notified event "kernel.fi
+2022/07/11 21:27:08 [error] 32#32: *4 FastCGI sent in stderr: "PHP message: [info] Matched route "api_users_get_item".
+PHP message: [debug] Checking for authenticator support.
+PHP message: [debug] Checking support on authenticator.
+PHP message: [debug] SELECT t0.id AS id_1, t0.email AS email_2, t0.roles AS roles_3, t0.password AS password_4, t0.firstname AS firstname_5, t0.lastname AS lastname_6 FROM "user" t0 WHERE t0.email = ? LIMIT 1
+PHP message: [info] Authenticator successful!
+PHP message: [debug] Authenticator set no success response: request continues.
+PHP message: [debug] Notified event "debug.security.authorization.vote" to listener "Symfony\Bundle\SecurityBundle\EventListener\VoteListener::onVoterVote".
+PHP message: [debug] SELECT u0_.id AS id_0, u0_.email AS email_1, u0_.roles AS roles_2, u0_.password AS password_3, u0_.firstname AS firstname_4, u0_.lastname AS lastname_5, f1_.id AS id_6, f1_.id_sneaker AS id_sneaker_7, i2_.id AS id_8, i2_.id_sneaker AS id_sneaker_9 FROM "user" u0_ LEFT JOIN favorite_user f3_ ON u0_.id = f3_.user_id LEFT JOIN favorite f1_ ON f1_.id = f3_.favorite_id LEFT JOIN inventory_user i4_ ON u0_.id = i4_.user_id LEFT JOIN inventory i2_ ON i2_.id = i4_.inventory_id WHERE u0_.id = ?
 PHP message: [debug] Notified event "kernel.finish_request" to listener "Symfony\Component\HttpKernel\EventListener\Sess
 2022/07/11 14:27:17 [error] 31#31: *15 FastCGI sent in stderr: "PHP message: [info] Matched route "api_users_post_collection".
 PHP message: [debug] Checking for authenticator support.
@@ -336,6 +374,14 @@ PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Compon
 PHP message: [debug] Notified event "kernel.request" to listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelRequest".
 PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onKernelRequest".
 PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::setDefaultLocale".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\Even
+2022/07/11 21:27:08 [error] 32#32: *4 FastCGI sent in stderr: "', 'information_schema', 'pg_toast') AND c.relname = 'doctrine_migration_versions' AND n.nspname = ANY(current_schemas(false)) AND n.oid = c.relnamespace
+                  )
+                  AND r.contype = 'f'
+PHP message: [debug] SELECT CURRENT_DATABASE()
+PHP message: [debug] SELECT quote_ident(relname) as relname, pg_index.indisunique, pg_index.indisprimary,
+                       pg_index.indkey, pg_index.indrelid,
+                       pg_get_expr(indpred, indrelid) AS where
 PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\RouterListener::onKernelRequest".
 PHP message: [debug] Notified event "kernel.request" to listener "ApiPlatform\Core\EventListener\QueryParameterValidateListener::onKernelRequest".
 PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::onKernelRequest".
@@ -360,6 +406,15 @@ PHP message: [debug] Notified event "kernel.response" to listener "Nelmio\CorsBu
 PHP message: [debug] Notified event "kernel.response" to listener "Nelmio\CorsBundle\EventListener\CacheableResponseVaryListener::onResponse".
 PHP message: [debug] Notified event "kernel.response" to listener "ApiPlatform\Core\Hydra\EventListener\AddLinkHeaderListener::onKernelResponse".
 PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\EventListener\ResponseListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\DataCollector\R
+2022/07/11 21:27:08 [error] 33#33: *1 FastCGI sent in stderr: "PHP message: [info] Matched route "api_users_get_item".
+PHP message: [debug] Checking for authenticator support.
+PHP message: [debug] Checking support on authenticator.
+PHP message: [debug] SELECT t0.id AS id_1, t0.email AS email_2, t0.roles AS roles_3, t0.password AS password_4, t0.firstname AS firstname_5, t0.lastname AS lastname_6 FROM "user" t0 WHERE t0.email = ? LIMIT 1
+PHP message: [info] Authenticator successful!
+PHP message: [debug] Authenticator set no success response: request continues.
+PHP message: [debug] Notified event "debug.security.authorization.vote" to listener "Symfony\Bundle\SecurityBundle\EventListener\VoteListener::onVoterVote".
+PHP message: [debug] SELECT u0_.id AS id_0, u0_.email AS email_1, u0_.roles AS roles_2, u0_.password AS password_3, u0_.firstname AS firstname_4, u0_.lastname AS lastname_5, f1_.id AS id_6, f1_.id_sneaker AS id_sneaker_7, i2_.id AS id_8, i2_.id_sneaker AS id_sneaker_9 FROM "user" u0_ LEFT JOIN favorite_user f3_ ON u0_.id = f3_.user_id LEFT JOIN favorite f1_ ON f1_.id = f3_.favorite_id LEFT JOIN inventory_user i4_ ON u0_.id = i4_.user_id LEFT JOIN inventory i2_ ON i2_.id = i4_.inventory_id WHERE u0_.id = ?
 PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\DataCollector\RequestDataCollector::onKernelResponse".
 PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\WebLink\EventListener\AddLinkHeaderListener::onKernelResponse".
 PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\Security\Http\RememberMe\ResponseListener::onKernelResponse".
@@ -377,6 +432,8 @@ PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Compon
 PHP message: [debug] Notified event "kernel.request" to listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelRequest".
 PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onKernelRequest".
 PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::setDefaultLocale".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\Even
+2022/07/11 21:27:08 [error] 33#33: *1 FastCGI sent in stderr: "', 'information_schema', 'pg_toast') AND c.relname = 'doctrine_migration_versions' AND n.nspname = ANY(current_schemas(false)) AND n.oid = c.relnamespace
 PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\RouterListener::onKernelRequest".
 PHP message: [debug] Notified event "kernel.request" to listener "ApiPlatform\Core\EventListener\QueryParameterValidateListener::onKernelRequest".
 PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::onKernelRequest".
@@ -410,6 +467,28 @@ PHP message: [debug] SELECT quote_ident(relname) as relname, pg_index.indisuniqu
                  ) AND pg_index.indexrelid = oid
 PHP message: [debug] SELECT attnum, attname FROM pg_attribute WHERE attrelid=41054 AND attnum IN (1) ORDER BY attnum ASC
 PHP message: [debug] SELECT obj_description('doctrine_migration_versions'::regclass) AS table_comment;
+PHP message: [debug] SELECT * FROM doctrine_migration_versions
+PHP message: [debug] SELECT CURRENT_DATABASE()
+PHP message: [debug] Notified event "kernel.response" to listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Nelmio\CorsBundle\EventListener\CacheableResponseVaryListener::onResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "ApiPlatform\Core\Hydra\EventListener\AddLinkHeaderListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\EventListener\ResponseListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\DataCollector\R
+2022/07/11 21:27:08 [error] 33#33: *1 FastCGI sent in stderr: "PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\DebugHandlersListener::configure".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\ValidateRequestListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelRequest".
+PHP message: [debug] Listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelRequest" stopped propagation of the event "kernel.request".
+PHP message: [debug] Listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onKernelRequest" was not called for event "kernel.request".
+PHP message: [debug] Listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::setDefaultLocale" was not called for event "kernel.request".
+PHP message: [debug] Listener "Symfony\Component\HttpKernel\EventListener\RouterListener::onKernelRequest" was not called for event "kernel.request".
+PHP message: [debug] Listener "ApiPlatform\Core\EventListener\QueryParameterValidateListener::onKernelRequest" was not called for event "kernel.request".
+PHP message: [debug] Listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::onKernelRequest" was not called for event "kernel.request".
+PHP message: [debug] Listener "Symfony\Component\HttpKernel\EventListener\LocaleAwareListener::onKernelRequest" was not called for event "kernel.request".
+PHP message: [debug] Listener "Symfony\Bundle\SecurityBundle\Debug\TraceableFirewallListener::configureLogoutUrlGenerator" was not called for event "kernel.request".
+PHP message: [debug] Listener "Symfony\Bundle\SecurityBundle\Debug\TraceableFirewallListener::onKernelRequest" was not called for event "kernel.request".
+PHP message: [debug] Listener "ApiPlatform\Core\EventListener\AddFormatListener::onKernelRequest" was not called for event "kernel.request".
+PHP message: [debug] Listener "ApiPlatfor
+2022/07/11 21:27:08 [error] 33#33: *1 FastCGI sent in stderr: "ent "kernel.response" to listener "Symfony\Component\WebLink\EventListener\AddLinkHeaderListener::onKernelResponse".
 PHP message: [debug] SELECT * FROM doctrine_migrat
 2022/07/11 14:27:31 [error] 31#31: *15 FastCGI sent in stderr: "bug] Notified event "kernel.finish_request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::onKernelFinishRequest".
 PHP message: [debug] Notified event "kernel.finish_request" to listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onFinishRequest".
@@ -446,8 +525,20 @@ PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Compo
 PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onKernelResponse".
 PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\EventListener\StreamedResponseListener::onKernelResponse".
 PHP message: [debug] Notified event "kernel.finish_request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::onKernelFinishRequest".
-PHP message: [debug] Notified event "kernel.finish_re
+PHP message: [debug] Notified event "kernel.finish_request" to listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onFinishRequest".
+PHP message: [debug] Notified event "kernel.finish_request" to listener "Symfony\Component\HttpKernel\EventListener\RouterListener::onKernelFinishRequest".
+PHP message: [debug] Notified event "kernel.finish_request" to listener "Symfony\Bundle\SecurityBundle\Debug\TraceableFirewallListener::onKernelFinishRequest".
+PHP message: [debug] Notified event "kernel.fi
+2022/07/11 21:27:09 [error] 33#33: *1 FastCGI sent in stderr: "PHP message: [info] Matched route "api_favorites_post_collection".
+PHP message: [debug] Checking for authenticator support.
+PHP message: [debug] Checking support on authenticator.
+PHP message: [debug] SELECT t0.id AS id_1, t0.email AS email_2, t0.roles AS roles_3, t0.password AS password_4, t0.firstname AS firstname_5, t0.lastname AS lastname_6 FROM "user" t0 WHERE t0.email = ? LIMIT 1
+PHP message: [info] Authenticator successful!
+PHP message: [debug] Authenticator set no success response: request continues.
+PHP message: [debug] Notified event "debug.security.authorization.vote" to listener "Symfony\Bundle\SecurityBundle\EventListener\VoteListener::onVoterVote".
+PHP message: [debug] SELECT u0_.id AS id_0, u0_.email AS email_1, u0_.roles AS roles_2, u0_.password AS password_3, u0_.firstname AS firstname_4, u0_.lastname AS lastname_5 FROM "user" u0_ WHERE u0_.id = ?
 2022/07/11 14:29:11 [error] 31#31: *27 FastCGI sent in stderr: "PHP message: [info] Matched route "_wdt".
+
 PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\DebugHandlersListener::configure".
 PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\ValidateRequestListener::onKernelRequest".
 PHP message: [debug] Notified event "kernel.request" to listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelRequest".
@@ -455,6 +546,739 @@ PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Compon
 PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::setDefaultLocale".
 PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\RouterListener::onKernelRequest".
 PHP message: [debug] Notified event "kernel.request" to listener "ApiPlatform\Core\EventListener\QueryParameterValidateListener::onKernelRequest".
+
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventLis
+2022/07/11 21:27:09 [error] 33#33: *1 FastCGI sent in stderr: "ELECT quote_ident(r.conname) as conname, pg_catalog.pg_get_constraintdef(r.oid, true) as condef
+                  FROM pg_catalog.pg_constraint r
+                  WHERE r.conrelid =
+                  (
+                      SELECT c.oid
+                      FROM pg_catalog.pg_class c, pg_catalog.pg_namespace n
+                      WHERE n.nspname NOT IN ('pg_catalog', 'information_schema', 'pg_toast') AND c.relname = 'doctrine_migration_versions' AND n.nspname = ANY(current_schemas(false)) AND n.oid = c.relnamespace
+                  )
+                  AND r.contype = 'f'
+PHP message: [debug] SELECT CURRENT_DATABASE()
+PHP message: [debug] SELECT quote_ident(relname) as relname, pg_index.indisunique, pg_index.indisprimary,
+                       pg_index.indkey, pg_index.indrelid,
+                       pg_get_expr(indpred, indrelid) AS where
+                 FROM pg_class, pg_index
+                 WHERE oid IN (
+                    SELECT indexrelid
+                    FROM pg_index si, pg_class sc, pg_namespace sn
+                    WHERE sn.nspname NOT IN ('pg_catalog', 'information_schema', 'pg_toast') AND sc.relname = 'doctrine_migration_versions' AND sn.nspname = ANY(current_schemas(false))
+                    AND sc.oid=si.indrelid AND sc.relnamespace = sn.oid
+                 ) AND pg_index.indexrelid = oid
+PHP message: [debug] SELECT attnum, attname FROM pg_attribute WHERE attrelid=41054 AND attnum IN (1) ORDER BY attnum ASC
+PHP message: [debug] SELECT obj_description('doctrine_migration_versions'::regclass) AS table_comment;
+PHP message: [debug] SELECT * FROM doctrine_migration_versions
+PHP message: [debug] SELECT CURRENT_DATABASE()
+PHP message: [debug] Notified event "kernel.response" to listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Nelmio\CorsBundle\EventListener\CacheableResponseVaryListener::onResponse".
+PHP message: [debug] Notified eve
+2022/07/11 21:27:09 [error] 33#33: *1 FastCGI sent in stderr: "PHP message: [info] Matched route "api_users_get_item".
+PHP message: [debug] Checking for authenticator support.
+PHP message: [debug] Checking support on authenticator.
+PHP message: [debug] SELECT t0.id AS id_1, t0.email AS email_2, t0.roles AS roles_3, t0.password AS password_4, t0.firstname AS firstname_5, t0.lastname AS lastname_6 FROM "user" t0 WHERE t0.email = ? LIMIT 1
+PHP message: [info] Authenticator successful!
+PHP message: [debug] Authenticator set no success response: request continues.
+PHP message: [debug] Notified event "debug.security.authorization.vote" to listener "Symfony\Bundle\SecurityBundle\EventListener\VoteListener::onVoterVote".
+PHP message: [debug] SELECT u0_.id AS id_0, u0_.email AS email_1, u0_.roles AS roles_2, u0_.password AS password_3, u0_.firstname AS firstname_4, u0_.lastname AS lastname_5, f1_.id AS id_6, f1_.id_sneaker AS id_sneaker_7, i2_.id AS id_8, i2_.id_sneaker AS id_sneaker_9 FROM "user" u0_ LEFT JOIN favorite_user f3_ ON u0_.id = f3_.user_id LEFT JOIN favorite f1_ ON f1_.id = f3_.favorite_id LEFT JOIN inventory_user i4_ ON u0_.id = i4_.user_id LEFT JOIN inventory i2_ ON i2_.id = i4_.inventory_id WHERE u0_.id = ?
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\DebugHandlersListener::configure".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\ValidateRequestListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::setDefaultLocale".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\Even
+2022/07/11 21:27:09 [error] 33#33: *1 FastCGI sent in stderr: "', 'information_schema', 'pg_toast') AND c.relname = 'doctrine_migration_versions' AND n.nspname = ANY(current_schemas(false)) AND n.oid = c.relnamespace
+                  )
+                  AND r.contype = 'f'
+PHP message: [debug] SELECT CURRENT_DATABASE()
+PHP message: [debug] SELECT quote_ident(relname) as relname, pg_index.indisunique, pg_index.indisprimary,
+                       pg_index.indkey, pg_index.indrelid,
+                       pg_get_expr(indpred, indrelid) AS where
+                 FROM pg_class, pg_index
+                 WHERE oid IN (
+                    SELECT indexrelid
+                    FROM pg_index si, pg_class sc, pg_namespace sn
+                    WHERE sn.nspname NOT IN ('pg_catalog', 'information_schema', 'pg_toast') AND sc.relname = 'doctrine_migration_versions' AND sn.nspname = ANY(current_schemas(false))
+                    AND sc.oid=si.indrelid AND sc.relnamespace = sn.oid
+                 ) AND pg_index.indexrelid = oid
+PHP message: [debug] SELECT attnum, attname FROM pg_attribute WHERE attrelid=41054 AND attnum IN (1) ORDER BY attnum ASC
+PHP message: [debug] SELECT obj_description('doctrine_migration_versions'::regclass) AS table_comment;
+PHP message: [debug] SELECT * FROM doctrine_migration_versions
+PHP message: [debug] SELECT CURRENT_DATABASE()
+PHP message: [debug] Notified event "kernel.response" to listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Nelmio\CorsBundle\EventListener\CacheableResponseVaryListener::onResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "ApiPlatform\Core\Hydra\EventListener\AddLinkHeaderListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\EventListener\ResponseListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\DataCollector\R
+2022/07/11 21:27:11 [error] 33#33: *1 FastCGI sent in stderr: "PHP message: [info] Matched route "api_users_get_item".
+PHP message: [debug] Checking for authenticator support.
+PHP message: [debug] Checking support on authenticator.
+PHP message: [debug] SELECT t0.id AS id_1, t0.email AS email_2, t0.roles AS roles_3, t0.password AS password_4, t0.firstname AS firstname_5, t0.lastname AS lastname_6 FROM "user" t0 WHERE t0.email = ? LIMIT 1
+PHP message: [info] Authenticator successful!
+PHP message: [debug] Authenticator set no success response: request continues.
+PHP message: [debug] Notified event "debug.security.authorization.vote" to listener "Symfony\Bundle\SecurityBundle\EventListener\VoteListener::onVoterVote".
+PHP message: [debug] SELECT u0_.id AS id_0, u0_.email AS email_1, u0_.roles AS roles_2, u0_.password AS password_3, u0_.firstname AS firstname_4, u0_.lastname AS lastname_5, f1_.id AS id_6, f1_.id_sneaker AS id_sneaker_7, i2_.id AS id_8, i2_.id_sneaker AS id_sneaker_9 FROM "user" u0_ LEFT JOIN favorite_user f3_ ON u0_.id = f3_.user_id LEFT JOIN favorite f1_ ON f1_.id = f3_.favorite_id LEFT JOIN inventory_user i4_ ON u0_.id = i4_.user_id LEFT JOIN inventory i2_ ON i2_.id = i4_.inventory_id WHERE u0_.id = ?
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\DebugHandlersListener::configure".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\ValidateRequestListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::setDefaultLocale".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\Even
+2022/07/11 21:27:11 [error] 33#33: *1 FastCGI sent in stderr: "', 'information_schema', 'pg_toast') AND c.relname = 'doctrine_migration_versions' AND n.nspname = ANY(current_schemas(false)) AND n.oid = c.relnamespace
+                  )
+                  AND r.contype = 'f'
+PHP message: [debug] SELECT CURRENT_DATABASE()
+PHP message: [debug] SELECT quote_ident(relname) as relname, pg_index.indisunique, pg_index.indisprimary,
+                       pg_index.indkey, pg_index.indrelid,
+                       pg_get_expr(indpred, indrelid) AS where
+                 FROM pg_class, pg_index
+                 WHERE oid IN (
+                    SELECT indexrelid
+                    FROM pg_index si, pg_class sc, pg_namespace sn
+                    WHERE sn.nspname NOT IN ('pg_catalog', 'information_schema', 'pg_toast') AND sc.relname = 'doctrine_migration_versions' AND sn.nspname = ANY(current_schemas(false))
+                    AND sc.oid=si.indrelid AND sc.relnamespace = sn.oid
+                 ) AND pg_index.indexrelid = oid
+PHP message: [debug] SELECT attnum, attname FROM pg_attribute WHERE attrelid=41054 AND attnum IN (1) ORDER BY attnum ASC
+PHP message: [debug] SELECT obj_description('doctrine_migration_versions'::regclass) AS table_comment;
+PHP message: [debug] SELECT * FROM doctrine_migration_versions
+PHP message: [debug] SELECT CURRENT_DATABASE()
+PHP message: [debug] Notified event "kernel.response" to listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Nelmio\CorsBundle\EventListener\CacheableResponseVaryListener::onResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "ApiPlatform\Core\Hydra\EventListener\AddLinkHeaderListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\EventListener\ResponseListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\DataCollector\R
+2022/07/11 21:27:11 [error] 32#32: *4 FastCGI sent in stderr: "PHP message: [info] Matched route "api_users_get_item".
+PHP message: [debug] Checking for authenticator support.
+PHP message: [debug] Checking support on authenticator.
+PHP message: [debug] SELECT t0.id AS id_1, t0.email AS email_2, t0.roles AS roles_3, t0.password AS password_4, t0.firstname AS firstname_5, t0.lastname AS lastname_6 FROM "user" t0 WHERE t0.email = ? LIMIT 1
+PHP message: [info] Authenticator successful!
+PHP message: [debug] Authenticator set no success response: request continues.
+PHP message: [debug] Notified event "debug.security.authorization.vote" to listener "Symfony\Bundle\SecurityBundle\EventListener\VoteListener::onVoterVote".
+PHP message: [debug] SELECT u0_.id AS id_0, u0_.email AS email_1, u0_.roles AS roles_2, u0_.password AS password_3, u0_.firstname AS firstname_4, u0_.lastname AS lastname_5, f1_.id AS id_6, f1_.id_sneaker AS id_sneaker_7, i2_.id AS id_8, i2_.id_sneaker AS id_sneaker_9 FROM "user" u0_ LEFT JOIN favorite_user f3_ ON u0_.id = f3_.user_id LEFT JOIN favorite f1_ ON f1_.id = f3_.favorite_id LEFT JOIN inventory_user i4_ ON u0_.id = i4_.user_id LEFT JOIN inventory i2_ ON i2_.id = i4_.inventory_id WHERE u0_.id = ?
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\DebugHandlersListener::configure".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\ValidateRequestListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::setDefaultLocale".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\Even
+2022/07/11 21:27:11 [error] 32#32: *4 FastCGI sent in stderr: "', 'information_schema', 'pg_toast') AND c.relname = 'doctrine_migration_versions' AND n.nspname = ANY(current_schemas(false)) AND n.oid = c.relnamespace
+                  )
+                  AND r.contype = 'f'
+PHP message: [debug] SELECT CURRENT_DATABASE()
+PHP message: [debug] SELECT quote_ident(relname) as relname, pg_index.indisunique, pg_index.indisprimary,
+                       pg_index.indkey, pg_index.indrelid,
+                       pg_get_expr(indpred, indrelid) AS where
+                 FROM pg_class, pg_index
+                 WHERE oid IN (
+                    SELECT indexrelid
+                    FROM pg_index si, pg_class sc, pg_namespace sn
+                    WHERE sn.nspname NOT IN ('pg_catalog', 'information_schema', 'pg_toast') AND sc.relname = 'doctrine_migration_versions' AND sn.nspname = ANY(current_schemas(false))
+                    AND sc.oid=si.indrelid AND sc.relnamespace = sn.oid
+                 ) AND pg_index.indexrelid = oid
+PHP message: [debug] SELECT attnum, attname FROM pg_attribute WHERE attrelid=41054 AND attnum IN (1) ORDER BY attnum ASC
+PHP message: [debug] SELECT obj_description('doctrine_migration_versions'::regclass) AS table_comment;
+PHP message: [debug] SELECT * FROM doctrine_migration_versions
+PHP message: [debug] SELECT CURRENT_DATABASE()
+PHP message: [debug] Notified event "kernel.response" to listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Nelmio\CorsBundle\EventListener\CacheableResponseVaryListener::onResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "ApiPlatform\Core\Hydra\EventListener\AddLinkHeaderListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\EventListener\ResponseListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\DataCollector\R
+2022/07/11 21:27:15 [error] 32#32: *4 FastCGI sent in stderr: "PHP message: [info] Matched route "api_users_get_item".
+PHP message: [debug] Checking for authenticator support.
+PHP message: [debug] Checking support on authenticator.
+PHP message: [debug] SELECT t0.id AS id_1, t0.email AS email_2, t0.roles AS roles_3, t0.password AS password_4, t0.firstname AS firstname_5, t0.lastname AS lastname_6 FROM "user" t0 WHERE t0.email = ? LIMIT 1
+PHP message: [info] Authenticator successful!
+PHP message: [debug] Authenticator set no success response: request continues.
+PHP message: [debug] Notified event "debug.security.authorization.vote" to listener "Symfony\Bundle\SecurityBundle\EventListener\VoteListener::onVoterVote".
+PHP message: [debug] SELECT u0_.id AS id_0, u0_.email AS email_1, u0_.roles AS roles_2, u0_.password AS password_3, u0_.firstname AS firstname_4, u0_.lastname AS lastname_5, f1_.id AS id_6, f1_.id_sneaker AS id_sneaker_7, i2_.id AS id_8, i2_.id_sneaker AS id_sneaker_9 FROM "user" u0_ LEFT JOIN favorite_user f3_ ON u0_.id = f3_.user_id LEFT JOIN favorite f1_ ON f1_.id = f3_.favorite_id LEFT JOIN inventory_user i4_ ON u0_.id = i4_.user_id LEFT JOIN inventory i2_ ON i2_.id = i4_.inventory_id WHERE u0_.id = ?
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\DebugHandlersListener::configure".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\ValidateRequestListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::setDefaultLocale".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\Even
+2022/07/11 21:27:15 [error] 32#32: *4 FastCGI sent in stderr: "', 'information_schema', 'pg_toast') AND c.relname = 'doctrine_migration_versions' AND n.nspname = ANY(current_schemas(false)) AND n.oid = c.relnamespace
+                  )
+                  AND r.contype = 'f'
+PHP message: [debug] SELECT CURRENT_DATABASE()
+PHP message: [debug] SELECT quote_ident(relname) as relname, pg_index.indisunique, pg_index.indisprimary,
+                       pg_index.indkey, pg_index.indrelid,
+                       pg_get_expr(indpred, indrelid) AS where
+                 FROM pg_class, pg_index
+                 WHERE oid IN (
+                    SELECT indexrelid
+                    FROM pg_index si, pg_class sc, pg_namespace sn
+                    WHERE sn.nspname NOT IN ('pg_catalog', 'information_schema', 'pg_toast') AND sc.relname = 'doctrine_migration_versions' AND sn.nspname = ANY(current_schemas(false))
+                    AND sc.oid=si.indrelid AND sc.relnamespace = sn.oid
+                 ) AND pg_index.indexrelid = oid
+PHP message: [debug] SELECT attnum, attname FROM pg_attribute WHERE attrelid=41054 AND attnum IN (1) ORDER BY attnum ASC
+PHP message: [debug] SELECT obj_description('doctrine_migration_versions'::regclass) AS table_comment;
+PHP message: [debug] SELECT * FROM doctrine_migration_versions
+PHP message: [debug] SELECT CURRENT_DATABASE()
+PHP message: [debug] Notified event "kernel.response" to listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Nelmio\CorsBundle\EventListener\CacheableResponseVaryListener::onResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "ApiPlatform\Core\Hydra\EventListener\AddLinkHeaderListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\EventListener\ResponseListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\DataCollector\R
+2022/07/11 21:27:15 [error] 33#33: *1 FastCGI sent in stderr: "PHP message: [info] Matched route "api_users_get_item".
+PHP message: [debug] Checking for authenticator support.
+PHP message: [debug] Checking support on authenticator.
+PHP message: [debug] SELECT t0.id AS id_1, t0.email AS email_2, t0.roles AS roles_3, t0.password AS password_4, t0.firstname AS firstname_5, t0.lastname AS lastname_6 FROM "user" t0 WHERE t0.email = ? LIMIT 1
+PHP message: [info] Authenticator successful!
+PHP message: [debug] Authenticator set no success response: request continues.
+PHP message: [debug] Notified event "debug.security.authorization.vote" to listener "Symfony\Bundle\SecurityBundle\EventListener\VoteListener::onVoterVote".
+PHP message: [debug] SELECT u0_.id AS id_0, u0_.email AS email_1, u0_.roles AS roles_2, u0_.password AS password_3, u0_.firstname AS firstname_4, u0_.lastname AS lastname_5, f1_.id AS id_6, f1_.id_sneaker AS id_sneaker_7, i2_.id AS id_8, i2_.id_sneaker AS id_sneaker_9 FROM "user" u0_ LEFT JOIN favorite_user f3_ ON u0_.id = f3_.user_id LEFT JOIN favorite f1_ ON f1_.id = f3_.favorite_id LEFT JOIN inventory_user i4_ ON u0_.id = i4_.user_id LEFT JOIN inventory i2_ ON i2_.id = i4_.inventory_id WHERE u0_.id = ?
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\DebugHandlersListener::configure".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\ValidateRequestListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::setDefaultLocale".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\Even
+2022/07/11 21:27:15 [error] 33#33: *1 FastCGI sent in stderr: "', 'information_schema', 'pg_toast') AND c.relname = 'doctrine_migration_versions' AND n.nspname = ANY(current_schemas(false)) AND n.oid = c.relnamespace
+                  )
+                  AND r.contype = 'f'
+PHP message: [debug] SELECT CURRENT_DATABASE()
+PHP message: [debug] SELECT quote_ident(relname) as relname, pg_index.indisunique, pg_index.indisprimary,
+                       pg_index.indkey, pg_index.indrelid,
+                       pg_get_expr(indpred, indrelid) AS where
+                 FROM pg_class, pg_index
+                 WHERE oid IN (
+                    SELECT indexrelid
+                    FROM pg_index si, pg_class sc, pg_namespace sn
+                    WHERE sn.nspname NOT IN ('pg_catalog', 'information_schema', 'pg_toast') AND sc.relname = 'doctrine_migration_versions' AND sn.nspname = ANY(current_schemas(false))
+                    AND sc.oid=si.indrelid AND sc.relnamespace = sn.oid
+                 ) AND pg_index.indexrelid = oid
+PHP message: [debug] SELECT attnum, attname FROM pg_attribute WHERE attrelid=41054 AND attnum IN (1) ORDER BY attnum ASC
+PHP message: [debug] SELECT obj_description('doctrine_migration_versions'::regclass) AS table_comment;
+PHP message: [debug] SELECT * FROM doctrine_migration_versions
+PHP message: [debug] SELECT CURRENT_DATABASE()
+PHP message: [debug] Notified event "kernel.response" to listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Nelmio\CorsBundle\EventListener\CacheableResponseVaryListener::onResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "ApiPlatform\Core\Hydra\EventListener\AddLinkHeaderListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\EventListener\ResponseListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\DataCollector\R
+2022/07/11 21:27:16 [error] 33#33: *1 FastCGI sent in stderr: "PHP message: [info] Matched route "api_favorites_post_collection".
+PHP message: [debug] Checking for authenticator support.
+PHP message: [debug] Checking support on authenticator.
+PHP message: [debug] SELECT t0.id AS id_1, t0.email AS email_2, t0.roles AS roles_3, t0.password AS password_4, t0.firstname AS firstname_5, t0.lastname AS lastname_6 FROM "user" t0 WHERE t0.email = ? LIMIT 1
+PHP message: [info] Authenticator successful!
+PHP message: [debug] Authenticator set no success response: request continues.
+PHP message: [debug] Notified event "debug.security.authorization.vote" to listener "Symfony\Bundle\SecurityBundle\EventListener\VoteListener::onVoterVote".
+PHP message: [debug] SELECT u0_.id AS id_0, u0_.email AS email_1, u0_.roles AS roles_2, u0_.password AS password_3, u0_.firstname AS firstname_4, u0_.lastname AS lastname_5 FROM "user" u0_ WHERE u0_.id = ?
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\DebugHandlersListener::configure".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\ValidateRequestListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::setDefaultLocale".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\RouterListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "ApiPlatform\Core\EventListener\QueryParameterValidateListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventLis
+2022/07/11 21:27:16 [error] 33#33: *1 FastCGI sent in stderr: "ELECT quote_ident(r.conname) as conname, pg_catalog.pg_get_constraintdef(r.oid, true) as condef
+                  FROM pg_catalog.pg_constraint r
+                  WHERE r.conrelid =
+                  (
+                      SELECT c.oid
+                      FROM pg_catalog.pg_class c, pg_catalog.pg_namespace n
+                      WHERE n.nspname NOT IN ('pg_catalog', 'information_schema', 'pg_toast') AND c.relname = 'doctrine_migration_versions' AND n.nspname = ANY(current_schemas(false)) AND n.oid = c.relnamespace
+                  )
+                  AND r.contype = 'f'
+PHP message: [debug] SELECT CURRENT_DATABASE()
+PHP message: [debug] SELECT quote_ident(relname) as relname, pg_index.indisunique, pg_index.indisprimary,
+                       pg_index.indkey, pg_index.indrelid,
+                       pg_get_expr(indpred, indrelid) AS where
+                 FROM pg_class, pg_index
+                 WHERE oid IN (
+                    SELECT indexrelid
+                    FROM pg_index si, pg_class sc, pg_namespace sn
+                    WHERE sn.nspname NOT IN ('pg_catalog', 'information_schema', 'pg_toast') AND sc.relname = 'doctrine_migration_versions' AND sn.nspname = ANY(current_schemas(false))
+                    AND sc.oid=si.indrelid AND sc.relnamespace = sn.oid
+                 ) AND pg_index.indexrelid = oid
+PHP message: [debug] SELECT attnum, attname FROM pg_attribute WHERE attrelid=41054 AND attnum IN (1) ORDER BY attnum ASC
+PHP message: [debug] SELECT obj_description('doctrine_migration_versions'::regclass) AS table_comment;
+PHP message: [debug] SELECT * FROM doctrine_migration_versions
+PHP message: [debug] SELECT CURRENT_DATABASE()
+PHP message: [debug] Notified event "kernel.response" to listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Nelmio\CorsBundle\EventListener\CacheableResponseVaryListener::onResponse".
+PHP message: [debug] Notified eve
+2022/07/11 21:27:16 [error] 33#33: *1 FastCGI sent in stderr: "PHP message: [info] Matched route "api_users_get_item".
+PHP message: [debug] Checking for authenticator support.
+PHP message: [debug] Checking support on authenticator.
+PHP message: [debug] SELECT t0.id AS id_1, t0.email AS email_2, t0.roles AS roles_3, t0.password AS password_4, t0.firstname AS firstname_5, t0.lastname AS lastname_6 FROM "user" t0 WHERE t0.email = ? LIMIT 1
+PHP message: [info] Authenticator successful!
+PHP message: [debug] Authenticator set no success response: request continues.
+PHP message: [debug] Notified event "debug.security.authorization.vote" to listener "Symfony\Bundle\SecurityBundle\EventListener\VoteListener::onVoterVote".
+PHP message: [debug] SELECT u0_.id AS id_0, u0_.email AS email_1, u0_.roles AS roles_2, u0_.password AS password_3, u0_.firstname AS firstname_4, u0_.lastname AS lastname_5, f1_.id AS id_6, f1_.id_sneaker AS id_sneaker_7, i2_.id AS id_8, i2_.id_sneaker AS id_sneaker_9 FROM "user" u0_ LEFT JOIN favorite_user f3_ ON u0_.id = f3_.user_id LEFT JOIN favorite f1_ ON f1_.id = f3_.favorite_id LEFT JOIN inventory_user i4_ ON u0_.id = i4_.user_id LEFT JOIN inventory i2_ ON i2_.id = i4_.inventory_id WHERE u0_.id = ?
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\DebugHandlersListener::configure".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\ValidateRequestListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::setDefaultLocale".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\Even
+2022/07/11 21:27:16 [error] 33#33: *1 FastCGI sent in stderr: "              ) AS comment
+                    FROM pg_attribute a, pg_class c, pg_type t, pg_namespace n
+                    WHERE n.nspname NOT IN ('pg_catalog', 'information_schema', 'pg_toast') AND c.relname = 'doctrine_migration_versions' AND n.nspname = ANY(current_schemas(false))
+                        AND a.attnum > 0
+                        AND a.attrelid = c.oid
+                        AND a.atttypid = t.oid
+                        AND n.oid = c.relnamespace
+                    ORDER BY a.attnum
+PHP message: [debug] SELECT CURRENT_DATABASE()
+PHP message: [debug] SELECT quote_ident(r.conname) as conname, pg_catalog.pg_get_constraintdef(r.oid, true) as condef
+                  FROM pg_catalog.pg_constraint r
+                  WHERE r.conrelid =
+                  (
+                      SELECT c.oid
+                      FROM pg_catalog.pg_class c, pg_catalog.pg_namespace n
+                      WHERE n.nspname NOT IN ('pg_catalog" while reading response header from upstream, client: 172.19.0.1, server: localhost, request: "GET /api/users/2 HTTP/1.1", upstream: "fastcgi://172.19.0.4:9000", host: "localhost", referrer: "http://localhost:4200/"
+2022/07/11 21:27:16 [error] 33#33: *1 FastCGI sent in stderr: "', 'information_schema', 'pg_toast') AND c.relname = 'doctrine_migration_versions' AND n.nspname = ANY(current_schemas(false)) AND n.oid = c.relnamespace
+                  )
+                  AND r.contype = 'f'
+PHP message: [debug] SELECT CURRENT_DATABASE()
+PHP message: [debug] SELECT quote_ident(relname) as relname, pg_index.indisunique, pg_index.indisprimary,
+                       pg_index.indkey, pg_index.indrelid,
+                       pg_get_expr(indpred, indrelid) AS where
+                 FROM pg_class, pg_index
+                 WHERE oid IN (
+                    SELECT indexrelid
+                    FROM pg_index si, pg_class sc, pg_namespace sn
+                    WHERE sn.nspname NOT IN ('pg_catalog', 'information_schema', 'pg_toast') AND sc.relname = 'doctrine_migration_versions' AND sn.nspname = ANY(current_schemas(false))
+                    AND sc.oid=si.indrelid AND sc.relnamespace = sn.oid
+                 ) AND pg_index.indexrelid = oid
+PHP message: [debug] SELECT attnum, attname FROM pg_attribute WHERE attrelid=41054 AND attnum IN (1) ORDER BY attnum ASC
+PHP message: [debug] SELECT obj_description('doctrine_migration_versions'::regclass) AS table_comment;
+PHP message: [debug] SELECT * FROM doctrine_migration_versions
+PHP message: [debug] SELECT CURRENT_DATABASE()
+PHP message: [debug] Notified event "kernel.response" to listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Nelmio\CorsBundle\EventListener\CacheableResponseVaryListener::onResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "ApiPlatform\Core\Hydra\EventListener\AddLinkHeaderListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\EventListener\ResponseListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\DataCollector\R
+2022/07/11 21:27:19 [error] 33#33: *1 FastCGI sent in stderr: "PHP message: [info] Matched route "api_users_get_item".
+PHP message: [debug] Checking for authenticator support.
+PHP message: [debug] Checking support on authenticator.
+PHP message: [debug] SELECT t0.id AS id_1, t0.email AS email_2, t0.roles AS roles_3, t0.password AS password_4, t0.firstname AS firstname_5, t0.lastname AS lastname_6 FROM "user" t0 WHERE t0.email = ? LIMIT 1
+PHP message: [info] Authenticator successful!
+PHP message: [debug] Authenticator set no success response: request continues.
+PHP message: [debug] Notified event "debug.security.authorization.vote" to listener "Symfony\Bundle\SecurityBundle\EventListener\VoteListener::onVoterVote".
+PHP message: [debug] SELECT u0_.id AS id_0, u0_.email AS email_1, u0_.roles AS roles_2, u0_.password AS password_3, u0_.firstname AS firstname_4, u0_.lastname AS lastname_5, f1_.id AS id_6, f1_.id_sneaker AS id_sneaker_7, i2_.id AS id_8, i2_.id_sneaker AS id_sneaker_9 FROM "user" u0_ LEFT JOIN favorite_user f3_ ON u0_.id = f3_.user_id LEFT JOIN favorite f1_ ON f1_.id = f3_.favorite_id LEFT JOIN inventory_user i4_ ON u0_.id = i4_.user_id LEFT JOIN inventory i2_ ON i2_.id = i4_.inventory_id WHERE u0_.id = ?
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\DebugHandlersListener::configure".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\ValidateRequestListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::setDefaultLocale".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\Even
+2022/07/11 21:27:19 [error] 33#33: *1 FastCGI sent in stderr: "', 'information_schema', 'pg_toast') AND c.relname = 'doctrine_migration_versions' AND n.nspname = ANY(current_schemas(false)) AND n.oid = c.relnamespace
+                  )
+                  AND r.contype = 'f'
+PHP message: [debug] SELECT CURRENT_DATABASE()
+PHP message: [debug] SELECT quote_ident(relname) as relname, pg_index.indisunique, pg_index.indisprimary,
+                       pg_index.indkey, pg_index.indrelid,
+                       pg_get_expr(indpred, indrelid) AS where
+                 FROM pg_class, pg_index
+                 WHERE oid IN (
+                    SELECT indexrelid
+                    FROM pg_index si, pg_class sc, pg_namespace sn
+                    WHERE sn.nspname NOT IN ('pg_catalog', 'information_schema', 'pg_toast') AND sc.relname = 'doctrine_migration_versions' AND sn.nspname = ANY(current_schemas(false))
+                    AND sc.oid=si.indrelid AND sc.relnamespace = sn.oid
+                 ) AND pg_index.indexrelid = oid
+PHP message: [debug] SELECT attnum, attname FROM pg_attribute WHERE attrelid=41054 AND attnum IN (1) ORDER BY attnum ASC
+PHP message: [debug] SELECT obj_description('doctrine_migration_versions'::regclass) AS table_comment;
+PHP message: [debug] SELECT * FROM doctrine_migration_versions
+PHP message: [debug] SELECT CURRENT_DATABASE()
+PHP message: [debug] Notified event "kernel.response" to listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Nelmio\CorsBundle\EventListener\CacheableResponseVaryListener::onResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "ApiPlatform\Core\Hydra\EventListener\AddLinkHeaderListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\EventListener\ResponseListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\DataCollector\R
+2022/07/11 21:30:39 [error] 34#34: *19 FastCGI sent in stderr: "PHP message: [info] Matched route "authentication_token".
+PHP message: [debug] Checking for authenticator support.
+PHP message: [debug] Checking support on authenticator.
+PHP message: [debug] Authenticator does not support the request.
+PHP message: [debug] Checking support on authenticator.
+PHP message: [debug] SELECT t0.id AS id_1, t0.email AS email_2, t0.roles AS roles_3, t0.password AS password_4, t0.firstname AS firstname_5, t0.lastname AS lastname_6 FROM "user" t0 WHERE t0.email = ? LIMIT 1
+PHP message: [info] Authenticator successful!
+PHP message: [debug] Notified event "lexik_jwt_authentication.on_jwt_created" to listener "App\EventListener\JWTCreatedListener::onJWTCreated".
+PHP message: [debug] The "Symfony\Component\Security\Http\Authenticator\Debug\TraceableAuthenticator" authenticator set the response. Any later authenticator will not be called
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\DebugHandlersListener::configure".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\ValidateRequestListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::setDefaultLocale".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\RouterListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "ApiPlatform\Core\EventListener\QueryParameterValidateListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\Lo
+2022/07/11 21:30:39 [error] 34#34: *19 FastCGI sent in stderr: "OM doctrine_migration_versions
+PHP message: [debug] SELECT CURRENT_DATABASE()
+PHP message: [debug] Notified event "kernel.response" to listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Nelmio\CorsBundle\EventListener\CacheableResponseVaryListener::onResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "ApiPlatform\Core\Hydra\EventListener\AddLinkHeaderListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\EventListener\ResponseListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\DataCollector\RequestDataCollector::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\WebLink\EventListener\AddLinkHeaderListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\Security\Http\RememberMe\ResponseListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "ApiPlatform\Core\HttpCache\EventListener\AddHeadersListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\EventListener\ProfilerListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\EventListener\ErrorListener::removeCspHeader".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Bundle\WebProfilerBundle\EventListener\WebDebugToolbarListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\EventListener\DisallowRobotsIndexingListener::onResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onKernelRespo
+2022/07/11 21:30:42 [error] 34#34: *19 FastCGI sent in stderr: "PHP message: [info] Matched route "api_users_get_item".
+PHP message: [debug] Checking for authenticator support.
+PHP message: [debug] Checking support on authenticator.
+PHP message: [debug] SELECT t0.id AS id_1, t0.email AS email_2, t0.roles AS roles_3, t0.password AS password_4, t0.firstname AS firstname_5, t0.lastname AS lastname_6 FROM "user" t0 WHERE t0.email = ? LIMIT 1
+PHP message: [info] Authenticator successful!
+PHP message: [debug] Authenticator set no success response: request continues.
+PHP message: [debug] Notified event "debug.security.authorization.vote" to listener "Symfony\Bundle\SecurityBundle\EventListener\VoteListener::onVoterVote".
+PHP message: [debug] SELECT u0_.id AS id_0, u0_.email AS email_1, u0_.roles AS roles_2, u0_.password AS password_3, u0_.firstname AS firstname_4, u0_.lastname AS lastname_5, f1_.id AS id_6, f1_.id_sneaker AS id_sneaker_7, i2_.id AS id_8, i2_.id_sneaker AS id_sneaker_9 FROM "user" u0_ LEFT JOIN favorite_user f3_ ON u0_.id = f3_.user_id LEFT JOIN favorite f1_ ON f1_.id = f3_.favorite_id LEFT JOIN inventory_user i4_ ON u0_.id = i4_.user_id LEFT JOIN inventory i2_ ON i2_.id = i4_.inventory_id WHERE u0_.id = ?
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\DebugHandlersListener::configure".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\ValidateRequestListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::setDefaultLocale".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\Eve
+2022/07/11 21:30:42 [error] 34#34: *19 FastCGI sent in stderr: "', 'information_schema', 'pg_toast') AND c.relname = 'doctrine_migration_versions' AND n.nspname = ANY(current_schemas(false)) AND n.oid = c.relnamespace
+                  )
+                  AND r.contype = 'f'
+PHP message: [debug] SELECT CURRENT_DATABASE()
+PHP message: [debug] SELECT quote_ident(relname) as relname, pg_index.indisunique, pg_index.indisprimary,
+                       pg_index.indkey, pg_index.indrelid,
+                       pg_get_expr(indpred, indrelid) AS where
+                 FROM pg_class, pg_index
+                 WHERE oid IN (
+                    SELECT indexrelid
+                    FROM pg_index si, pg_class sc, pg_namespace sn
+                    WHERE sn.nspname NOT IN ('pg_catalog', 'information_schema', 'pg_toast') AND sc.relname = 'doctrine_migration_versions' AND sn.nspname = ANY(current_schemas(false))
+                    AND sc.oid=si.indrelid AND sc.relnamespace = sn.oid
+                 ) AND pg_index.indexrelid = oid
+PHP message: [debug] SELECT attnum, attname FROM pg_attribute WHERE attrelid=41054 AND attnum IN (1) ORDER BY attnum ASC
+PHP message: [debug] SELECT obj_description('doctrine_migration_versions'::regclass) AS table_comment;
+PHP message: [debug] SELECT * FROM doctrine_migration_versions
+PHP message: [debug] SELECT CURRENT_DATABASE()
+PHP message: [debug] Notified event "kernel.response" to listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Nelmio\CorsBundle\EventListener\CacheableResponseVaryListener::onResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "ApiPlatform\Core\Hydra\EventListener\AddLinkHeaderListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\EventListener\ResponseListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\DataCollector\
+2022/07/11 21:30:42 [error] 31#31: *22 FastCGI sent in stderr: "PHP message: [info] Matched route "api_users_get_item".
+PHP message: [debug] Checking for authenticator support.
+PHP message: [debug] Checking support on authenticator.
+PHP message: [debug] SELECT t0.id AS id_1, t0.email AS email_2, t0.roles AS roles_3, t0.password AS password_4, t0.firstname AS firstname_5, t0.lastname AS lastname_6 FROM "user" t0 WHERE t0.email = ? LIMIT 1
+PHP message: [info] Authenticator successful!
+PHP message: [debug] Authenticator set no success response: request continues.
+PHP message: [debug] Notified event "debug.security.authorization.vote" to listener "Symfony\Bundle\SecurityBundle\EventListener\VoteListener::onVoterVote".
+PHP message: [debug] SELECT u0_.id AS id_0, u0_.email AS email_1, u0_.roles AS roles_2, u0_.password AS password_3, u0_.firstname AS firstname_4, u0_.lastname AS lastname_5, f1_.id AS id_6, f1_.id_sneaker AS id_sneaker_7, i2_.id AS id_8, i2_.id_sneaker AS id_sneaker_9 FROM "user" u0_ LEFT JOIN favorite_user f3_ ON u0_.id = f3_.user_id LEFT JOIN favorite f1_ ON f1_.id = f3_.favorite_id LEFT JOIN inventory_user i4_ ON u0_.id = i4_.user_id LEFT JOIN inventory i2_ ON i2_.id = i4_.inventory_id WHERE u0_.id = ?
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\DebugHandlersListener::configure".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\ValidateRequestListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::setDefaultLocale".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\Eve
+2022/07/11 21:30:42 [error] 31#31: *22 FastCGI sent in stderr: "', 'information_schema', 'pg_toast') AND c.relname = 'doctrine_migration_versions' AND n.nspname = ANY(current_schemas(false)) AND n.oid = c.relnamespace
+                  )
+                  AND r.contype = 'f'
+PHP message: [debug] SELECT CURRENT_DATABASE()
+PHP message: [debug] SELECT quote_ident(relname) as relname, pg_index.indisunique, pg_index.indisprimary,
+                       pg_index.indkey, pg_index.indrelid,
+                       pg_get_expr(indpred, indrelid) AS where
+                 FROM pg_class, pg_index
+                 WHERE oid IN (
+                    SELECT indexrelid
+                    FROM pg_index si, pg_class sc, pg_namespace sn
+                    WHERE sn.nspname NOT IN ('pg_catalog', 'information_schema', 'pg_toast') AND sc.relname = 'doctrine_migration_versions' AND sn.nspname = ANY(current_schemas(false))
+                    AND sc.oid=si.indrelid AND sc.relnamespace = sn.oid
+                 ) AND pg_index.indexrelid = oid
+PHP message: [debug] SELECT attnum, attname FROM pg_attribute WHERE attrelid=41054 AND attnum IN (1) ORDER BY attnum ASC
+PHP message: [debug] SELECT obj_description('doctrine_migration_versions'::regclass) AS table_comment;
+PHP message: [debug] SELECT * FROM doctrine_migration_versions
+PHP message: [debug] SELECT CURRENT_DATABASE()
+PHP message: [debug] Notified event "kernel.response" to listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Nelmio\CorsBundle\EventListener\CacheableResponseVaryListener::onResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "ApiPlatform\Core\Hydra\EventListener\AddLinkHeaderListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\EventListener\ResponseListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\DataCollector\
+2022/07/11 21:30:43 [error] 31#31: *22 FastCGI sent in stderr: "PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\DebugHandlersListener::configure".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\ValidateRequestListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelRequest".
+PHP message: [debug] Listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelRequest" stopped propagation of the event "kernel.request".
+PHP message: [debug] Listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onKernelRequest" was not called for event "kernel.request".
+PHP message: [debug] Listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::setDefaultLocale" was not called for event "kernel.request".
+PHP message: [debug] Listener "Symfony\Component\HttpKernel\EventListener\RouterListener::onKernelRequest" was not called for event "kernel.request".
+PHP message: [debug] Listener "ApiPlatform\Core\EventListener\QueryParameterValidateListener::onKernelRequest" was not called for event "kernel.request".
+PHP message: [debug] Listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::onKernelRequest" was not called for event "kernel.request".
+PHP message: [debug] Listener "Symfony\Component\HttpKernel\EventListener\LocaleAwareListener::onKernelRequest" was not called for event "kernel.request".
+PHP message: [debug] Listener "Symfony\Bundle\SecurityBundle\Debug\TraceableFirewallListener::configureLogoutUrlGenerator" was not called for event "kernel.request".
+PHP message: [debug] Listener "Symfony\Bundle\SecurityBundle\Debug\TraceableFirewallListener::onKernelRequest" was not called for event "kernel.request".
+PHP message: [debug] Listener "ApiPlatform\Core\EventListener\AddFormatListener::onKernelRequest" was not called for event "kernel.request".
+PHP message: [debug] Listener "ApiPlatfo
+2022/07/11 21:30:43 [error] 31#31: *22 FastCGI sent in stderr: "ent "kernel.response" to listener "Symfony\Component\WebLink\EventListener\AddLinkHeaderListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\Security\Http\RememberMe\ResponseListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "ApiPlatform\Core\HttpCache\EventListener\AddHeadersListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\EventListener\ProfilerListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\EventListener\ErrorListener::removeCspHeader".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Bundle\WebProfilerBundle\EventListener\WebDebugToolbarListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\EventListener\DisallowRobotsIndexingListener::onResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\EventListener\StreamedResponseListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.finish_request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::onKernelFinishRequest".
+PHP message: [debug] Notified event "kernel.finish_request" to listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onFinishRequest".
+PHP message: [debug] Notified event "kernel.finish_request" to listener "Symfony\Component\HttpKernel\EventListener\RouterListener::onKernelFinishRequest".
+PHP message: [debug] Notified event "kernel.finish_request" to listener "Symfony\Bundle\SecurityBundle\Debug\TraceableFirewallListener::onKernelFinishRequest".
+PHP message: [debug] Notified event "kernel.f
+2022/07/11 21:30:44 [error] 31#31: *22 FastCGI sent in stderr: "PHP message: [info] Matched route "api_inventories_post_collection".
+PHP message: [debug] Checking for authenticator support.
+PHP message: [debug] Checking support on authenticator.
+PHP message: [debug] SELECT t0.id AS id_1, t0.email AS email_2, t0.roles AS roles_3, t0.password AS password_4, t0.firstname AS firstname_5, t0.lastname AS lastname_6 FROM "user" t0 WHERE t0.email = ? LIMIT 1
+PHP message: [info] Authenticator successful!
+PHP message: [debug] Authenticator set no success response: request continues.
+PHP message: [debug] Notified event "debug.security.authorization.vote" to listener "Symfony\Bundle\SecurityBundle\EventListener\VoteListener::onVoterVote".
+PHP message: [debug] SELECT u0_.id AS id_0, u0_.email AS email_1, u0_.roles AS roles_2, u0_.password AS password_3, u0_.firstname AS firstname_4, u0_.lastname AS lastname_5 FROM "user" u0_ WHERE u0_.id = ?
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\DebugHandlersListener::configure".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\ValidateRequestListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::setDefaultLocale".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\RouterListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "ApiPlatform\Core\EventListener\QueryParameterValidateListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\Event
+2022/07/11 21:30:44 [error] 31#31: *22 FastCGI sent in stderr: ": [debug] SELECT quote_ident(r.conname) as conname, pg_catalog.pg_get_constraintdef(r.oid, true) as condef
+                  FROM pg_catalog.pg_constraint r
+                  WHERE r.conrelid =
+                  (
+                      SELECT c.oid
+                      FROM pg_catalog.pg_class c, pg_catalog.pg_namespace n
+                      WHERE n.nspname NOT IN ('pg_catalog', 'information_schema', 'pg_toast') AND c.relname = 'doctrine_migration_versions' AND n.nspname = ANY(current_schemas(false)) AND n.oid = c.relnamespace
+                  )
+                  AND r.contype = 'f'
+PHP message: [debug] SELECT CURRENT_DATABASE()
+PHP message: [debug] SELECT quote_ident(relname) as relname, pg_index.indisunique, pg_index.indisprimary,
+                       pg_index.indkey, pg_index.indrelid,
+                       pg_get_expr(indpred, indrelid) AS where
+                 FROM pg_class, pg_index
+                 WHERE oid IN (
+                    SELECT indexrelid
+                    FROM pg_index si, pg_class sc, pg_namespace sn
+                    WHERE sn.nspname NOT IN ('pg_catalog', 'information_schema', 'pg_toast') AND sc.relname = 'doctrine_migration_versions' AND sn.nspname = ANY(current_schemas(false))
+                    AND sc.oid=si.indrelid AND sc.relnamespace = sn.oid
+                 ) AND pg_index.indexrelid = oid
+PHP message: [debug] SELECT attnum, attname FROM pg_attribute WHERE attrelid=41054 AND attnum IN (1) ORDER BY attnum ASC
+PHP message: [debug] SELECT obj_description('doctrine_migration_versions'::regclass) AS table_comment;
+PHP message: [debug] SELECT * FROM doctrine_migration_versions
+PHP message: [debug] SELECT CURRENT_DATABASE()
+PHP message: [debug] Notified event "kernel.response" to listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Nelmio\CorsBundle\EventListener\CacheableResponseVaryListener::onResponse".
+PHP message: [debug] 
+2022/07/11 21:30:44 [error] 31#31: *22 FastCGI sent in stderr: "PHP message: [info] Matched route "api_users_get_item".
+PHP message: [debug] Checking for authenticator support.
+PHP message: [debug] Checking support on authenticator.
+PHP message: [debug] SELECT t0.id AS id_1, t0.email AS email_2, t0.roles AS roles_3, t0.password AS password_4, t0.firstname AS firstname_5, t0.lastname AS lastname_6 FROM "user" t0 WHERE t0.email = ? LIMIT 1
+PHP message: [info] Authenticator successful!
+PHP message: [debug] Authenticator set no success response: request continues.
+PHP message: [debug] Notified event "debug.security.authorization.vote" to listener "Symfony\Bundle\SecurityBundle\EventListener\VoteListener::onVoterVote".
+PHP message: [debug] SELECT u0_.id AS id_0, u0_.email AS email_1, u0_.roles AS roles_2, u0_.password AS password_3, u0_.firstname AS firstname_4, u0_.lastname AS lastname_5, f1_.id AS id_6, f1_.id_sneaker AS id_sneaker_7, i2_.id AS id_8, i2_.id_sneaker AS id_sneaker_9 FROM "user" u0_ LEFT JOIN favorite_user f3_ ON u0_.id = f3_.user_id LEFT JOIN favorite f1_ ON f1_.id = f3_.favorite_id LEFT JOIN inventory_user i4_ ON u0_.id = i4_.user_id LEFT JOIN inventory i2_ ON i2_.id = i4_.inventory_id WHERE u0_.id = ?
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\DebugHandlersListener::configure".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\ValidateRequestListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::setDefaultLocale".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\Eve
+2022/07/11 21:30:44 [error] 31#31: *22 FastCGI sent in stderr: "', 'information_schema', 'pg_toast') AND c.relname = 'doctrine_migration_versions' AND n.nspname = ANY(current_schemas(false)) AND n.oid = c.relnamespace
+                  )
+                  AND r.contype = 'f'
+PHP message: [debug] SELECT CURRENT_DATABASE()
+PHP message: [debug] SELECT quote_ident(relname) as relname, pg_index.indisunique, pg_index.indisprimary,
+                       pg_index.indkey, pg_index.indrelid,
+                       pg_get_expr(indpred, indrelid) AS where
+                 FROM pg_class, pg_index
+                 WHERE oid IN (
+                    SELECT indexrelid
+                    FROM pg_index si, pg_class sc, pg_namespace sn
+                    WHERE sn.nspname NOT IN ('pg_catalog', 'information_schema', 'pg_toast') AND sc.relname = 'doctrine_migration_versions' AND sn.nspname = ANY(current_schemas(false))
+                    AND sc.oid=si.indrelid AND sc.relnamespace = sn.oid
+                 ) AND pg_index.indexrelid = oid
+PHP message: [debug] SELECT attnum, attname FROM pg_attribute WHERE attrelid=41054 AND attnum IN (1) ORDER BY attnum ASC
+PHP message: [debug] SELECT obj_description('doctrine_migration_versions'::regclass) AS table_comment;
+PHP message: [debug] SELECT * FROM doctrine_migration_versions
+PHP message: [debug] SELECT CURRENT_DATABASE()
+PHP message: [debug] Notified event "kernel.response" to listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Nelmio\CorsBundle\EventListener\CacheableResponseVaryListener::onResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "ApiPlatform\Core\Hydra\EventListener\AddLinkHeaderListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\EventListener\ResponseListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\DataCollector\
+2022/07/11 21:30:47 [error] 31#31: *22 FastCGI sent in stderr: "PHP message: [info] Matched route "api_users_get_item".
+PHP message: [debug] Checking for authenticator support.
+PHP message: [debug] Checking support on authenticator.
+PHP message: [debug] SELECT t0.id AS id_1, t0.email AS email_2, t0.roles AS roles_3, t0.password AS password_4, t0.firstname AS firstname_5, t0.lastname AS lastname_6 FROM "user" t0 WHERE t0.email = ? LIMIT 1
+PHP message: [info] Authenticator successful!
+PHP message: [debug] Authenticator set no success response: request continues.
+PHP message: [debug] Notified event "debug.security.authorization.vote" to listener "Symfony\Bundle\SecurityBundle\EventListener\VoteListener::onVoterVote".
+PHP message: [debug] SELECT u0_.id AS id_0, u0_.email AS email_1, u0_.roles AS roles_2, u0_.password AS password_3, u0_.firstname AS firstname_4, u0_.lastname AS lastname_5, f1_.id AS id_6, f1_.id_sneaker AS id_sneaker_7, i2_.id AS id_8, i2_.id_sneaker AS id_sneaker_9 FROM "user" u0_ LEFT JOIN favorite_user f3_ ON u0_.id = f3_.user_id LEFT JOIN favorite f1_ ON f1_.id = f3_.favorite_id LEFT JOIN inventory_user i4_ ON u0_.id = i4_.user_id LEFT JOIN inventory i2_ ON i2_.id = i4_.inventory_id WHERE u0_.id = ?
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\DebugHandlersListener::configure".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\ValidateRequestListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::setDefaultLocale".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\Eve
+2022/07/11 21:30:47 [error] 31#31: *22 FastCGI sent in stderr: "              ) AS comment
+                    FROM pg_attribute a, pg_class c, pg_type t, pg_namespace n
+                    WHERE n.nspname NOT IN ('pg_catalog', 'information_schema', 'pg_toast') AND c.relname = 'doctrine_migration_versions' AND n.nspname = ANY(current_schemas(false))
+                        AND a.attnum > 0
+                        AND a.attrelid = c.oid
+                        AND a.atttypid = t.oid
+                        AND n.oid = c.relnamespace
+                    ORDER BY a.attnum
+PHP message: [debug] SELECT CURRENT_DATABASE()
+PHP message: [debug] SELECT quote_ident(r.conname) as conname, pg_catalog.pg_get_constraintdef(r.oid, true) as condef
+                  FROM pg_catalog.pg_constraint r
+                  WHERE r.conrelid =
+                  (
+                      SELECT c.oid
+                      FROM pg_catalog.pg_class c, pg_catalog.pg_namespace n
+                      WHERE n.nspname NOT IN ('pg_catalog" while reading response header from upstream, client: 172.19.0.1, server: localhost, request: "GET /api/users/2 HTTP/1.1", upstream: "fastcgi://172.19.0.4:9000", host: "localhost", referrer: "http://localhost:4200/"
+2022/07/11 21:30:47 [error] 31#31: *22 FastCGI sent in stderr: "', 'information_schema', 'pg_toast') AND c.relname = 'doctrine_migration_versions' AND n.nspname = ANY(current_schemas(false)) AND n.oid = c.relnamespace
+                  )
+                  AND r.contype = 'f'
+PHP message: [debug] SELECT CURRENT_DATABASE()
+PHP message: [debug] SELECT quote_ident(relname) as relname, pg_index.indisunique, pg_index.indisprimary,
+                       pg_index.indkey, pg_index.indrelid,
+                       pg_get_expr(indpred, indrelid) AS where
+                 FROM pg_class, pg_index
+                 WHERE oid IN (
+                    SELECT indexrelid
+                    FROM pg_index si, pg_class sc, pg_namespace sn
+                    WHERE sn.nspname NOT IN ('pg_catalog', 'information_schema', 'pg_toast') AND sc.relname = 'doctrine_migration_versions' AND sn.nspname = ANY(current_schemas(false))
+                    AND sc.oid=si.indrelid AND sc.relnamespace = sn.oid
+                 ) AND pg_index.indexrelid = oid
+PHP message: [debug] SELECT attnum, attname FROM pg_attribute WHERE attrelid=41054 AND attnum IN (1) ORDER BY attnum ASC
+PHP message: [debug] SELECT obj_description('doctrine_migration_versions'::regclass) AS table_comment;
+PHP message: [debug] SELECT * FROM doctrine_migration_versions
+PHP message: [debug] SELECT CURRENT_DATABASE()
+PHP message: [debug] Notified event "kernel.response" to listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Nelmio\CorsBundle\EventListener\CacheableResponseVaryListener::onResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "ApiPlatform\Core\Hydra\EventListener\AddLinkHeaderListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\EventListener\ResponseListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\DataCollector\
+2022/07/11 21:30:47 [error] 34#34: *19 FastCGI sent in stderr: "PHP message: [info] Matched route "api_users_get_item".
+PHP message: [debug] Checking for authenticator support.
+PHP message: [debug] Checking support on authenticator.
+PHP message: [debug] SELECT t0.id AS id_1, t0.email AS email_2, t0.roles AS roles_3, t0.password AS password_4, t0.firstname AS firstname_5, t0.lastname AS lastname_6 FROM "user" t0 WHERE t0.email = ? LIMIT 1
+PHP message: [info] Authenticator successful!
+PHP message: [debug] Authenticator set no success response: request continues.
+PHP message: [debug] Notified event "debug.security.authorization.vote" to listener "Symfony\Bundle\SecurityBundle\EventListener\VoteListener::onVoterVote".
+PHP message: [debug] SELECT u0_.id AS id_0, u0_.email AS email_1, u0_.roles AS roles_2, u0_.password AS password_3, u0_.firstname AS firstname_4, u0_.lastname AS lastname_5, f1_.id AS id_6, f1_.id_sneaker AS id_sneaker_7, i2_.id AS id_8, i2_.id_sneaker AS id_sneaker_9 FROM "user" u0_ LEFT JOIN favorite_user f3_ ON u0_.id = f3_.user_id LEFT JOIN favorite f1_ ON f1_.id = f3_.favorite_id LEFT JOIN inventory_user i4_ ON u0_.id = i4_.user_id LEFT JOIN inventory i2_ ON i2_.id = i4_.inventory_id WHERE u0_.id = ?
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\DebugHandlersListener::configure".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\ValidateRequestListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::setDefaultLocale".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\Eve
+2022/07/11 21:30:47 [error] 34#34: *19 FastCGI sent in stderr: "', 'information_schema', 'pg_toast') AND c.relname = 'doctrine_migration_versions' AND n.nspname = ANY(current_schemas(false)) AND n.oid = c.relnamespace
+                  )
+                  AND r.contype = 'f'
+PHP message: [debug] SELECT CURRENT_DATABASE()
+PHP message: [debug] SELECT quote_ident(relname) as relname, pg_index.indisunique, pg_index.indisprimary,
+                       pg_index.indkey, pg_index.indrelid,
+                       pg_get_expr(indpred, indrelid) AS where
+                 FROM pg_class, pg_index
+                 WHERE oid IN (
+                    SELECT indexrelid
+                    FROM pg_index si, pg_class sc, pg_namespace sn
+                    WHERE sn.nspname NOT IN ('pg_catalog', 'information_schema', 'pg_toast') AND sc.relname = 'doctrine_migration_versions' AND sn.nspname = ANY(current_schemas(false))
+                    AND sc.oid=si.indrelid AND sc.relnamespace = sn.oid
+                 ) AND pg_index.indexrelid = oid
+PHP message: [debug] SELECT attnum, attname FROM pg_attribute WHERE attrelid=41054 AND attnum IN (1) ORDER BY attnum ASC
+PHP message: [debug] SELECT obj_description('doctrine_migration_versions'::regclass) AS table_comment;
+PHP message: [debug] SELECT * FROM doctrine_migration_versions
+PHP message: [debug] SELECT CURRENT_DATABASE()
+PHP message: [debug] Notified event "kernel.response" to listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Nelmio\CorsBundle\EventListener\CacheableResponseVaryListener::onResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "ApiPlatform\Core\Hydra\EventListener\AddLinkHeaderListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\EventListener\ResponseListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\DataCollector\
+2022/07/11 21:31:50 [error] 34#34: *19 FastCGI sent in stderr: "PHP message: [info] Matched route "api_users_get_item".
+PHP message: [debug] Checking for authenticator support.
+PHP message: [debug] Checking support on authenticator.
+PHP message: [debug] SELECT t0.id AS id_1, t0.email AS email_2, t0.roles AS roles_3, t0.password AS password_4, t0.firstname AS firstname_5, t0.lastname AS lastname_6 FROM "user" t0 WHERE t0.email = ? LIMIT 1
+PHP message: [info] Authenticator successful!
+PHP message: [debug] Authenticator set no success response: request continues.
+PHP message: [debug] Notified event "debug.security.authorization.vote" to listener "Symfony\Bundle\SecurityBundle\EventListener\VoteListener::onVoterVote".
+PHP message: [debug] SELECT u0_.id AS id_0, u0_.email AS email_1, u0_.roles AS roles_2, u0_.password AS password_3, u0_.firstname AS firstname_4, u0_.lastname AS lastname_5, f1_.id AS id_6, f1_.id_sneaker AS id_sneaker_7, i2_.id AS id_8, i2_.id_sneaker AS id_sneaker_9 FROM "user" u0_ LEFT JOIN favorite_user f3_ ON u0_.id = f3_.user_id LEFT JOIN favorite f1_ ON f1_.id = f3_.favorite_id LEFT JOIN inventory_user i4_ ON u0_.id = i4_.user_id LEFT JOIN inventory i2_ ON i2_.id = i4_.inventory_id WHERE u0_.id = ?
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\DebugHandlersListener::configure".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\ValidateRequestListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::setDefaultLocale".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\Eve
+2022/07/11 21:31:50 [error] 34#34: *19 FastCGI sent in stderr: "', 'information_schema', 'pg_toast') AND c.relname = 'doctrine_migration_versions' AND n.nspname = ANY(current_schemas(false)) AND n.oid = c.relnamespace
+                  )
+                  AND r.contype = 'f'
+PHP message: [debug] SELECT CURRENT_DATABASE()
+PHP message: [debug] SELECT quote_ident(relname) as relname, pg_index.indisunique, pg_index.indisprimary,
+                       pg_index.indkey, pg_index.indrelid,
+                       pg_get_expr(indpred, indrelid) AS where
+                 FROM pg_class, pg_index
+                 WHERE oid IN (
+                    SELECT indexrelid
+                    FROM pg_index si, pg_class sc, pg_namespace sn
+                    WHERE sn.nspname NOT IN ('pg_catalog', 'information_schema', 'pg_toast') AND sc.relname = 'doctrine_migration_versions' AND sn.nspname = ANY(current_schemas(false))
+                    AND sc.oid=si.indrelid AND sc.relnamespace = sn.oid
+                 ) AND pg_index.indexrelid = oid
+PHP message: [debug] SELECT attnum, attname FROM pg_attribute WHERE attrelid=41054 AND attnum IN (1) ORDER BY attnum ASC
+PHP message: [debug] SELECT obj_description('doctrine_migration_versions'::regclass) AS table_comment;
+PHP message: [debug] SELECT * FROM doctrine_migration_versions
+PHP message: [debug] SELECT CURRENT_DATABASE()
+PHP message: [debug] Notified event "kernel.response" to listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Nelmio\CorsBundle\EventListener\CacheableResponseVaryListener::onResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "ApiPlatform\Core\Hydra\EventListener\AddLinkHeaderListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\EventListener\ResponseListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\DataCollector\
+2022/07/11 21:31:50 [error] 31#31: *22 FastCGI sent in stderr: "PHP message: [info] Matched route "api_users_get_item".
+PHP message: [debug] Checking for authenticator support.
+PHP message: [debug] Checking support on authenticator.
+PHP message: [debug] SELECT t0.id AS id_1, t0.email AS email_2, t0.roles AS roles_3, t0.password AS password_4, t0.firstname AS firstname_5, t0.lastname AS lastname_6 FROM "user" t0 WHERE t0.email = ? LIMIT 1
+PHP message: [info] Authenticator successful!
+PHP message: [debug] Authenticator set no success response: request continues.
+PHP message: [debug] Notified event "debug.security.authorization.vote" to listener "Symfony\Bundle\SecurityBundle\EventListener\VoteListener::onVoterVote".
+PHP message: [debug] SELECT u0_.id AS id_0, u0_.email AS email_1, u0_.roles AS roles_2, u0_.password AS password_3, u0_.firstname AS firstname_4, u0_.lastname AS lastname_5, f1_.id AS id_6, f1_.id_sneaker AS id_sneaker_7, i2_.id AS id_8, i2_.id_sneaker AS id_sneaker_9 FROM "user" u0_ LEFT JOIN favorite_user f3_ ON u0_.id = f3_.user_id LEFT JOIN favorite f1_ ON f1_.id = f3_.favorite_id LEFT JOIN inventory_user i4_ ON u0_.id = i4_.user_id LEFT JOIN inventory i2_ ON i2_.id = i4_.inventory_id WHERE u0_.id = ?
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\DebugHandlersListener::configure".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\ValidateRequestListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::setDefaultLocale".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\Eve
+2022/07/11 21:31:50 [error] 31#31: *22 FastCGI sent in stderr: "', 'information_schema', 'pg_toast') AND c.relname = 'doctrine_migration_versions' AND n.nspname = ANY(current_schemas(false)) AND n.oid = c.relnamespace
+                  )
+                  AND r.contype = 'f'
+PHP message: [debug] SELECT CURRENT_DATABASE()
+PHP message: [debug] SELECT quote_ident(relname) as relname, pg_index.indisunique, pg_index.indisprimary,
+                       pg_index.indkey, pg_index.indrelid,
+                       pg_get_expr(indpred, indrelid) AS where
+                 FROM pg_class, pg_index
+                 WHERE oid IN (
+                    SELECT indexrelid
+                    FROM pg_index si, pg_class sc, pg_namespace sn
+                    WHERE sn.nspname NOT IN ('pg_catalog', 'information_schema', 'pg_toast') AND sc.relname = 'doctrine_migration_versions' AND sn.nspname = ANY(current_schemas(false))
+                    AND sc.oid=si.indrelid AND sc.relnamespace = sn.oid
+                 ) AND pg_index.indexrelid = oid
+PHP message: [debug] SELECT attnum, attname FROM pg_attribute WHERE attrelid=41054 AND attnum IN (1) ORDER BY attnum ASC
+PHP message: [debug] SELECT obj_description('doctrine_migration_versions'::regclass) AS table_comment;
+PHP message: [debug] SELECT * FROM doctrine_migration_versions
+PHP message: [debug] SELECT CURRENT_DATABASE()
+PHP message: [debug] Notified event "kernel.response" to listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Nelmio\CorsBundle\EventListener\CacheableResponseVaryListener::onResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "ApiPlatform\Core\Hydra\EventListener\AddLinkHeaderListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\EventListener\ResponseListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\DataCollector\
+2022/07/11 21:31:54 [error] 31#31: *22 FastCGI sent in stderr: "PHP message: [info] Matched route "api_users_get_item".
+PHP message: [debug] Checking for authenticator support.
+PHP message: [debug] Checking support on authenticator.
+PHP message: [debug] SELECT t0.id AS id_1, t0.email AS email_2, t0.roles AS roles_3, t0.password AS password_4, t0.firstname AS firstname_5, t0.lastname AS lastname_6 FROM "user" t0 WHERE t0.email = ? LIMIT 1
+PHP message: [info] Authenticator successful!
+PHP message: [debug] Authenticator set no success response: request continues.
+PHP message: [debug] Notified event "debug.security.authorization.vote" to listener "Symfony\Bundle\SecurityBundle\EventListener\VoteListener::onVoterVote".
+PHP message: [debug] SELECT u0_.id AS id_0, u0_.email AS email_1, u0_.roles AS roles_2, u0_.password AS password_3, u0_.firstname AS firstname_4, u0_.lastname AS lastname_5, f1_.id AS id_6, f1_.id_sneaker AS id_sneaker_7, i2_.id AS id_8, i2_.id_sneaker AS id_sneaker_9 FROM "user" u0_ LEFT JOIN favorite_user f3_ ON u0_.id = f3_.user_id LEFT JOIN favorite f1_ ON f1_.id = f3_.favorite_id LEFT JOIN inventory_user i4_ ON u0_.id = i4_.user_id LEFT JOIN inventory i2_ ON i2_.id = i4_.inventory_id WHERE u0_.id = ?
 PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::onKernelRequest".
 PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleAwareListener::onKernelRequest".
 PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Bundle\SecurityBundle\Debug\TraceableFirewallListener::configureLogoutUrlGenerator".
@@ -474,6 +1298,19 @@ PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Compon
 PHP message: [debug] Notified event "kernel.request" to listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelRequest".
 PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onKernelRequest".
 PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::setDefaultLocale".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\Eve
+2022/07/11 21:31:54 [error] 31#31: *22 FastCGI sent in stderr: "', 'information_schema', 'pg_toast') AND c.relname = 'doctrine_migration_versions' AND n.nspname = ANY(current_schemas(false)) AND n.oid = c.relnamespace
+                  )
+                  AND r.contype = 'f'
+PHP message: [debug] SELECT CURRENT_DATABASE()
+PHP message: [debug] SELECT quote_ident(relname) as relname, pg_index.indisunique, pg_index.indisprimary,
+                       pg_index.indkey, pg_index.indrelid,
+                       pg_get_expr(indpred, indrelid) AS where
+                 FROM pg_class, pg_index
+                 WHERE oid IN (
+                    SELECT indexrelid
+                    FROM pg_index si, pg_class sc, pg_namespace sn
+                    WHERE sn.nspname NOT IN ('pg_catalog', 'information_schema', 'pg_toast') AND sc.relname = 'doctrine_migration_versions' AND sn.nspname = ANY(current_schemas(false))
 PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\RouterLis
 2022/07/11 14:29:12 [error] 31#31: *27 FastCGI sent in stderr: "         WHERE sn.nspname NOT IN ('pg_catalog', 'information_schema', 'pg_toast') AND sc.relname = 'doctrine_migration_versions' AND sn.nspname = ANY(current_schemas(false))
                     AND sc.oid=si.indrelid AND sc.relnamespace = sn.oid
@@ -486,6 +1323,15 @@ PHP message: [debug] Notified event "kernel.response" to listener "Nelmio\CorsBu
 PHP message: [debug] Notified event "kernel.response" to listener "Nelmio\CorsBundle\EventListener\CacheableResponseVaryListener::onResponse".
 PHP message: [debug] Notified event "kernel.response" to listener "ApiPlatform\Core\Hydra\EventListener\AddLinkHeaderListener::onKernelResponse".
 PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\EventListener\ResponseListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\DataCollector\
+2022/07/11 21:31:58 [error] 31#31: *22 FastCGI sent in stderr: "PHP message: [info] Matched route "api_users_get_item".
+PHP message: [debug] Checking for authenticator support.
+PHP message: [debug] Checking support on authenticator.
+PHP message: [debug] SELECT t0.id AS id_1, t0.email AS email_2, t0.roles AS roles_3, t0.password AS password_4, t0.firstname AS firstname_5, t0.lastname AS lastname_6 FROM "user" t0 WHERE t0.email = ? LIMIT 1
+PHP message: [info] Authenticator successful!
+PHP message: [debug] Authenticator set no success response: request continues.
+PHP message: [debug] Notified event "debug.security.authorization.vote" to listener "Symfony\Bundle\SecurityBundle\EventListener\VoteListener::onVoterVote".
+PHP message: [debug] SELECT u0_.id AS id_0, u0_.email AS email_1, u0_.roles AS roles_2, u0_.password AS password_3, u0_.firstname AS firstname_4, u0_.lastname AS lastname_5, f1_.id AS id_6, f1_.id_sneaker AS id_sneaker_7, i2_.id AS id_8, i2_.id_sneaker AS id_sneaker_9 FROM "user" u0_ LEFT JOIN favorite_user f3_ ON u0_.id = f3_.user_id LEFT JOIN favorite f1_ ON f1_.id = f3_.favorite_id LEFT JOIN inventory_user i4_ ON u0_.id = i4_.user_id LEFT JOIN inventory i2_ ON i2_.id = i4_.inventory_id WHERE u0_.id = ?
 PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\DataCollector\RequestDataCollector::onKernelResponse".
 PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\WebLink\EventListener\AddLinkHeaderListener::onKernelResponse".
 PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\Security\Http\RememberMe\ResponseListener::onKernelResponse".
@@ -520,6 +1366,8 @@ PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Compon
 PHP message: [debug] Notified event "kernel.request" to listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelRequest".
 PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onKernelRequest".
 PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::setDefaultLocale".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\Eve
+2022/07/11 21:31:59 [error] 31#31: *22 FastCGI sent in stderr: "', 'information_schema', 'pg_toast') AND c.relname = 'doctrine_migration_versions' AND n.nspname = ANY(current_schemas(false)) AND n.oid = c.relnamespace
 PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\RouterListener::onKernelRequest".
 PHP message: [debug] Notified event "kernel.request" to listener "ApiPlatform\Core\EventListener\QueryParameterValidateListener::onKernelRequest".
 PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::onKernelRequest".
@@ -553,6 +1401,21 @@ PHP message: [debug] SELECT quote_ident(relname) as relname, pg_index.indisuniqu
                  ) AND pg_index.indexrelid = oid
 PHP message: [debug] SELECT attnum, attname FROM pg_attribute WHERE attrelid=41054 AND attnum IN (1) ORDER BY attnum ASC
 PHP message: [debug] SELECT obj_description('doctrine_migration_versions'::regclass) AS table_comment;
+PHP message: [debug] SELECT * FROM doctrine_migration_versions
+PHP message: [debug] SELECT CURRENT_DATABASE()
+PHP message: [debug] Notified event "kernel.response" to listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Nelmio\CorsBundle\EventListener\CacheableResponseVaryListener::onResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "ApiPlatform\Core\Hydra\EventListener\AddLinkHeaderListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\EventListener\ResponseListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\DataCollector\
+2022/07/11 21:31:59 [error] 34#34: *19 FastCGI sent in stderr: "PHP message: [info] Matched route "api_users_get_item".
+PHP message: [debug] Checking for authenticator support.
+PHP message: [debug] Checking support on authenticator.
+PHP message: [debug] SELECT t0.id AS id_1, t0.email AS email_2, t0.roles AS roles_3, t0.password AS password_4, t0.firstname AS firstname_5, t0.lastname AS lastname_6 FROM "user" t0 WHERE t0.email = ? LIMIT 1
+PHP message: [info] Authenticator successful!
+PHP message: [debug] Authenticator set no success response: request continues.
+PHP message: [debug] Notified event "debug.security.authorization.vote" to listener "Symfony\Bundle\SecurityBundle\EventListener\VoteListener::onVoterVote".
+PHP message: [debug] SELECT u0_.id AS id_0, u0_.email AS email_1, u0_.roles AS roles_2, u0_.password AS password_3, u0_.firstname AS firstname_4, u0_.lastname AS lastname_5, f1_.id AS id_6, f1_.id_sneaker AS id_sneaker_7, i2_.id AS id_8, i2_.id_sneaker AS id_sneaker_9 FROM "user" u0_ LEFT JOIN favorite_user f3_ ON u0_.id = f3_.user_id LEFT JOIN favorite f1_ ON f1_.id = f3_.favorite_id LEFT JOIN inventory_user i4_ ON u0_.id = i4_.user_id LEFT JOIN inventory i2_ ON i2_.id = i4_.inventory_id WHERE u0_.id = ?
 PHP message: [debug] SELECT * FROM doctrine_migrat
 2022/07/11 14:29:51 [error] 31#31: *32 FastCGI sent in stderr: "bug] Notified event "kernel.finish_request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::onKernelFinishRequest".
 PHP message: [debug] Notified event "kernel.finish_request" to listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onFinishRequest".
@@ -615,6 +1478,14 @@ PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Compon
 PHP message: [debug] Notified event "kernel.request" to listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelRequest".
 PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onKernelRequest".
 PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::setDefaultLocale".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\Eve
+2022/07/11 21:31:59 [error] 34#34: *19 FastCGI sent in stderr: "', 'information_schema', 'pg_toast') AND c.relname = 'doctrine_migration_versions' AND n.nspname = ANY(current_schemas(false)) AND n.oid = c.relnamespace
+                  )
+                  AND r.contype = 'f'
+PHP message: [debug] SELECT CURRENT_DATABASE()
+PHP message: [debug] SELECT quote_ident(relname) as relname, pg_index.indisunique, pg_index.indisprimary,
+                       pg_index.indkey, pg_index.indrelid,
+                       pg_get_expr(indpred, indrelid) AS where
 PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\RouterListener::onKernelRequest".
 PHP message: [debug] Notified event "kernel.request" to listener "ApiPlatform\Core\EventListener\QueryParameterValidateListener::onKernelRequest".
 PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::onKernelRequest".
@@ -639,6 +1510,15 @@ PHP message: [debug] Notified event "kernel.response" to listener "Nelmio\CorsBu
 PHP message: [debug] Notified event "kernel.response" to listener "Nelmio\CorsBundle\EventListener\CacheableResponseVaryListener::onResponse".
 PHP message: [debug] Notified event "kernel.response" to listener "ApiPlatform\Core\Hydra\EventListener\AddLinkHeaderListener::onKernelResponse".
 PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\EventListener\ResponseListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\DataCollector\
+2022/07/11 21:31:59 [error] 34#34: *19 FastCGI sent in stderr: "PHP message: [info] Matched route "api_inventories_post_collection".
+PHP message: [debug] Checking for authenticator support.
+PHP message: [debug] Checking support on authenticator.
+PHP message: [debug] SELECT t0.id AS id_1, t0.email AS email_2, t0.roles AS roles_3, t0.password AS password_4, t0.firstname AS firstname_5, t0.lastname AS lastname_6 FROM "user" t0 WHERE t0.email = ? LIMIT 1
+PHP message: [info] Authenticator successful!
+PHP message: [debug] Authenticator set no success response: request continues.
+PHP message: [debug] Notified event "debug.security.authorization.vote" to listener "Symfony\Bundle\SecurityBundle\EventListener\VoteListener::onVoterVote".
+PHP message: [debug] SELECT u0_.id AS id_0, u0_.email AS email_1, u0_.roles AS roles_2, u0_.password AS password_3, u0_.firstname AS firstname_4, u0_.lastname AS lastname_5 FROM "user" u0_ WHERE u0_.id = ?
 PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\DataCollector\RequestDataCollector::onKernelResponse".
 PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\WebLink\EventListener\AddLinkHeaderListener::onKernelResponse".
 PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\Security\Http\RememberMe\ResponseListener::onKernelResponse".
@@ -658,6 +1538,8 @@ PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Compon
 PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::setDefaultLocale".
 PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\RouterListener::onKernelRequest".
 PHP message: [debug] Notified event "kernel.request" to listener "ApiPlatform\Core\EventListener\QueryParameterValidateListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\Event
+2022/07/11 21:31:59 [error] 34#34: *19 FastCGI sent in stderr: ": [debug] SELECT quote_ident(r.conname) as conname, pg_catalog.pg_get_constraintdef(r.oid, true) as condef
 PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::onKernelRequest".
 PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleAwareListener::onKernelRequest
 2022/07/11 14:36:22 [error] 31#31: *36 FastCGI sent in stderr: "'doctrine_migration_versions' AND n.nspname = ANY(current_schemas(false))
@@ -689,6 +1571,19 @@ PHP message: [debug] SELECT quote_ident(relname) as relname, pg_index.indisuniqu
                  ) AND pg_index.indexrelid = oid
 PHP message: [debug] SELECT attnum, attname FROM pg_attribute WHERE attrelid=41054 AND attnum IN (1) ORDER BY attnum ASC
 PHP message: [debug] SELECT obj_description('doctrine_migration_versions'::regclass) AS table_comment;
+PHP message: [debug] SELECT * FROM doctrine_migration_versions
+PHP message: [debug] SELECT CURRENT_DATABASE()
+PHP message: [debug] Notified event "kernel.response" to listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Nelmio\CorsBundle\EventListener\CacheableResponseVaryListener::onResponse".
+PHP message: [debug] 
+2022/07/11 21:31:59 [error] 34#34: *19 FastCGI sent in stderr: "PHP message: [info] Matched route "api_users_get_item".
+PHP message: [debug] Checking for authenticator support.
+PHP message: [debug] Checking support on authenticator.
+PHP message: [debug] SELECT t0.id AS id_1, t0.email AS email_2, t0.roles AS roles_3, t0.password AS password_4, t0.firstname AS firstname_5, t0.lastname AS lastname_6 FROM "user" t0 WHERE t0.email = ? LIMIT 1
+PHP message: [info] Authenticator successful!
+PHP message: [debug] Authenticator set no success response: request continues.
+PHP message: [debug] Notified event "debug.security.authorization.vote" to listener "Symfony\Bundle\SecurityBundle\EventListener\VoteListener::onVoterVote".
+PHP message: [debug] SELECT u0_.id AS id_0, u0_.email AS email_1, u0_.roles AS roles_2, u0_.password AS password_3, u0_.firstname AS firstname_4, u0_.lastname AS lastname_5, f1_.id AS id_6, f1_.id_sneaker AS id_sneaker_7, i2_.id AS id_8, i2_.id_sneaker AS id_sneaker_9 FROM "user" u0_ LEFT JOIN favorite_user f3_ ON u0_.id = f3_.user_id LEFT JOIN favorite f1_ ON f1_.id = f3_.favorite_id LEFT JOIN inventory_user i4_ ON u0_.id = i4_.user_id LEFT JOIN inventory i2_ ON i2_.id = i4_.inventory_id WHERE u0_.id = ?
 PHP message: [debug] SELECT * FROM doctrine_migrat
 2022/07/11 14:36:22 [error] 31#31: *36 FastCGI sent in stderr: "bug] Notified event "kernel.finish_request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::onKernelFinishRequest".
 PHP message: [debug] Notified event "kernel.finish_request" to listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onFinishRequest".
@@ -741,6 +1636,24 @@ PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Compon
 PHP message: [debug] Notified event "kernel.request" to listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelRequest".
 PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onKernelRequest".
 PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::setDefaultLocale".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\Eve
+2022/07/11 21:31:59 [error] 34#34: *19 FastCGI sent in stderr: "', 'information_schema', 'pg_toast') AND c.relname = 'doctrine_migration_versions' AND n.nspname = ANY(current_schemas(false)) AND n.oid = c.relnamespace
+                  )
+                  AND r.contype = 'f'
+PHP message: [debug] SELECT CURRENT_DATABASE()
+PHP message: [debug] SELECT quote_ident(relname) as relname, pg_index.indisunique, pg_index.indisprimary,
+                       pg_index.indkey, pg_index.indrelid,
+                       pg_get_expr(indpred, indrelid) AS where
+                 FROM pg_class, pg_index
+                 WHERE oid IN (
+                    SELECT indexrelid
+                    FROM pg_index si, pg_class sc, pg_namespace sn
+                    WHERE sn.nspname NOT IN ('pg_catalog', 'information_schema', 'pg_toast') AND sc.relname = 'doctrine_migration_versions' AND sn.nspname = ANY(current_schemas(false))
+                    AND sc.oid=si.indrelid AND sc.relnamespace = sn.oid
+                 ) AND pg_index.indexrelid = oid
+PHP message: [debug] SELECT attnum, attname FROM pg_attribute WHERE attrelid=41054 AND attnum IN (1) ORDER BY attnum ASC
+PHP message: [debug] SELECT obj_description('doctrine_migration_versions'::regclass) AS table_comment;
+PHP message: [debug] SELECT * FROM doctrine_migration_versions
 PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\RouterListener::onKernelRequest".
 PHP message: [debug] Notified event "kernel.request" to listener "ApiPlatform\Core\EventListener\QueryParameterValidateListener::onKernelRequest".
 PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\Lo
@@ -750,6 +1663,8 @@ PHP message: [debug] Notified event "kernel.response" to listener "Nelmio\CorsBu
 PHP message: [debug] Notified event "kernel.response" to listener "Nelmio\CorsBundle\EventListener\CacheableResponseVaryListener::onResponse".
 PHP message: [debug] Notified event "kernel.response" to listener "ApiPlatform\Core\Hydra\EventListener\AddLinkHeaderListener::onKernelResponse".
 PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\EventListener\ResponseListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\DataCollector\
+2022/07/11 21:32:15 [error] 34#34: *19 FastCGI sent in stderr: "PHP message: [info] Matched route "api_users_get_item".
 PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\DataCollector\RequestDataCollector::onKernelResponse".
 PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\WebLink\EventListener\AddLinkHeaderListener::onKernelResponse".
 PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\Security\Http\RememberMe\ResponseListener::onKernelResponse".
@@ -821,16 +1736,19 @@ PHP message: [debug] Checking support on authenticator.
 PHP message: [debug] SELECT t0.id AS id_1, t0.email AS email_2, t0.roles AS roles_3, t0.password AS password_4, t0.firstname AS firstname_5, t0.lastname AS lastname_6 FROM "user" t0 WHERE t0.email = ? LIMIT 1
 PHP message: [info] Authenticator successful!
 PHP message: [debug] Authenticator set no success response: request continues.
+PHP message: [debug] Notified event "debug.security.authorization.vote" to listener "Symfony\Bundle\SecurityBundle\EventListener\VoteListener::onVoterVote".
 PHP message: [debug] SELECT u0_.id AS id_0, u0_.email AS email_1, u0_.roles AS roles_2, u0_.password AS password_3, u0_.firstname AS firstname_4, u0_.lastname AS lastname_5, f1_.id AS id_6, f1_.id_sneaker AS id_sneaker_7, i2_.id AS id_8, i2_.id_sneaker AS id_sneaker_9 FROM "user" u0_ LEFT JOIN favorite_user f3_ ON u0_.id = f3_.user_id LEFT JOIN favorite f1_ ON f1_.id = f3_.favorite_id LEFT JOIN inventory_user i4_ ON u0_.id = i4_.user_id LEFT JOIN inventory i2_ ON i2_.id = i4_.inventory_id WHERE u0_.id = ?
 PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\DebugHandlersListener::configure".
 PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\ValidateRequestListener::onKernelRequest".
 PHP message: [debug] Notified event "kernel.request" to listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelRequest".
 PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onKernelRequest".
 PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::setDefaultLocale".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\Eve
+2022/07/11 21:32:15 [error] 34#34: *19 FastCGI sent in stderr: "', 'information_schema', 'pg_toast') AND c.relname = 'doctrine_migration_versions' AND n.nspname = ANY(current_schemas(false)) AND n.oid = c.relnamespace
+                  )
 PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\RouterListener::onKernelRequest".
 PHP message: [debug] Notified event "kernel.request" to listener "ApiPlatform\Core\EventListener\QueryParameterV
 2022/07/11 14:37:39 [error] 31#31: *43 FastCGI sent in stderr: "               )
-                  AND r.contype = 'f'
 PHP message: [debug] SELECT CURRENT_DATABASE()
 PHP message: [debug] SELECT quote_ident(relname) as relname, pg_index.indisunique, pg_index.indisprimary,
                        pg_index.indkey, pg_index.indrelid,
@@ -850,6 +1768,8 @@ PHP message: [debug] Notified event "kernel.response" to listener "Nelmio\CorsBu
 PHP message: [debug] Notified event "kernel.response" to listener "Nelmio\CorsBundle\EventListener\CacheableResponseVaryListener::onResponse".
 PHP message: [debug] Notified event "kernel.response" to listener "ApiPlatform\Core\Hydra\EventListener\AddLinkHeaderListener::onKernelResponse".
 PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\EventListener\ResponseListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\DataCollector\
+2022/07/11 21:32:15 [error] 31#31: *22 FastCGI sent in stderr: "PHP message: [info] Matched route "api_users_get_item".
 PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\DataCollector\RequestDataCollector::onKernelResponse".
 PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\WebLink\EventListener\AddLinkHe
 2022/07/11 14:37:39 [error] 31#31: *45 FastCGI sent in stderr: "PHP message: [info] Matched route "api_users_get_item".
@@ -858,15 +1778,16 @@ PHP message: [debug] Checking support on authenticator.
 PHP message: [debug] SELECT t0.id AS id_1, t0.email AS email_2, t0.roles AS roles_3, t0.password AS password_4, t0.firstname AS firstname_5, t0.lastname AS lastname_6 FROM "user" t0 WHERE t0.email = ? LIMIT 1
 PHP message: [info] Authenticator successful!
 PHP message: [debug] Authenticator set no success response: request continues.
+PHP message: [debug] Notified event "debug.security.authorization.vote" to listener "Symfony\Bundle\SecurityBundle\EventListener\VoteListener::onVoterVote".
 PHP message: [debug] SELECT u0_.id AS id_0, u0_.email AS email_1, u0_.roles AS roles_2, u0_.password AS password_3, u0_.firstname AS firstname_4, u0_.lastname AS lastname_5, f1_.id AS id_6, f1_.id_sneaker AS id_sneaker_7, i2_.id AS id_8, i2_.id_sneaker AS id_sneaker_9 FROM "user" u0_ LEFT JOIN favorite_user f3_ ON u0_.id = f3_.user_id LEFT JOIN favorite f1_ ON f1_.id = f3_.favorite_id LEFT JOIN inventory_user i4_ ON u0_.id = i4_.user_id LEFT JOIN inventory i2_ ON i2_.id = i4_.inventory_id WHERE u0_.id = ?
 PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\DebugHandlersListener::configure".
 PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\ValidateRequestListener::onKernelRequest".
 PHP message: [debug] Notified event "kernel.request" to listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelRequest".
 PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onKernelRequest".
 PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::setDefaultLocale".
-PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\RouterListener::onKernelRequest".
-PHP message: [debug] Notified event "kernel.request" to listener "ApiPlatform\Core\EventListener\QueryParameterV
-2022/07/11 14:37:39 [error] 31#31: *45 FastCGI sent in stderr: "               )
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\Eve
+2022/07/11 21:32:15 [error] 31#31: *22 FastCGI sent in stderr: "', 'information_schema', 'pg_toast') AND c.relname = 'doctrine_migration_versions' AND n.nspname = ANY(current_schemas(false)) AND n.oid = c.relnamespace
+                  )
                   AND r.contype = 'f'
 PHP message: [debug] SELECT CURRENT_DATABASE()
 PHP message: [debug] SELECT quote_ident(relname) as relname, pg_index.indisunique, pg_index.indisprimary,
@@ -887,23 +1808,33 @@ PHP message: [debug] Notified event "kernel.response" to listener "Nelmio\CorsBu
 PHP message: [debug] Notified event "kernel.response" to listener "Nelmio\CorsBundle\EventListener\CacheableResponseVaryListener::onResponse".
 PHP message: [debug] Notified event "kernel.response" to listener "ApiPlatform\Core\Hydra\EventListener\AddLinkHeaderListener::onKernelResponse".
 PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\EventListener\ResponseListener::onKernelResponse".
-PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\DataCollector\RequestDataCollector::onKernelResponse".
-PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\WebLink\EventListener\AddLinkHe
-2022/07/11 14:51:03 [error] 31#31: *50 FastCGI sent in stderr: "PHP message: [info] Matched route "api_users_get_item".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\DataCollector\
+2022/07/11 21:32:17 [error] 31#31: *22 FastCGI sent in stderr: "PHP message: [info] Matched route "api_inventories_post_collection".
 PHP message: [debug] Checking for authenticator support.
 PHP message: [debug] Checking support on authenticator.
 PHP message: [debug] SELECT t0.id AS id_1, t0.email AS email_2, t0.roles AS roles_3, t0.password AS password_4, t0.firstname AS firstname_5, t0.lastname AS lastname_6 FROM "user" t0 WHERE t0.email = ? LIMIT 1
 PHP message: [info] Authenticator successful!
 PHP message: [debug] Authenticator set no success response: request continues.
-PHP message: [debug] SELECT u0_.id AS id_0, u0_.email AS email_1, u0_.roles AS roles_2, u0_.password AS password_3, u0_.firstname AS firstname_4, u0_.lastname AS lastname_5, f1_.id AS id_6, f1_.id_sneaker AS id_sneaker_7, i2_.id AS id_8, i2_.id_sneaker AS id_sneaker_9 FROM "user" u0_ LEFT JOIN favorite_user f3_ ON u0_.id = f3_.user_id LEFT JOIN favorite f1_ ON f1_.id = f3_.favorite_id LEFT JOIN inventory_user i4_ ON u0_.id = i4_.user_id LEFT JOIN inventory i2_ ON i2_.id = i4_.inventory_id WHERE u0_.id = ?
+PHP message: [debug] Notified event "debug.security.authorization.vote" to listener "Symfony\Bundle\SecurityBundle\EventListener\VoteListener::onVoterVote".
+PHP message: [debug] SELECT u0_.id AS id_0, u0_.email AS email_1, u0_.roles AS roles_2, u0_.password AS password_3, u0_.firstname AS firstname_4, u0_.lastname AS lastname_5 FROM "user" u0_ WHERE u0_.id = ?
 PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\DebugHandlersListener::configure".
 PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\ValidateRequestListener::onKernelRequest".
 PHP message: [debug] Notified event "kernel.request" to listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelRequest".
 PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onKernelRequest".
 PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::setDefaultLocale".
 PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\RouterListener::onKernelRequest".
-PHP message: [debug] Notified event "kernel.request" to listener "ApiPlatform\Core\EventListener\QueryParameterV
-2022/07/11 14:51:03 [error] 31#31: *50 FastCGI sent in stderr: "               )
+
+PHP message: [debug] Notified event "kernel.request" to listener "ApiPlatform\Core\EventListener\QueryParameterValidateListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\Event
+2022/07/11 21:32:17 [error] 31#31: *22 FastCGI sent in stderr: ": [debug] SELECT quote_ident(r.conname) as conname, pg_catalog.pg_get_constraintdef(r.oid, true) as condef
+                  FROM pg_catalog.pg_constraint r
+                  WHERE r.conrelid =
+                  (
+                      SELECT c.oid
+                      FROM pg_catalog.pg_class c, pg_catalog.pg_namespace n
+                      WHERE n.nspname NOT IN ('pg_catalog', 'information_schema', 'pg_toast') AND c.relname = 'doctrine_migration_versions' AND n.nspname = ANY(current_schemas(false)) AND n.oid = c.relnamespace
+                  )
+
                   AND r.contype = 'f'
 PHP message: [debug] SELECT CURRENT_DATABASE()
 PHP message: [debug] SELECT quote_ident(relname) as relname, pg_index.indisunique, pg_index.indisprimary,
@@ -922,25 +1853,27 @@ PHP message: [debug] SELECT * FROM doctrine_migration_versions
 PHP message: [debug] SELECT CURRENT_DATABASE()
 PHP message: [debug] Notified event "kernel.response" to listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelResponse".
 PHP message: [debug] Notified event "kernel.response" to listener "Nelmio\CorsBundle\EventListener\CacheableResponseVaryListener::onResponse".
-PHP message: [debug] Notified event "kernel.response" to listener "ApiPlatform\Core\Hydra\EventListener\AddLinkHeaderListener::onKernelResponse".
-PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\EventListener\ResponseListener::onKernelResponse".
-PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\DataCollector\RequestDataCollector::onKernelResponse".
-PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\WebLink\EventListener\AddLinkHe
-2022/07/11 14:51:04 [error] 31#31: *50 FastCGI sent in stderr: "PHP message: [info] Matched route "api_users_get_item".
+
+PHP message: [debug] 
+2022/07/11 21:32:17 [error] 31#31: *22 FastCGI sent in stderr: "PHP message: [info] Matched route "api_users_get_item".
+
 PHP message: [debug] Checking for authenticator support.
 PHP message: [debug] Checking support on authenticator.
 PHP message: [debug] SELECT t0.id AS id_1, t0.email AS email_2, t0.roles AS roles_3, t0.password AS password_4, t0.firstname AS firstname_5, t0.lastname AS lastname_6 FROM "user" t0 WHERE t0.email = ? LIMIT 1
 PHP message: [info] Authenticator successful!
 PHP message: [debug] Authenticator set no success response: request continues.
+PHP message: [debug] Notified event "debug.security.authorization.vote" to listener "Symfony\Bundle\SecurityBundle\EventListener\VoteListener::onVoterVote".
+
 PHP message: [debug] SELECT u0_.id AS id_0, u0_.email AS email_1, u0_.roles AS roles_2, u0_.password AS password_3, u0_.firstname AS firstname_4, u0_.lastname AS lastname_5, f1_.id AS id_6, f1_.id_sneaker AS id_sneaker_7, i2_.id AS id_8, i2_.id_sneaker AS id_sneaker_9 FROM "user" u0_ LEFT JOIN favorite_user f3_ ON u0_.id = f3_.user_id LEFT JOIN favorite f1_ ON f1_.id = f3_.favorite_id LEFT JOIN inventory_user i4_ ON u0_.id = i4_.user_id LEFT JOIN inventory i2_ ON i2_.id = i4_.inventory_id WHERE u0_.id = ?
 PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\DebugHandlersListener::configure".
 PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\ValidateRequestListener::onKernelRequest".
 PHP message: [debug] Notified event "kernel.request" to listener "Nelmio\CorsBundle\EventListener\CorsListener::onKernelRequest".
 PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onKernelRequest".
 PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::setDefaultLocale".
-PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\RouterListener::onKernelRequest".
-PHP message: [debug] Notified event "kernel.request" to listener "ApiPlatform\Core\EventListener\QueryParameterV
-2022/07/11 14:51:04 [error] 31#31: *50 FastCGI sent in stderr: "               )
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\Eve
+2022/07/11 21:32:17 [error] 31#31: *22 FastCGI sent in stderr: "', 'information_schema', 'pg_toast') AND c.relname = 'doctrine_migration_versions' AND n.nspname = ANY(current_schemas(false)) AND n.oid = c.relnamespace
+                  )
+
                   AND r.contype = 'f'
 PHP message: [debug] SELECT CURRENT_DATABASE()
 PHP message: [debug] SELECT quote_ident(relname) as relname, pg_index.indisunique, pg_index.indisprimary,
@@ -961,5 +1894,5 @@ PHP message: [debug] Notified event "kernel.response" to listener "Nelmio\CorsBu
 PHP message: [debug] Notified event "kernel.response" to listener "Nelmio\CorsBundle\EventListener\CacheableResponseVaryListener::onResponse".
 PHP message: [debug] Notified event "kernel.response" to listener "ApiPlatform\Core\Hydra\EventListener\AddLinkHeaderListener::onKernelResponse".
 PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\EventListener\ResponseListener::onKernelResponse".
-PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\DataCollector\RequestDataCollector::onKernelResponse".
-PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\WebLink\EventListener\AddLinkHe
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\DataCollector\
+

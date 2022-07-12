@@ -168,13 +168,13 @@
                 </svg>
                 <div class="flex text-sm text-zinc-60 rounded">
                   <input
-                    placeholder="https://example.com"
-                    type="url"
+                    type="file"
                     name="image"
                     (change)="onFileChanged($event)"
                     class="form-control rounded bg-gray-100 text-xs pr-2"
                     required
-                    aria-label="link image"
+                    accept="JPG"
+                    aria-label="file download"
                   />
                 </div>
                 <p class="text-xs text-gray-500">JPG jusqu'à 10MB</p>

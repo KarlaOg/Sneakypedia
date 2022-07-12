@@ -15,7 +15,8 @@ export class SneakerModifyComponent implements OnInit {
   private sub: any;
   modifyFormSneaker: FormGroup;
   selectedFile: any;
-  imgValue: any;
+  imgValue: string='';
+  imgSrc: string = ''
 
   constructor(private sneakerService: SneakerService,
     private fb: FormBuilder, private router: ActivatedRoute) {
@@ -36,7 +37,14 @@ export class SneakerModifyComponent implements OnInit {
 
   onFileChanged(event: any): void {
     this.selectedFile = event.target.files[0];
-
+    var reader = new FileReader();
+    reader.readAsDataURL(this.selectedFile);
+    var self = this
+    reader.onload = function() {
+      if (reader.result !== null){
+        self.imgSrc = reader.result.toString();
+      }
+    };
   }
 
   getIdSneakers(): number {
@@ -50,14 +58,14 @@ export class SneakerModifyComponent implements OnInit {
   modifySneaker() {
     const formSneaker = this.modifyFormSneaker.value;
 
-    const finalForm: Sneaker = {
-      "id": undefined,
+    const finalForm = {
+      "sneaker": {
       "label": formSneaker.label,
-      "image": this.selectedFile,
+      "image": this.imgSrc,
       "description": formSneaker.description,
       "price": formSneaker.price,
       "release_date": formSneaker.release_date
-
+      }
     }
     console.log(finalForm)
     this.sneakerService.update(this.id || 0, finalForm)
@@ -69,7 +77,7 @@ export class SneakerModifyComponent implements OnInit {
 
         },
         complete() {
-
+          window.location.href = "http://localhost:4200/";
         },
       })
   }

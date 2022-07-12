@@ -64,7 +64,7 @@ export class SneakerAddComponent implements OnInit {
           
         },
         complete() {
-          
+          window.location.href = "http://localhost:4200/";
         },
       })
   }

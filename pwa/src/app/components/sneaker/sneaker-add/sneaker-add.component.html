@@ -168,13 +168,13 @@
                 </svg>
                 <div class="flex text-sm text-zinc-60 rounded">
                   <input
-                    placeholder="https://example.com"
-                    type="url"
+                    type="file"
                     name="image"
                     (change)="onFileChanged($event)"
                     class="form-control rounded bg-gray-100 text-xs pr-2"
                     required
-                    aria-label="link image"
+                    accept="JPG"
+                    aria-label="file download"
                   />
                 </div>
                 <p class="text-xs text-gray-500">JPG jusqu'à 10MB</p>
@@ -197,7 +197,7 @@
         <button
           disabled
           type="submit"
-          class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-grey-500 hover:bg-grey-600 focus:outline-none focus:ring-2 focus:ring-offset-2"
+          class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md bg-grey-500 hover:bg-grey-600 focus:outline-none focus:ring-2 focus:ring-offset-2"
         >
           Enregistrer
         </button>

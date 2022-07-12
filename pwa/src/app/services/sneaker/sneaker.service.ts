@@ -21,8 +21,8 @@ export class SneakerService {
   create(sneaker: any) {
     return this.http.post<any>(baseUrl, sneaker);
   }
-  update(id:number, sneaker:Sneaker) {
-    return this.http.put(`${baseUrl}/${id}`, sneaker);
+  update(id:number, sneaker:any) {
+    return this.http.put(`${baseUrl}${id}/`, sneaker);
   }
   delete(id: number) {
     return this.http.delete(`${baseUrl}/${id}`);

@@ -1,3 +1,4 @@
+
 172.19.0.1 - - [11/Jul/2022:21:27:02 +0000] "OPTIONS /authentication_token HTTP/1.1" 200 31 "http://localhost:4200/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
 172.19.0.1 - - [11/Jul/2022:21:27:03 +0000] "POST /authentication_token HTTP/1.1" 200 526 "http://localhost:4200/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
 172.19.0.1 - - [11/Jul/2022:21:27:07 +0000] "OPTIONS /api/users/2 HTTP/1.1" 200 31 "http://localhost:4200/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
@@ -33,3 +34,4 @@
 172.19.0.1 - - [11/Jul/2022:21:32:15 +0000] "GET /api/users/2 HTTP/1.1" 200 444 "http://localhost:4200/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
 172.19.0.1 - - [11/Jul/2022:21:32:17 +0000] "POST /api/inventories HTTP/1.1" 201 148 "http://localhost:4200/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
 172.19.0.1 - - [11/Jul/2022:21:32:17 +0000] "GET /api/users/2 HTTP/1.1" 200 513 "http://localhost:4200/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
+

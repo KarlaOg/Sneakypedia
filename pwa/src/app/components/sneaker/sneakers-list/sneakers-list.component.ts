@@ -8,7 +8,6 @@ import { SneakerService } from 'src/app/services/sneaker/sneaker.service';
   styleUrls: ['./sneakers-list.component.css']
 })
 export class SneakersListComponent implements OnInit {
-  @Input() label = '';
 
   allSneakers: Sneaker[] = [];
   sneakers: Sneaker[] = [];
@@ -43,7 +42,6 @@ export class SneakersListComponent implements OnInit {
 
   searchSneaker() {
     if (this.item !== undefined) {
-      console.log('defined')
       return this.sneakerService.findByTitle(this.item)
         .subscribe({
           next: (objectOfSneakers) => {
@@ -55,9 +53,8 @@ export class SneakersListComponent implements OnInit {
           error: (e) => console.error(e),
           complete: () => console.info('complete')
         });
-    }else{
-      console.log('undefined')
-      return 
+    } else {
+      return this.allSneakers
     }
 
 

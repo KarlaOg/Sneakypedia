@@ -16,21 +16,6 @@ import { FavoritesService } from 'src/app/services/favorites.service';
 
 export class FavoritesComponent implements OnInit {
 
-  test: UserInformation = {
-    "@context": "",
-    "@id": "",
-    "@type": "",
-    "email": "",
-    "favorites": [],
-    "firstname": "",
-    "inventories": [],
-    "lastname": "",
-  };
-
-
-
-  // updatedFav : UpdatedFavoris = "favorites"[]; 
-
   value: UserFavoritesSneaker | undefined;
   sneakerList: Sneaker[] = [];
   arrayOfFav: number[] = [];
@@ -58,7 +43,7 @@ export class FavoritesComponent implements OnInit {
     return this.userService.getUserFavoris(idUser)
       .subscribe({
         next: (v) => {
-
+          console.log(v)
           Object.entries(v).forEach(
             ([key, value]) => {
               this.arrayOfFav.push(parseInt(value.idSneaker))

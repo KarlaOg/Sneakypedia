@@ -7,7 +7,7 @@
     <div class="space-y-8 divide-y divide-gray-200 sm:space-y-5">
       <div>
         <h3 class="text-lg leading-6 font-medium text-gray-900">
-          Modification de la sneaker {{ id }}
+          Modification de la sneaker 
         </h3>
         <p class="mt-1 max-w-2xl text-sm text-gray-500"></p>
       </div>
@@ -20,29 +20,28 @@
             for="label"
             class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"
           >
-            Nom de la sneaker *
+            Nom de la sneaker 
           </label>
           <div class="mt-1 sm:mt-0 sm:col-span-2">
+            <div class="max-w-lg flex rounded-md shadow-sm">
+              <input
+                type="text"
+                name="label"
+                id="name"
+                class="form-control rounded-md flex-1 block w-full focus:border-orange-600 min-w-0 sm:text-sm border-gray-300"
+                placeholder=" Air Jordan 3 « Neapolitan »"
+                formControlName="label"
+              />
+            </div>
             <div class="max-w-lg flex">
               <span
-                class="text-xs pb-2 text-zinc-500"
+                class="text-xs pb-2 text-red-500"
                 *ngIf="
                   !modifyFormSneaker.get('label')?.valid &&
                   modifyFormSneaker.get('label')?.touched
                 "
                 >Veuillez entrer un nom de sneaker.</span
               >
-            </div>
-            <div class="max-w-lg flex rounded-md shadow-sm">
-              <input
-                type="text"
-                name="label"
-                id="name"
-                required
-                class="form-control rounded-md flex-1 block w-full focus:border-orange-600 min-w-0 sm:text-sm border-gray-300"
-                placeholder=" Air Jordan 3 « Neapolitan »"
-                formControlName="label"
-              />
             </div>
           </div>
         </div>
@@ -54,12 +53,22 @@
             for="price"
             class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"
           >
-            Prix *
+            Prix 
           </label>
           <div class="mt-1 sm:mt-0 sm:col-span-2">
+            <div class="max-w-lg flex rounded-md shadow-sm">
+              <input
+                type="number"
+                name="price"
+                id="price"
+                class="form-control rounded-md flex-1 block w-full focus:border-orange-600 min-w-0 sm:text-sm border-gray-300"
+                placeholder="165€"
+                formControlName="price"
+              />
+            </div>
             <div class="max-w-lg flex">
               <span
-                class="text-xs pb-2 text-zinc-500"
+                class="text-xs pb-2 text-red-500"
                 *ngIf="
                   !modifyFormSneaker.get('price')?.valid &&
                   modifyFormSneaker.get('price')?.touched
@@ -67,17 +76,6 @@
               >
                 Veuillez entrer un prix.
               </span>
-            </div>
-            <div class="max-w-lg flex rounded-md shadow-sm">
-              <input
-                type="number"
-                name="price"
-                id="price"
-                required
-                class="form-control rounded-md flex-1 block w-full focus:border-orange-600 min-w-0 sm:text-sm border-gray-300"
-                placeholder="165€"
-                formControlName="price"
-              />
             </div>
           </div>
         </div>
@@ -89,28 +87,27 @@
             for="date"
             class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"
           >
-            Date de sortie *
+            Date de sortie 
           </label>
           <div class="mt-1 sm:mt-0 sm:col-span-2">
+            <div class="max-w-lg flex rounded-md shadow-sm">
+              <input
+                type="date"
+                name="date"
+                class="bg-gray-50 form-control rounded-md flex-1 block w-full focus:border-orange-600 min-w-0 sm:text-sm border border-gray-300 text-gray-900 focus:ring-orange-500 p-2.5"
+                placeholder="Choisissez une date"
+                formControlName="release_date"
+              />
+            </div>
             <div class="max-w-lg flex">
               <span
-                class="text-xs pb-2 text-zinc-500"
+                class="text-xs pb-2 text-red-500"
                 *ngIf="
                   !modifyFormSneaker.get('release_date')?.valid &&
                   modifyFormSneaker.get('release_date')?.touched
                 "
                 >Veuillez entrer une date valide.</span
               >
-            </div>
-            <div class="max-w-lg flex rounded-md shadow-sm">
-              <input
-                type="date"
-                name="date"
-                required
-                class="bg-gray-50 form-control rounded-md flex-1 block w-full focus:border-orange-600 min-w-0 sm:text-sm border border-gray-300 text-gray-900 focus:ring-orange-500 p-2.5"
-                placeholder="Choisissez une date"
-                formControlName="release_date"
-              />
             </div>
           </div>
         </div>
@@ -122,7 +119,7 @@
             for="description"
             class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"
           >
-            Description *
+            Description 
           </label>
           <div class="mt-1 sm:mt-0 sm:col-span-2">
             <div class="max-w-lg flex rounded-md shadow-sm">
@@ -131,7 +128,6 @@
                 name="description"
                 id="description"
                 rows="10"
-                required
                 class="form-control rounded-md flex-1 block w-full focus:border-orange-600 min-w-0 sm:text-sm border-gray-300"
               ></textarea>
             </div>
@@ -145,7 +141,7 @@
             for="image"
             class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"
           >
-            image *
+            Image 
           </label>
           <div class="mt-2 sm:mt-0 sm:col-span-2">
             <div
@@ -169,11 +165,10 @@
                 <div class="flex text-sm text-zinc-60 rounded">
                   <input
                     placeholder="https://example.com"
-                    type="url"
+                    type="file"
                     name="image"
                     (change)="onFileChanged($event)"
                     class="form-control rounded bg-gray-100 text-xs pr-2"
-                    required
                     aria-label="link image"
                   />
                 </div>
@@ -188,16 +183,15 @@
     <div class="pt-5">
       <div class="flex justify-end">
         <button
-          disabled
+          [routerLink]="['/']"
           type="button"
           class="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2"
         >
           Annuler
         </button>
         <button
-          disabled
           type="submit"
-          class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-500 hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2"
+          class="ml-3 bg-orange-600 border border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-medium text-white hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
         >
           Enregistrer
         </button>

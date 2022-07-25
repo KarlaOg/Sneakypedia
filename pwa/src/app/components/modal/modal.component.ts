@@ -7,12 +7,13 @@ import { UserService } from '../../services/user/user.service';
 @Component({
   selector: 'app-modal',
   templateUrl: './modal.component.html',
-  styleUrls: ['./modal.component.css'],
+  styleUrls: ['./modal.component.scss'],
 })
+
 export class ModalComponent implements OnInit {
   display!: Observable<'open' | 'close'>;
   error: string = "";
-  constructor(private modalService: ModalService, private router: Router, private user: UserService) { }
+  constructor(private modalService: ModalService, private router: Router,private user : UserService) {}
 
   ngOnInit() {
     this.display = this.modalService.watch();

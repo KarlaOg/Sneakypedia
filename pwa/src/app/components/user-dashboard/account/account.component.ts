@@ -14,7 +14,7 @@ export class AccountComponent implements OnInit {
 
   error!: [];
   updateAccountForm: FormGroup;
-  constructor(private fb: FormBuilder, private user: UserService, public errorSerive: ErrorService, private router: Router) {
+  constructor(private fb: FormBuilder, private user: UserService, public errorSerive: ErrorService, private router: Router, private modalService: ModalService) {
 
 
     this.updateAccountForm = this.fb.group({
@@ -44,6 +44,10 @@ export class AccountComponent implements OnInit {
           }
         )
     }
+  }
+
+  open() {
+    this.modalService.open();
   }
 
 }

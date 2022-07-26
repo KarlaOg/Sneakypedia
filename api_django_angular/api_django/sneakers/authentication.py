@@ -8,19 +8,17 @@ class TokenAuthentication(authentication.TokenAuthentication):
         auth = request.META.get('HTTP_AUTHORIZATION')
         if not auth:
             return None
-        if auth[0].lower().decode() not in self.keyword:
-            return None
 
         if len(auth) == 1:
-            msg = _('Invalid token header. No credentials provided.')
+            msg = ('Invalid token header. No credentials provided.')
             raise authentication.exceptions.AuthenticationFailed(msg)
-        elif len(auth) > 2:
-            msg = _('Invalid token header. Token string should not contain spaces.')
+        elif len(auth) > 4:
+            msg = ('Invalid token header. Token string should not contain spaces.')
             raise authentication.exceptions.AuthenticationFailed(msg)
         try:
-            token = auth[1].decode()
+            token = auth[3].decode()
         except UnicodeError:
-            msg = _('Invalid token header. Token string should not contain invalid characters.')
+            msg = ('Invalid token header. Token string should not contain invalid characters.')
             raise authentication.TokenAuthentication.exceptions.AuthenticationFailed(msg)
         return self.authenticate_credentials(token)
 

@@ -8,6 +8,9 @@ from sneakers.serializers import SneakerModelSerializer
 from django.http import HttpResponse
 from rest_framework.response import Response
 from django.db.models import Q 
+from rest_framework.decorators import authentication_classes, permission_classes
+
+
 
 
 @csrf_exempt
@@ -24,7 +27,7 @@ def get_sneakers(request):
 	return render(request, 'home.html', {'sneakers': sneakers})
 
 class JsonView(APIView):
-	authentication_classes = (TokenAuthentication,)
+	authentication_classes = [TokenAuthentication]
 	permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
 	def get(self, request, pk=None):
@@ -37,19 +40,17 @@ class JsonView(APIView):
 		return Response({"sneakers": serializer.data})
 	
 	def post(self, request):
-		auth = request.META.get('HTTP_AUTHORIZATION')
 		sneaker = request.data.get('sneaker')
 		serializer  = SneakerModelSerializer(data=sneaker)
-		if serializer.is_valid(raise_exception=True) and auth :
+		if serializer.is_valid(raise_exception=True) :
 			sneaker_saved = serializer.save()
 		return Response({"success":"Sneaker `{}` created successfully".format(sneaker_saved.label)})
 
 	def put(self, request, pk):
-			auth = request.META.get('HTTP_AUTHORIZATION')
 			saved_sneaker = get_object_or_404(SneakerModel.objects.all(), pk=pk)
 			data = request.data.get('sneaker')
 			serializer = SneakerModelSerializer(instance=saved_sneaker, data=data, partial=True)
-			if serializer.is_valid(raise_exception=True) and auth:		
+			if serializer.is_valid(raise_exception=True):
 				sneaker_saved = serializer.save()
 
 			return Response({"success": "Sneaker '{}' updated successfully".format(sneaker_saved.label)})

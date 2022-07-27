@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { UserInformation } from 'src/app/models/UserInformation';
 import { ErrorService } from 'src/app/services/error.service';
 import { ModalService } from 'src/app/services/modal/modal.service';
 import { UserService } from 'src/app/services/user/user.service';
@@ -12,9 +13,22 @@ import { UserService } from 'src/app/services/user/user.service';
 })
 export class AccountComponent implements OnInit {
 
-  error!: [];
+  error: Array<String> = [];
   updateAccountForm: FormGroup;
-  constructor(private fb: FormBuilder, private user: UserService, public errorSerive: ErrorService, private router: Router, private modalService: ModalService) {
+
+  userInfos: UserInformation = {
+    '@context': '',
+    '@id': '',
+    '@type': '',
+    email: '',
+    favorites: [],
+    firstname: '',
+    inventories: [],
+    lastname: '',
+    profileName: ''
+  }
+
+  constructor(private fb: FormBuilder, private userService: UserService, public errorSerive: ErrorService, private router: Router, private modalService: ModalService) {
 
 
     this.updateAccountForm = this.fb.group({
@@ -28,6 +42,7 @@ export class AccountComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.loadInfos();
 
   }
 
@@ -36,7 +51,7 @@ export class AccountComponent implements OnInit {
     const val = this.updateAccountForm.value;
     if (val.profileName && val.firstname && val.lastname) {
       console.log(val.username)
-      this.user.updateUserAccount(val)
+      this.userService.updateUserAccount(val)
         .subscribe(
           {
             error: (e) => this.error = e,
@@ -48,6 +63,21 @@ export class AccountComponent implements OnInit {
 
   open() {
     this.modalService.open();
+  }
+
+
+  loadInfos() {
+    const idUser = this.userService.decodeToken().id;
+    this.userService.getUserInfos(idUser)
+      .subscribe({
+        next: v => {
+          this.userInfos = v
+        },
+        error: (e) => this.error.push = e,
+        complete: () => console.info('complete')
+
+
+      })
   }
 
 }

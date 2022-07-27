@@ -10,6 +10,9 @@
             Vous pouvez modifiez les informations ci-dessous :
           </p>
         </div>
+        <div *ngIf="this.error.length > 0" class="bg-red-500">
+          {{ error }}
+        </div>
 
         <div class="grid grid-cols-3 gap-6">
           <div class="col-span-3 sm:col-span-2">
@@ -19,28 +22,27 @@
             >
               Nom d'utilisateur
             </label>
-            
+
             <div class="mt-1 rounded-md shadow-sm flex">
-              
               <input
                 title="profileName"
                 type="text"
-                name="profileName"
+                name=" "
                 id="profileName"
                 autocomplete="name"
                 class="form-control appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm"
                 formControlName="profileName"
+                placeholder="{{ this.userInfos.profileName }}"
               />
-              
             </div>
             <span
-                class="text-xs pb-2 text-red-500"
-                *ngIf="
-                  !updateAccountForm.get('profileName')?.valid &&
-                  updateAccountForm.get('profileName')?.touched
-                "
-                >Veuillez entrer un nouveau nom d'utilisateur.</span
-              >
+              class="text-xs pb-2 text-red-500"
+              *ngIf="
+                !updateAccountForm.get('profileName')?.valid &&
+                updateAccountForm.get('profileName')?.touched
+              "
+              >Veuillez entrer un nouveau nom d'utilisateur.</span
+            >
           </div>
 
           <div class="col-span-2 sm:col-span-3">
@@ -49,7 +51,7 @@
               class="block text-sm font-medium text-gray-700"
               >Nom</label
             >
-           
+
             <input
               type="text"
               name="last_name"
@@ -57,24 +59,25 @@
               autocomplete="family-name"
               class="form-control appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm"
               formControlName="lastname"
+              placeholder="{{ this.userInfos.lastname }}"
             />
             <span
-            class="text-xs pb-2 text-red-500"
-            *ngIf="
-              !updateAccountForm.get('lastname')?.valid &&
-              updateAccountForm.get('lastname')?.touched
-            "
-            >Veuillez entrer votre nom.</span
-          >
+              class="text-xs pb-2 text-red-500"
+              *ngIf="
+                !updateAccountForm.get('lastname')?.valid &&
+                updateAccountForm.get('lastname')?.touched
+              "
+              >Veuillez entrer votre nom.</span
+            >
           </div>
-          
+
           <div class="col-span-2 sm:col-span-3">
             <label
               for="first_name"
               class="block text-sm font-medium text-gray-700"
               >Prénom</label
             >
-           
+
             <input
               type="text"
               name="first_name"
@@ -82,15 +85,16 @@
               autocomplete="given-name"
               class="form-control appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm"
               formControlName="firstname"
+              placeholder="{{ this.userInfos.firstname }}"
             />
             <span
-            class="text-xs pb-2 text-red-500"
-            *ngIf="
-              !updateAccountForm.get('firstname')?.valid &&
-              updateAccountForm.get('firstname')?.touched
-            "
-            >Veuillez entrer votre prénom.</span
-          >
+              class="text-xs pb-2 text-red-500"
+              *ngIf="
+                !updateAccountForm.get('firstname')?.valid &&
+                updateAccountForm.get('firstname')?.touched
+              "
+              >Veuillez entrer votre prénom.</span
+            >
           </div>
         </div>
       </div>

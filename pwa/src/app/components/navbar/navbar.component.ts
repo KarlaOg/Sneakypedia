@@ -9,7 +9,7 @@ import { UserService } from 'src/app/services/user/user.service';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit {
-  display!: Observable<'open' | 'close'>;
+  display: Observable<'open' | 'close'> = new Observable<'close'>();
 
 
   constructor(public user: UserService, private navBarService: NavBarService) {
@@ -23,16 +23,13 @@ export class NavbarComponent implements OnInit {
     this.user.logout();
   }
 
-  openNav() {
-    console.log("hello")
-  }
-
   close() {
     this.navBarService.close();
   }
-  open() {
-    this.navBarService.open();
-  }
 
+
+  openClose() {
+    this.navBarService.openClose();
+  }
 }
 

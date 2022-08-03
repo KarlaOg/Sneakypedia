@@ -32,8 +32,9 @@ export class FavoritesComponent implements OnInit {
     this.getUserInfosFav();
   }
 
-  ngOnChange() {
+  ngOnChanges() {
     this.arrayOfFav;
+
   }
 
 
@@ -84,13 +85,44 @@ export class FavoritesComponent implements OnInit {
           console.log(result![0])
           console.log(result!)
           this.favorisService.delete(parseInt(result![0])).subscribe({
+           
             error: (e) => console.error(e),
-            complete: () => console.info('deleted')
+            complete: () => this.reloadUserFav()
           })
-
         }
       }
     );
+
+
     return (event.target as HTMLInputElement).value;
+  }
+
+  reloadUserFav() {
+    const idUser = this.userService.decodeToken().id;
+    this.userService.getUserFavoris(idUser).subscribe({
+      next: (v) => {
+        console.log(v)
+        Object.entries(v).forEach(
+          ([key, value]) => {
+            this.arrayOfFav.push(parseInt(value.idSneaker))
+            this.favArrayURI.push(value)
+          },
+
+        );
+        this.arrayOfFav.forEach(val => {
+          return this.sneakerService
+            .get(val)
+            .subscribe((sneakerItem) => {
+              for (const value of Object.values(sneakerItem)) {
+                this.sneakerList.push(value);
+
+              }
+            })
+        })
+
+      },
+      error: (e) => console.error(e),
+      complete: () => console.info('complete')
+    })
   }
 }

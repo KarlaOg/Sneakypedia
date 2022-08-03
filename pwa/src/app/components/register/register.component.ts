@@ -44,7 +44,7 @@ import { UserService } from '../../services/user/user.service';
         <div>
        
           <label for="password" class="sr-only">Password</label>
-          <input formControlName="password" id="password" name="password" type="password" autocomplete="current-password" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm" placeholder="Mot de passe *">
+          <input formControlName="password" id="password" name="password" type="password" autocomplete="current-password" required  minlength="8" class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm" placeholder="Mot de passe *">
           <span
                 class="text-xs py-2  text-red-500"
                 *ngIf="

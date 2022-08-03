@@ -1,15 +1,14 @@
+from secrets import token_bytes
 from django.shortcuts import get_object_or_404, render
 from sneakers.models import SneakerModel
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework import viewsets,permissions
-from rest_framework.authentication import TokenAuthentication
+from sneakers.authentication import BearerAuthentication
 from rest_framework.views import APIView
 from sneakers.serializers import SneakerModelSerializer
 from django.http import HttpResponse
 from rest_framework.response import Response
 from django.db.models import Q 
-from rest_framework.decorators import authentication_classes, permission_classes
-
 
 
 
@@ -27,10 +26,12 @@ def get_sneakers(request):
 	return render(request, 'home.html', {'sneakers': sneakers})
 
 class JsonView(APIView):
-	authentication_classes = [TokenAuthentication]
+	authentication_classes = [BearerAuthentication]
 	permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
 	def get(self, request, pk=None):
+		auth = request.headers['authorization']
+		print("INTÉRIEUR DU TOKEN",auth[1])
 		if pk:
 			sneaker = get_object_or_404(SneakerModel.objects.all(), pk=pk)
 			serializer = SneakerModelSerializer(sneaker)

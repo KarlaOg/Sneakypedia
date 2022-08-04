@@ -97,7 +97,7 @@ section {
       > ul {
         display: flex;
         flex-direction: row;
-        justify-content: end;
+        justify-content: flex-end;
         gap: 0.75rem;
         margin: 0.75rem;
       }

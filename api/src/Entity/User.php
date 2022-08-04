@@ -21,7 +21,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 #[ORM\Table(name: '`user`')]
 #[UniqueEntity(fields: "email", message: "L'email est déjà utilisé")]
 #[ApiResource(
-   
+
     normalizationContext: ['groups' => ['user:read']],
     denormalizationContext: ['groups' => ['user:write']],
     collectionOperations: [
@@ -31,7 +31,7 @@ use Symfony\Component\Validator\Constraints as Assert;
     itemOperations: [
         "get",
         "put" => ["security" => "object == user"],
-        "delete" => ["security" => "object == user"],
+        "delete" => ["security" => "object == user or  is_granted('ROLE_ADMIN')"],
 
     ],
 )]
@@ -72,7 +72,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\ManyToMany(targetEntity: Favorite::class, mappedBy: 'userId', orphanRemoval: true)]
     private $favorites;
 
-
+    #[Assert\Length(
+        min: 8,
+        minMessage: "Le mot de passe doit faire au moins {{ limit }} caractères.",
+    )]
     #[Groups("user:write")]
     #[SerializedName("password")]
     private $plainPassword;
@@ -80,6 +83,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[Groups(["user:read", "user:write"])]
     #[ORM\ManyToMany(targetEntity: Inventory::class, mappedBy: 'idUser', orphanRemoval: true)]
     private $inventories;
+
+    #[Groups(["user:read", "user:write"])]
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $profileName;
+
+   
 
     public function __construct()
     {
@@ -266,4 +275,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
+
+    public function getProfileName(): ?string
+    {
+        return $this->profileName;
+    }
+
+    public function setProfileName(?string $profileName): self
+    {
+        $this->profileName = $profileName;
+
+        return $this;
+    }
+
+    
 }

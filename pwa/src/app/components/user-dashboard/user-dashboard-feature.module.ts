@@ -8,6 +8,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { NavUserDashboardComponent } from './nav-user-dashboard/nav-user-dashboard.component';
 import { ModalComponent } from '../modal/modal.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 
@@ -17,7 +18,8 @@ import { ModalComponent } from '../modal/modal.component';
     InventoryComponent,
     FavoritesComponent,
     NavUserDashboardComponent, 
-    ModalComponent
+    ModalComponent, 
+    ProfileComponent
 
   ],
   imports: [
@@ -31,7 +33,9 @@ import { ModalComponent } from '../modal/modal.component';
     AccountComponent,
     InventoryComponent,
     FavoritesComponent,
-    NavUserDashboardComponent
+    NavUserDashboardComponent,
+    ModalComponent,
+    ProfileComponent
   ]
 })
 export class UserDashboardFeatureModule { }

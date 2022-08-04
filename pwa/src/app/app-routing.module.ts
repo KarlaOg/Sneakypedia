@@ -8,6 +8,7 @@ import { CalendarComponent } from './components/calendar/calendar.component';
 import { AccountComponent } from './components/user-dashboard/account/account.component';
 import { InventoryComponent } from './components/user-dashboard/inventory/inventory.component';
 import { FavoritesComponent } from './components/user-dashboard/favorites/favorites.component';
+import { ProfileComponent } from './components/user-dashboard/profile/profile.component';
 import { NavUserDashboardComponent } from './components/user-dashboard/nav-user-dashboard/nav-user-dashboard.component';
 import { SneakersListComponent } from './components/sneaker/sneakers-list/sneakers-list.component';
 import { SneakerDetailsComponent } from './components/sneaker/sneaker-details/sneaker-details.component'
@@ -27,9 +28,10 @@ const routes: Routes = [
   { path: 'sneaker/:id/modify', component: SneakerModifyComponent, canActivate: [AuthGuard] },
   {
     path: 'compte', component: NavUserDashboardComponent, canActivate: [AuthGuard] ,children: [
-      { path: 'detail', component: AccountComponent },
+      { path: "profil", component: ProfileComponent },
+      { path: 'modification', component: AccountComponent },
       { path: "inventaire", component: InventoryComponent },
-      { path: "favoris", component: FavoritesComponent }
+      { path: "favoris", component: FavoritesComponent },
     ]
   },
 

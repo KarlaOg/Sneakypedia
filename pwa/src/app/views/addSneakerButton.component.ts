@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-add-sneaker-button',
   template: `
-    <div class="relative h-32 w-32 ...">
+    <div class="relative h-32 w-32">
     <div class="fixed bottom-52 right-0 h-18 w-18">
       <button
         routerLink="/sneaker/add"

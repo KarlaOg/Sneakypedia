@@ -1,9 +1,7 @@
-import { Component, OnInit, Type } from '@angular/core';
-import { map, groupBy, mergeMap, reduce, switchMap, retry } from 'rxjs';
-import { Sneaker, SneakerList, sortedSneakerList } from 'src/app/models/sneaker';
+import { Component, OnInit } from '@angular/core';
+import { Sneaker } from 'src/app/models/sneaker';
 import { SneakerService } from 'src/app/services/sneaker/sneaker.service';
-import { arrayGroupBy } from 'src/app/utils/grouping_function';
-import * as moment from "moment";
+
 
 interface Sneakerwise {
   sneakers: {}

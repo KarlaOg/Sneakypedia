@@ -7,7 +7,7 @@
     <div
       class="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8"
     >
-      <div *ngFor="let item of allSneakers">
+      <div *ngFor="let item of list">
         <div class="text-xl font-semibold italic text-gray-600">
           <span
             class="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-orange-600 relative inline-block"
@@ -27,7 +27,9 @@
               class="w-full h-full object-center object-cover group-hover:opacity-75"
             />
           </div>
-          <h3 class="mt- 4 text-sm text-gray-700">{{ item.label }}</h3>
+          <h3 class="mt- 4 text-sm text-gray-700">
+            {{ item.label }}
+          </h3>
         </a>
       </div>
     </div>

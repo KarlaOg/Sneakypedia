@@ -5,15 +5,14 @@ class BearerAuthentication(authentication.TokenAuthentication):
 
     def authenticate(self, request):
         authentication.TokenAuthentication.keyword = 'Bearer'
-        auth = request.headers['authorization']
-        # auth = request.META.get('HTTP_AUTHORIZATION')
+        auth = request.META.get('HTTP_AUTHORIZATION')
         if not auth:
             return None
 
         if len(auth) == 1:
             msg = ('Invalid token header. No credentials provided.')
             raise authentication.exceptions.AuthenticationFailed(msg)
-        elif len(auth) > 2:
+        elif len(auth) > 3:
             msg = ('Invalid token header. Token string should not contain spaces.')
             raise authentication.exceptions.AuthenticationFailed(msg)
         try:

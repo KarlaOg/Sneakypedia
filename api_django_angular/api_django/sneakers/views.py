@@ -30,8 +30,8 @@ class JsonView(APIView):
 	permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
 	def get(self, request, pk=None):
-		auth = request.headers['authorization']
-		print("INTÉRIEUR DU TOKEN",auth[1])
+		auth = request.META.get('HTTP_AUTHORIZATION')
+		print(auth)
 		if pk:
 			sneaker = get_object_or_404(SneakerModel.objects.all(), pk=pk)
 			serializer = SneakerModelSerializer(sneaker)

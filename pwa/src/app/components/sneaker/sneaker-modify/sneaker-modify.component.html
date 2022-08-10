@@ -7,7 +7,7 @@
     <div class="space-y-8 divide-y divide-gray-200 sm:space-y-5">
       <div>
         <h3 class="text-lg leading-6 font-medium text-gray-900">
-          Modification de la sneaker 
+          Modification de la sneaker - {{sneakerInfos.label}}
         </h3>
         <p class="mt-1 max-w-2xl text-sm text-gray-500"></p>
       </div>
@@ -29,7 +29,7 @@
                 name="label"
                 id="name"
                 class="form-control rounded-md flex-1 block w-full focus:border-orange-600 min-w-0 sm:text-sm border-gray-300"
-                placeholder=" Air Jordan 3 « Neapolitan »"
+                placeholder="{{sneakerInfos.label}}"
                 formControlName="label"
               />
             </div>
@@ -62,7 +62,7 @@
                 name="price"
                 id="price"
                 class="form-control rounded-md flex-1 block w-full focus:border-orange-600 min-w-0 sm:text-sm border-gray-300"
-                placeholder="165€"
+                placeholder="{{sneakerInfos.price}}€"
                 formControlName="price"
               />
             </div>
@@ -92,11 +92,12 @@
           <div class="mt-1 sm:mt-0 sm:col-span-2">
             <div class="max-w-lg flex rounded-md shadow-sm">
               <input
+                title="sneaker_calendar"
                 type="date"
                 name="date"
                 class="bg-gray-50 form-control rounded-md flex-1 block w-full focus:border-orange-600 min-w-0 sm:text-sm border border-gray-300 text-gray-900 focus:ring-orange-500 p-2.5"
-                placeholder="Choisissez une date"
                 formControlName="release_date"
+              
               />
             </div>
             <div class="max-w-lg flex">
@@ -129,6 +130,7 @@
                 id="description"
                 rows="10"
                 class="form-control rounded-md flex-1 block w-full focus:border-orange-600 min-w-0 sm:text-sm border-gray-300"
+                placeholder="{{sneakerInfos.description}}"
               ></textarea>
             </div>
           </div>

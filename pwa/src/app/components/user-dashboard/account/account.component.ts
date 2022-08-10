@@ -68,7 +68,7 @@ export class AccountComponent implements OnInit {
 
   loadInfos() {
     const idUser = this.userService.decodeToken().id;
-    this.userService.getUserInfos(idUser)
+    return this.userService.getUserInfos(idUser)
       .subscribe({
         next: v => {
           this.userInfos = v

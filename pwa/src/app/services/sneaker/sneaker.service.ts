@@ -16,7 +16,7 @@ export class SneakerService {
     return this.http.get<any[]>(baseUrl);
   }
   get(id:number) {
-    return this.http.get(`${baseUrl}${id}/`);
+    return this.http.get<Sneaker>(`${baseUrl}${id}/`);
   }
   create(sneaker: any) {
     return this.http.post<any>(baseUrl, sneaker);

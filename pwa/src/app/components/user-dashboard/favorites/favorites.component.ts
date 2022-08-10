@@ -44,7 +44,6 @@ export class FavoritesComponent implements OnInit {
     return this.userService.getUserFavoris(idUser)
       .subscribe({
         next: (v) => {
-          console.log(v)
           Object.entries(v).forEach(
             ([key, value]) => {
               this.arrayOfFav.push(parseInt(value.idSneaker))

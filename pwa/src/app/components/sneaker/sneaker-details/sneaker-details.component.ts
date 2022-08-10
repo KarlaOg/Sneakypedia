@@ -135,42 +135,48 @@ export class SneakerDetailsComponent implements OnInit {
   }
 
   checkIfFav() {
-    const idUser = this.userService.decodeToken().id;
-    this.userService
-      .getUserFavoris(idUser)
-      .subscribe({
-        next: (item) => {
-          for (const value of Object.values(item)) {
-            if (parseInt(value.idSneaker) === this.id) {
-              return this.sneakerAddedFav = true
+    if (this.statusUser === true) {
+      const idUser = this.userService.decodeToken().id;
+      this.userService
+        .getUserFavoris(idUser)
+        .subscribe({
+          next: (item) => {
+            for (const value of Object.values(item)) {
+              if (parseInt(value.idSneaker) === this.id) {
+                return this.sneakerAddedFav = true
+              }
             }
-          }
-          return this.sneakerAddedFav
-        },
-        error: (e) => console.error(e),
-        complete: () => console.info('complete')
-      })
+            return this.sneakerAddedFav
+          },
+          error: (e) => console.error(e),
+          complete: () => console.info('complete')
+        })
+    }
+    return
+
   }
 
   checkIfInInventory() {
-    const idUser = this.userService.decodeToken().id;
-    this.userService
-      .getUserInventory(idUser)
-      .subscribe({
-        next: (listOfItem) => {
-          for (const value of Object.values(listOfItem)) {
-            if (parseInt(value.idSneaker) === this.id) {
-              return this.sneakerAddedInventory = true
+    if (this.statusUser === true) {
+      const idUser = this.userService.decodeToken().id;
+      this.userService
+        .getUserInventory(idUser)
+        .subscribe({
+          next: (listOfItem) => {
+            for (const value of Object.values(listOfItem)) {
+              if (parseInt(value.idSneaker) === this.id) {
+                return this.sneakerAddedInventory = true
+              }
             }
-          }
-          return this.sneakerAddedInventory
+            return this.sneakerAddedInventory
 
-        },
-        error: (e) => console.error(e),
-        complete: () => console.info('complete')
-      })
+          },
+          error: (e) => console.error(e),
+          complete: () => console.info('complete')
+        })
 
-
+    }
+    return 
   }
 
 

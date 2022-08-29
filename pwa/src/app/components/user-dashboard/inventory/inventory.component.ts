@@ -21,6 +21,9 @@ export class InventoryComponent implements OnInit {
   inventoryArrayURI: UserInventoriesSneaker[] = [];
   currentItem: string = '';
   sneakerTest: Sneaker | undefined;
+  valueClickedOn!: string;
+  deleteMsg: string | undefined;
+  valueToDeleteInArrayOfInventory!: number;
 
   constructor(private userService: UserService, private sneakerService: SneakerService, private inventorySevice: InventoryService) { }
 
@@ -76,28 +79,49 @@ export class InventoryComponent implements OnInit {
 
 
 
-  getValueToDelete(event: Event): string {
-    const valueClickedOn = (event.target as HTMLInputElement).value
+  getValuetoBeDeleteEvent(event: Event): string {
+    this.valueClickedOn =  (event.target as HTMLInputElement).value
+    return (event.target as HTMLInputElement).value;
+  }
+
+  deleteAction(i: number) {
+    // DELETE FROM THE BACKEND 
+    console.log(i)
     Object.entries(this.inventoryArrayURI).forEach(
-      ([key, value]) => {
-        console.log(value)
-        const regex = /(\d+)/g;
-        // console.log(key , value["@id"])
-        const getFavId = value["@id"]
-        const result = getFavId.match(regex)
-
-        if (parseInt(value.idSneaker) === parseInt(valueClickedOn)) {
-          console.log(value.idSneaker, valueClickedOn)
-          console.log(result![0])
-          console.log(result!)
-          this.inventorySevice.delete(parseInt(result![0])).subscribe({
-            error: (e) => console.error(e),
-            complete: () => console.info('complete')
+      ([key, valueFetchFromBackend]) => {
+        console.log(key)
+        this.valueToDeleteInArrayOfInventory = parseInt(valueFetchFromBackend.idSneaker);
+        const regexToGetTheIdOfSneaker = /\d+(?!.*\d)/g;
+        const getFavId = valueFetchFromBackend["@id"]
+        const idSneaker = getFavId.match(regexToGetTheIdOfSneaker)?.join("");
+        if (parseInt(valueFetchFromBackend.idSneaker) === parseInt(this.valueClickedOn)) {
+          this.inventorySevice.delete(parseInt(idSneaker!)).subscribe({
+            next: data => {
+              this.deleteMsg = "Suppression reussi";
+            },
+            error: error => {
+              this.deleteMsg = "Il y a une erreur, veuillez ressayer.";
+            }
           })
-
         }
       }
     );
-    return (event.target as HTMLInputElement).value;
+
+    // DELETE THE IN THE ARRAY TEMPLATE SNEAKER 
+    this.sneakerList.forEach((value) => {
+      if (value.id === this.valueToDeleteInArrayOfInventory) {
+        this.sneakerList.splice(i, 1)
+
+      }
+    })
+    // DELETE IN THE ARRAY WHERE THE  SNEAKER IS FETCH FROM 
+    this.arrayOfInventory.forEach((value, index) => {
+      if (value === this.valueToDeleteInArrayOfInventory) {
+        this.inventoryArrayURI.splice(index, 1)
+
+      }
+    })
+
   }
+
 }

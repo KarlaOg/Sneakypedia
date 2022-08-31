@@ -8,7 +8,10 @@
       </p>
       <hr />
     </span>
-    <div *ngIf="deleteMsg">
+    <div
+      @fadeInAndOut
+      *ngIf="deleteMsg"
+    >
       <div
         class="flex items-center justify-between p-4 text-green-700 border rounded border-green-900/10 bg-green-50"
         role="alert"
@@ -32,7 +35,7 @@
             <img
               src="{{ sneakerItem.image }}"
               alt="Images of different sneakers"
-              class=" object-center object-cover group-hover:opacity-75 rounded"
+              class="object-center object-cover group-hover:opacity-75 rounded"
             />
           </span>
         </div>

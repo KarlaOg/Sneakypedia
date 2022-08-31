@@ -3,9 +3,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Favorites } from 'src/app/models/favorites';
 import { Inventory } from 'src/app/models/inventory';
 import { Sneaker } from 'src/app/models/sneaker';
-import { ErrorService } from 'src/app/services/error.service';
-import { FavoritesService } from 'src/app/services/favorites.service';
-import { InventoryService } from 'src/app/services/inventory.service';
+import { ErrorService } from 'src/app/services/common/error.service';
+import { FavoritesService } from 'src/app/services/favorites/favorites.service';
+import { InventoryService } from 'src/app/services/inventory/inventory.service';
 import { SneakerService } from 'src/app/services/sneaker/sneaker.service';
 import { UserService } from 'src/app/services/user/user.service';
 

@@ -3,23 +3,24 @@ import { Sneaker } from 'src/app/models/sneaker';
 import { SneakerService } from 'src/app/services/sneaker/sneaker.service';
 import { UserService } from 'src/app/services/user/user.service';
 import { UserFavoritesSneaker } from '../../../models/UserInformation'
-import { FavoritesService } from 'src/app/services/favorites.service';
+import { FavoritesService } from 'src/app/services/favorites/favorites.service';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 
 
 @Component({
   selector: 'app-favorites',
-  // animations: [
-  //   trigger('messageDeleted', [
-  //     transition(':enter', [
-  //       style({ opacity: 1 }),
-  //       animate('200ms',),
-  //     ]),
-  //     transition(':leave', [
-  //       animate('100ms', style({ opacity: 0 }))
-  //     ])
-  //   ]),
-  // ],
+  animations: [
+    trigger('fadeInAndOut', [
+      transition(':enter', [
+        style({ opacity: 0 }),
+        animate('1000ms', style({ opacity: 1 })),
+      ]),
+      transition(':leave', [
+        animate('1000ms', style({ opacity: 0 }))
+      ])
+
+    ])
+  ],
   templateUrl: './favorites.component.html',
   styleUrls: ['./favorites.component.css']
 })
@@ -39,7 +40,9 @@ export class FavoritesComponent implements OnInit {
   deleteMsg: string | undefined;
   valueClickedOn!: string;
 
-  constructor(private userService: UserService, private sneakerService: SneakerService, private favorisService: FavoritesService) {}
+  showEvents = true
+  
+  constructor(private userService: UserService, private sneakerService: SneakerService, private favorisService: FavoritesService) { }
 
   ngOnInit(): void {
     this.getUserInfosFav();
@@ -91,7 +94,7 @@ export class FavoritesComponent implements OnInit {
   }
 
   deleteAction(i: number) {
-    
+
     let nameOfTheSneakerDelete: string | undefined;
     Object.entries(this.favArrayURI).forEach(
       ([key, valueFetchFromBackend]) => {

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserInformation } from 'src/app/models/UserInformation';
-import { ErrorService } from 'src/app/services/error.service';
+import { ErrorService } from 'src/app/services/common/error.service';
 import { ModalService } from 'src/app/services/modal/modal.service';
 import { UserService } from 'src/app/services/user/user.service';
 

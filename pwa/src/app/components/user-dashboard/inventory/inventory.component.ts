@@ -3,7 +3,7 @@ import { Sneaker } from 'src/app/models/sneaker';
 import { SneakerService } from 'src/app/services/sneaker/sneaker.service';
 import { UserService } from 'src/app/services/user/user.service';
 import { UserInformation, UserInventoriesSneaker } from '../../../models/UserInformation';
-import { InventoryService } from 'src/app/services/inventory.service';
+import { InventoryService } from 'src/app/services/inventory/inventory.service';
 
 @Component({
   selector: 'app-inventory-user-dashboard',
@@ -26,7 +26,7 @@ export class InventoryComponent implements OnInit {
   deleteMsg: string | undefined;
   valueToDeleteInArrayOfInventory!: number;
 
-  constructor(private userService: UserService, private sneakerService: SneakerService, private inventorySevice: InventoryService) {}
+  constructor(private userService: UserService, private sneakerService: SneakerService, private inventorySevice: InventoryService) { }
 
   ngOnInit(): void {
     this.getUserInfosInventory();
@@ -90,20 +90,22 @@ export class InventoryComponent implements OnInit {
     Object.entries(this.inventoryArrayURI).forEach(
       ([key, valueFetchFromBackend]) => {
         this.valueToDeleteInArrayOfInventory = parseInt(valueFetchFromBackend.idSneaker);
+      /* 
+        Example:   api/favorites/54 
+        I need to get the last part of it. 
+      */
         const regexToGetTheIdOfSneaker = /\d+(?!.*\d)/g;
         const getFavId = valueFetchFromBackend["@id"]
         const idSneaker = getFavId.match(regexToGetTheIdOfSneaker)?.join("");
         this.arrayOfPrice.forEach((value, index) => {
           if (value.id === this.valueToDeleteInArrayOfInventory) {
-            console.log("before splice", this.arrayOfPrice.length)
             this.arrayOfPrice.splice(index, 1)
             const result = this.arrayOfPrice.reduce(function (acc, obj) {
               return acc + Math.floor(obj.price);
             }, 0) / this.arrayOfPrice.length
-            this.averageOfSneaker = Math.floor(result)
-            console.log("after splice", this.arrayOfPrice.length)
+            return this.averageOfSneaker = Math.floor(result)
           }
-
+          return
         })
         if (parseInt(valueFetchFromBackend.idSneaker) === parseInt(this.valueClickedOn)) {
           // DELETE IN THE TEMPLATE

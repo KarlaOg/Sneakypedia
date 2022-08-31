@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ErrorService } from 'src/app/services/error.service';
+import { ErrorService } from 'src/app/services/common/error.service';
 import { UserService } from '../../services/user/user.service';
 
 @Component({

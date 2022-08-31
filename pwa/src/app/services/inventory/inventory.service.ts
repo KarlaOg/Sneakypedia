@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Inventory } from '../models/inventory';
-import { ErrorService } from './error.service';
+import { Inventory } from '../../models/inventory';
+import { ErrorService } from '../common/error.service';
 import { environment } from 'src/environments/environment';
 
 

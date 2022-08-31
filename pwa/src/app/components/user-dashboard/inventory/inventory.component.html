@@ -3,6 +3,15 @@
     <h3 class="text-lg leading-6 font-medium text-gray-900">
       Vos statistiques
     </h3>
+    <div *ngIf="deleteMsg">
+      <div
+        class="flex items-center justify-between p-4 text-green-700 border rounded border-green-900/10 bg-green-50"
+        role="alert"
+      >
+        <strong class="text-sm font-medium"> {{ deleteMsg }} </strong>
+      </div>
+    </div>
+
     <span>
       <p class="mt-1 text-sm text-gray-500">
         Vous verrez ici vos statistiques.
@@ -56,25 +65,27 @@
         <hr />
       </span>
 
-      <div class="flex flex-row flex-wrap justify-center sm:justify-between gap-5">
-        <div *ngFor="let sneakerItem of sneakerList let i = index"  class="">
+      <div
+        class="container mx-auto grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4"
+      >
+        <div *ngFor="let sneakerItem of sneakerList; let i = index"  class="rounded bg-gray-100">
           <div class="rounded overflow-hidden bg-gray-100 max-w-fit">
             <div class="px-6 py-4">
               <div class="text-base mb-2 text-gray-900 max-w-fit">
                 {{ sneakerItem.label }}
               </div>
-                <img
-                  src="{{ sneakerItem.image }}"
-                  alt="Images of different sneakers"
-                  class="w-72 object-center object-cover group-hover:opacity-75 rounded"
-                />
+              <img
+                src="{{ sneakerItem.image }}"
+                alt="Images of different sneakers"
+                class="w-72 object-center object-cover group-hover:opacity-75 rounded"
+              />
             </div>
             <hr />
             <div class="px-6 py-4 flex flex-row justify-between">
               <button
-              [value]="sneakerItem.id"
-              (click)="currentItem = getValuetoBeDeleteEvent($event)"
-              (click)="deleteAction(i)"
+                [value]="sneakerItem.id"
+                (click)="currentItem = getValuetoBeDeleteEvent($event)"
+                (click)="deleteAction(i)"
                 type="submit"
                 class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-orange-500 hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2"
               >

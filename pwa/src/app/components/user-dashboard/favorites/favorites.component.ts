@@ -39,7 +39,7 @@ export class FavoritesComponent implements OnInit {
   deleteMsg: string | undefined;
   valueClickedOn!: string;
 
-  constructor(private userService: UserService, private sneakerService: SneakerService, private favorisService: FavoritesService) { }
+  constructor(private userService: UserService, private sneakerService: SneakerService, private favorisService: FavoritesService) {}
 
   ngOnInit(): void {
     this.getUserInfosFav();
@@ -50,11 +50,6 @@ export class FavoritesComponent implements OnInit {
     this.sneakerList;
   }
 
-  // ngDoCheck() {
-  //   this.arrayOfFav;
-  //   this.sneakerList;
-  // }
-  ngOnDestroy() { }
 
 
 
@@ -92,12 +87,12 @@ export class FavoritesComponent implements OnInit {
 
   getValuetoBeDeleteEvent(event: Event): string {
     this.valueClickedOn = (event.target as HTMLInputElement).value;
-    // console.log(this.valueClickedOn)
     return (event.target as HTMLInputElement).value;
   }
 
   deleteAction(i: number) {
-    // DELETE FROM THE BACKEND 
+    
+    let nameOfTheSneakerDelete: string | undefined;
     Object.entries(this.favArrayURI).forEach(
       ([key, valueFetchFromBackend]) => {
         console.log(key)
@@ -106,32 +101,32 @@ export class FavoritesComponent implements OnInit {
         const getFavId = valueFetchFromBackend["@id"]
         const idSneaker = getFavId.match(regexToGetTheIdOfSneaker)?.join("");
         if (parseInt(valueFetchFromBackend.idSneaker) === parseInt(this.valueClickedOn)) {
+          // DELETE THE IN THE ARRAY TEMPLATE SNEAKER 
+          this.sneakerList.forEach((value) => {
+            nameOfTheSneakerDelete = value.label
+            if (value.id === this.valueToDeleteInArrayOfFav) {
+              this.deleteMsg = `Suppresion de la sneaker ${value.label}`;
+              return this.sneakerList.splice(i, 1)
+
+            }
+            return
+          })
+          // DELETE FROM THE BACKEND 
           this.favorisService.delete(parseInt(idSneaker!)).subscribe({
-            next: data => {
-              this.deleteMsg = "Suppression reussi";
-            },
             error: error => {
-              this.deleteMsg = "Il y a une erreur, veuillez ressayer.";
+              this.deleteMsg = `Il y a eu une erreur avec la suppresion de la sneaker ${nameOfTheSneakerDelete}`;
+              console.error(error)
+            },
+            complete: () => {
+              this.deleteMsg = this.deleteMsg;
+              console.log("completed deletion")
             }
           })
         }
       }
     );
 
-    // DELETE THE IN THE ARRAY TEMPLATE SNEAKER 
-    this.sneakerList.forEach((value) => {
-      if (value.id === this.valueToDeleteInArrayOfFav) {
-        this.sneakerList.splice(i, 1)
 
-      }
-    })
-    // DELETE IN THE ARRAY WHERE THE  SNEAKER IS FETCH FROM 
-    this.arrayOfFav.forEach((value, index) => {
-      if (value === this.valueToDeleteInArrayOfFav) {
-        this.arrayOfFav.splice(index, 1)
-
-      }
-    })
 
 
 

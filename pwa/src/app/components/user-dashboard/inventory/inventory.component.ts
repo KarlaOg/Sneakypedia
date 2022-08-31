@@ -16,8 +16,9 @@ export class InventoryComponent implements OnInit {
   value: UserInventoriesSneaker | undefined;
   sneakerList: Sneaker[] = [];
   arrayOfInventory: number[] = [];
-  arrayOfPrice: number[] = [];
+  arrayOfPrice: Sneaker[] = [];
   averageOfSneaker: number = 0;
+  averagePriceSneaker: number = 0;
   inventoryArrayURI: UserInventoriesSneaker[] = [];
   currentItem: string = '';
   sneakerTest: Sneaker | undefined;
@@ -25,11 +26,17 @@ export class InventoryComponent implements OnInit {
   deleteMsg: string | undefined;
   valueToDeleteInArrayOfInventory!: number;
 
-  constructor(private userService: UserService, private sneakerService: SneakerService, private inventorySevice: InventoryService) { }
+  constructor(private userService: UserService, private sneakerService: SneakerService, private inventorySevice: InventoryService) {}
 
   ngOnInit(): void {
     this.getUserInfosInventory();
+  }
 
+  ngOnChanges() {
+    this.arrayOfInventory;
+    this.sneakerTest;
+    this.arrayOfPrice;
+    this.averageOfSneaker;
   }
 
 
@@ -39,13 +46,11 @@ export class InventoryComponent implements OnInit {
     return this.userService.getUserInventory(idUser)
       .subscribe({
         next: (v) => {
-
           Object.entries(v).forEach(
             ([key, value]) => {
               this.arrayOfInventory.push(parseInt(value.idSneaker))
               this.inventoryArrayURI.push(value)
             },
-
           );
           this.arrayOfInventory.forEach(val => {
             return this.sneakerService
@@ -54,74 +59,75 @@ export class InventoryComponent implements OnInit {
                 next: (sneakerItem) => {
                   for (const value of Object.values(sneakerItem)) {
                     this.sneakerList.push(value);
-                    this.arrayOfPrice.push(parseInt(value.price))
-
-
-
+                    this.arrayOfPrice.push(value);
                   }
-                  this.averageOfSneaker = Math.floor(this.arrayOfPrice.reduce((a, b) => a + b, 0) / this.arrayOfPrice.length)
-
+                  const result = this.arrayOfPrice.reduce(function (acc, obj) {
+                    return acc + Math.floor(obj.price);
+                  }, 0) / this.arrayOfPrice.length
+                  this.averageOfSneaker = Math.floor(result)
                 },
                 error: (e) => console.error(e),
-                complete: () => console.info('complete')
-              }
-
-              )
+                complete: () => console.info('fetch user complete')
+              })
           })
-
         },
         error: (e) => console.error(e),
         complete: () => console.info('complete')
       })
-
   }
 
 
 
 
   getValuetoBeDeleteEvent(event: Event): string {
-    this.valueClickedOn =  (event.target as HTMLInputElement).value
+    this.valueClickedOn = (event.target as HTMLInputElement).value
     return (event.target as HTMLInputElement).value;
   }
 
   deleteAction(i: number) {
-    // DELETE FROM THE BACKEND 
-    console.log(i)
+
+    let nameOfTheSneakerDelete: string | undefined;
     Object.entries(this.inventoryArrayURI).forEach(
       ([key, valueFetchFromBackend]) => {
-        console.log(key)
         this.valueToDeleteInArrayOfInventory = parseInt(valueFetchFromBackend.idSneaker);
         const regexToGetTheIdOfSneaker = /\d+(?!.*\d)/g;
         const getFavId = valueFetchFromBackend["@id"]
         const idSneaker = getFavId.match(regexToGetTheIdOfSneaker)?.join("");
+        this.arrayOfPrice.forEach((value, index) => {
+          if (value.id === this.valueToDeleteInArrayOfInventory) {
+            console.log("before splice", this.arrayOfPrice.length)
+            this.arrayOfPrice.splice(index, 1)
+            const result = this.arrayOfPrice.reduce(function (acc, obj) {
+              return acc + Math.floor(obj.price);
+            }, 0) / this.arrayOfPrice.length
+            this.averageOfSneaker = Math.floor(result)
+            console.log("after splice", this.arrayOfPrice.length)
+          }
+
+        })
         if (parseInt(valueFetchFromBackend.idSneaker) === parseInt(this.valueClickedOn)) {
+          // DELETE IN THE TEMPLATE
+          this.sneakerList.forEach((value) => {
+            if (value.id === this.valueToDeleteInArrayOfInventory) {
+              nameOfTheSneakerDelete = value.label
+              this.deleteMsg = `Suppresion de la sneaker ${value.label}`;
+              return this.sneakerList.splice(i, 1)
+            }
+            return
+          })
+          // DELETE BACKEND 
           this.inventorySevice.delete(parseInt(idSneaker!)).subscribe({
-            next: data => {
-              this.deleteMsg = "Suppression reussi";
-            },
             error: error => {
-              this.deleteMsg = "Il y a une erreur, veuillez ressayer.";
+              this.deleteMsg = `Il y a eu une erreur avec la suppresion de la sneaker ${nameOfTheSneakerDelete}`;
+              console.error(error)
+            },
+            complete: () => {
+              this.deleteMsg = this.deleteMsg;
+              console.log("completed deletion")
             }
           })
         }
       }
     );
-
-    // DELETE THE IN THE ARRAY TEMPLATE SNEAKER 
-    this.sneakerList.forEach((value) => {
-      if (value.id === this.valueToDeleteInArrayOfInventory) {
-        this.sneakerList.splice(i, 1)
-
-      }
-    })
-    // DELETE IN THE ARRAY WHERE THE  SNEAKER IS FETCH FROM 
-    this.arrayOfInventory.forEach((value, index) => {
-      if (value === this.valueToDeleteInArrayOfInventory) {
-        this.inventoryArrayURI.splice(index, 1)
-
-      }
-    })
-
   }
-
 }

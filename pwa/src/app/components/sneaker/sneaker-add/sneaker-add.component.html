@@ -180,6 +180,7 @@
                   <input
                     type="file"
                     name="image"
+                      accept="JPG"
                     (change)="onFileChanged($event)"
                     class="form-control rounded bg-gray-100 text-xs pr-2"
                     required
@@ -190,14 +191,14 @@
               </div>
             </div>
             <div class="max-w-lg flex">
-              <span
+              <!-- <span
                 class="text-xs pb-2 text-red-500"
                 *ngIf="
                   !addFormSneaker.get('image')?.valid &&
                   addFormSneaker.get('image')?.touched
                 "
                 >Veuillez ajouter une image.</span
-              >
+              > -->
             </div>
           </div>
         </div>

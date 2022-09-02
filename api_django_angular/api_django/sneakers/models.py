@@ -17,7 +17,7 @@ def create_sneakers_table(engine):
 
 class SneakerModel(models.Model):
     label  = models.CharField(max_length=200)
-    image  = models.CharField(max_length=200)
+    image  = models.TextField()
     description = models.CharField(max_length=200)
     release_date = models.CharField(max_length=15)
     price = models.DecimalField(max_digits=5, decimal_places=2)

@@ -24,3 +24,13 @@ export interface sortedSneakerList extends Sneaker {
     { sneaker: Sneaker[] }
   ]
 }
+
+export interface modelApiSneaker {
+  "sneaker": {
+    "label": string
+    "image": string,
+    "description": string,
+    "price": number,
+    "release_date": string
+  }
+}

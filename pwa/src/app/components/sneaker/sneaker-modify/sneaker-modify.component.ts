@@ -49,12 +49,11 @@ export class SneakerModifyComponent implements OnInit {
     var reader = new FileReader();
     reader.readAsDataURL(this.selectedFile);
     var self = this
-    reader.onload = function () {
-      if (reader.result !== null) {
+    reader.onload = function() {
+      if (reader.result !== null){
         self.imgSrc = reader.result.toString();
       }
     };
-
   }
 
   getIdSneakers(): number {
@@ -87,11 +86,11 @@ export class SneakerModifyComponent implements OnInit {
 
     const finalForm = {
       "sneaker": {
-        "label": formSneaker.label,
-        "image": this.imgSrc,
-        "description": formSneaker.description,
-        "price": formSneaker.price,
-        "release_date": formSneaker.release_date
+      "label": formSneaker.label,
+      "image": this.imgSrc,
+      "description": formSneaker.description,
+      "price": formSneaker.price,
+      "release_date": formSneaker.release_date
       }
     }
     console.log(finalForm)
@@ -104,7 +103,7 @@ export class SneakerModifyComponent implements OnInit {
 
         },
         complete() {
-
+          window.location.href = "http://localhost:4200/";
         },
       })
   }

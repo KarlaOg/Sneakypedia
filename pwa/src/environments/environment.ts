@@ -7,8 +7,8 @@ export const environment = {
 
   API_PLATFORM_URL: "http://localhost/api/",
   LOGIN_URL: 'http://localhost/authentication_token',
-  DJANGO_URL: "http://127.0.0.1:8000/sneakers/",
-  SEARCH_URL: "http://127.0.0.1:8000/search/"
+  DJANGO_URL: "http://127.0.0.1:8000/api/sneakers/",
+  SEARCH_URL: "http://127.0.0.1:8000/api/search/"
 
 };
 

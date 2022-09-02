@@ -1,0 +1,89 @@
+<div class="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md">
+  <div class="p-6">
+    <h3 class="text-lg leading-6 font-medium text-gray-900">Votre profil</h3>
+    <p class="mt-1 text-sm text-gray-500">Voici vos informations</p>
+  </div>
+  <hr />
+  <div class="flex justify-end px-4 pt-4">
+    <button
+      type="button"
+      title="modifier"
+      [routerLink]="['../modification']"
+      class="rounded-full text-white p-4 bg-orange-500 border border-transparent inline-flex justify-center text-sm font-medium hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-8 w-8"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
+        />
+      </svg>
+    </button>
+  </div>
+
+  <div class="flex flex-col items-center">
+    <img
+      class="mb-3 w-28 h-28 shadow rounded-full p-2 object-cover"
+      src="../../../../assets/sneakers2.png"
+      alt="sneaker"
+    />
+    <span *ngIf="userInfos.profileName !== null; else userNameAndLastname">
+      <h5 class="mb-1 text-xl font-medium text-gray-900">
+        {{ userInfos.profileName }}
+      </h5>
+    </span>
+
+    <ng-template #userNameAndLastname>
+      <h5 class="mb-1 text-xl font-medium text-gray-900">
+        {{ userInfos.firstname }} {{ userInfos.lastname }}
+      </h5>
+    </ng-template>
+  </div>
+  <div class="m-4">
+    <hr />
+  </div>
+
+  <div class="m-4 flex justify-between">
+    <div>
+      <span class="block text-sm font-medium text-gray-700">Nom : </span>
+      <span class="block text-sm font-medium text-gray-700">Prénom : </span>
+      <span class="block text-sm font-medium text-gray-700">Mail : </span>
+    </div>
+
+    <div>
+      <span class="block text-sm text-gray-900">{{ userInfos.lastname }}</span>
+      <span class="block text-sm text-gray-900">{{ userInfos.firstname }}</span>
+      <span class="block text-sm text-gray-900">{{ userInfos.email }}</span>
+    </div>
+  </div>
+  <div class="m-4">
+    <div class="pt-2 flex justify-between">
+      <span *ngIf="userInfos.favorites.length > 0">
+        <button
+          type="button"
+          class="bg-orange-500 border border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-medium text-white hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
+          [routerLink]="['../favoris']"
+        >
+          Voir mes favoris
+        </button>
+      </span>
+
+      <span *ngIf="userInfos.inventories.length > 0">
+        <button
+          type="button"
+          class="bg-orange-500 border border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-medium text-white hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
+          [routerLink]="['../inventaire']"
+        >
+          Voir mon inventaire
+        </button>
+      </span>
+    </div>
+  </div>
+</div>

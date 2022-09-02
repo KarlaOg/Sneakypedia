@@ -3,9 +3,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Favorites } from 'src/app/models/favorites';
 import { Inventory } from 'src/app/models/inventory';
 import { Sneaker } from 'src/app/models/sneaker';
-import { ErrorService } from 'src/app/services/error.service';
-import { FavoritesService } from 'src/app/services/favorites.service';
-import { InventoryService } from 'src/app/services/inventory.service';
+import { ErrorService } from 'src/app/services/common/error.service';
+import { FavoritesService } from 'src/app/services/favorites/favorites.service';
+import { InventoryService } from 'src/app/services/inventory/inventory.service';
 import { SneakerService } from 'src/app/services/sneaker/sneaker.service';
 import { UserService } from 'src/app/services/user/user.service';
 
@@ -135,42 +135,48 @@ export class SneakerDetailsComponent implements OnInit {
   }
 
   checkIfFav() {
-    const idUser = this.userService.decodeToken().id;
-    this.userService
-      .getUserFavoris(idUser)
-      .subscribe({
-        next: (item) => {
-          for (const value of Object.values(item)) {
-            if (parseInt(value.idSneaker) === this.id) {
-              return this.sneakerAddedFav = true
+    if (this.statusUser === true) {
+      const idUser = this.userService.decodeToken().id;
+      this.userService
+        .getUserFavoris(idUser)
+        .subscribe({
+          next: (item) => {
+            for (const value of Object.values(item)) {
+              if (parseInt(value.idSneaker) === this.id) {
+                return this.sneakerAddedFav = true
+              }
             }
-          }
-          return this.sneakerAddedFav
-        },
-        error: (e) => console.error(e),
-        complete: () => console.info('complete')
-      })
+            return this.sneakerAddedFav
+          },
+          error: (e) => console.error(e),
+          complete: () => console.info('complete')
+        })
+    }
+    return
+
   }
 
   checkIfInInventory() {
-    const idUser = this.userService.decodeToken().id;
-    this.userService
-      .getUserInventory(idUser)
-      .subscribe({
-        next: (listOfItem) => {
-          for (const value of Object.values(listOfItem)) {
-            if (parseInt(value.idSneaker) === this.id) {
-              return this.sneakerAddedInventory = true
+    if (this.statusUser === true) {
+      const idUser = this.userService.decodeToken().id;
+      this.userService
+        .getUserInventory(idUser)
+        .subscribe({
+          next: (listOfItem) => {
+            for (const value of Object.values(listOfItem)) {
+              if (parseInt(value.idSneaker) === this.id) {
+                return this.sneakerAddedInventory = true
+              }
             }
-          }
-          return this.sneakerAddedInventory
+            return this.sneakerAddedInventory
 
-        },
-        error: (e) => console.error(e),
-        complete: () => console.info('complete')
-      })
+          },
+          error: (e) => console.error(e),
+          complete: () => console.info('complete')
+        })
 
-
+    }
+    return 
   }
 
 

@@ -11,7 +11,6 @@ from rest_framework.response import Response
 from django.db.models import Q 
 
 
-
 @csrf_exempt
 def index(request):
     return HttpResponse("Success")
@@ -26,9 +25,6 @@ def get_sneakers(request):
 	return render(request, 'home.html', {'sneakers': sneakers})
 
 class JsonView(APIView):
-	authentication_classes = [BearerAuthentication]
-	permission_classes = [permissions.IsAuthenticatedOrReadOnly]
-
 	def get(self, request, pk=None):
 		auth = request.META.get('HTTP_AUTHORIZATION')
 		print(auth)

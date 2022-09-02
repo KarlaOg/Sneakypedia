@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -19,6 +19,8 @@ import { UserDashboardFeatureModule } from './components/user-dashboard/user-das
 import { FooterComponent } from './views/footer.component';
 import { AddSneakerButton } from './views/addSneakerButton.component';
 import { environment } from 'src/environments/environment';
+import { SpinnerComponent } from './components/spinner/spinner.component';
+import { LoadingInterceptor } from './services/loader/interceptor/loading.interceptor';
 
 export function tokenGetter() {
   return localStorage.getItem("id_token");
@@ -34,12 +36,14 @@ export function tokenGetter() {
     CalendarComponent,
     FooterComponent,
     AddSneakerButton,
+    SpinnerComponent,
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    FormsModule,
     BrowserAnimationsModule,
     HttpClientModule,
     JwtModule.forRoot({
@@ -60,7 +64,12 @@ export function tokenGetter() {
       multi: true
     },
     AuthGuard,
-    UserGuard
+    UserGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoadingInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Form, FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { Sneaker } from 'src/app/models/sneaker';
+import { modelApiSneaker, Sneaker } from 'src/app/models/sneaker';
 import { SneakerService } from 'src/app/services/sneaker/sneaker.service';
 import { ActivatedRoute } from '@angular/router';
 
@@ -15,8 +15,16 @@ export class SneakerModifyComponent implements OnInit {
   private sub: any;
   modifyFormSneaker: FormGroup;
   selectedFile: any;
-  imgValue: string='';
+  imgValue: string = '';
   imgSrc: string = ''
+  sneakerInfos: Sneaker = {
+    id: undefined,
+    label: '',
+    image: '',
+    description: '',
+    price: 0,
+    release_date: ''
+  }
 
   constructor(private sneakerService: SneakerService,
     private fb: FormBuilder, private router: ActivatedRoute) {
@@ -32,6 +40,7 @@ export class SneakerModifyComponent implements OnInit {
 
   ngOnInit(): void {
     this.getIdSneakers();
+    this.getInfosSneakers();
 
   }
 
@@ -53,6 +62,23 @@ export class SneakerModifyComponent implements OnInit {
     });
 
     return this.id !== undefined ? this.id : 0;
+  }
+
+  getInfosSneakers() {
+    const idSneaker = this.getIdSneakers();
+    return this.sneakerService.get(idSneaker).subscribe({
+      next: v => {
+        for (const value of Object.values(v)) {
+          this.sneakerInfos = value
+
+        }
+      },
+      error: (e) => e,
+      complete: () => console.info('complete')
+
+
+    })
+
   }
 
   modifySneaker() {

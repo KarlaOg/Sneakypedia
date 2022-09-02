@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ErrorService } from 'src/app/services/error.service';
+import { ErrorService } from 'src/app/services/common/error.service';
 import { UserService } from '../../services/user/user.service';
 
 @Component({
@@ -24,27 +24,47 @@ import { UserService } from '../../services/user/user.service';
 
       <div *ngIf="success"class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
       </div>
-    <form [formGroup]="form" (ngSubmit)="register()" #registerForm="ngForm" class="mt-8 space-y-6">
+    <form [formGroup]="forRegister" (ngSubmit)="register()" #registerForm="ngForm" class="mt-8 space-y-6">
       <input type="hidden" name="remember" value="true">
       <div class="rounded-md shadow-sm -space-y-px">
+
+        <div>
+       
+          <label for="email-address" class="sr-only">Adresse Mail</label>
+          <input formControlName="email" id="email-address" name="email" type="email" autocomplete="email" required  class=" form-control appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm"placeholder="Adresse Mail *">
+          <span
+                class="text-xs py-2  text-red-500"
+                *ngIf="
+                  !forRegister.get('email')?.valid &&
+                  forRegister.get('email')?.touched
+                "
+                >Veuillez entrer une adresse mail valide.</span
+              >
+        </div>
+        <div>
+       
+          <label for="password" class="sr-only">Password</label>
+          <input formControlName="password" id="password" name="password" type="password" autocomplete="current-password" required  minlength="8" class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm" placeholder="Mot de passe *">
+          <span
+                class="text-xs py-2  text-red-500"
+                *ngIf="
+                  !forRegister.get('password')?.valid &&
+                  forRegister.get('password')?.touched
+                "
+                >Veuillez entrer un mot de passe avec une longueur de 8 caractères min avec des chiffres et des lettres.</span
+              >
+        </div>
         <div>
           <label for="firstname" class="sr-only">Nom:</label>
-          <input formControlName="firstname" id="firstname" name="fistname" type="text" autocomplete="firstname" required class=" form-control appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm" placeholder="Nom">
+          <input formControlName="firstname" id="firstname" name="fistname" type="text" autocomplete="firstname" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm"  placeholder="Nom">
         </div>
         <div>
           <label for="lastname" class="sr-only">Prénom</label>
-          <input formControlName="lastname" id="lastname" name="lastname" type="text" autocomplete="lastnam" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm" placeholder="Prénom">
-        </div>
-        <div>
-          <label for="email-address" class="sr-only">Adresse Mail</label>
-          <input formControlName="email" id="email-address" name="email" type="email" autocomplete="email" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm" placeholder="Adresse Mail">
-        </div>
-        <div>
-          <label for="password" class="sr-only">Password</label>
-          <input formControlName="password" id="password" name="password" type="password" autocomplete="current-password" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md  focus:outline-none focus:ring-black 
-          focus:border-black focus:z-10 sm:text-sm" placeholder="Mot de passe">
+          <input formControlName="lastname" id="lastname" name="lastname" type="text" autocomplete="lastnam" required  class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md  focus:outline-none focus:ring-black 
+          focus:border-black focus:z-10 sm:text-sm" placeholder="Prénom">
         </div>
       </div>
+      
 
       <div class="flex items-center justify-between">
         <div class="flex items-center"></div>
@@ -53,7 +73,7 @@ import { UserService } from '../../services/user/user.service';
 
 
       <div>
-        <button type="submit" class="group relative w-full flex justify-center py-2 px-4 border border-black text-sm font-medium rounded-md text-black hover:bg-orange-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-400">
+        <button (click)="register()" type="submit" class="group relative w-full flex justify-center py-2 px-4 border border-black text-sm font-medium rounded-md text-black hover:bg-orange-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-400">
           <span class="absolute left-0 inset-y-0 flex items-center pl-3">
             <!-- Heroicon name: solid/lock-closed -->
             <svg class="h-5 w-5 text-black group-hover:text-black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -70,7 +90,7 @@ import { UserService } from '../../services/user/user.service';
 })
 export class RegisterComponent implements OnInit {
 
-  form: FormGroup;
+  forRegister: FormGroup;
   error: string = '';
   success: string = "";
 
@@ -79,22 +99,22 @@ export class RegisterComponent implements OnInit {
     private user: UserService,
     public errorService: ErrorService) {
 
-    this.form = this.fb.group({
+    this.forRegister = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(8)]],
-      firstname: ['', Validators.required],
-      lastname: ['', Validators.required]
+      firstname: [''],
+      lastname: ['']
     });
 
   }
 
   ngOnInit(): void {
-    console.log(this.errorService)
+    // console.log(this.errorService)
   }
   register() {
     this.errorService.handleError
-    const val = this.form.value;
-    if (val.email && val.password && val.firstname && val.lastname) {
+    const val = this.forRegister.value;
+    if (val.email && val.password) {
 
       this.user.register(val)
         .subscribe(

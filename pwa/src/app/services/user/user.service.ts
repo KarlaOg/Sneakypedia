@@ -1,8 +1,8 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, catchError, map, Observable, shareReplay, tap, throwError } from 'rxjs';
+import { BehaviorSubject, catchError, map, Observable, of, shareReplay, tap, throwError } from 'rxjs';
 import { User } from 'src/app/models/user';
-import { ErrorService } from 'src/app/services/error.service';
+import { ErrorService } from 'src/app/services/common/error.service';
 import * as moment from "moment";
 import { JwtHelperService } from "@auth0/angular-jwt";
 import { UserInformation } from 'src/app/models/UserInformation';
@@ -55,7 +55,10 @@ export class UserService {
   register(user: User): Observable<User> {
     return this.http.post<User>(this.apiUrl + 'users', { email: user.email, password: user.password, firstname: user.firstname, lastname: user.lastname }, httpOptions)
       .pipe(
-        catchError(this.error.handleError),
+        catchError(err => {
+          console.log('caught mapping error and rethrowing', err);
+          return throwError(() => err);
+        }),
         shareReplay()
       )
   }
@@ -115,7 +118,7 @@ export class UserService {
 
   getUserInfos(id: number) {
     return this.http.get<UserInformation>(`${apiUrl}users/${id}`, httpOptions)
-      .pipe(map((x) => console.log(x)))
+    
 
   }
 

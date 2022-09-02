@@ -1,33 +1,29 @@
-<div class="bg-grey-100 	">
+<div class="bg-grey-100">
   <div class="max-w-7xl mx-auto py-20 2xl:px-8">
     <div class="lg:grid lg:grid-cols-12 lg:gap-x-5">
       <aside class="lg:col-span-3 shadow rounded p-5 md:mb-5 h-full">
         <nav class="flex flex-row lg:flex-col justify-evenly flex-wrap">
           <a
-            [routerLink]="['detail']"
-            routerLinkActive="active"
-            class="text-gray-800 hover:text-gray-900 hover:bg-gray-50 group rounded-md px-3 py-2 flex items-center text-base font-medium"
-            aria-current="page"
-          >
+          [routerLink]="['profil']"
+          class="text-gray-800 hover:text-gray-900 hover:bg-gray-50 group rounded-md px-3 py-2 flex items-center text-base font-medium">
             <svg
-              class="text-gray-500 group-hover:text-orange-600 flex-shrink-0 -ml-1 mr-3 h-6 w-6"
-              x-description="Heroicon name: outline/user-circle"
               xmlns="http://www.w3.org/2000/svg"
+            
+              class= "text-gray-500 group-hover:text-orange-600 flex-shrink-0 -ml-1 mr-3 h-6 w-6"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
-              aria-hidden="true"
+              stroke-width="2"
             >
               <path
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                stroke-width="2"
-                d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-              ></path>
+                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+              />
             </svg>
-            <span class="truncate"> Compte </span>
+            <span class="truncate"> Profil </span>
           </a>
-
+    
           <a
             [routerLink]="['favoris']"
             routerLinkActive="active"
@@ -77,7 +73,7 @@
         </nav>
       </aside>
 
-      <div class="space-y-6 sm:px-6 lg:px-0 lg:col-span-9">
+      <div class="space-y-6 lg:px-0 lg:col-span-9">
         <router-outlet></router-outlet>
       </div>
     </div>

@@ -44,11 +44,14 @@ export class SneakerAddComponent implements OnInit {
 
   addSneaker() {
     const formSneaker = this.addFormSneaker.value;
+    let formData : FormData = new FormData(); 
+    formData.append('uploadFile', this.selectedFile, this.selectedFile.name)
+    console.log(formData)
 
     const finalForm = {
       "sneaker": {
         "label": formSneaker.label,
-        "image": this.imgSrc,
+        "image": formData,
         "description": formSneaker.description,
         "price": formSneaker.price,
         "release_date": formSneaker.release_date
@@ -66,7 +69,7 @@ export class SneakerAddComponent implements OnInit {
         },
         complete() {
           console.log("sneaker added")
-          window.location.href = "http://localhost:4200/";
+          // window.location.href = "http://localhost:4200/";
         },
       })
   }

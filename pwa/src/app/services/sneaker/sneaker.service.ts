@@ -1,10 +1,17 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { modelApiSneaker, Sneaker } from 'src/app/models/sneaker';
 import { environment } from 'src/environments/environment';
 
 const baseUrl = environment.DJANGO_URL;
 const searchUrl = environment.SEARCH_URL;
+
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/ld+json',
+  }),
+};
 
 @Injectable({
   providedIn: 'root'

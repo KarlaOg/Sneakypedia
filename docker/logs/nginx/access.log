@@ -6056,3 +6056,5 @@
 172.19.0.1 - - [02/Sep/2022:10:27:13 +0000] "GET /api/users/13 HTTP/1.1" 200 202 "http://localhost:4200/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36"
 172.19.0.1 - - [02/Sep/2022:10:27:18 +0000] "GET /api/users/13 HTTP/1.1" 200 202 "http://localhost:4200/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36"
 172.19.0.1 - - [02/Sep/2022:10:27:18 +0000] "GET /api/users/13 HTTP/1.1" 200 202 "http://localhost:4200/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36"
+172.19.0.1 - - [02/Sep/2022:13:33:14 +0000] "OPTIONS /authentication_token HTTP/1.1" 200 31 "http://localhost:4200/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36"
+172.19.0.1 - - [02/Sep/2022:13:33:15 +0000] "POST /authentication_token HTTP/1.1" 200 527 "http://localhost:4200/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36"

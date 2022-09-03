@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Form, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { modelApiSneaker, Sneaker } from 'src/app/models/sneaker';
 import { SneakerService } from 'src/app/services/sneaker/sneaker.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -16,7 +16,7 @@ export class SneakerModifyComponent implements OnInit {
   modifyFormSneaker: FormGroup;
   selectedFile: any;
   imgValue: string = '';
-  imgSrc: string = ''
+  imgSrc: string = '';
   sneakerInfos: Sneaker = {
     id: undefined,
     label: '',
@@ -24,17 +24,18 @@ export class SneakerModifyComponent implements OnInit {
     description: '',
     price: 0,
     release_date: ''
-  }
+  };
+  errorInfo: string | undefined = "";
 
   constructor(private sneakerService: SneakerService,
-    private fb: FormBuilder, private router: ActivatedRoute) {
+    private fb: FormBuilder, private activatedRoute: ActivatedRoute, private router: Router) {
 
     this.modifyFormSneaker = this.fb.group({
-      label: new FormControl(null),
-      image: new FormControl(null),
-      description: new FormControl(null),
-      price: new FormControl(null),
-      release_date: new FormControl(null)
+      label: '',
+      image: '',
+      description: '',
+      price: '',
+      release_date: ''
     })
   }
 
@@ -49,15 +50,15 @@ export class SneakerModifyComponent implements OnInit {
     var reader = new FileReader();
     reader.readAsDataURL(this.selectedFile);
     var self = this
-    reader.onload = function() {
-      if (reader.result !== null){
+    reader.onload = function () {
+      if (reader.result !== null) {
         self.imgSrc = reader.result.toString();
       }
     };
   }
 
   getIdSneakers(): number {
-    this.sub = this.router.params.subscribe((params) => {
+    this.sub = this.activatedRoute.params.subscribe((params) => {
       this.id = +params['id'];
     });
 
@@ -86,26 +87,32 @@ export class SneakerModifyComponent implements OnInit {
 
     const finalForm = {
       "sneaker": {
-      "label": formSneaker.label,
-      "image": this.imgSrc,
-      "description": formSneaker.description,
-      "price": formSneaker.price,
-      "release_date": formSneaker.release_date
+        "label": formSneaker.label,
+        "image": this.imgSrc,
+        "description": formSneaker.description,
+        "price": formSneaker.price,
+        "release_date": formSneaker.release_date
       }
     }
     console.log(finalForm)
-    this.sneakerService.update(this.id || 0, finalForm)
-      .subscribe({
-        next() {
 
-        },
-        error(err) {
+    // this.sneakerService.update(this.id || 0, finalForm)
+    //   .subscribe({
+    //     next: (v) => {
+    //       console.log(this.id)
 
-        },
-        complete() {
-          window.location.href = "http://localhost:4200/";
-        },
-      })
+    //       console.log(v)
+    //     },
+    //     error: (e) => {
+    //       this.errorInfo = e
+    //       console.error(e)
+    //     },
+    //     complete: () => {
+    //       this.router.navigate([`/sneakers/${this.id}`])
+
+    //     },
+    //   })
+    console.log(this.id)
   }
 
 

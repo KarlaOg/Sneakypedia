@@ -12,6 +12,7 @@ export class SneakersListComponent implements OnInit {
   allSneakers: Sneaker[] = [];
   sneakers: Sneaker[] = [];
   homeData: string = "";
+  list: Sneaker[] = [];
   @Input() item = '';
 
 
@@ -29,15 +30,30 @@ export class SneakersListComponent implements OnInit {
 
   getAllSneakerList() {
     return this.sneakerService.getAll()
-      .subscribe({
-        next: (objectOfSneakers) => {
-          for (const value of Object.values(objectOfSneakers)) {
-            this.allSneakers = value
-          }
-        },
-        error: (e) => console.error(e),
-        complete: () => console.info('complete')
-      });
+    .subscribe({
+      next: (objectOfSneakers) => {
+        for (const value of Object.values(objectOfSneakers)) {
+          this.allSneakers = value;
+
+        }
+        console.log(this.allSneakers)
+
+        this.list = this.allSneakers.slice().sort(function (a, b) {
+          const regex = /\./g
+          const currentYear = new Date().getFullYear().toString();
+          
+          const aTransformStringDate = a.release_date.replace(regex, "-").concat(`${- currentYear}`).split("-").reverse().join("-");
+          const bTransformStringDate = b.release_date.replace(regex, "-").concat(`${- currentYear}`).split("-").reverse().join("-");
+          console.log(bTransformStringDate); 
+          const dateA = new Date(aTransformStringDate);
+          const dateB = new Date(bTransformStringDate);
+          return dateB > dateA ? 1 : -1
+        })
+
+      },
+      error: (e) => console.error(e),
+      complete: () => console.info('complete')
+    });
   }
 
   searchSneaker() {

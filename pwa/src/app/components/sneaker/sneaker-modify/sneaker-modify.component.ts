@@ -26,16 +26,18 @@ export class SneakerModifyComponent implements OnInit {
     release_date: ''
   };
   errorInfo: string | undefined = "";
+  msgSuccess: string = "";
+
 
   constructor(private sneakerService: SneakerService,
     private fb: FormBuilder, private activatedRoute: ActivatedRoute, private router: Router) {
 
     this.modifyFormSneaker = this.fb.group({
-      label: '',
-      image: '',
-      description: '',
-      price: '',
-      release_date: ''
+      label: new FormControl(''),
+      image: new FormControl(''),
+      description: new FormControl(''),
+      price: new FormControl(''),
+      release_date: new FormControl(''),
     })
   }
 
@@ -94,25 +96,31 @@ export class SneakerModifyComponent implements OnInit {
         "release_date": formSneaker.release_date
       }
     }
-    console.log(finalForm)
 
-    // this.sneakerService.update(this.id || 0, finalForm)
-    //   .subscribe({
-    //     next: (v) => {
-    //       console.log(this.id)
+    if (finalForm.sneaker.label === "") {
+      finalForm.sneaker.label = this.sneakerInfos.label;
+    } else if (finalForm.sneaker.image === "") {
+      finalForm.sneaker.image = this.sneakerInfos.image;
+    } else if (finalForm.sneaker.description === "") {
+      finalForm.sneaker.description = this.sneakerInfos.description;
+    } else if (finalForm.sneaker.price === "") {
+      finalForm.sneaker.price = this.sneakerInfos.price;
+    } else if (finalForm.sneaker.release_date == "") {
+      finalForm.sneaker.release_date = this.sneakerInfos.release_date
+    }
 
-    //       console.log(v)
-    //     },
-    //     error: (e) => {
-    //       this.errorInfo = e
-    //       console.error(e)
-    //     },
-    //     complete: () => {
-    //       this.router.navigate([`/sneakers/${this.id}`])
+    this.sneakerService.update(this.id || 0, finalForm)
+      .subscribe({
+        next: (v) => { this.msgSuccess = `La modification de la ${finalForm.sneaker.label} a été reussie`; },
+        error: (e) => {
+          this.errorInfo = e
+          console.error(e)
+        },
+        complete: () => {
+          this.router.navigate([`/sneakers/${this.id}`])
 
-    //     },
-    //   })
-    console.log(this.id)
+        },
+      })
   }
 
 

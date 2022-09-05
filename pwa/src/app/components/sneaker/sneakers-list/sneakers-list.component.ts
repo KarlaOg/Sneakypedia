@@ -36,7 +36,6 @@ export class SneakersListComponent implements OnInit {
           this.allSneakers = value;
 
         }
-        console.log(this.allSneakers)
 
         this.list = this.allSneakers.slice().sort(function (a, b) {
           const regex = /\./g
@@ -44,7 +43,6 @@ export class SneakersListComponent implements OnInit {
           
           const aTransformStringDate = a.release_date.replace(regex, "-").concat(`${- currentYear}`).split("-").reverse().join("-");
           const bTransformStringDate = b.release_date.replace(regex, "-").concat(`${- currentYear}`).split("-").reverse().join("-");
-          console.log(bTransformStringDate); 
           const dateA = new Date(aTransformStringDate);
           const dateB = new Date(bTransformStringDate);
           return dateB > dateA ? 1 : -1

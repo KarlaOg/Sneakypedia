@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Form, FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { modelApiSneaker, Sneaker } from 'src/app/models/sneaker';
 import { SneakerService } from 'src/app/services/sneaker/sneaker.service';
 
@@ -13,10 +14,11 @@ export class SneakerAddComponent implements OnInit {
   addFormSneaker: FormGroup;
   selectedFile: any;
   imgValue: any;
-  imgSrc: string = ''
+  imgSrc: string = '';
+  error: string = '';
 
   constructor(private sneakerService: SneakerService,
-    private fb: FormBuilder) {
+    private fb: FormBuilder, private router: Router) {
 
     this.addFormSneaker = this.fb.group({
       label: new FormControl(null, [Validators.required]),
@@ -35,8 +37,8 @@ export class SneakerAddComponent implements OnInit {
     var reader = new FileReader();
     reader.readAsDataURL(this.selectedFile);
     var self = this
-    reader.onload = function() {
-      if (reader.result !== null){
+    reader.onload = function () {
+      if (reader.result !== null) {
         self.imgSrc = reader.result.toString();
       }
     };
@@ -57,16 +59,14 @@ export class SneakerAddComponent implements OnInit {
     console.log(finalForm)
     this.sneakerService.create(finalForm)
       .subscribe({
-        next(v) {
-          console.log(finalForm)
-          console.log(v)
-        },
-        error(err) {
+        error: (err) => {
           console.error(err)
+          this.error = 'Il y a eu une erreur. Veuillez réessayer.'; 
         },
-        complete() {
-          console.log("sneaker added")
+        complete: () => {
           // window.location.href = "http://localhost:4200/";
+          this.router.navigate(['/'])
+
         },
       })
   }

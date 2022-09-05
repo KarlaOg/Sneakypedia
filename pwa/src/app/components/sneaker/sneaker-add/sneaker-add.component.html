@@ -11,7 +11,14 @@
         </h3>
         <p class="mt-1 max-w-2xl text-sm text-gray-500"></p>
       </div>
-
+      <div *ngIf="error">
+        <div
+          class="flex items-center justify-between p-4 text-orange-700 border rounded border-orange-900/10 bg-orange-50"
+          role="alert"
+        >
+          <strong class="text-sm font-medium"> {{ error }} </strong>
+        </div>
+      </div>
       <div class="mt-6 sm:mt-5 space-y-6 sm:space-y-5">
         <div
           class="form-group sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5"
@@ -23,16 +30,6 @@
             Nom de la sneaker *
           </label>
           <div class="mt-1 sm:mt-0 sm:col-span-2">
-            <div class="max-w-lg flex">
-              <span
-                class="text-xs pb-2 text-zinc-500"
-                *ngIf="
-                  !addFormSneaker.get('label')?.valid &&
-                  addFormSneaker.get('label')?.touched
-                "
-                >Veuillez entrer un nom de sneaker.</span
-              >
-            </div>
             <div class="max-w-lg flex rounded-md shadow-sm">
               <input
                 type="text"
@@ -43,6 +40,16 @@
                 placeholder=" Air Jordan 3 « Neapolitan »"
                 formControlName="label"
               />
+            </div>
+            <div class="max-w-lg flex">
+              <span
+                class="text-xs pb-2 text-red-500"
+                *ngIf="
+                  !addFormSneaker.get('label')?.valid &&
+                  addFormSneaker.get('label')?.touched
+                "
+                >Veuillez entrer un nom de sneaker.</span
+              >
             </div>
           </div>
         </div>
@@ -57,17 +64,6 @@
             Prix *
           </label>
           <div class="mt-1 sm:mt-0 sm:col-span-2">
-            <div class="max-w-lg flex">
-              <span
-                class="text-xs pb-2 text-zinc-500"
-                *ngIf="
-                  !addFormSneaker.get('price')?.valid &&
-                  addFormSneaker.get('price')?.touched
-                "
-              >
-                Veuillez entrer un prix.
-              </span>
-            </div>
             <div class="max-w-lg flex rounded-md shadow-sm">
               <input
                 type="number"
@@ -78,6 +74,17 @@
                 placeholder="165€"
                 formControlName="price"
               />
+            </div>
+            <div class="max-w-lg flex">
+              <span
+                class="text-xs pb-2 text-red-500"
+                *ngIf="
+                  !addFormSneaker.get('price')?.valid &&
+                  addFormSneaker.get('price')?.touched
+                "
+              >
+                Veuillez entrer un prix.
+              </span>
             </div>
           </div>
         </div>
@@ -92,16 +99,6 @@
             Date de sortie *
           </label>
           <div class="mt-1 sm:mt-0 sm:col-span-2">
-            <div class="max-w-lg flex">
-              <span
-                class="text-xs pb-2 text-zinc-500"
-                *ngIf="
-                  !addFormSneaker.get('release_date')?.valid &&
-                  addFormSneaker.get('release_date')?.touched
-                "
-                >Veuillez entrer une date valide.</span
-              >
-            </div>
             <div class="max-w-lg flex rounded-md shadow-sm">
               <input
                 type="date"
@@ -111,6 +108,16 @@
                 placeholder="Choisissez une date"
                 formControlName="release_date"
               />
+            </div>
+            <div class="max-w-lg flex">
+              <span
+                class="text-xs pb-2 text-red-500"
+                *ngIf="
+                  !addFormSneaker.get('release_date')?.valid &&
+                  addFormSneaker.get('release_date')?.touched
+                "
+                >Veuillez entrer une date valide.</span
+              >
             </div>
           </div>
         </div>
@@ -134,6 +141,16 @@
                 required
                 class="form-control rounded-md flex-1 block w-full focus:border-orange-600 min-w-0 sm:text-sm border-gray-300"
               ></textarea>
+            </div>
+            <div class="max-w-lg flex">
+              <span
+                class="text-xs pb-2 text-red-500"
+                *ngIf="
+                  !addFormSneaker.get('description')?.valid &&
+                  addFormSneaker.get('description')?.touched
+                "
+                >Veuillez entrer une description.</span
+              >
             </div>
           </div>
         </div>
@@ -168,17 +185,28 @@
                 </svg>
                 <div class="flex text-sm text-zinc-60 rounded">
                   <input
-                    placeholder="https://example.com"
-                    type="url"
+                    type="file"
                     name="image"
+                    accept="JPG"
                     (change)="onFileChanged($event)"
                     class="form-control rounded bg-gray-100 text-xs pr-2"
                     required
-                    aria-label="link image"
+                    accept="JPG"
+                    aria-label="file download"
                   />
                 </div>
                 <p class="text-xs text-gray-500">JPG jusqu'à 10MB</p>
               </div>
+            </div>
+            <div class="max-w-lg flex">
+              <span
+                class="text-xs pb-2 text-red-500"
+                *ngIf="
+                  !addFormSneaker.get('image')?.valid &&
+                  addFormSneaker.get('image')?.touched
+                "
+                >Veuillez ajouter une image.</span
+              >
             </div>
           </div>
         </div>
@@ -188,16 +216,15 @@
     <div class="pt-5">
       <div class="flex justify-end">
         <button
-          disabled
+          [routerLink]="['/']"
           type="button"
           class="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2"
         >
           Annuler
         </button>
         <button
-          disabled
           type="submit"
-          class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-grey-500 hover:bg-grey-600 focus:outline-none focus:ring-2 focus:ring-offset-2"
+          class="bg-orange-500 text-white ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md bg-grey-500 hover:bg-grey-600 focus:outline-none focus:ring-2 focus:ring-offset-2"
         >
           Enregistrer
         </button>

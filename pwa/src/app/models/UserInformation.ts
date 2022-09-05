@@ -8,6 +8,7 @@ export interface UserInformation {
   "firstname": string,
   "inventories": Array<UserInventoriesSneaker>,
   "lastname": string,
+  "profileName": string,
 }
 
 

@@ -4,10 +4,10 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-add-sneaker-button',
   template: `
-    <div class="relative h-32 w-32 ...">
+    <div class="relative h-32 w-32">
     <div class="fixed bottom-52 right-0 h-18 w-18">
-      <button
-        routerLink="/sneaker/add"
+      <a
+        routerLink="sneaker"
         title="add"
         class="fixed right-6 z-50 rounded-full float-right text-white bg-orange-500 p-6"
       >
@@ -25,10 +25,9 @@ import { Component, OnInit } from '@angular/core';
             d="M12 6v6m0 0v6m0-6h6m-6 0H6"
           />
         </svg>
-      </button>
+      </a>
     </div>
   </div>
-     
   `,
 })
 export class AddSneakerButton implements OnInit {

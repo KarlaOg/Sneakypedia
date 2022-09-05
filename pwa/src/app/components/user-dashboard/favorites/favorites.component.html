@@ -1,52 +1,64 @@
-<div class="shadow sm:rounded-md sm:overflow-hidden">
-  <div class="bg-white py-6 px-4 space-y-6 sm:p-6">
-    <h3 class="text-lg leading-6 font-medium text-gray-900">
-      Votre favoris
-    </h3>
+<div class="shadow sm:rounded-md">
+  <div class="bg-white py-2 px-2 space-y-6">
+    <h3 class="text-lg leading-6 font-medium text-gray-900">Votre favoris</h3>
     <span>
       <p class="mt-1 text-sm text-gray-500">
-        Vous pourrez gerer vos favoris ici. Supprimé ou ajouter des paires
-        dans vos favoris.
+        Vous pourrez gerer vos favoris ici. Supprimé ou ajouter des paires dans
+        vos favoris.
       </p>
       <hr />
     </span>
+    <div
+      @fadeInAndOut
+      *ngIf="deleteMsg"
+    >
+      <div
+        class="flex items-center justify-between p-4 text-green-700 border rounded border-green-900/10 bg-green-50"
+        role="alert"
+      >
+        <strong class="text-sm font-medium"> {{ deleteMsg }} </strong>
+      </div>
+    </div>
 
     <div
-      class="flex flex-row flex-wrap justify-center sm:justify-between gap-5"
+      class="container mx-auto grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4"
     >
-      <div *ngFor="let sneakerItem of sneakerList; let i = index" class="">
-        <div class="rounded overflow-hidden bg-gray-100 max-w-fit">
-          <div class="px-6 py-4">
-            <div class="text-base mb-2 text-gray-900">
-              {{ sneakerItem.label }}
-            </div>
-
+      <div
+        *ngFor="let sneakerItem of sneakerList; let i = index"
+        class="rounded bg-gray-100"
+      >
+        <div class="flex flex-col">
+          <span class="text-center m-2 text-gray-900 font-medium">
+            {{ sneakerItem.label }}
+          </span>
+          <span>
             <img
               src="{{ sneakerItem.image }}"
               alt="Images of different sneakers"
-              class="w-72 object-center object-cover group-hover:opacity-75 rounded"
+              class="object-center object-cover group-hover:opacity-75 rounded"
             />
-          </div>
-          <hr />
-          <div class="px-6 py-4 flex flex-row justify-evenly">
-            <button
-              [value]="sneakerItem.id"
-              (click)="currentItem = getValueToDelete($event)"
-              type="submit"
-              class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-orange-500 hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2"
-            >
-              Supprimé
-            </button>
+          </span>
+        </div>
+        <hr />
+        <div class="px-6 py-4 flex flex-row justify-evenly items-end">
+          <button
+            [value]="sneakerItem.id"
+            (click)="currentItem = getValuetoBeDeleteEvent($event)"
+            (click)="deleteAction(i)"
+            type="submit"
+            class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-orange-500 hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2"
+          >
+            Supprimé
+          </button>
 
-            <button
-              [routerLink]="['/sneakers', sneakerItem.id]"
-              class="block"
-              type="submit"
-              class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-orange-500 hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2"
-            >
-              Détails
-            </button>
-          </div>
+          <button
+            [routerLink]="['/sneakers', sneakerItem.id]"
+            class="block"
+            type="submit"
+            class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-orange-500 hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2"
+          >
+            Détails
+          </button>
         </div>
       </div>
     </div>

@@ -16,7 +16,7 @@
         >
           {{ detailsItem.label }}
         </h1>
-        <p class="text-3xl text-gray-900">{{ detailsItem.price }}€</p>
+        <p class="text-3xl text-gray-900">{{ detailsItem.price}}€</p>
       </div>
       <!-- Options -->
 
@@ -24,7 +24,7 @@
         <div class="mt-6 max-w-2xl mx-auto lg:max-w-7xl lg:gap-x-8 py-6">
           <div class="overflow-hidden lg:block">
             <img
-              src="{{ detailsItem.image }}"
+              src="{{detailsItem.image}}" 
               alt="Image of sneakers"
               class="rounded-md object-cover h-96"
             />
@@ -118,7 +118,7 @@
 
               <button
                 [disabled]="this.statusUser === false"
-                [routerLink]="['/sneaker', this.id, 'modify']"
+                [routerLink]="['/sneaker', this.id]"
                 type="submit"
                 class="mt-10 w-full bg-orange-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400"
               >

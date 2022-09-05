@@ -8,6 +8,7 @@ import { CalendarComponent } from './components/calendar/calendar.component';
 import { AccountComponent } from './components/user-dashboard/account/account.component';
 import { InventoryComponent } from './components/user-dashboard/inventory/inventory.component';
 import { FavoritesComponent } from './components/user-dashboard/favorites/favorites.component';
+import { ProfileComponent } from './components/user-dashboard/profile/profile.component';
 import { NavUserDashboardComponent } from './components/user-dashboard/nav-user-dashboard/nav-user-dashboard.component';
 import { SneakersListComponent } from './components/sneaker/sneakers-list/sneakers-list.component';
 import { SneakerDetailsComponent } from './components/sneaker/sneaker-details/sneaker-details.component'
@@ -18,18 +19,19 @@ import { SneakerModifyComponent } from './components/sneaker/sneaker-modify/snea
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
-  { path: 'connexion', component: LoginComponent, canActivate : [UserGuard]},
+  { path: 'connexion', component: LoginComponent, canActivate: [UserGuard] },
   { path: 'inscription', component: RegisterComponent, canActivate: [UserGuard] },
-  { path: 'calendar', component: CalendarComponent },
+  { path: 'calendrier', component: CalendarComponent },
   { path: 'sneakers', component: SneakersListComponent },
   { path: 'sneakers/:id', component: SneakerDetailsComponent },
-  { path: 'sneaker/add', component: SneakerAddComponent, canActivate: [AuthGuard] },
-  { path: 'sneaker/:id/modify', component: SneakerModifyComponent, canActivate: [AuthGuard] },
+  { path: 'sneaker', component: SneakerAddComponent, canActivate: [AuthGuard] },
+  { path: 'sneaker/:id', component: SneakerModifyComponent, canActivate: [AuthGuard] },
   {
-    path: 'compte', component: NavUserDashboardComponent, canActivate: [AuthGuard] ,children: [
-      { path: 'detail', component: AccountComponent },
+    path: 'compte', component: NavUserDashboardComponent, canActivate: [AuthGuard], children: [
+      { path: "profil", component: ProfileComponent },
+      { path: 'modification', component: AccountComponent },
       { path: "inventaire", component: InventoryComponent },
-      { path: "favoris", component: FavoritesComponent }
+      { path: "favoris", component: FavoritesComponent },
     ]
   },
 

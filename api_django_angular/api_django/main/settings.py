@@ -49,7 +49,6 @@ CORS_ALLOWED_ORIGINS = [
     "http://192.168.1.21:4200",
     "https://sneakypedia-django-api.herokuapp.com",
     "https://sneakies.rocks"
-
     ]
 
 ROOT_URLCONF = 'sneakers.urls'
@@ -74,7 +73,7 @@ TEMPLATES = [
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
 DATABASES = {
-     'default': {
+    'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3')
     },

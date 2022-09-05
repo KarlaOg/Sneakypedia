@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Form, FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
-import { Sneaker } from 'src/app/models/sneaker';
+import { Router } from '@angular/router';
+import { modelApiSneaker, Sneaker } from 'src/app/models/sneaker';
 import { SneakerService } from 'src/app/services/sneaker/sneaker.service';
 
 @Component({
@@ -13,10 +14,11 @@ export class SneakerAddComponent implements OnInit {
   addFormSneaker: FormGroup;
   selectedFile: any;
   imgValue: any;
-  imgSrc: string = ''
+  imgSrc: string = '';
+  error: string = '';
 
   constructor(private sneakerService: SneakerService,
-    private fb: FormBuilder) {
+    private fb: FormBuilder, private router: Router) {
 
     this.addFormSneaker = this.fb.group({
       label: new FormControl(null, [Validators.required]),
@@ -32,12 +34,14 @@ export class SneakerAddComponent implements OnInit {
 
   onFileChanged(event: any): void {
     this.selectedFile = event.target.files[0];
-    // var reader = new FileReader();
-    // reader.readAsDataURL(this.selectedFile);
-    // var self = this
-    // reader.onload = function() {
-    //   self.imgSrc = reader.result.toString();
-    // };
+    var reader = new FileReader();
+    reader.readAsDataURL(this.selectedFile);
+    var self = this
+    reader.onload = function () {
+      if (reader.result !== null) {
+        self.imgSrc = reader.result.toString();
+      }
+    };
   }
 
   addSneaker() {
@@ -55,14 +59,14 @@ export class SneakerAddComponent implements OnInit {
     console.log(finalForm)
     this.sneakerService.create(finalForm)
       .subscribe({
-        next() {
-          
+        error: (err) => {
+          console.error(err)
+          this.error = 'Il y a eu une erreur. Veuillez réessayer.'; 
         },
-        error(err) {
-          
-        },
-        complete() {
-          
+        complete: () => {
+          // window.location.href = "http://localhost:4200/";
+          this.router.navigate(['/'])
+
         },
       })
   }

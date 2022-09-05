@@ -1,0 +1,62 @@
+<nav class="navbar">
+  <div class="mobileNav">
+    <a href="#" class="nameWebsite">
+      <span
+        >SNEAKYPEDIA
+        <sub>by Sneakies</sub>
+      </span>
+    </a>
+
+    <button
+      (click)="openClose()"
+      type="button"
+      class="mobileMenu"
+      aria-controls="mobile-menu"
+      aria-expanded="false"
+    >
+      <span class="sr-only">Open main menu</span>
+      <svg
+        class="w-6 h-6"
+        fill="currentColor"
+        viewBox="0 0 20 20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+          clip-rule="evenodd"
+        ></path>
+      </svg>
+    </button>
+  </div>
+  <ng-container *ngIf="display | async as display">
+    <section [class.open]="display === 'open'" (click)="close()">
+      <div (click)="$event.stopPropagation()" class="navLink">
+        <ul
+          class=""
+          [class.open]="display === 'open'"
+          (click)="close()"
+          class="links"
+        >
+          <li routerLinkActive="active">
+            <a routerLink="../calendrier" class="">Calendrier</a>
+          </li>
+          <li>
+            <a routerLink="../sneakers" href="" class=""> Sneakers</a>
+          </li>
+
+          <li *ngIf="user.isLoggedOut | async" routerLinkActive="active">
+            <a routerLink="../connexion" class="">Connexion</a>
+          </li>
+
+          <li *ngIf="user.isLoggedIn | async" routerLinkActive="active">
+            <a routerLink="../compte/profil" class=""> Mon compte </a>
+          </li>
+          <li *ngIf="user.isLoggedIn | async" routerLinkActive="active">
+            <a (click)="logout()" class=""> Deconnexion </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </ng-container>
+</nav>

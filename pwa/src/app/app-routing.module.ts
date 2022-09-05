@@ -19,15 +19,15 @@ import { SneakerModifyComponent } from './components/sneaker/sneaker-modify/snea
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
-  { path: 'connexion', component: LoginComponent, canActivate : [UserGuard]},
+  { path: 'connexion', component: LoginComponent, canActivate: [UserGuard] },
   { path: 'inscription', component: RegisterComponent, canActivate: [UserGuard] },
-  { path: 'calendar', component: CalendarComponent },
+  { path: 'calendrier', component: CalendarComponent },
   { path: 'sneakers', component: SneakersListComponent },
   { path: 'sneakers/:id', component: SneakerDetailsComponent },
-  { path: 'sneaker/add', component: SneakerAddComponent, canActivate: [AuthGuard] },
-  { path: 'sneaker/:id/modify', component: SneakerModifyComponent, canActivate: [AuthGuard] },
+  { path: 'sneaker', component: SneakerAddComponent, canActivate: [AuthGuard] },
+  { path: 'sneaker/:id', component: SneakerModifyComponent, canActivate: [AuthGuard] },
   {
-    path: 'compte', component: NavUserDashboardComponent, canActivate: [AuthGuard] ,children: [
+    path: 'compte', component: NavUserDashboardComponent, canActivate: [AuthGuard], children: [
       { path: "profil", component: ProfileComponent },
       { path: 'modification', component: AccountComponent },
       { path: "inventaire", component: InventoryComponent },

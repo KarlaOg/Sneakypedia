@@ -19,6 +19,8 @@ import { UserDashboardFeatureModule } from './components/user-dashboard/user-das
 import { FooterComponent } from './views/footer.component';
 import { AddSneakerButton } from './views/addSneakerButton.component';
 import { environment } from 'src/environments/environment';
+import { SpinnerComponent } from './components/spinner/spinner.component';
+import { LoadingInterceptor } from './services/loader/interceptor/loading.interceptor';
 
 export function tokenGetter() {
   return localStorage.getItem("id_token");
@@ -34,6 +36,7 @@ export function tokenGetter() {
     CalendarComponent,
     FooterComponent,
     AddSneakerButton,
+    SpinnerComponent,
 
   ],
   imports: [
@@ -61,7 +64,12 @@ export function tokenGetter() {
       multi: true
     },
     AuthGuard,
-    UserGuard
+    UserGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoadingInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })

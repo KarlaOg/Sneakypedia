@@ -24,22 +24,22 @@ export class HomeComponent implements OnInit {
 
   sneakers: Sneaker[] = [];
   allSneakers: Sneaker[] = [];
-  sneakerName!: string;
+  sneakerName! : string;
 
   getAllSneakerList() {
     return this.sneakerService.getAll()
       .subscribe(objectOfSneakers => {
         for (const value of Object.values(objectOfSneakers)) {
           return this.allSneakers = value
-        }
+        } 
         console.info(this.allSneakers)
         return objectOfSneakers
-
+      
       });
   }
 
-  public sendData(label: string) {
-    return this.sneakerName = label;
+  public sendData(label: string){
+    return this.sneakerName = label ;
   }
 
 

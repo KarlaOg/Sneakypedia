@@ -2,7 +2,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, catchError, map, Observable, of, shareReplay, tap, throwError } from 'rxjs';
 import { User } from 'src/app/models/user';
-import { ErrorService } from 'src/app/services/error.service';
+import { ErrorService } from 'src/app/services/common/error.service';
 import * as moment from "moment";
 import { JwtHelperService } from "@auth0/angular-jwt";
 import { UserInformation } from 'src/app/models/UserInformation';

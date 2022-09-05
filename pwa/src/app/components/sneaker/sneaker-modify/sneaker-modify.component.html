@@ -4,10 +4,16 @@
     (ngSubmit)="modifySneaker()"
     class="space-y-8 divide-y divide-gray-200"
   >
+    <div *ngIf="errorInfo">
+      {{ errorInfo }}
+    </div>
+    <div *ngIf="msgSuccess">
+      {{ msgSuccess }}
+    </div>
     <div class="space-y-8 divide-y divide-gray-200 sm:space-y-5">
       <div>
         <h3 class="text-lg leading-6 font-medium text-gray-900">
-          Modification de la sneaker 
+          Modification de la sneaker - {{ sneakerInfos.label }}
         </h3>
         <p class="mt-1 max-w-2xl text-sm text-gray-500"></p>
       </div>
@@ -20,7 +26,7 @@
             for="label"
             class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"
           >
-            Nom de la sneaker 
+            Nom de la sneaker
           </label>
           <div class="mt-1 sm:mt-0 sm:col-span-2">
             <div class="max-w-lg flex rounded-md shadow-sm">
@@ -29,8 +35,9 @@
                 name="label"
                 id="name"
                 class="form-control rounded-md flex-1 block w-full focus:border-orange-600 min-w-0 sm:text-sm border-gray-300"
-                placeholder=" Air Jordan 3 « Neapolitan »"
+                placeholder="{{ sneakerInfos.label }}"
                 formControlName="label"
+                ngModel="label"
               />
             </div>
             <div class="max-w-lg flex">
@@ -53,7 +60,7 @@
             for="price"
             class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"
           >
-            Prix 
+            Prix
           </label>
           <div class="mt-1 sm:mt-0 sm:col-span-2">
             <div class="max-w-lg flex rounded-md shadow-sm">
@@ -62,7 +69,7 @@
                 name="price"
                 id="price"
                 class="form-control rounded-md flex-1 block w-full focus:border-orange-600 min-w-0 sm:text-sm border-gray-300"
-                placeholder="165€"
+                placeholder="{{ sneakerInfos.price }}€"
                 formControlName="price"
               />
             </div>
@@ -87,15 +94,15 @@
             for="date"
             class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"
           >
-            Date de sortie 
+            Date de sortie
           </label>
           <div class="mt-1 sm:mt-0 sm:col-span-2">
             <div class="max-w-lg flex rounded-md shadow-sm">
               <input
+                title="sneaker_calendar"
                 type="date"
                 name="date"
                 class="bg-gray-50 form-control rounded-md flex-1 block w-full focus:border-orange-600 min-w-0 sm:text-sm border border-gray-300 text-gray-900 focus:ring-orange-500 p-2.5"
-                placeholder="Choisissez une date"
                 formControlName="release_date"
               />
             </div>
@@ -119,7 +126,7 @@
             for="description"
             class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"
           >
-            Description 
+            Description
           </label>
           <div class="mt-1 sm:mt-0 sm:col-span-2">
             <div class="max-w-lg flex rounded-md shadow-sm">
@@ -129,6 +136,7 @@
                 id="description"
                 rows="10"
                 class="form-control rounded-md flex-1 block w-full focus:border-orange-600 min-w-0 sm:text-sm border-gray-300"
+                placeholder="{{ sneakerInfos.description }}"
               ></textarea>
             </div>
           </div>
@@ -141,7 +149,7 @@
             for="image"
             class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"
           >
-            Image 
+            Image
           </label>
           <div class="mt-2 sm:mt-0 sm:col-span-2">
             <div
@@ -164,12 +172,13 @@
                 </svg>
                 <div class="flex text-sm text-zinc-60 rounded">
                   <input
-                    placeholder="https://example.com"
                     type="file"
                     name="image"
                     (change)="onFileChanged($event)"
                     class="form-control rounded bg-gray-100 text-xs pr-2"
-                    aria-label="link image"
+                    required
+                    accept="JPG"
+                    aria-label="file download"
                   />
                 </div>
                 <p class="text-xs text-gray-500">JPG jusqu'à 10MB</p>
@@ -191,7 +200,7 @@
         </button>
         <button
           type="submit"
-          class="ml-3 bg-orange-600 border border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-medium text-white hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
+          class="bg-orange-500 text-white ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md bg-grey-500 hover:bg-grey-600 focus:outline-none focus:ring-2 focus:ring-offset-2"
         >
           Enregistrer
         </button>

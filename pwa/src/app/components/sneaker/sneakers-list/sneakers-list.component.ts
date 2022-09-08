@@ -62,7 +62,7 @@ export class SneakersListComponent implements OnInit {
         .subscribe({
           next: (objectOfSneakers) => {
             for (const value of Object.values(objectOfSneakers)) {
-              return this.allSneakers = value
+              return this.list = value
             }
           },
 

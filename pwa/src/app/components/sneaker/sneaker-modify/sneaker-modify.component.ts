@@ -99,13 +99,17 @@ export class SneakerModifyComponent implements OnInit {
 
     if (finalForm.sneaker.label === "") {
       finalForm.sneaker.label = this.sneakerInfos.label;
-    } else if (finalForm.sneaker.image === "") {
+    }
+    if (finalForm.sneaker.image === "") {
       finalForm.sneaker.image = this.sneakerInfos.image;
-    } else if (finalForm.sneaker.description === "") {
+    }
+    if (finalForm.sneaker.description === "") {
       finalForm.sneaker.description = this.sneakerInfos.description;
-    } else if (finalForm.sneaker.price === "") {
+    }
+    if (finalForm.sneaker.price === "") {
       finalForm.sneaker.price = this.sneakerInfos.price;
-    } else if (finalForm.sneaker.release_date == "") {
+    }
+    if (finalForm.sneaker.release_date === "") {
       finalForm.sneaker.release_date = this.sneakerInfos.release_date
     }
 

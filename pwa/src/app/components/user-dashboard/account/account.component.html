@@ -20,7 +20,7 @@
               for="company_website"
               class="block text-sm font-medium text-gray-700"
             >
-              Nom d'utilisateur * 
+              Nom d'utilisateur 
             </label>
 
             <div class="mt-1 rounded-md shadow-sm flex">
@@ -35,21 +35,21 @@
                 placeholder="{{ this.userInfos.profileName }}"
               />
             </div>
-            <span
+            <!-- <span
               class="text-xs pb-2 text-red-500"
               *ngIf="
                 !updateAccountForm.get('profileName')?.valid &&
                 updateAccountForm.get('profileName')?.touched
               "
               >Veuillez entrer un nouveau nom d'utilisateur.</span
-            >
+            > -->
           </div>
 
           <div class="col-span-2 sm:col-span-3">
             <label
               for="last_name"
               class="block text-sm font-medium text-gray-700"
-              >Nom</label
+              >Nom  </label
             >
 
             <input
@@ -61,21 +61,21 @@
               formControlName="lastname"
               placeholder="{{ this.userInfos.lastname }}"
             />
-            <span
+            <!-- <span
               class="text-xs pb-2 text-red-500"
               *ngIf="
                 !updateAccountForm.get('lastname')?.valid &&
                 updateAccountForm.get('lastname')?.touched
               "
               >Veuillez entrer votre nom.</span
-            >
+            > -->
           </div>
 
           <div class="col-span-2 sm:col-span-3">
             <label
               for="first_name"
               class="block text-sm font-medium text-gray-700"
-              >Prénom</label
+              >Prénom </label
             >
 
             <input
@@ -87,14 +87,14 @@
               formControlName="firstname"
               placeholder="{{ this.userInfos.firstname }}"
             />
-            <span
+            <!-- <span
               class="text-xs pb-2 text-red-500"
               *ngIf="
                 !updateAccountForm.get('firstname')?.valid &&
                 updateAccountForm.get('firstname')?.touched
               "
               >Veuillez entrer votre prénom.</span
-            >
+            > -->
           </div>
         </div>
       </div>

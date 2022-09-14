@@ -33,7 +33,6 @@ export class ProfileComponent implements OnInit {
     return this.userService.getUserInfos(idUser).subscribe({
       next: (value) => {
         this.userInfos = value
-        console.log(this.userInfos)
       },
       error: (e) => console.error(e),
       complete: () => console.info('complete')

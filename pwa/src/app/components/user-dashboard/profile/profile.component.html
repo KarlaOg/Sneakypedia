@@ -34,7 +34,7 @@
       src="../../../../assets/sneakers2.png"
       alt="sneaker"
     />
-    <span *ngIf="userInfos.profileName !== null; else userNameAndLastname">
+    <span *ngIf="userInfos.profileName; else userNameAndLastname">
       <h5 class="mb-1 text-xl font-medium text-gray-900">
         {{ userInfos.profileName }}
       </h5>
@@ -42,7 +42,7 @@
 
     <ng-template #userNameAndLastname>
       <h5 class="mb-1 text-xl font-medium text-gray-900">
-        {{ userInfos.firstname }} {{ userInfos.lastname }}
+        {{ userInfos.email }}
       </h5>
     </ng-template>
   </div>
@@ -58,8 +58,12 @@
     </div>
 
     <div>
-      <span class="block text-sm text-gray-900">{{ userInfos.lastname }}</span>
-      <span class="block text-sm text-gray-900">{{ userInfos.firstname }}</span>
+      <span class="block text-sm text-gray-900">{{
+        userInfos.lastname || "non renseigné"
+      }}</span>
+      <span class="block text-sm text-gray-900">{{
+        userInfos.firstname || "non renseginé"
+      }}</span>
       <span class="block text-sm text-gray-900">{{ userInfos.email }}</span>
     </div>
   </div>

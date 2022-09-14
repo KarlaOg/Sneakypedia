@@ -32,9 +32,9 @@ export class AccountComponent implements OnInit {
 
 
     this.updateAccountForm = this.fb.group({
-      profileName: new FormControl(null, [Validators.required]),
-      firstname: new FormControl(null, [Validators.required]),
-      lastname: new FormControl(null, [Validators.required]),
+      profileName: new FormControl(null),
+      firstname: new FormControl(null),
+      lastname: new FormControl(null),
     })
   }
 
@@ -49,17 +49,17 @@ export class AccountComponent implements OnInit {
   updateProfil() {
     this.errorSerive.handleError
     const val = this.updateAccountForm.value;
-    if (val.profileName && val.firstname && val.lastname) {
-      console.log(val.username)
-      this.userService.updateUserAccount(val)
-        .subscribe(
-          {
-            error: (e) => this.error = e,
-            complete: () => this.router.navigateByUrl('compte/profil')
-          }
-        )
-    }
+
+    console.log(val.username)
+    this.userService.updateUserAccount(val)
+      .subscribe(
+        {
+          error: (e) => this.error = e,
+          complete: () => this.router.navigateByUrl('compte/profil')
+        }
+      )
   }
+
 
   open() {
     this.modalService.open();

@@ -38,10 +38,7 @@ class JsonView(APIView):
 		sneaker = request.data.get('sneaker')
 		serializer  = SneakerModelSerializer(data=sneaker)
 		if serializer.is_valid(raise_exception=True):
-			sneaker_saved=serializer.save()
-			media_url = sneaker_saved.image
-			sneaker_saved.image = get_as_base64(media_url)
-			sneaker_saved.save()
+			sneaker_saved = serializer.save()
 		return Response({"success":"Sneaker `{}` created successfully".format(sneaker_saved.label)})
 
 	def put(self, request, pk):
@@ -50,9 +47,6 @@ class JsonView(APIView):
 			serializer = SneakerModelSerializer(instance=saved_sneaker, data=data, partial=True)
 			if serializer.is_valid(raise_exception=True):		
 				sneaker_saved = serializer.save()
-				media_url = sneaker_saved.image
-				sneaker_saved.image = get_as_base64(media_url)
-				sneaker_saved.save()
 			return Response({"success": "Sneaker '{}' updated successfully".format(sneaker_saved.label)})
 
 
@@ -78,7 +72,4 @@ class SearchResults(APIView):
         	Q(label__icontains=query)
 		)
 		serializer = SneakerModelSerializer(object_list,many=True)
-		return Response({"sneakers": serializer.data})
-
-def get_as_base64(url):
-	return base64.b64encode(urllib.request.urlopen(url).read())
+		return Response({"sneakers": serializer.data}))

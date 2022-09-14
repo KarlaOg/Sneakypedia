@@ -12,20 +12,20 @@ import { Component, OnInit } from '@angular/core';
         <sub class="text-xs text-orange-500">by Sneakies</sub></span
       >
     </a>
-    <ul class="flex flex-wrap items-center mb-6 text-sm text-white sm:mb-0">
+    <ul class="flex flex-wrap items-center mb-6 text-sm text-gray-900 sm:mb-0">
       <li>
-        <a href="#" class="mr-4 hover:underline md:mr-6 uppercase">A propos</a>
+        <a  class="mr-4 hover:underline md:mr-6 uppercase">A propos</a>
       </li>
       <li>
-        <a href="#" class="mr-4 hover:underline md:mr-6 uppercase"
+        <a  class="mr-4 hover:underline md:mr-6 uppercase"
           >Politique de confidentialité</a
         >
       </li>
       <li>
-        <a href="#" class="mr-4 hover:underline md:mr-6 uppercase">Licence</a>
+        <a  class="mr-4 hover:underline md:mr-6 uppercase">Licence</a>
       </li>
       <li>
-        <a href="#" class="hover:underline uppercase">Contacte</a>
+        <a  class="hover:underline uppercase">Contacte</a>
       </li>
     </ul>
   </div>

@@ -117,7 +117,7 @@ export class SneakerModifyComponent implements OnInit {
       .subscribe({
         next: (v) => { this.msgSuccess = `La modification de la ${finalForm.sneaker.label} a été reussie`; },
         error: (e) => {
-          this.errorInfo = e
+          this.errorInfo = `Il y a eu une erreur avec la modification de la ${finalForm.sneaker.label}. Merci de réessayer`;
           console.error(e)
         },
         complete: () => {

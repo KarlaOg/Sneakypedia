@@ -129,7 +129,7 @@
             for="description"
             class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"
           >
-            Description *
+            Description 
           </label>
           <div class="mt-1 sm:mt-0 sm:col-span-2">
             <div class="max-w-lg flex rounded-md shadow-sm">
@@ -141,16 +141,6 @@
                 required
                 class="form-control rounded-md flex-1 block w-full focus:border-orange-600 min-w-0 sm:text-sm border-gray-300"
               ></textarea>
-            </div>
-            <div class="max-w-lg flex">
-              <span
-                class="text-xs pb-2 text-red-500"
-                *ngIf="
-                  !addFormSneaker.get('description')?.valid &&
-                  addFormSneaker.get('description')?.touched
-                "
-                >Veuillez entrer une description.</span
-              >
             </div>
           </div>
         </div>

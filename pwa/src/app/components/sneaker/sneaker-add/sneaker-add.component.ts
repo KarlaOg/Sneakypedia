@@ -23,7 +23,7 @@ export class SneakerAddComponent implements OnInit {
     this.addFormSneaker = this.fb.group({
       label: new FormControl(null, [Validators.required]),
       image: new FormControl(null, [Validators.required]),
-      description: new FormControl(null, [Validators.required]),
+      description: new FormControl(null),
       price: new FormControl(null, [Validators.required]),
       release_date: new FormControl(null, [Validators.required])
     })
@@ -64,7 +64,6 @@ export class SneakerAddComponent implements OnInit {
           this.error = 'Il y a eu une erreur. Veuillez réessayer.'; 
         },
         complete: () => {
-          // window.location.href = "http://localhost:4200/";
           this.router.navigate(['/'])
 
         },

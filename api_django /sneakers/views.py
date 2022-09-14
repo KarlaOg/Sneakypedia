@@ -72,4 +72,4 @@ class SearchResults(APIView):
         	Q(label__icontains=query)
 		)
 		serializer = SneakerModelSerializer(object_list,many=True)
-		return Response({"sneakers": serializer.data}))
+		return Response({"sneakers": serializer.data})

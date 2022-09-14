@@ -65,7 +65,7 @@ class JsonView(APIView):
 			else:
 				return Response({"message": "You are not authorised to delete a sneaker"},status=401)
 
-	permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+	#permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
 
 class SearchResults(APIView):

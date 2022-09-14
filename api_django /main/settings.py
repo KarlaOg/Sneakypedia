@@ -44,9 +44,8 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:8080",
-    "https://sneakypedia-django-api.herokuapp.com"
-    ]
+    "https://sneakypedia-django-api.herokuapp.com",
+    "https://www.sneakies.rocks"    ]
 
 ROOT_URLCONF = 'main.urls'
 

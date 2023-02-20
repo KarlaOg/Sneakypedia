@@ -100,13 +100,13 @@ export class InventoryComponent implements OnInit {
         this.arrayOfPrice.forEach((value, index) => {
           if (value.id === this.valueToDeleteInArrayOfInventory) {
             this.arrayOfPrice.splice(index, 1)
-            const result = this.arrayOfPrice.reduce(function (acc, obj) {
               return acc + Math.floor(obj.price);
             }, 0) / this.arrayOfPrice.length
             return this.averageOfSneaker = Math.floor(result)
           }
           return
-        })
+        }
+      }
         if (parseInt(valueFetchFromBackend.idSneaker) === parseInt(this.valueClickedOn)) {
           // DELETE IN THE TEMPLATE
           this.sneakerList.forEach((value) => {
@@ -129,7 +129,5 @@ export class InventoryComponent implements OnInit {
             }
           })
         }
-      }
-    );
-  }
-}
+      
+    
